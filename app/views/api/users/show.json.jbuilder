@@ -1,5 +1,4 @@
-json.extract! @user, :id, :username
-
+json.extract! @user, :id, :username 
 
 # might want to query database for all pages on explore
 # add all playlists followed and recently played 
