@@ -11,7 +11,7 @@ class Api::SessionsController < ApplicationController
 
         if @user
             login!(@user)
-            render 'api/users/show'
+            render template: 'api/users/show.json.jbuilder'
         else
             render json: ["Invalid username/password combination"], status: 401
         end
@@ -21,7 +21,7 @@ class Api::SessionsController < ApplicationController
     def destroy
         if current_user
             logout!
-            render {}
+            # render {} ==>> didn't work, possibly remove later
         else
             render json: 'Can\'t destroy a user that doesn\'t exist!', status: 404
         end

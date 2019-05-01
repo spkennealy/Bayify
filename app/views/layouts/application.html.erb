@@ -7,13 +7,10 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= favicon_link_tag asset_path('bayify-favicon.ico') %>
   </head>
 
   <body>
     <%= yield %>
-
-    <% if logged_in? %>
-      <%= current_user.username %>
-    <% end %>
   </body>
 </html>

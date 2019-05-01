@@ -13,7 +13,7 @@
 
 class User < ApplicationRecord
     validates :username, :email, :session_token, presence: true
-    validates :password, length: { minimum: 8, allow_nil: true }
+    validates :password, length: { minimum: 4, allow_nil: true }
 
     # has_many :curated_playlists
     # has_many :playlist_follows
@@ -44,7 +44,7 @@ class User < ApplicationRecord
         BCrypt::Password.new(self.password_digest).is_password?(password)
     end
 
-    def reset_token!
+    def reset_session_token!
         self.session_token = SecureRandom.urlsafe_base64
         self.save!
         self.session_token
