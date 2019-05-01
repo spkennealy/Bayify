@@ -137,6 +137,17 @@
     margin: 0;
 }
 
+.signup-login-input-error {
+    height: 48px;
+    padding: 0 .75em;
+    background-color: #FFF;
+    border: 1px solid #EA1D32;
+    color: #1c1c1f;
+    font-size: .9375em;
+    line-height: normal;
+    margin: 0;
+}
+
 .signup-login-button {
     font-size: 16px;
     width: 320px;
@@ -199,6 +210,13 @@
 
 .error-username-password {
     background: #F19B22;
-    height: 30px;
+    padding: 12px 0;
     color: $text;
+    font-size: 12px;
+}
+
+.errors {
+    color: #EA1D32;
+    font-family: $main-font;
+    margin-bottom: 5px;
 }

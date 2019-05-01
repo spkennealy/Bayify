@@ -11,7 +11,14 @@ class Api::UsersController < ApplicationController
             login!(@user)
             render 'api/users/show.json.jbuilder'
         else
-            render json: @user.errors.full_messages, status: 422
+            render json: @user.errors.messages, status: 422
+            # {
+            #     "invalid-email": "The email address you supplied is invalid.",
+            #     "short-password": "Your password is too short.",
+            #     "email-taken": "We're sorry, that email is taken.",
+            #     "email-doesnt-match": "Email address doesn't match.",
+            #     "username-taken": "We're sorry, that username is taken.",
+            # }
         end
     end
 

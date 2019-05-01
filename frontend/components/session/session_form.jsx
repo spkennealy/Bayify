@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Typed from 'typed.js';
 
 export default class SessionForm extends React.Component {
     constructor(props) {
@@ -12,6 +13,7 @@ export default class SessionForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
+        this.demoUser = this.demoUser.bind(this);
     }
 
     handleInput(type) {
@@ -30,6 +32,38 @@ export default class SessionForm extends React.Component {
 
     componentDidMount() {
         this.props.clearErrors();
+    }
+
+    demoUser(e) {
+        e.preventDefault();
+
+        const username = {
+            strings: ["Curry30"],
+            typeSpeed: 70
+        };
+
+        const password = {
+            strings: ["password"],
+            typeSpeed: 70
+        };
+
+        this.setState({
+            username: "",
+            password: ""
+        }, () => {
+            new Typed("#username", username);
+
+            setTimeout(() => {
+                new Typed("#password", password);
+            }, 1000);
+
+            setTimeout(() => {
+                this.props.processForm({ 
+                    username: "Curry30",
+                    password: "password"
+                });
+            }, 2000);
+        });
     }
 
     render() {
@@ -57,13 +91,21 @@ export default class SessionForm extends React.Component {
                 return (
                     <>
                         <input
-                            className="signup-login-input"
+                            className={this.props.errors.password ?
+                                "signup-login-input-error" : "signup-login-input"}
                             type="email"
                             onChange={this.handleInput("email")} 
                             placeholder="Email"
                         />
+
+                            <div className="errors">
+                                {this.props.errors.password ?
+                                    `Email ${this.props.errors.password[0]}` : null}
+                            </div>
+
                         <input
-                            className="signup-login-input"
+                            className={this.props.errors.password ?
+                                "signup-login-input-error" : "signup-login-input"}
                             type="email"
                             onChange={this.handleInput("email")}
                             placeholder="Confirm email"
@@ -79,19 +121,28 @@ export default class SessionForm extends React.Component {
                     <p 
                         className="signup-login-form-text"
                     >To continue, log in to Bayify.</p>
-
                     <br/>
-                    <button className="demo-user-log-in">DEMO USER</button>
+                    
+                    <button 
+                        className="demo-user-log-in"
+                        onClick={this.demoUser}
+                    >DEMO USER</button>
+
                     <div className="divider">
                         <span className="divider-title">OR</span>
                     </div>
                 </>
             ) : (
                 <>
-                    <button className="demo-user">DEMO USER</button>
+                    <button 
+                        className="demo-user"
+                        onClick={this.demoUser}
+                    >DEMO USER</button>
+
                     <div className="divider">
                         <span className="divider-title">or</span>
                     </div>
+
                     <p className="signup-login-form-text"
                     >Sign up with your email address</p>
                 </>
@@ -102,6 +153,7 @@ export default class SessionForm extends React.Component {
             type === "Log In" ? (
                 <>
                     <input
+                        id="username"
                         className="signup-login-input"
                         type="text"
                         onChange={this.handleInput("username")}
@@ -109,6 +161,7 @@ export default class SessionForm extends React.Component {
                     />
 
                     <input
+                        id="password"
                         className="signup-login-input"
                         type="password"
                         onChange={this.handleInput("password")}
@@ -129,18 +182,29 @@ export default class SessionForm extends React.Component {
             ) : (
                 <>
                     <input
-                        className="signup-login-input"
+                        className={this.props.errors.password ?
+                            "signup-login-input-error" : "signup-login-input"}
                         type="password"
                         onChange={this.handleInput("password")}
                         placeholder="Password"
                     />
+                        <div className="errors">
+                            {this.props.errors.password ? 
+                                `Password ${this.props.errors.password[0]}` : null}
+                        </div>
 
                     <input
-                        className="signup-login-input"
+                        className={this.props.errors.username ?
+                            "signup-login-input-error" : "signup-login-input"}
                         type="text"
                         onChange={this.handleInput("username")}
                         placeholder="What should we call you?"
                     />
+
+                        <div className="errors">
+                            {this.props.errors.username ?
+                                `Username ${this.props.errors.username[0]}` : null}
+                        </div>
 
                     <input
                         className="green-button signup-login-button"
@@ -152,23 +216,13 @@ export default class SessionForm extends React.Component {
         );
 
         const displayLogInErrors = errors => {
-            if (errors.includes("Incorrect")) {
+            if (errors.login) {
                 return (
                     <div className="error-username-password">
-                        <p>{errors[0]}</p>
+                        <p>{errors.login}</p>
                     </div>
-                )
-            }
-
-            // return errors.map((error, idx) => {
-            //     if (error.includes("Incorrect username")) {
-            //         return (
-            //             <div>
-            //             </div>
-            //         )
-            //     }
-            //         // <li key={idx}>{error}</li>
-            // }
+                );
+            } 
         };
 
         // EMAIL VALIDATION FOR LATER
@@ -199,16 +253,19 @@ export default class SessionForm extends React.Component {
                             <section>
                                 {displayFormTitle(formType)}
                             </section>
-                            
+
+                            <section>
+                                {displayLogInErrors(this.props.errors)}
+                            </section>
+
                             <div className="signup-email">{email()}</div>
                             
                             <section className="username-password">
                                 {displayUsernamePasswordInputs(formType)}
                             </section>
 
-                            <p>{link}</p>
+                            <span>{link}</span>
 
-                            
                         </form>
                     </div>
                 </main>

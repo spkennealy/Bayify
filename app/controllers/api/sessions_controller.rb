@@ -13,7 +13,7 @@ class Api::SessionsController < ApplicationController
             login!(@user)
             render template: 'api/users/show.json.jbuilder'
         else
-            render json: ["Incorrect username or password."], status: 401
+            render json: { "login": "Incorrect username or password." }, status: 401
         end
     
     end

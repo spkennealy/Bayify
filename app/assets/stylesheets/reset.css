@@ -64,6 +64,7 @@ button {
 button,
 input[type="submit"] {
     cursor: pointer;
+    outline: none;
 }
 
 /* blockquote, q {

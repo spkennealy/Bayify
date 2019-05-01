@@ -13,6 +13,7 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "typed.js": "^2.0.10",
     "webpack": "^4.30.0"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
