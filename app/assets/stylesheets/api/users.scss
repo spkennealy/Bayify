@@ -1,3 +1,204 @@
 // Place all the styles related to the Api::Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import '../utils.scss';
+
+.signup-login {
+    display: flex;
+    justify-content: center;
+    background: #FFF;
+    color: #222326;
+    min-width: 320px;
+    position: relative;
+    font-family: $main-font;
+}
+
+.signup-login div:first-child {
+    width: 100%;
+    text-align: center;
+}
+
+.signup-login-header {
+    border-bottom: 1px solid #d9dadc;
+    padding: 25px 0 10px;
+    margin-bottom: 30px;
+    display: flex;
+}
+
+.signup-login-logo {
+    margin: 0 auto;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.signup-login-logo > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.session-title {
+    font-size: 40px;
+}
+
+.demo-user {
+    background: $blue-button;
+    color: $text;
+    padding: 13px 100px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 14px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.demo-user:hover {
+    background: $blue-button-hover;
+    cursor: pointer;
+}
+
+.demo-user-log-in {
+    background: $blue-button;
+    color: $text;
+    padding: 13px 100px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 14px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.demo-user-log-in:hover {
+    background: $blue-button-hover;
+    cursor: pointer;
+}
+
+.divider {
+    border-top: 1px solid #D9DADC;
+    display: block;
+    line-height: 1px;
+    margin: 15px 0;
+    position: relative;
+    text-align: center;
+}
+
+.divider .divider-title {
+    background: #fff;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 0 20px;
+    z-index: 1;
+    font-weight: bold;
+}
+
+.signup-login-form {
+    width: 450px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-login-form > div {
+    width: 100%;
+    margin: 20px 0 10px 0;
+}
+
+.signup-email {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-email input:first-child {
+    margin: 10px 0;
+}
+
+.username-password {
+    display: flex;
+    flex-direction: column;
+}
+
+.username-password input {
+    margin-bottom: 10px;
+}
+
+.signup-login-input {
+    height: 48px;
+    padding: 0 .75em;
+    background-color: #FFF;
+    border: 1px solid #dfe0e6;
+    color: #1c1c1f;
+    font-size: .9375em;
+    line-height: normal;
+    margin: 0;
+}
+
+.signup-login-button {
+    font-size: 16px;
+    width: 320px;
+    margin: 0 auto;
+}
+
+.link-to-login {
+    display: flex;
+    justify-content: center;
+}
+
+.link-to-login > a {
+    margin-left: 5px;
+    color: $green-button;
+}
+
+.signup-login-form-text {
+    font-weight: bold;
+}
+
+.sign-up-instead {
+    margin-top: 60px;
+    font-size: 18px;
+    font-weight: bold;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-button {
+    background: white;
+    color: #616467;
+    padding: 15px 50px;
+    border-radius: 25px;
+    border: 2px solid #616467;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.signup-button:hover {
+    background: #616467;
+    color: white;
+}
+
+.contain-login-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+}
+
+.login-button {
+    font-size: 16px;
+    width: 210px;
+}
+
+// ---- TRYING TO GET THE CHECKBOX TO BE GREEN ----
+// .hide-default-checkbox input:checked ~ .green-checkbox {
+//   background-color: $green-button;
+// }
+
+.error-username-password {
+    background: #F19B22;
+    height: 30px;
+    color: $text;
+}

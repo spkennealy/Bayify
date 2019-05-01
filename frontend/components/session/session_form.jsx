@@ -29,34 +29,146 @@ export default class SessionForm extends React.Component {
     }
 
     componentDidMount() {
-        // check history.hash
-            // make another action to clear errors
-            this.props.clearErrors();
+        this.props.clearErrors();
     }
 
     render() {
         const formType = this.props.formType;
 
         const link = formType === "Log In" ? (
-            <Link to="/signup">Sign Up!</Link>
-            ) : (
-                <Link to="/login">Log In!</Link>
-            );
+            <div className="sign-up-instead">
+                <p>Don't have an account?</p>
+                <Link 
+                    to="/signup"
+                    className="signup-button"
+                >SIGN UP FOR BAYIFY</Link>
+            </div>
+        ) : (
+            <div className="link-to-login">
+                <p>Already have an account?</p>
+                <Link 
+                    to="/login"
+                >Log in</Link>
+            </div>
+        );
 
         const email = () => {
             if (formType === "Sign Up") {
-            return (
-                <label>Email:
-                            <input
-                        type="email"
-                        onChange={this.handleInput("email")} />
-                </label>
+                return (
+                    <>
+                        <input
+                            className="signup-login-input"
+                            type="email"
+                            onChange={this.handleInput("email")} 
+                            placeholder="Email"
+                        />
+                        <input
+                            className="signup-login-input"
+                            type="email"
+                            onChange={this.handleInput("email")}
+                            placeholder="Confirm email"
+                        />
+                    </>
                 );
             }
         };
 
-        const displayErrors = () => {
+        const displayFormTitle = type => (
+            type === "Log In" ? (
+                <>
+                    <p 
+                        className="signup-login-form-text"
+                    >To continue, log in to Bayify.</p>
 
+                    <br/>
+                    <button className="demo-user-log-in">DEMO USER</button>
+                    <div className="divider">
+                        <span className="divider-title">OR</span>
+                    </div>
+                </>
+            ) : (
+                <>
+                    <button className="demo-user">DEMO USER</button>
+                    <div className="divider">
+                        <span className="divider-title">or</span>
+                    </div>
+                    <p className="signup-login-form-text"
+                    >Sign up with your email address</p>
+                </>
+            )
+        );
+
+        const displayUsernamePasswordInputs = type => (
+            type === "Log In" ? (
+                <>
+                    <input
+                        className="signup-login-input"
+                        type="text"
+                        onChange={this.handleInput("username")}
+                        placeholder="Username"
+                    />
+
+                    <input
+                        className="signup-login-input"
+                        type="password"
+                        onChange={this.handleInput("password")}
+                        placeholder="Password"
+                    />
+
+                    <div className="contain-login-button">
+                        <label className="hide-default-checkbox">
+                            <input type="checkbox" className="green-checkbox"/>
+                             Remember me?</label>
+                        <input
+                            className="green-button login-button"
+                            type="submit"
+                            value={type.toUpperCase()}
+                        />
+                    </div>
+                </>
+            ) : (
+                <>
+                    <input
+                        className="signup-login-input"
+                        type="password"
+                        onChange={this.handleInput("password")}
+                        placeholder="Password"
+                    />
+
+                    <input
+                        className="signup-login-input"
+                        type="text"
+                        onChange={this.handleInput("username")}
+                        placeholder="What should we call you?"
+                    />
+
+                    <input
+                        className="green-button signup-login-button"
+                        type="submit"
+                        value={type.toUpperCase()}
+                    />
+                </>
+            )
+        );
+
+        const displayLogInErrors = errors => {
+            if (errors.includes("Incorrect")) {
+                return (
+                    <div className="error-username-password">
+                        <p>{errors[0]}</p>
+                    </div>
+                )
+            }
+
+            // return errors.map((error, idx) => {
+            //     if (error.includes("Incorrect username")) {
+            //         return (
+            //             <div>
+            //             </div>
+            //         )
+            //     }
+            //         // <li key={idx}>{error}</li>
+            // }
         };
 
         // EMAIL VALIDATION FOR LATER
@@ -69,30 +181,38 @@ export default class SessionForm extends React.Component {
         // };
 
         return (
-            <form onSubmit={this.handleSubmit}>
-                <h3>{formType === "Log In" ? "Log In" : "Sign Up"}</h3>
-                <label>Username:
-                    <input
-                        type="text"
-                        onChange={this.handleInput("username")} />
-                </label>
-                <div>{email()}</div>
+            <>
+                <main className="signup-login">
+                    <div>
+                        <header className="signup-login-header">
+                            <div className="signup-login-logo">
+                                <Link to="/">
+                                    <img
+                                        src="images/bayify-logo.png"
+                                        alt="logo"
+                                        className="bayify-logo" />
+                                    <h3 className="session-title">Bayify</h3>
+                                </Link>
+                            </div>
+                        </header>
+                        <form onSubmit={this.handleSubmit} className="signup-login-form">
+                            <section>
+                                {displayFormTitle(formType)}
+                            </section>
+                            
+                            <div className="signup-email">{email()}</div>
+                            
+                            <section className="username-password">
+                                {displayUsernamePasswordInputs(formType)}
+                            </section>
 
-                <label>Password:
-                    <input
-                        type="password"
-                        onChange={this.handleInput("password")} />
-                </label>
-                <input type="submit" value={formType} />
+                            <p>{link}</p>
 
-                <p>{link}</p>
-
-                <ul>
-                    {this.props.errors.map((error, idx) => (
-                        <li key={idx}>{error}</li>
-                    ))}
-                </ul>
-            </form>
+                            
+                        </form>
+                    </div>
+                </main>
+            </>
         );
     }
 }

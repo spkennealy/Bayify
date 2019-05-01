@@ -7,7 +7,7 @@ import SignupFormContainer from './session/signup_form_container';
 import BrowseContainer from './browse/browse_container';
 
 const App = () => (
-    <main>
+    <>
         <Switch>
             <AuthRoute path="/login" component={LoginFormContainer} />
             <AuthRoute path="/signup" component={SignupFormContainer} />
@@ -17,7 +17,7 @@ const App = () => (
             <ProtectedRoute path="/browse/featured" component={BrowseContainer}/>
             <AuthRoute path="/" component={Splash}/>
         </Switch>
-    </main>
+    </>
 );
 
 export default App;
