@@ -16,16 +16,16 @@ class User < ApplicationRecord
     validates :username, :email, uniqueness: true
     validates :password, length: { minimum: 4, allow_nil: true }
 
-    # has_many :curated_playlists
-    # has_many :playlist_follows
-    # has_many :artist_follows
-    # has_many :friends
-    # has_many :followed_playlists, 
-    #     through: :playlist_follows
-    # has_many :followed_artists, 
-    #     through: :artist_follows
-    # has_many :followed_podcasts
-    # has_one_attached :profile_photo
+    has_many :curated_playlists
+    has_many :playlist_follows
+    has_many :artist_follows
+    has_many :friends
+    has_many :followed_playlists, 
+        through: :playlist_follows
+    has_many :followed_artists, 
+        through: :artist_follows
+    has_many :followed_podcasts
+    has_one_attached :profile_photo
 
     attr_reader :password
 

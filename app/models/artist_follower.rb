@@ -1,0 +1,2 @@
+class ArtistFollower < ApplicationRecord
+end

@@ -6,7 +6,9 @@ import MusicPlayerContainer from '../music_player/music_player_container';
 
 const Home = (props) => {
     return props.currentUser ? (
-        <button onClick={props.logout}>LOG OUT</button>
+        <>
+            <SideNavBarContainer />
+        </>
     ) : (
         <Splash />
     );
@@ -15,7 +17,6 @@ const Home = (props) => {
 export default Home;
 
 /*
-<SideNavBarContainer />
 <BrowseContainer />
 <MusicPlayerContainer />
 */

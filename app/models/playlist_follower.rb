@@ -1,0 +1,2 @@
+class PlaylistFollower < ApplicationRecord
+end

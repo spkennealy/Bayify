@@ -45,7 +45,7 @@ export default class SessionForm extends React.Component {
 
     //     setInterval(() => {
     //         if (wordArray.length < 1) return clearInterval();
-    //         htmlElement.innerHTML += wordArray.shift();
+    //         htmlElement.value += wordArray.shift();
     //     }, 300);
     // }
     // ------------------------------------------------------
