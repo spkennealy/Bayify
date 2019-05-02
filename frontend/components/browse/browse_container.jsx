@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Browse from './browse';
 
 const mapStateToProps = state => ({
-    currentUser: state.users[state.session.id]
+    currentUser: state.entities.users[state.session.id]
 });
 
 const mapDisptachToProps = dispatch => ({
