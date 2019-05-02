@@ -14,6 +14,7 @@ export default class SessionForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.demoUser = this.demoUser.bind(this);
+        this.clearInputs = this.clearInputs.bind(this);
         // this.type = this.type.bind(this);
     }
 
@@ -35,6 +36,8 @@ export default class SessionForm extends React.Component {
         this.props.clearErrors();
     }
 
+    // ------------------------------------------------------
+    // MY ATTEMPT TO WRITE THE TYPED MODULE USED BELOW
     // type(word, target) {
     //     const htmlElement = document.getElementById(target);
     //     const wordArray = word.split();
@@ -45,10 +48,20 @@ export default class SessionForm extends React.Component {
     //         htmlElement.innerHTML += wordArray.shift();
     //     }, 300);
     // }
+    // ------------------------------------------------------
+
+    clearInputs() {
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+    }
 
     demoUser(e) {
         e.preventDefault();
 
+        this.clearInputs();
+
+        // ------------------------------------------------------
+        // MY ATTEMPT TO WRITE THE TYPED MODULE USED BELOW
         // const username = "Curry30";
         // const password = "password";
 
@@ -57,8 +70,7 @@ export default class SessionForm extends React.Component {
         // setTimeout(() => {
         //     this.type(password, "password");
         // }, 3000);
-
-        // THE CODE BELOW IS FUNCTIONAL, ABOVE I AM TRYING TO WRITE MY OWN VERSION.
+        // ------------------------------------------------------
 
         const username = {
             strings: ["Curry30"],

@@ -1,10 +1,12 @@
 import React from 'react';
 import SideNavBarContainer from '../side_nav_bar/side_nav_bar_container';
 
-const Browse = (props) => (
+// TODO: EDIT ENTIRE PAGE
+
+const Search = (props) => (
     <main>
         <SideNavBarContainer />
     </main>
 );
 
-export default Browse;
+export default Search;
