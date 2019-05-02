@@ -14,6 +14,7 @@ export default class SessionForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.demoUser = this.demoUser.bind(this);
+        // this.type = this.type.bind(this);
     }
 
     handleInput(type) {
@@ -34,8 +35,30 @@ export default class SessionForm extends React.Component {
         this.props.clearErrors();
     }
 
+    // type(word, target) {
+    //     const htmlElement = document.getElementById(target);
+    //     const wordArray = word.split();
+    //     console.log(wordArray);
+
+    //     setInterval(() => {
+    //         if (wordArray.length < 1) return clearInterval();
+    //         htmlElement.innerHTML += wordArray.shift();
+    //     }, 300);
+    // }
+
     demoUser(e) {
         e.preventDefault();
+
+        // const username = "Curry30";
+        // const password = "password";
+
+        // this.type(username, "username");
+
+        // setTimeout(() => {
+        //     this.type(password, "password");
+        // }, 3000);
+
+        // THE CODE BELOW IS FUNCTIONAL, ABOVE I AM TRYING TO WRITE MY OWN VERSION.
 
         const username = {
             strings: ["Curry30"],
@@ -50,24 +73,25 @@ export default class SessionForm extends React.Component {
         this.setState({
             username: "",
             password: ""
-        }, () => {
-            new Typed("#username", username);
-
-            setTimeout(() => {
-                new Typed("#password", password);
-            }, 1000);
-
-            setTimeout(() => {
-                this.props.processForm({ 
-                    username: "Curry30",
-                    password: "password"
-                });
-            }, 2000);
         });
+
+        new Typed("#username", username);
+
+        setTimeout(() => {
+            new Typed("#password", password);
+        }, 1000);
+
+        setTimeout(() => {
+            this.props.processForm({ 
+                username: "Curry30",
+                password: "password"
+            });
+        }, 2000);
     }
 
     render() {
         const formType = this.props.formType;
+        const errors = this.props.errors;
 
         const link = formType === "Log In" ? (
             <div className="sign-up-instead">
@@ -91,7 +115,7 @@ export default class SessionForm extends React.Component {
                 return (
                     <>
                         <input
-                            className={this.props.errors.password ?
+                            className={errors.email ?
                                 "signup-login-input-error" : "signup-login-input"}
                             type="email"
                             onChange={this.handleInput("email")} 
@@ -99,12 +123,12 @@ export default class SessionForm extends React.Component {
                         />
 
                             <div className="errors">
-                                {this.props.errors.password ?
-                                    `Email ${this.props.errors.password[0]}` : null}
+                                {errors.email ?
+                                    `Email ${errors.email[0]}` : null}
                             </div>
 
                         <input
-                            className={this.props.errors.password ?
+                            className={errors.email ?
                                 "signup-login-input-error" : "signup-login-input"}
                             type="email"
                             onChange={this.handleInput("email")}
@@ -124,6 +148,7 @@ export default class SessionForm extends React.Component {
                     <br/>
                     
                     <button 
+                        type="button"
                         className="demo-user-log-in"
                         onClick={this.demoUser}
                     >DEMO USER</button>
@@ -134,10 +159,12 @@ export default class SessionForm extends React.Component {
                 </>
             ) : (
                 <>
-                    <button 
+                    <button type="button" className="link-to-demo">
+                    <Link 
+                        to="/login"
                         className="demo-user"
-                        onClick={this.demoUser}
-                    >DEMO USER</button>
+                        // onClick={this.demoUser}
+                        >DEMO USER</Link></button>
 
                     <div className="divider">
                         <span className="divider-title">or</span>
@@ -182,19 +209,19 @@ export default class SessionForm extends React.Component {
             ) : (
                 <>
                     <input
-                        className={this.props.errors.password ?
+                        className={errors.password ?
                             "signup-login-input-error" : "signup-login-input"}
                         type="password"
                         onChange={this.handleInput("password")}
                         placeholder="Password"
                     />
                         <div className="errors">
-                            {this.props.errors.password ? 
-                                `Password ${this.props.errors.password[0]}` : null}
+                            {errors.password ? 
+                                `Password ${errors.password[0]}` : null}
                         </div>
 
                     <input
-                        className={this.props.errors.username ?
+                        className={errors.username ?
                             "signup-login-input-error" : "signup-login-input"}
                         type="text"
                         onChange={this.handleInput("username")}
@@ -202,8 +229,15 @@ export default class SessionForm extends React.Component {
                     />
 
                         <div className="errors">
-                            {this.props.errors.username ?
-                                `Username ${this.props.errors.username[0]}` : null}
+                            {errors.username ? (
+                                errors.username.length > 1 ? 
+                                errors.username.forEach(error => {
+                                    return ( 
+                                    <ul>
+                                        <li>{`Username ${error}`}</li>
+                                    </ul>
+                                );}) : `Username ${errors.username[0]}`
+                             ) : null}
                         </div>
 
                     <input
