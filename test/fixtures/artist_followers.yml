@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: artist_followers
+#
+#  id          :bigint           not null, primary key
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  follower_id :integer          not null
+#  artist_id   :integer          not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined. If you add columns to the

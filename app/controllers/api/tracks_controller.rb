@@ -1,7 +1,8 @@
 class Api::TracksController < ApplicationController
 
-    def show
-        @track = Track.find(params[:id])
-        render :show
+    def index
+        @tracks = current_user.followed_tracks
+        render :index
     end
+    
 end

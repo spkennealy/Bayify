@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_02_225928) do
+ActiveRecord::Schema.define(version: 2019_05_03_172007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 2019_05_02_225928) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "album_followers", force: :cascade do |t|
+    t.integer "follower_id", null: false
+    t.integer "album_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id", "follower_id"], name: "index_album_followers_on_album_id_and_follower_id", unique: true
+    t.index ["follower_id"], name: "index_album_followers_on_follower_id"
+  end
+
   create_table "albums", force: :cascade do |t|
     t.string "title", null: false
     t.integer "year", null: false
@@ -49,6 +58,10 @@ ActiveRecord::Schema.define(version: 2019_05_02_225928) do
   create_table "artist_followers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "follower_id", null: false
+    t.integer "artist_id", null: false
+    t.index ["artist_id"], name: "index_artist_followers_on_artist_id"
+    t.index ["follower_id", "artist_id"], name: "index_artist_followers_on_follower_id_and_artist_id", unique: true
   end
 
   create_table "artists", force: :cascade do |t|
@@ -61,11 +74,19 @@ ActiveRecord::Schema.define(version: 2019_05_02_225928) do
   create_table "playlist_followers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "follower_id", null: false
+    t.integer "playlist_id", null: false
+    t.index ["follower_id", "playlist_id"], name: "index_playlist_followers_on_follower_id_and_playlist_id", unique: true
+    t.index ["playlist_id"], name: "index_playlist_followers_on_playlist_id"
   end
 
   create_table "playlist_tracks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "track_id", null: false
+    t.integer "playlist_id", null: false
+    t.index ["playlist_id"], name: "index_playlist_tracks_on_playlist_id"
+    t.index ["track_id"], name: "index_playlist_tracks_on_track_id"
   end
 
   create_table "playlists", force: :cascade do |t|
@@ -74,6 +95,15 @@ ActiveRecord::Schema.define(version: 2019_05_02_225928) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["curator_id"], name: "index_playlists_on_curator_id"
+  end
+
+  create_table "track_followers", force: :cascade do |t|
+    t.integer "follower_id", null: false
+    t.integer "track_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follower_id", "track_id"], name: "index_track_followers_on_follower_id_and_track_id", unique: true
+    t.index ["track_id"], name: "index_track_followers_on_track_id"
   end
 
   create_table "tracks", force: :cascade do |t|

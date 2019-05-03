@@ -16,6 +16,12 @@ class Album < ApplicationRecord
 
     has_many :tracks
     belongs_to :artist 
+    has_many :album_follows,
+        foreign_key: :album_id,
+        class_name: :AlbumFollower
+    has_many :followers,
+        through: :album_follows,
+        source: :follower
     has_one_attached :album_photo
 
 end

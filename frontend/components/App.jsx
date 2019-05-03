@@ -19,6 +19,7 @@ const App = () => (
             {/* <Route path="/nav" component={SideNavBar} /> */}
             {/* <Route exact path="/" component={SideNavBarContainer} /> */}
             {/* <Route exact path="/" component={MusicPlayerContainer} /> */}
+            {/* <Route exact path="/:user_id/tracks" component={} /> */}
             {/* // ----------- END ----------- // */}
             <ProtectedRoute exact path="/search/recent" component={SearchContainer} />
             <ProtectedRoute exact path="/collection/playlists" component={CollectionContainer} />
