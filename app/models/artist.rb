@@ -11,11 +11,11 @@
 class Artist < ApplicationRecord
     validates :name, presence: true
 
-    has_many: :albums 
-    has_many: :artist_follows
-    has_many: :followers, 
-        through: :artist_follows
-    has_one_attached: :artist_photo
+    has_many :albums 
+    # has_many :artist_follows
+    # has_many :followers, 
+    #     through: :artist_follows
+    has_one_attached :artist_photo
 
 
 end

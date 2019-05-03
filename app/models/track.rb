@@ -13,10 +13,10 @@
 class Track < ApplicationRecord
     validates :title, :track_length, :album_id, presence: true
 
-    belongs_to: :album
-    has_many: :playlists_tracks
-    has_many: :playlists, 
-        through: :playlist_tracks
-    has_one_attached: :track
+    belongs_to :album
+    # has_many :playlists_tracks
+    # has_many :playlists, 
+    #     through: :playlist_tracks
+    has_one_attached :track
 
 end

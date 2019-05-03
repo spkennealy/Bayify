@@ -14,8 +14,8 @@
 class Album < ApplicationRecord
     validates :title, :year, :artist_id, presence: true
 
-    has_many: :tracks
-    belongs_to: :artist 
-    has_one_attached: :album_photo
+    has_many :tracks
+    belongs_to :artist 
+    has_one_attached :album_photo
 
 end
