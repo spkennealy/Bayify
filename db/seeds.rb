@@ -129,39 +129,39 @@ ActiveRecord::Base.transaction do
     # --------------------------- PLAYLIST TRACKS ----------------------------- #
     # ------------------------------------------------------------------------- #
 
-    PlaylistTrack.new(track_id: feelin_myself.id, playlist_id: yay_area.id)
-    PlaylistTrack.new(track_id: tell_me_when_to_go.id, playlist_id: yay_area.id)
-    PlaylistTrack.new(track_id: calm_down.id, playlist_id: yay_area.id)
+    PlaylistTrack.create!(track_id: feelin_myself.id, playlist_id: yay_area.id)
+    PlaylistTrack.create!(track_id: tell_me_when_to_go.id, playlist_id: yay_area.id)
+    PlaylistTrack.create!(track_id: calm_down.id, playlist_id: yay_area.id)
 
     # ------------------------------------------------------------------------- #
     # ------------------------- PLAYLIST FOLLOWERS ---------------------------- #
     # ------------------------------------------------------------------------- #
 
-    PlaylistFollower.new(follower_id: curry.id, playlist_id: yay_area.id)
+    PlaylistFollower.create!(follower_id: curry.id, playlist_id: yay_area.id)
 
     # ------------------------------------------------------------------------- #
     # -------------------------- ARTIST FOLLOWERS ----------------------------- #
     # ------------------------------------------------------------------------- #
 
-    ArtistFollower.new(follower_id: curry.id, artist_id: e_40.id)
-    ArtistFollower.new(follower_id: curry.id, artist_id: g_eazy.id)
-    ArtistFollower.new(follower_id: curry.id, artist_id: mac_dre.id)
+    ArtistFollower.create!(follower_id: curry.id, artist_id: e_40.id)
+    ArtistFollower.create!(follower_id: curry.id, artist_id: g_eazy.id)
+    ArtistFollower.create!(follower_id: curry.id, artist_id: mac_dre.id)
 
     # ------------------------------------------------------------------------- #
     # --------------------------- ALBUM FOLLOWERS ----------------------------- #
     # ------------------------------------------------------------------------- #
 
-    AlbumFollower.new(follower_id: curry.id, album_id: my_ghetto_report_card.id)
-    AlbumFollower.new(follower_id: curry.id, album_id: when_its_dark_out.id)
-    AlbumFollower.new(follower_id: curry.id, album_id: ronald_dregan.id)
+    AlbumFollower.create!(follower_id: curry.id, album_id: my_ghetto_report_card.id)
+    AlbumFollower.create!(follower_id: curry.id, album_id: when_its_dark_out.id)
+    AlbumFollower.create!(follower_id: curry.id, album_id: ronald_dregan.id)
 
     # ------------------------------------------------------------------------- #
     # --------------------------- TRACK FOLLOWERS ----------------------------- #
     # ------------------------------------------------------------------------- #
 
-    TrackFollower.new(follower_id: curry.id, track_id: tell_me_when_to_go.id)
-    TrackFollower.new(follower_id: curry.id, track_id: calm_down.id)
-    TrackFollower.new(follower_id: curry.id, track_id: feelin_myself.id)
+    TrackFollower.create!(follower_id: curry.id, track_id: tell_me_when_to_go.id)
+    TrackFollower.create!(follower_id: curry.id, track_id: calm_down.id)
+    TrackFollower.create!(follower_id: curry.id, track_id: feelin_myself.id)
 
 
 end
