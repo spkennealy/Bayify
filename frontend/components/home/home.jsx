@@ -9,9 +9,12 @@ import CollectionContainer from '../collection/collection_container';
 
 const Home = (props) => {
     return props.currentUser ? (
-        <>
+        <div className="home-body">
             <SideNavBarContainer />
+
+            {/* TEST IMAGE */}
             <img src="/images/artists/g-eazy_background.jpeg" alt="" />
+            
             <ProtectedRoute exact path="/browse/featured" component={BrowseContainer}/>
             <ProtectedRoute exact path="/browse/charts" component={BrowseContainer}/>
             <ProtectedRoute exact path="/browse/genres" component={BrowseContainer}/>
@@ -20,7 +23,7 @@ const Home = (props) => {
             <ProtectedRoute exact path="/collection/tracks" component={CollectionContainer}/>
             <ProtectedRoute exact path="/collection/albums" component={CollectionContainer}/>
             <ProtectedRoute exact path="/collection/artists" component={CollectionContainer}/>
-        </>
+        </div>
     ) : (
         <Splash />
     );

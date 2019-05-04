@@ -32,7 +32,7 @@
     margin-left: 10px;
 }
 
-.home-nav-links:hover {
+.home-nav-links:hover, .recently-played-ul a:hover {
     color: #FFFFFF;
     transition: 0.5s;
 }
@@ -47,6 +47,58 @@
 
 .nav-link-active {
     color: #FFFFFF; 
-    box-shadow: 3px 0 0 #1ed760 inset;
+    box-shadow: 4px 0 0 #1ed760 inset;
     transition: 0.5s;
+}
+
+// .home-icon path:active {
+//     fill: white;
+//     path: "M 256.274 60.84 L 84.324 166.237 L 84.324 443.063 L 193.27 443.063 L 193.27 293.73 L 320.228 293.73 L 320.228 443.063 L 428.222 443.063 L 428.222 165.476 L 256.274 60.84 Z M 256.274 35.95 L 448.452 149.145 L 448.452 464.395 L 300 464.395 L 300 315.062 L 213.499 315.062 L 213.499 464.395 L 64.095 464.395 L 64.095 150.161 L 256.274 35.95 Z";
+// }
+
+.home-nav-recent-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+.recently-played-title {
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: .16em;
+    padding-left: 24px;
+}
+
+.home-nav-recent-container ul {
+    box-sizing: border-box;
+    padding-left: 24px;
+}
+
+.recently-played-ul a {
+    height: 45px;
+    padding: 10px 0;
+    display: block
+}
+
+.recently-played-ul li h2 {
+    padding: 5px 0;
+}
+
+.profile-section {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.profile-section img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.profile-section span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
