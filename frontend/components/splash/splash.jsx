@@ -7,7 +7,9 @@ const Splash = () => {
         <div className="splash-body">
             <NavSplash />
             <article className="splash-article">
-                <svg xmlns="http://www.w3.org/2000/svg"></svg>
+                <div className="splash-svg-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg"></svg>
+                </div>
                 <div className="splash-text">
                     <p className="splash-body-tagline"
                         >Music for everyone.</p>

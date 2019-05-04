@@ -5,7 +5,7 @@ import SideNavBarContainer from '../side_nav_bar/side_nav_bar_container';
 
 const Collection = (props) => (
     <main>
-        <SideNavBarContainer />
+        {/* <SideNavBarContainer /> */}
     </main>
 );
 

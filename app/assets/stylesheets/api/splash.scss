@@ -67,7 +67,7 @@ body {
     clear: both;
 }
 
-svg {
+.splash-svg-wrapper svg {
     position: absolute;
     left: 50%;
     width: 1610px;
@@ -79,7 +79,7 @@ svg {
     overflow: hidden;
 }
 
-svg:not(:root) {
+.splash-svg-wrapper svg:not(:root) {
     overflow: hidden;
 }
 

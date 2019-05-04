@@ -3,7 +3,9 @@ import SideNavBarContainer from '../side_nav_bar/side_nav_bar_container';
 
 const Browse = (props) => (
     <main>
-        <SideNavBarContainer />
+        <div>
+            
+        </div>
     </main>
 );
 

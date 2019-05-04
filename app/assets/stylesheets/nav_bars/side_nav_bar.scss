@@ -1,0 +1,52 @@
+@import '../utils.scss';
+
+.side-nav-bar {
+    position: absolute;
+    background: #050708;
+    color: $home-text;
+    width: 230px;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 24px 0px 5px;
+    display: flex;
+    flex-direction: column;
+    font-family: $main-font;
+    opacity: 0.8;
+}
+
+.side-nav-bar a {
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    height: 40px;
+    position: relative;
+}
+
+.home-nav-link-containter {
+    margin-top: 20px;
+}
+
+.nav-links {
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.home-nav-links:hover {
+    color: #FFFFFF;
+    transition: 0.5s;
+}
+
+.side-bar-logo {
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+    padding-bottom: 18px;
+    color: $home-active-text
+}
+
+.nav-link-active {
+    color: #FFFFFF; 
+    box-shadow: 3px 0 0 #1ed760 inset;
+    transition: 0.5s;
+}

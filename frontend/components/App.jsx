@@ -21,12 +21,12 @@ const App = () => (
             {/* <Route exact path="/" component={MusicPlayerContainer} /> */}
             {/* <Route exact path="/:user_id/tracks" component={} /> */}
             {/* // ----------- END ----------- // */}
-            <ProtectedRoute exact path="/search/recent" component={SearchContainer} />
+            {/* <ProtectedRoute exact path="/search/recent" component={SearchContainer} />
             <ProtectedRoute exact path="/collection/playlists" component={CollectionContainer} />
-            <ProtectedRoute exact path="/browse/featured" component={BrowseContainer} />
+            <ProtectedRoute exact path="/browse/featured" component={BrowseContainer} /> */}
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
-            <Route exact path="/" component={HomeContainer}/>
+            <Route path="/" component={HomeContainer}/>
             <Redirect to="/" />
         </Switch>
     </>
