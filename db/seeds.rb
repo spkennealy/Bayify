@@ -97,12 +97,11 @@ ActiveRecord::Base.transaction do
     # --------------- MY GHETTO REPORT CARD TRACKS :: E-40 ---------------
     tell_me_when_to_go = Track.create!(
         album_id: my_ghetto_report_card.id,
-        title: "Tell Me When to Go (feat. Keak Da Sneak and Turf Talk",
+        title: "Tell Me When to Go (feat. Keak Da Sneak and Turf Talk)",
         track_length: 241
     )
-    # TODO: NEED TO ADD TRACK TO AWS 
-    # tell_me_when_to_go_track = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/tracks/Tell+Me+When+To+Go.mp3')
-    # tell_me_when_to_go.track.attach(io: tell_me_when_to_go_track, filename: "Tell_Me_When_To_Go")   
+    tell_me_when_to_go_track = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/tracks/Tell+Me+When+To+Go.mp3')
+    tell_me_when_to_go.track.attach(io: tell_me_when_to_go_track, filename: "Tell_Me_When_To_Go")   
     
     # --------------- RONALD DREGAN: DREAGANOMICS :: MAC DRE ---------------
     feelin_myself = Track.create!(

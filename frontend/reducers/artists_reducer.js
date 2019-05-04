@@ -11,6 +11,7 @@ const artistsReducer = (state = {}, action) => {
         case RECEIVE_ARTISTS:
             return action.artists;
         case RECEIVE_ARTIST:
+            // TODO: MIGHT NEED TO FIX 
             return action;
         default:
             return state;
