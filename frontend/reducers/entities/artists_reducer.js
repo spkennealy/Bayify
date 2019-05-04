@@ -1,7 +1,7 @@
 import { 
     RECEIVE_ARTISTS, 
     RECEIVE_ARTIST
-} from '../actions/artist_actions';
+} from '../../actions/artist_actions';
 // import merge from 'lodash/merge';
 
 const artistsReducer = (state = {}, action) => {

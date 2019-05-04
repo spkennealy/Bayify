@@ -1,6 +1,6 @@
 export const PLAY_TRACK = 'PLAY_TRACK';
 export const PAUSE_TRACK = 'PAUSE_TRACK';
-export const PLAY_SELECTED_TRACK = 'PLAY_SELECTED_TRACK';
+export const SET_CURRENT_TRACK = 'SET_CURRENT_TRACK';
 export const NEXT_TRACK = 'NEXT_TRACK';
 export const PREVIOUS_TRACK = 'PREVIOUS_TRACK';
 export const TOGGLE_SHUFFLE = 'TOGGLE_SHUFFLE';
@@ -19,8 +19,8 @@ export const pause = () => ({
     type: PAUSE_TRACK
 });
 
-export const playSelectedTrack = (id) => ({
-    type: PAUSE_TRACK,
+export const setCurrentTrack = (id) => ({
+    type: SET_CURRENT_TRACK,
     id
 });
 
