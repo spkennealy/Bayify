@@ -23,6 +23,7 @@ const Home = (props) => {
             <ProtectedRoute exact path="/collection/tracks" component={CollectionContainer}/>
             <ProtectedRoute exact path="/collection/albums" component={CollectionContainer}/>
             <ProtectedRoute exact path="/collection/artists" component={CollectionContainer}/>
+            <MusicPlayerContainer />
         </div>
     ) : (
         <Splash />
@@ -30,8 +31,3 @@ const Home = (props) => {
 };
 
 export default Home;
-
-/*
-<BrowseContainer />
-<MusicPlayerContainer />
-*/

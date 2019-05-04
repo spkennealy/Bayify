@@ -1,0 +1,13 @@
+@import '../utils.scss';
+
+.music-player-nav-bar {
+    position: fixed;
+    bottom: 0;
+    height: 90px;
+    background: #272727;
+    z-index: 9;
+    width: 100%;
+    color: $text;
+    font-family: $main-font;
+    border-top: 1px solid black;
+}

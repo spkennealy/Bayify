@@ -1,12 +1,12 @@
 @import '../utils.scss';
 
 .side-nav-bar {
-    position: absolute;
+    position: fixed;
     background: #050708;
     color: $home-text;
     width: 230px;
     box-sizing: border-box;
-    height: 100%;
+    height: calc(100vh - 90px);
     padding: 24px 0px 5px;
     display: flex;
     flex-direction: column;
