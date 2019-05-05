@@ -5,6 +5,7 @@ import Root from './components/root';
 
 // TEST IMPORTS
 import { signup, login, logout } from './util/session_api_utils';
+import { fetchArtist } from './util/artist_utils';
 // END
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.logout = logout;
     window.getState = store.getState;
     window.disptach = store.disptach;
+    window.fetchArtist = fetchArtist;
     // END
     
     ReactDOM.render(<Root store={store}/>, root);

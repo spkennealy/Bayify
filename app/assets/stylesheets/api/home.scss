@@ -1,5 +1,8 @@
 @import '../utils.scss';
 
 .home-body {
-    background: linear-gradient(to right bottom, rgb(70, 92, 61), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
+    height: 100vh;
+    background-image: linear-gradient(to right bottom, rgb(49, 104, 103), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
+    // background: linear-gradient(to right bottom, rgb(70, 92, 61), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
+    width: 100%;
 }
