@@ -2,6 +2,7 @@ class Api::PlaylistsController < ApplicationController
 
     def index 
         @playlists = current_user.followed_playlists
+        @playlists += current_user.curated_playlists
         render :index
     end
 
@@ -40,7 +41,7 @@ class Api::PlaylistsController < ApplicationController
     private
 
     def playlist_params
-        params.require(:playlist).permit(:title)
+        params.require(:playlist).permit(:title, :curator_id)
     end
 
 end

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 export default class PlaylistsIndex extends React.Component {
     constructor(props) {
         super(props);
-
     }
     
     componentDidMount() {
@@ -40,6 +39,8 @@ const PlaylistIndexItem = (props) => {
             <Link to={`/playlists/${props.playlist.id}`}>
                 <h2>{props.playlist.title}</h2>
             </Link>
+
+            <h3>{props.playlist.curator.username}</h3>
         </>
     )
 };

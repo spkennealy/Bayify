@@ -7,10 +7,6 @@ export default class SideNavBar extends React.Component {
         console.log(props);
     }
 
-    // switchSVG() {
-        
-    // }
-
     render() {
         return (
             <nav className="side-nav-bar">
@@ -63,7 +59,7 @@ export default class SideNavBar extends React.Component {
                     <NavLink 
                         to="/collection/playlists"
                         className="home-nav-links"
-                        // className={`home-nav-links ${this.props.match.params.path === "playlists" ? "nav-link-active" : ""}`}
+                        // className={`home-nav-links ${this.props.match.path === "collection" ? "nav-link-active" : ""}`}
                         activeClassName="nav-link-active"
                         >
                         <svg viewBox="0 0 512 512" width="24" height="24" 

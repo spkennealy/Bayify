@@ -1,3 +1,64 @@
 // Place all the styles related to the Api::Tracks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import '../utils.scss';
+
+// .track-index-container {
+
+// }
+
+.track-index {
+    list-style: none;
+    width: 100%;
+}
+
+.track-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    transition-duration: .2s;
+    font-family: $main-font;
+    animation: 0.5s ease-in-out;
+    padding: 0 10px;
+}
+
+.track-list-item:hover {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.track-item-container {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+
+.track-item-container h2 {
+    color: #F9FAFA;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.track-info-links {
+    display: flex;
+    color: #9EA2AA;
+    font-size: 14px;
+    padding-top: 5px;
+}
+
+.track-info-links a:hover {
+    text-decoration: underline;
+    color: #F9FAFA;
+    transition-duration: .5s;
+}
+
+.track-info-links a, .track-info-links p {
+    padding-right: 5px;
+}
+
+.track-length {
+    color: #9EA2AA;
+}

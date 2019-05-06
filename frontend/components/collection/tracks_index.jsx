@@ -19,7 +19,9 @@ export default class TracksIndex extends React.Component {
             <div className="track-index-container">
                 <ol className="track-index">
                     {tracks.map(track => (
-                        <li key={track.id}>
+                        <li 
+                            className="track-list-item"
+                            key={track.id}>
                             <TrackIndexItem
                                 track={track} />
                         </li>
@@ -31,15 +33,36 @@ export default class TracksIndex extends React.Component {
 }
 
 const TrackIndexItem = (props) => {
+    const trackTime = (time) => {
+        const min = Math.floor(time / 60);
+        let sec = time % 60;
+        if (sec < 10) sec = `0${sec}`;
+        return (
+            `${min}:${sec}`
+        );
+    };
+
     return (
         <>
-            <Link to={`/tracks/${props.track.id}`}>
-                <img src={props.track.trackPhoto} alt={`${props.track.title} photo`} />
-            </Link>
-
-            <Link to={`/tracks/${props.track.id}`}>
+            <div 
+                className="track-item-container"
+                to={`/tracks/${props.track.id}`}>
                 <h2>{props.track.title}</h2>
-            </Link>
+                <div className="track-info-links">
+                <Link
+                    to={`/artists/${props.track.artist.id}`}>
+                    {props.track.artist.name}
+                </Link>
+                <p>·</p>
+                <Link
+                    to={`/albums/${props.track.album.id}`}>
+                    {props.track.album.title}
+                </Link>
+                </div>
+            </div>
+            <div className="track-length">
+                <h2>{trackTime(props.track.track_length)}</h2>
+            </div>
         </>
     )
 };

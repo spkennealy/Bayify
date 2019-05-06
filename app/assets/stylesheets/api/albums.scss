@@ -1,3 +1,46 @@
 // Place all the styles related to the Api::Albums controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.album-index {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.album-index li {
+    display: block;
+    padding: 0 8px;
+}
+
+.album-index li img {
+    max-width: 225px;
+    max-height: 225px;
+    width: auto;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    background-color: white;
+}
+
+.album-index h2 {
+    margin: 12px 0 4px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    font-weight: 500;
+}
+
+.album-index h3 {
+    color: #fff;
+    opacity: .6;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 8px;
+}
+
+.album-index h3:hover {
+    text-decoration: underline;
+    opacity: 1;
+    cursor: pointer;
+}
