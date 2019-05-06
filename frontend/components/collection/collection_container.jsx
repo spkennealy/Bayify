@@ -1,15 +1,13 @@
-import { logout } from '../../actions/session_actions';
 import { connect } from 'react-redux';
 import Collection from './collection';
-
-// TODO: EDIT ENTIRE PAGE
+import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => ({
-    // currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id]
 });
 
 const mapDisptachToProps = dispatch => ({
-    // logout: () => dispatch(logout())
+    openModal: () => dispatch(openModal)
 });
 
-export default connect(mapStateToProps, mapDisptachToProps)(Collection);
+export default connect(mapStateToProps)(Collection);

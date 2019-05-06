@@ -4,6 +4,7 @@ import SideNavBar from './side_nav_bar';
 
 const mapStateToProps = state => ({
     currentUser: state.entities.users[state.session.id],
+    state
 });
 
 const mapDisptachToProps = dispatch => ({

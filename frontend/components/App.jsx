@@ -4,9 +4,10 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import HomeContainer from './home/home_container'; 
-import BrowseContainer from './browse/browse_container';
-import SearchContainer from './search/search_container';
-import CollectionContainer from './collection/collection_container';
+import Modal from './modal/modal';
+// import BrowseContainer from './browse/browse_container';
+// import SearchContainer from './search/search_container';
+// import CollectionContainer from './collection/collection_container';
 // import Splash from './splash/splash';
 // import SideNavBar from './side_nav_bar/side_nav_bar';
 // import SideNavBarContainer from './side_navbar/side_nav_bar_container';
@@ -14,6 +15,7 @@ import CollectionContainer from './collection/collection_container';
 
 const App = () => (
     <>
+        <Modal />
         <Switch>
             {/* // ------- TEST ROUTES ------- // */}
             {/* <Route path="/nav" component={SideNavBar} /> */}

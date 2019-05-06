@@ -4,7 +4,7 @@ import { NavLink, Link } from 'react-router-dom';
 export default class SideNavBar extends React.Component {
     constructor(props) {
         super(props);
-
+        console.log(props);
     }
 
     // switchSVG() {
@@ -63,6 +63,7 @@ export default class SideNavBar extends React.Component {
                     <NavLink 
                         to="/collection/playlists"
                         className="home-nav-links"
+                        // className={`home-nav-links ${this.props.match.params.path === "playlists" ? "nav-link-active" : ""}`}
                         activeClassName="nav-link-active"
                         >
                         <svg viewBox="0 0 512 512" width="24" height="24" 

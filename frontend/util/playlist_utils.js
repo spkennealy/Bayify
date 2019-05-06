@@ -15,18 +15,20 @@ export const fetchPlaylist = (id) => {
 export const createPlaylist = (playlist) => {
     return $.ajax({
         method: "POST",
-        url: `/api/playlists`
+        url: `/api/playlists`,
+        data: { playlist }
     });
 };
 
 export const updatePlaylist = (playlist) => {
     return $.ajax({
         method: "PATCH",
-        url: `/api/playlists/${playlist.id}`
+        url: `/api/playlists/${playlist.id}`,
+        data: { playlist }
     });
 };
 
-export const deltePlaylist = (id) => {
+export const deletePlaylist = (id) => {
     return $.ajax({
         method: "DELETE",
         url: `/api/playlists/${id}`

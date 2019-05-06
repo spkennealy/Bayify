@@ -14,26 +14,34 @@ export default class Home extends React.Component {
     componentDidMount() {
         // Added so that upon visiting the home page, the browse component link 
         // is rendered first and the css highlighting is rendered to the home link.
-        this.props.history.push("/browse/featured");
+        // TODO: remove push to collection/playlists and switch it to browse/featured.
+        // this.props.history.push("/browse/featured");
+        this.props.history.push("/collection/playlists");
     }
 
     render() {
         return this.props.currentUser ? (
             <main className="home-body">
-                <SideNavBarContainer />
+                <section className="side-nav-bar-container">
+                    <SideNavBarContainer />
+                </section>
 
                 {/* TEST IMAGE */}
                 {/* <img src="/images/artists/g-eazy_background.jpeg" alt="" /> */}
-                
-                <ProtectedRoute exact path="/browse/featured" component={BrowseContainer}/>
-                <ProtectedRoute exact path="/browse/charts" component={BrowseContainer}/>
-                <ProtectedRoute exact path="/browse/genres" component={BrowseContainer}/>
-                {/* <ProtectedRoute exact path="/search/recent" component={}/> */}
-                <ProtectedRoute exact path="/collection/playlists" component={CollectionContainer}/>
-                <ProtectedRoute exact path="/collection/tracks" component={CollectionContainer}/>
-                <ProtectedRoute exact path="/collection/albums" component={CollectionContainer}/>
-                <ProtectedRoute exact path="/collection/artists" component={CollectionContainer}/>
-                <MusicPlayerContainer />
+                <section className="main-content-container">
+                    <ProtectedRoute exact path="/browse/:section" component={BrowseContainer}/>
+                    {/* <ProtectedRoute exact path="/browse/charts" component={BrowseContainer}/>
+                    <ProtectedRoute exact path="/browse/genres" component={BrowseContainer}/> */}
+                    {/* <ProtectedRoute exact path="/search/recent" component={}/> */}
+                    <ProtectedRoute exact path="/collection/:section" component={CollectionContainer}/>
+                    {/* <ProtectedRoute exact path="/collection/:section" component={CollectionContainer}/>
+                    <ProtectedRoute exact path="/collection/:section" component={CollectionContainer}/>
+                    <ProtectedRoute exact path="/collection/:section" component={CollectionContainer}/> */}
+                </section>
+
+                <section className="music-player-container">
+                    <MusicPlayerContainer />
+                </section>
             </main>
         ) : (
             <Splash />

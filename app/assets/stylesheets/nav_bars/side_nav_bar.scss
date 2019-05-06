@@ -1,5 +1,12 @@
 @import '../utils.scss';
 
+.side-nav-bar-container {
+    position: relative;
+    float: left;
+    width: 230px;
+    height: 100%;
+}
+
 .side-nav-bar {
     position: fixed;
     background: #050708;
