@@ -5,17 +5,18 @@ import { FaEllipsisH } from 'react-icons/fa';
 export default class TrackDropdown extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             renderDropDown: false
         };
 
         this.toggleDropDown = this.toggleDropDown.bind(this);
+        this.handleAddToPlaylist = this.handleAddToPlaylist.bind(this);
     }
 
-    // handleAddToPlaylist(trackId) {
-
-    // }
+    handleAddToPlaylist() {
+        this.toggleDropDown();
+        this.props.openModal("addPlaylistTrack");
+    }
 
     toggleDropDown() {
         this.setState({
@@ -38,7 +39,7 @@ export default class TrackDropdown extends React.Component {
                     }`}>
                     <li>
                         <button
-                            onClick={() => this.props.openModal()}
+                            onClick={this.handleAddToPlaylist}
                             >
                             Add to Playlist
                         </button>

@@ -3,14 +3,18 @@ import TrackDropdown from './track_dropdown';
 import { addPlaylistTrack } from '../../actions/playlist_track_actions';
 import { openModal } from '../../actions/modal_actions';
 
-const mapStateToProps = state => ({
-    currentUser: state.entities.users[state.session.id]
-});
+const mapStateToProps = (state, ownProps) => {
+    console.log(ownProps);
+    return {
+        currentUser: state.entities.users[state.session.id],
+        trackId: ownProps.trackId
+    };
+};
 
 
 const mapDisptachToProps = dispatch => ({
     addPlaylistTrack: (playlistTrack) => dispatch(addPlaylistTrack(playlistTrack)),
-    openModal: () => dispatch(openModal())
+    openModal: (modal) => dispatch(openModal(modal))
 });
 
 export default connect(mapStateToProps, mapDisptachToProps)(TrackDropdown);

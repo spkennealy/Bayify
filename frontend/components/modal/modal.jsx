@@ -15,7 +15,7 @@ const Modal = (props) => {
             component = <NewPlaylistModal />;
             break;
         case "addPlaylistTrack":
-            component = <AddPlaylistTrackModal />;
+            component = <AddPlaylistTrackModal trackId={props.trackId}/>;
             break;
         default:
             return null;

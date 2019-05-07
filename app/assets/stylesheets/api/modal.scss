@@ -12,7 +12,7 @@
 
 .modal-child {
   position: absolute;
-  top: 40%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   height: 100%;
@@ -27,6 +27,7 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
+    height: 100%
 }
 
 .playlist-form-close-button {
@@ -103,17 +104,87 @@
 }
 
 .cancel-button {
-    background: transparent;
-    padding: 10px 40px;
-    border-radius: 25px;
-    border: 2px solid $text;
-    font-size: 12px;
-    text-transform: uppercase;
-    color: $text;
-    margin-right: 10px;
+  background: transparent;
+  padding: 10px 40px;
+  border-radius: 25px;
+  border: 2px solid $text;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: $text;
+  margin-right: 10px;
 }
 
 .modal-create-playlist-button:hover, .cancel-button:hover {
   transform: scale(1.1);
   transition: 0.3s;
+}
+
+.add-playlist-track-modal-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin-top: 100px;
+}
+
+.add-playlist-track-modal-container li {
+  padding: 0 20px;
+}
+
+.add-playlist-close-button {
+  background-color: transparent;
+  border: none;
+  margin-bottom: 20px;
+  transform: scale(0.8);
+}
+
+.add-playlist-close-button:hover {
+  transform: scale(1.0);
+  transition: 0.3s;
+}
+
+.add-playlist-title {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.add-playlist-track-playlist-index {
+  width: 100%;
+}
+
+.playlist-button-add-playlist-track-modal {
+  padding: 10px;
+  color: $text;
+  background: transparent;
+  border: none;
+}
+
+.playlist-button-add-playlist-track-modal:hover .svg-container {
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.svg-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.playlist-button-add-playlist-track-modal:hover .add-playlist-track-playlist-photo {
+  z-index: -1;
+}
+
+.add-playlist-modal-svg {
+  display: none;
+}
+
+.playlist-button-add-playlist-track-modal:hover .add-playlist-modal-svg {
+  position: absolute;
+  display: block;
+  color: $text;
 }
