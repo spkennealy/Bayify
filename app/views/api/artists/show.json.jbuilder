@@ -1,12 +1,27 @@
-json.extract! @artist, :id, :name
-json.artistPhoto url_for(@artist.artist_photo)
-json.backgroundPhoto url_for(@artist.background_photo)
+json.artists do
+    json.set! @artist.id do
+        json.extract! @artist, :id, :name
+        json.artistPhoto url_for(@artist.artist_photo)
+        json.backgroundPhoto url_for(@artist.background_photo)
+    end
+end
 
 json.albums do 
     @artist.albums.each do |album|
         json.set! album.id do
             json.extract! album, :id, :title
             json.albumPhoto url_for(album.album_photo)
+        end
+    end
+end
+
+json.tracks do 
+    @artist.albums.each do |album|
+        album.tracks.each do |track|
+            json.set! track.id do
+                json.extract! track, :id, :title, :track_length
+                json.trackUrl url_for(track.track)
+            end
         end
     end
 end

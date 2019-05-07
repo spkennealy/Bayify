@@ -1,5 +1,6 @@
 import * as APIUtils from '../util/album_utils';
 import { receiveArtists } from './artist_actions';
+import { receiveTracks } from './track_actions';
 
 export const RECEIVE_ALBUMS = 'RECEIVE_ALBUMS';
 export const RECEIVE_ALBUM = 'RECEIVE_ALBUM';
@@ -30,9 +31,11 @@ export const fetchAlbums = () => dispatch => {
 };
 
 export const fetchAlbum = (id) => dispatch => {
-    APIUtils.fetchAlbum(id).then(album => (
-        dispatch(receiveAlbum(album))
-    ), error => (
+    APIUtils.fetchAlbum(id).then(res => {
+        dispatch(receiveAlbum(res.albums));
+        dispatch(receiveArtists(res.artists));
+        dispatch(receiveTracks(res.tracks));
+    }, error => (
         dispatch(receiveErrors(error.responseJSON))
     ));
 };

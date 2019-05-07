@@ -1,4 +1,6 @@
 import * as APIUtils from '../util/artist_utils';
+import { receiveAlbums } from './album_actions';
+import { receiveTracks } from './track_actions';
 
 export const RECEIVE_ARTISTS = 'RECEIVE_ARTISTS';
 export const RECEIVE_ARTIST = 'RECEIVE_ARTIST';
@@ -28,9 +30,11 @@ export const fetchArtists = () => dispatch => {
 };
 
 export const fetchArtist = (id) => dispatch => {
-    APIUtils.fetchArtist(id).then(artist => (
-        dispatch(receiveArtist(artist))
-    ), error => (
+    APIUtils.fetchArtist(id).then(res => {
+        dispatch(receiveArtist(res.artists));
+        dispatch(receiveAlbums(res.albums));
+        dispatch(receiveTracks(res.tracks));
+    }, error => (
         dispatch(receiveErrors(error.responseJSON))
     ));
 };

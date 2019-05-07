@@ -5,11 +5,17 @@ json.albums do
     end
 end
 
+json.artists do 
+    json.set! @album.artist.id do
+        json.extract! @album.artist, :id, :name
+    end
+end
+
 json.tracks do 
     @album.tracks.each do |track|
         json.set! track.id do 
             json.extract! track, :id, :title, :track_length
-            # json.trackUrl url_for(track.track)
+            json.trackUrl url_for(track.track)
         end
     end
 end
