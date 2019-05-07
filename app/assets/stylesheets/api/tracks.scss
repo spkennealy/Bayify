@@ -78,7 +78,7 @@
 }
 
 .elipsis-dropdown-menu {
-    display: none;
+    display: block;
     position: fixed;
     opacity: 1;
     right: 117px;
@@ -95,10 +95,6 @@
     font-size: 14px;
     font-weight: 300;
     transition: 0.2s ease-in-out, top 0s, left 0s;
-}
-
-.elipsis-dropdown-menu-display {
-    display: block;
 }
 
 .elipsis-dropdown-menu button {

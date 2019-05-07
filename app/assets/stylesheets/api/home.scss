@@ -3,8 +3,8 @@
 .home-body {
     height: 100vh;
     width: 100%;
-
-
+    position: absolute;
+    z-index: -10;
     // collection/playlists 
     background-image: linear-gradient(to right bottom, rgb(130, 114, 23), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
     // collection/tracks
@@ -14,6 +14,5 @@
 }
 
 .main-content-container {
-    display: flex;
-    justify-content: center;
+    display: grid;
 }

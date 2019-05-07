@@ -30,8 +30,8 @@ ActiveRecord::Base.transaction do
     mac_dre = Artist.create!(name: "Mac Dre")
     mac_dre_photo = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/artist_photos/mac_dre.jpeg')
     mac_dre.artist_photo.attach(io: mac_dre_photo, filename: 'mac_dre_artist_photo')
-    # TODO: fix mac_dre background_photo
-    # mac_dre.background_photo.attach(io: mac_dre_photo, filename: 'mac_dre_background_photo')
+    mac_dre_background_photo = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/artist_photos/mac_dre_background_photo.jpg')
+    mac_dre.background_photo.attach(io: mac_dre_background_photo, filename: 'mac_dre_background_photo')
 
     # --------------- E-40 ---------------
     e_40 = Artist.create!(name: "E-40")

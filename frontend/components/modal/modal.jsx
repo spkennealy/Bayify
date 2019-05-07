@@ -10,12 +10,12 @@ const Modal = (props) => {
     }
 
     let component;
-    switch (props.modal) {
+    switch (props.modal.modalType) {
         case "createPlaylist":
             component = <NewPlaylistModal />;
             break;
         case "addPlaylistTrack":
-            component = <AddPlaylistTrackModal trackId={props.trackId}/>;
+            component = <AddPlaylistTrackModal />;
             break;
         default:
             return null;

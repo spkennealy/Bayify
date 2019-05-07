@@ -84,11 +84,11 @@ class AddPlaylistTrackModal extends React.Component {
     }
 }
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
     currentUser: state.entities.users[state.session.id],
     modal: state.ui.modal,
     playlists: Object.values(state.entities.playlists),
-    trackId: ownProps.trackId
+    trackId: state.ui.modal.currentTrackId
 });
 
 const mapDispatchToProps = dispatch => ({

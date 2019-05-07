@@ -1,11 +1,15 @@
-json.extract! @playlist, :id, :title
-if @playlist.playlist_photo.attached?
-    json.playlistPhoto url_for(@playlist.playlist_photo)
-else
-    json.playlistPhoto asset_path("default_playlist_photo")
+json.playlist do 
+    json.extract! @playlist, :id, :title, :curator_id, :track_ids
+    if @playlist.playlist_photo.attached?
+        json.playlistPhoto url_for(@playlist.playlist_photo)
+    else
+        json.playlistPhoto asset_path("default_playlist_photo")
+    end
 end
 
-json.curator @playlist.curator, :id, :username
+json.user do 
+    json.extract! @playlist.curator, :id, :username
+end
 
 json.tracks do
     @playlist.tracks.each do |track|

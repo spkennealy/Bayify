@@ -9,7 +9,7 @@ import {
 } from '../../actions/playlist_track_actions';
 import { merge, remove } from 'lodash';
 
-const albumsReducer = (state = {}, action) => {
+const playlistsReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState;
 
@@ -26,7 +26,7 @@ const albumsReducer = (state = {}, action) => {
             return newState;
         case RECEIVE_PLAYLIST_TRACK:
             newState = merge({}, state);
-            newState[action.playlist_id].track_ids.push(action.track_id);
+            newState[action.playlistTrack.playlist_id].track_ids.push(action.track_id);
             return newState;
         case DELETE_PLAYLIST_TRACK:
             newState = merge({}, state);
@@ -40,4 +40,4 @@ const albumsReducer = (state = {}, action) => {
     }
 };
 
-export default albumsReducer;
+export default playlistsReducer;

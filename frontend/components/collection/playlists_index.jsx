@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PlaylistIndexItem from './playlist_index_item';
 
 export default class PlaylistsIndex extends React.Component {
     constructor(props) {
@@ -20,7 +21,8 @@ export default class PlaylistsIndex extends React.Component {
                     {playlists.map(playlist => (
                         <li key= {playlist.id}>
                             <PlaylistIndexItem 
-                                playlist={playlist}/>
+                                playlist={playlist}
+                                curatorId={playlist.curator_id}/>
                         </li>
                     ))}
                 </ul>
@@ -28,19 +30,3 @@ export default class PlaylistsIndex extends React.Component {
         );
     }
 }
-
-const PlaylistIndexItem = (props) => {
-    return (
-        <>
-            <Link to={`/playlists/${props.playlist.id}`}>
-                <img src={props.playlist.playlistPhoto} alt={`${props.playlist.title} photo`}/>
-            </Link>
-
-            <Link to={`/playlists/${props.playlist.id}`}>
-                <h2>{props.playlist.title}</h2>
-            </Link>
-
-            <h3>{props.playlist.curator.username}</h3>
-        </>
-    )
-};
