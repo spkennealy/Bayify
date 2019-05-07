@@ -59,6 +59,57 @@
     padding-right: 5px;
 }
 
+.elipsis-dropdown-container {
+    margin-right: 38px;
+    margin-bottom: 15px
+}
+
+.elipsis-icon {
+    display: none;
+    transform: scale(0.8);
+    position: fixed;
+}
+
+.track-list-item:hover .elipsis-icon {
+    display: block;
+    transform: scale(0.8);
+    text-align: right;
+    padding-right: 1em;
+}
+
+.elipsis-dropdown-menu {
+    display: none;
+    position: fixed;
+    opacity: 1;
+    right: 117px;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    background-color: #282828;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    outline: none;
+    z-index: 1000;
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+    font-weight: 300;
+    transition: 0.2s ease-in-out, top 0s, left 0s;
+}
+
+.elipsis-dropdown-menu-display {
+    display: block;
+}
+
+.elipsis-dropdown-menu button {
+    background: transparent;
+    color: #9EA2AA;
+    outline: none;
+    border: none;
+    font-family: $main-font;
+}
+
 .track-length {
     color: #9EA2AA;
+    min-width: 45px;
 }

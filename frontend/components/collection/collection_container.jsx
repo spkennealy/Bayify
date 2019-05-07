@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDisptachToProps = dispatch => ({
-    openModal: () => dispatch(openModal())
+    openModal: (modal) => dispatch(openModal(modal))
 });
 
 export default connect(mapStateToProps, mapDisptachToProps)(Collection);

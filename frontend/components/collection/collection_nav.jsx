@@ -42,7 +42,7 @@ const CollectionNav = (props) => (
             <button 
                 className="green-button" 
                 id="new-playlist-button"
-                onClick={() => props.openModal()}>
+                onClick={() => props.openModal("createPlaylist")}>
                 NEW PLAYLIST
             </button>
         </div>

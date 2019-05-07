@@ -3,7 +3,11 @@ import {
     RECEIVE_PLAYLIST,
     DELETE_PLAYLIST
 } from '../../actions/playlist_actions';
-import merge from 'lodash/merge';
+import { 
+    RECEIVE_PLAYLIST_TRACK, 
+    DELETE_PLAYLIST_TRACK
+} from '../../actions/playlist_track_actions';
+import { merge, remove } from 'lodash';
 
 const albumsReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -19,6 +23,17 @@ const albumsReducer = (state = {}, action) => {
         case DELETE_PLAYLIST:
             newState = merge({}, state);
             delete newState[action.playlist.id];
+            return newState;
+        case RECEIVE_PLAYLIST_TRACK:
+            newState = merge({}, state);
+            newState[action.playlist_id].track_ids.push(action.track_id);
+            return newState;
+        case DELETE_PLAYLIST_TRACK:
+            newState = merge({}, state);
+            let trackIds = newState[action.playlist_id].track_ids;
+            const idx = trackIds.indexOf(action.track_id);
+            trackIds = trackIds.slice(0, idx).concat(trackIds.slice(idx+1));
+            newState[action.playlist_id].track_ids = trackIds;
             return newState;
         default:
             return state;

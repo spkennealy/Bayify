@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import TrackDropdownContainer from '../dropdown/track_dropdown_container';
 
 export default class TracksIndex extends React.Component {
     constructor(props) {
         super(props);
-
     }
 
     componentDidMount() {
@@ -32,7 +32,8 @@ export default class TracksIndex extends React.Component {
     }
 }
 
-const TrackIndexItem = (props) => {
+export const TrackIndexItem = (props) => {
+
     const trackTime = (time) => {
         const min = Math.floor(time / 60);
         let sec = time % 60;
@@ -60,9 +61,12 @@ const TrackIndexItem = (props) => {
                 </Link>
                 </div>
             </div>
+            <div>
+                <TrackDropdownContainer trackId={props.track.id}/>
+            </div>
             <div className="track-length">
                 <h2>{trackTime(props.track.track_length)}</h2>
             </div>
         </>
-    )
+    );
 };
