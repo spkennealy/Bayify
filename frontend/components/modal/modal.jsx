@@ -3,6 +3,7 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import NewPlaylistModal from './new_playlist_modal';
 import AddPlaylistTrackModal from './add_playlist_track_modal';
+import DeletePlaylistModal from './delete_playlist_modal';
 
 const Modal = (props) => {
     if (!props.modal) {
@@ -17,6 +18,9 @@ const Modal = (props) => {
         case "addPlaylistTrack":
             component = <AddPlaylistTrackModal />;
             break;
+        case "deletePlaylist":
+            component = <DeletePlaylistModal />;
+            break;
         default:
             return null;
     }
@@ -30,10 +34,15 @@ const Modal = (props) => {
     );
 };
 
-const mapStateToProps = state => ({
-    currentUser: state.entities.users[state.session.id],
-    modal: state.ui.modal
-});
+const mapStateToProps = (state, ownProps) => {
+    console.log(ownProps);
+    // debugger;
+    return ({
+        currentUser: state.entities.users[state.session.id],
+        modal: state.ui.modal,
+        // playlistId: ownProps.match.params.playlistId
+    });
+}
 
 const mapDispatchToProps = dispatch => ({
     openModal: (modal) => dispatch(openModal(modal)),

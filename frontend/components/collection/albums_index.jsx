@@ -11,8 +11,8 @@ export default class AlbumsIndex extends React.Component {
     }
 
     render() {
-        if (Object.entries(this.props.albums).length === 0) return <div></div>;
-        if (Object.entries(this.props.artists).length === 0) return <div></div>;
+        if (Object.entries(this.props.albums).length === 0) return null;
+        if (Object.entries(this.props.artists).length === 0) return null;
         
         const albums = Object.values(this.props.albums);
 

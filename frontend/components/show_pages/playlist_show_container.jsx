@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import PlaylistShow from './playlist_show';
 import { fetchPlaylist } from '../../actions/playlist_actions';
+import { deletePlaylistTrack } from '../../actions/playlist_track_actions';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = ({ entities, session }, ownProps) => ({
@@ -14,6 +15,7 @@ const mapStateToProps = ({ entities, session }, ownProps) => ({
 
 const mapDisptachToProps = dispatch => ({
     fetchPlaylist: id => dispatch(fetchPlaylist(id)),
+    deletePlaylistTrack: id => dispatch(deletePlaylistTrack(id)),
     openModal: modal => dispatch(openModal(modal))
 });
 

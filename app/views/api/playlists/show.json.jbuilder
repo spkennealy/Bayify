@@ -25,7 +25,7 @@ end
 
 json.albums do
     @playlist.tracks.each do |track|
-        json.set! track.album.id do
+        json.set! track.album_id do
             json.extract! track.album, :id, :title, :artist_id, :genre, :year
         end
     end

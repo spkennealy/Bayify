@@ -152,6 +152,17 @@
 
 .add-playlist-track-playlist-index {
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.add-playlist-track-playlist-index li {
+  max-width: 225px;
+  max-height: 225px;
+  width: auto;
+  height: auto;
 }
 
 .playlist-button-add-playlist-track-modal {

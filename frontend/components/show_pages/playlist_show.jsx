@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { FaEllipsisH } from 'react-icons/fa';
 import PlaylistsIndexItem from '../collection/playlist_index_item';
 import TrackIndexItemContainer from '../collection/track_index_item_container';
 
@@ -58,6 +58,32 @@ export default class PlaylistShow extends React.Component {
                     <button className="green-button" id="play-button">
                         PLAY
                     </button>
+
+                    <div className="elipsis-playlist-dropdown-container">
+                        <div
+                            onClick={this.revealDropdown}
+                            className="elipsis-playlist-icon-playlist">
+                            <FaEllipsisH />
+                        </div>
+
+                        {this.state.renderDropDown ? (
+                            <ul className="elipsis-playlist-dropdown-menu">
+                                <li>
+                                    <button
+                                        onClick={() => this.props.openModal({
+                                            modalType: "deletePlaylist"
+                                        })}>
+                                        Delete Playlist
+                                    </button>
+                                </li>
+                                <li>
+                                    <button>
+                                        Save Song to Favories
+                                    </button>
+                                </li>
+                            </ul>
+                        ) : null}
+                    </div>
                 </aside>
 
                 <div className="playlist-tracks-show-container">

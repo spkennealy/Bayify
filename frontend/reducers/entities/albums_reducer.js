@@ -9,12 +9,12 @@ const albumsReducer = (state = {}, action) => {
     let newState;
     let album;
 
+    // debugger;
     switch (action.type) {
         case RECEIVE_ALBUMS:
             return action.albums;
         case RECEIVE_ALBUM:
             newState = merge({}, state);
-            // debugger;
             // album = Object.values(action.album)[0];
             newState[Object.values(action.album)[0].id] = Object.values(action.album)[0];
             return newState;

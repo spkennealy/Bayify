@@ -44,8 +44,8 @@ export default class AlbumShow extends React.Component {
 
     render() {
         // console.log(this.props);
-        if (!this.props.album || this.props.album === "undefinend" || Object.entries(this.props.album).length === 0) return null;
-        if (!this.props.tracks || this.props.tracks === "undefined" || Object.entries(this.props.tracks).length === 0) return null;
+        if (!this.props.album || this.props.album === undefined || Object.entries(this.props.album).length === 0) return null;
+        if (!this.props.tracks || this.props.tracks === undefined || Object.entries(this.props.tracks).length === 0) return null;
 
         // debugger;
         return (
@@ -61,13 +61,13 @@ export default class AlbumShow extends React.Component {
                 </aside>
 
                 <div className="album-tracks-show-container">
-                    <ul className="album-tracks-show ">
+                    <ul className="album-tracks-show">
                         {this.props.album.track_ids.map((trackId) => {
                             const track = this.props.tracks[trackId];
                             // console.log(track);
                             return (
                                 <li key={trackId}
-                                    className="track-list-item">
+                                    className="track-list-item ">
                                     <TrackIndexItemContainer
                                         track={track}
                                         openModal={this.props.openModal} />

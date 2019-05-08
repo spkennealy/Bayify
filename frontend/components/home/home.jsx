@@ -18,7 +18,8 @@ export default class Home extends React.Component {
         // is rendered first and the css highlighting is rendered to the home link.
         // TODO: remove push to collection/playlists and switch it to browse/featured.
         // this.props.history.push("/browse/featured");
-        this.props.history.push("/collection/playlists");
+        // this.props.history.push("/collection/playlists");
+        this.props.history.push("/playlists/1");
     }
 
     render() {
@@ -32,10 +33,10 @@ export default class Home extends React.Component {
                     </section>
 
                     <section className="main-content-container">
+                        <ProtectedRoute exact path="/albums/:albumId" component={AlbumShowContainer}/>
+                        <ProtectedRoute exact path="/playlists/:playlistId" component={PlaylistShowContainer}/>
                         <ProtectedRoute exact path="/browse/:section" component={BrowseContainer}/>
                         <ProtectedRoute exact path="/collection/:section" component={CollectionContainer}/>
-                        <ProtectedRoute exact path="/playlists/:playlistId" component={PlaylistShowContainer}/>
-                        <ProtectedRoute exact path="/albums/:albumId" component={AlbumShowContainer}/>
 
 
                         {/* <ProtectedRoute exact path="/search/recent" component={}/> */}
