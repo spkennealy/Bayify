@@ -46,11 +46,15 @@ export default class TrackIndexItem extends React.Component {
         if (!this.props.artists || this.props.artists === undefined || Object.entries(this.props.artists).length === 0) return null;
         if (!this.props.albums || this.props.albums === undefined || Object.entries(this.props.albums).length === 0) return null;
         if (!this.props.track  || this.props.track  === undefined || Object.entries(this.props.track ).length === 0) return null;
-        
+
         const track = this.props.track;
         const album = this.props.albums[track.album_id];
         const artist = this.props.artists[album.artist_id];
-        
+
+        if (artist["undefined"]) return null;
+
+        // debugger;
+
         return (
             <>
                 <div 
