@@ -70,7 +70,8 @@ export default class PlaylistShow extends React.Component {
                                 <li>
                                     <button
                                         onClick={() => this.props.openModal({
-                                            modalType: "deletePlaylist"
+                                            modalType: "deletePlaylist",
+                                            playlistId: this.props.playlist.id
                                         })}>
                                         Delete Playlist
                                     </button>
@@ -94,6 +95,7 @@ export default class PlaylistShow extends React.Component {
                                     className="track-list-item">
                                     <TrackIndexItemContainer
                                         track={track}
+                                        // playlistTrackId={this.props.playlist.playlist_track_ids[trackId]}
                                         openModal={this.props.openModal}/>
                                 </li>
                             );

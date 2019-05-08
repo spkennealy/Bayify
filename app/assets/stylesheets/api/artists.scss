@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import '../utils.scss';
+
 .artist-index {
     display: flex;
     flex-flow: row wrap;
@@ -45,4 +47,20 @@
     text-decoration: underline;
     opacity: 1;
     cursor: pointer;
+}
+
+.artist-info-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: $main-font;
+    color: $text;
+    margin-top: 100px;
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.artist-name {
+    margin-bottom: 20px;
 }

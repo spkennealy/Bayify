@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import NewPlaylistModal from './new_playlist_modal';
 import AddPlaylistTrackModal from './add_playlist_track_modal';
 import DeletePlaylistModal from './delete_playlist_modal';
+import { withRouter } from 'react-router-dom';
 
 const Modal = (props) => {
     if (!props.modal) {
@@ -19,7 +20,7 @@ const Modal = (props) => {
             component = <AddPlaylistTrackModal />;
             break;
         case "deletePlaylist":
-            component = <DeletePlaylistModal />;
+            component = <DeletePlaylistModal playlistId={props.modal.playlistId}/>;
             break;
         default:
             return null;
@@ -34,17 +35,16 @@ const Modal = (props) => {
     );
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     return ({
         currentUser: state.entities.users[state.session.id],
-        modal: state.ui.modal,
-        // playlistId: ownProps.match.params.playlistId
+        modal: state.ui.modal
     });
-}
+};
 
 const mapDispatchToProps = dispatch => ({
     openModal: (modal) => dispatch(openModal(modal)),
     closeModal: () => dispatch(closeModal())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Modal));

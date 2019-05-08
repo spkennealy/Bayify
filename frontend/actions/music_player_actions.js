@@ -1,6 +1,5 @@
 export const PLAY_TRACK = 'PLAY_TRACK';
 export const PAUSE_TRACK = 'PAUSE_TRACK';
-export const SET_CURRENT_TRACK = 'SET_CURRENT_TRACK';
 export const NEXT_TRACK = 'NEXT_TRACK';
 export const PREVIOUS_TRACK = 'PREVIOUS_TRACK';
 export const TOGGLE_SHUFFLE = 'TOGGLE_SHUFFLE';
@@ -11,17 +10,13 @@ export const UNSAVE_TRACK = 'UNSAVE_TRACK';
 export const QUEUE = 'QUEUE';
 // --------------------------
 
-export const play = () => ({
-    type: PLAY_TRACK
+export const play = (trackId) => ({
+    type: PLAY_TRACK,
+    trackId
 });
 
 export const pause = () => ({
     type: PAUSE_TRACK
-});
-
-export const setCurrentTrack = (id) => ({
-    type: SET_CURRENT_TRACK,
-    id
 });
 
 export const nextTrack = () => ({

@@ -45,6 +45,7 @@ export default class AlbumShow extends React.Component {
         if (!this.props.album || this.props.album === undefined || Object.entries(this.props.album).length === 0) return null;
         if (!this.props.tracks || this.props.tracks === undefined || Object.entries(this.props.tracks).length === 0) return null;
 
+        // debugger;
         return (
             <div className="playlist-show-container">
                 <aside className="album-info-container">

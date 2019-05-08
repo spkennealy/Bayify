@@ -10,6 +10,12 @@ export default class PlaylistsIndex extends React.Component {
     componentDidMount() {
         this.props.fetchPlaylists();
     }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.playlists.length !== this.props.playlists.length) {
+            this.props.fetchPlaylists();
+        }
+    }
     
     render() {
         if (Object.entries(this.props.playlists).length === 0) return null;

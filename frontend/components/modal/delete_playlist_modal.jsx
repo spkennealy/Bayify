@@ -18,8 +18,11 @@ class NewPlaylistModal extends React.Component {
 
     handleDeletion(e) {
         e.stopPropagation();
+        e.preventDefault();
         this.props.deletePlaylist(this.props.playlistId);
         this.props.closeModal();
+        // TODO: fix pushing to history
+        // this.props.history.push("/colleciton/playlists");
     }
 
     render() {
@@ -59,7 +62,7 @@ class NewPlaylistModal extends React.Component {
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     return ({
         currentUser: state.entities.users[state.session.id],
         modal: state.ui.modal

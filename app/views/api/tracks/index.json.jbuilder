@@ -7,7 +7,7 @@
     end 
 
     json.artists do
-        json.set! track.album.artist.id do
+        json.set! track.album.artist_id do
             json.extract! track.album.artist, :id, :name
         end
     end

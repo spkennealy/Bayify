@@ -13,7 +13,8 @@ const artistsReducer = (state = {}, action) => {
             return action.artists;
         case RECEIVE_ARTIST:
             newState = merge({}, state);
-            newState[action.artist.id] = action.artist;
+            let artist = Object.values(action.artist)[0];
+            newState[artist.id] = artist;
             return newState;
         default:
             return state;

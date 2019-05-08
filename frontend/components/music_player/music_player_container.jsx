@@ -5,16 +5,18 @@ import {
 import { connect } from 'react-redux';
 import MusicPlayer from './music_player';
 
-const mapStateToProps = state => ({
-    currentUser: state.entities.users[state.session.id]
-    // TODO: add more props
-    // currentTrack: state.entities.tracks[state.ui.currentTrackId]
+const mapStateToProps = ({ entities, ui, session }) => ({
+    currentUser: entities.users[session.id],
+    currentTrack: entities.tracks[ui.musicPlayer.currentTrackId],
+    playing: ui.musicPlayer.playing,
+    queue: ui.musicPlayer.queue,
+    repeat: ui.musicPlayer.repeat,
+    shuffle: ui.musicPlayer.shuffle
 });
 
 const mapDisptachToProps = dispatch => ({
-    play: () => dispatch(play()),
+    play: (id) => dispatch(play(id)),
     pause: () => dispatch(pause()),
-    setCurrentTrack: id => dispatch(setCurrentTrack(id)),
     nextTrack: () => dispatch(nextTrack()),
     previousTrack: () => dispatch(previousTrack()),
     toggleShuffle: () => dispatch(toggleShuffle()),

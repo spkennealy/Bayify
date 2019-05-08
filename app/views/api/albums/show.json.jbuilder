@@ -6,9 +6,10 @@ json.albums do
 end
 
 json.artists do 
-    json.set! @album.artist.id do
+    json.set! @album.artist_id do
         json.extract! @album.artist, :id, :name
     end
+    # debugger
 end
 
 json.tracks do 

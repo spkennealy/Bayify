@@ -10,7 +10,8 @@ const defaultState = {
     playing: false,
     shuffle: false,
     repeat: false,
-    queue: []
+    queue: [],
+
 };
 
 const musicPlayerReducer = (state = defaultState, action) => {
@@ -20,24 +21,23 @@ const musicPlayerReducer = (state = defaultState, action) => {
     switch (action.type) {
         case PLAY_TRACK:
             newState = merge({}, state);
-            if (newState.currentTrackId) newState.playing = true;
+            newState.currentTrackId = action.trackId;
+            newState.playing = true;
             return newState;
-
         case PAUSE_TRACK: 
             newState = merge({}, state);
             newState.playing = false;
             return newState;
-
-        case SET_CURRENT_TRACK: 
-            newState = merge({}, state);
-            newState.currentTrackId = action.trackId;
-            return newState;
-
         // case NEXT_TRACK: 
-
         // case PREVIOUS_TRACK: 
         // case TOGGLE_SHUFFLE: 
-        // case TOGGLE_REPEAT: 
+        //     newState = merge({}, state);
+        //     newState.shuffle = !state.shuffle;
+        //     return newState;
+        case TOGGLE_REPEAT: 
+            newState = merge({}, state);
+            newState.repeat = !newState.repeat;
+            return newState;
         // case SAVE_TRACK: 
         // case UNSAVE_TRACK: 
         default: 

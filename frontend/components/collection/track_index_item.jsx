@@ -13,6 +13,7 @@ export default class TrackIndexItem extends React.Component {
         this.revealDropdown = this.revealDropdown.bind(this);
         this.hideDropdown = this.hideDropdown.bind(this);
         this.trackTime = this.trackTime.bind(this);
+        this.handlePlay = this.handlePlay.bind(this);
     }
 
     revealDropdown(e) {
@@ -42,6 +43,10 @@ export default class TrackIndexItem extends React.Component {
         this.props.fetchArtists();
     }
 
+    handlePlay(trackId) {
+        this.props.play(trackId);
+    }
+
     render() {
         if (!this.props.artists || this.props.artists === undefined || Object.entries(this.props.artists).length === 0) return null;
         if (!this.props.albums || this.props.albums === undefined || Object.entries(this.props.albums).length === 0) return null;
@@ -59,7 +64,8 @@ export default class TrackIndexItem extends React.Component {
             <>
                 <div 
                     className="track-item-container"
-                    to={`/tracks/${track.id}`}>
+                    to={`/tracks/${track.id}`}
+                    onDoubleClick={() => this.handlePlay(track.id)}>
                     <h2>{track.title}</h2>
                     <div className="track-info-links">
                     <Link
@@ -94,12 +100,8 @@ export default class TrackIndexItem extends React.Component {
                                 </li>
                                 <li>
                                     <button
-                                    onClick={() => this.props.removePlaylistTrack({
-                                        playlist_track: {
-                                            track_id: track.id,
-                                            playlist_id: this.props.playlistId
-                                        }
-                                    })}>
+                                        // onClick={() => this.props.removePlaylistTrack()}
+                                        >
                                         Remove from Playlist
                                     </button>
                                 </li>
