@@ -9,6 +9,7 @@
     json.artists do
         json.set! album.artist_id do
             json.extract! album.artist, :id, :name
+            # json.artistPhoto url_for(artist.artist_photo)
         end
     end
 end

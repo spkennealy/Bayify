@@ -95,7 +95,6 @@ export default class PlaylistShow extends React.Component {
                                     className="track-list-item">
                                     <TrackIndexItemContainer
                                         track={track}
-                                        // playlistTrackId={this.props.playlist.playlist_track_ids[trackId]}
                                         openModal={this.props.openModal}/>
                                 </li>
                             );

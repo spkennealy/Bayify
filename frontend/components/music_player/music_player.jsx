@@ -1,12 +1,11 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+// import { NavLink, Link } from 'react-router-dom';
 
 export default class MusicPlayer extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            currentTrack: null,
             volume: 1,
             trackLength: 0,
             runTime: 0,
@@ -16,38 +15,33 @@ export default class MusicPlayer extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         // debugger
-        if ((prevProps.currentTrack !== this.props.currentTrack) && prevProps.playing === false) {
+        if (
+                ((prevProps.currentTrack === undefined) ||
+                (this.props.currentTrack !== undefined)) ||
+                (prevProps.currentTrack.id !== this.props.currentTrack.id)
+
+            ) {
             let track = this.props.currentTrack;
 
             if (track) {
                 this.audioPlayer.src = track.trackUrl;
-                this.setState({
-                    currentTrack: track
-                });
                 this.audioPlayer.play();
             }
-        // } else if (this.props.playing === false) {
-        //     this.audioPlayer.pause();
-        //     this.setState({
-        //         currentTrack: null,
-        //         trackLength: 0,
-        //         runTime: 0
-        //     });
-        }
+        } 
     }
 
-    componentDidMount() {
-        this.audioPlayer.addEventListener("timeupdate", e => {
-            this.setState({
-                runTime: e.target.runTime,
-                trackLength: e.target.trackLength
-            });
-        });
-    }
+    // componentDidMount() {
+    //     this.audioPlayer.addEventListener("timeupdate", e => {
+    //         this.setState({
+    //             runTime: e.target.runTime,
+    //             trackLength: e.target.trackLength
+    //         });
+    //     });
+    // }
     
-    componentWillUnmount() {
-        this.audioPlayer.removeEventListener("timeupdate", () => {});
-    }
+    // componentWillUnmount() {
+    //     this.audioPlayer.removeEventListener("timeupdate", () => {});
+    // }
 
     trackTime(time) {
         const min = Math.floor(time / 60);

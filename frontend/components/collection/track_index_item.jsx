@@ -43,8 +43,8 @@ export default class TrackIndexItem extends React.Component {
         this.props.fetchArtists();
     }
 
-    handlePlay(trackId) {
-        this.props.play(trackId);
+    handlePlay(track) {
+        this.props.play(track);
     }
 
     render() {
@@ -65,7 +65,7 @@ export default class TrackIndexItem extends React.Component {
                 <div 
                     className="track-item-container"
                     to={`/tracks/${track.id}`}
-                    onDoubleClick={() => this.handlePlay(track.id)}>
+                    onDoubleClick={() => this.handlePlay(track)}>
                     <h2>{track.title}</h2>
                     <div className="track-info-links">
                     <Link

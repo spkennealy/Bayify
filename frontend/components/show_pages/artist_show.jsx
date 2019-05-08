@@ -64,7 +64,7 @@ export default class ArtistShow extends React.Component {
                         {albums.map((album) => {
                             return (
                                 <li key={album.id}
-                                    className="album-list-item ">
+                                    className="album-list-item">
                                     <Link to={`/albums/${album.id}`}>
                                         <img src={album.albumPhoto} alt={`${album.title} photo`} />
                                         <h2 id="album-show-title">{album.title}</h2>

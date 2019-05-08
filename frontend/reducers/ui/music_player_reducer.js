@@ -6,7 +6,7 @@ import {
 import merge from 'lodash/merge';
 
 const defaultState = {
-    currentTrackId: null,
+    currentTrack: null,
     playing: false,
     shuffle: false,
     repeat: false,
@@ -21,7 +21,7 @@ const musicPlayerReducer = (state = defaultState, action) => {
     switch (action.type) {
         case PLAY_TRACK:
             newState = merge({}, state);
-            newState.currentTrackId = action.trackId;
+            newState.currentTrack = action.track;
             newState.playing = true;
             return newState;
         case PAUSE_TRACK: 

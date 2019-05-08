@@ -10,9 +10,9 @@ export const UNSAVE_TRACK = 'UNSAVE_TRACK';
 export const QUEUE = 'QUEUE';
 // --------------------------
 
-export const play = (trackId) => ({
+export const play = (track) => ({
     type: PLAY_TRACK,
-    trackId
+    track
 });
 
 export const pause = () => ({

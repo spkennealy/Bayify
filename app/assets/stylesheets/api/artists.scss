@@ -64,3 +64,15 @@
 .artist-name {
     margin-bottom: 20px;
 }
+
+.artists-albums-show-container h2 {
+    font-size: 36px;
+    line-height: 44px;
+    letter-spacing: -.005em;
+    text-transform: none;
+    margin: 24px 0;
+    color: $text;
+    font-family: $main-font;
+    font-weight: bolder;
+    margin-left: 24px;
+}
