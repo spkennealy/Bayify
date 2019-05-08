@@ -7,6 +7,7 @@ import { ProtectedRoute } from '../../util/route_util';
 import CollectionContainer from '../collection/collection_container';
 import PlaylistShowContainer from '../show_pages/playlist_show_container';
 import AlbumShowContainer from '../show_pages/album_show_container';
+import ArtistShowContainer from '../show_pages/artist_show_container';
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -19,7 +20,7 @@ export default class Home extends React.Component {
         // TODO: remove push to collection/playlists and switch it to browse/featured.
         // this.props.history.push("/browse/featured");
         // this.props.history.push("/collection/playlists");
-        this.props.history.push("/playlists/1");
+        this.props.history.push("/artists/1");
     }
 
     render() {
@@ -34,6 +35,7 @@ export default class Home extends React.Component {
 
                     <section className="main-content-container">
                         <ProtectedRoute exact path="/albums/:albumId" component={AlbumShowContainer}/>
+                        <ProtectedRoute exact path="/artists/:artistId" component={ArtistShowContainer}/>
                         <ProtectedRoute exact path="/playlists/:playlistId" component={PlaylistShowContainer}/>
                         <ProtectedRoute exact path="/browse/:section" component={BrowseContainer}/>
                         <ProtectedRoute exact path="/collection/:section" component={CollectionContainer}/>

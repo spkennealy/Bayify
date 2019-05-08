@@ -9,7 +9,6 @@ const albumsReducer = (state = {}, action) => {
     let newState;
     let album;
 
-    // debugger;
     switch (action.type) {
         case RECEIVE_ALBUMS:
             return action.albums;

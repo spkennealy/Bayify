@@ -10,7 +10,6 @@ const usersReducer = (state = {}, action) => {
         case RECEIVE_CURRENT_USER:
             return merge({}, state, { [action.user.id]: action.user });
         case RECEIVE_PLAYLIST_CURATOR:
-            // debugger
             user = Object.values(action.user)[0];
             return merge({}, state, { [user.id]: user });
         default:

@@ -60,7 +60,6 @@ class NewPlaylistModal extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    // debugger;
     return ({
         currentUser: state.entities.users[state.session.id],
         modal: state.ui.modal

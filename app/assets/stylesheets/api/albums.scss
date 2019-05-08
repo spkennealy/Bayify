@@ -46,7 +46,27 @@
 }
 
 .album-info-container {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    margin: 0 20px;
+}
+
+.album-info-container a h2 {
+    font-size: 28px;
+    line-height: 36px;
+    text-transform: none;
+    padding: 5px;
+    align-content: center;
+}
+
+#album-show-title {
+    width: 100%
+}
+
+.album-info-container a h3 {
+    padding-bottom: 15px;
 }
 
 .album-info-container a img {

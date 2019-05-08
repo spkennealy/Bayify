@@ -47,7 +47,6 @@ export default class PlaylistShow extends React.Component {
             return null;
         }
 
-        // debugger;
         return (
             <div className="playlist-show-container">
                 <aside className="playlist-info-container">
@@ -90,7 +89,6 @@ export default class PlaylistShow extends React.Component {
                     <ul className="playlist-tracks-show ">
                         {this.props.playlist.track_ids.map((trackId) => {
                             const track = this.props.tracks[trackId];
-                            // console.log(track);
                             return (
                                 <li key={trackId}
                                     className="track-list-item">

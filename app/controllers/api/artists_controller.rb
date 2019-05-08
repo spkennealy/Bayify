@@ -1,7 +1,8 @@
 class Api::ArtistsController < ApplicationController
 
     def index
-        @artists = current_user.followed_artists
+        @artists = Artist.all
+        # @artists = current_user.followed_artists
         render :index
     end
 

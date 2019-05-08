@@ -40,6 +40,13 @@ ActiveRecord::Base.transaction do
     e_40.artist_photo.attach(io: e_40_photo, filename: 'e_40_artist_photo')
     e_40.background_photo.attach(io: e_40_background_photo, filename: 'e_40_background_photo')
 
+    # --------------- Andre Nickatina ---------------
+    nickatina = Artist.create!(name: "Andre Nickatina")
+    nickatina_profile = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/artist_photos/andre_nickatina_profile.jpeg')
+    nickatina_background = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/artist_photos/andre_nickatina_background_photo.jpeg')
+    nickatina.artist_photo.attach(io: nickatina_profile, filename: 'e_40_artist_photo')
+    nickatina.background_photo.attach(io: nickatina_background, filename: 'nickatina_background')
+
     # too_short = Artist.create!(name: "Too $hort")
     # metallica = Artist.create!(name: "Metallica")
     # green_day = Artist.create!(name: "Green Day")
@@ -80,6 +87,26 @@ ActiveRecord::Base.transaction do
     )
     my_ghetto_report_card_photo = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/album_photos/my_ghetto_report_card.jpeg')
     my_ghetto_report_card.album_photo.attach(io: my_ghetto_report_card_photo, filename: 'my_ghetto_report_card_photo')
+    
+    # --------------- HELL'S KITCHEN :: ANDRE NICKATINA ---------------
+    hells_kitchen = Album.create!(
+        artist_id: nickatina.id, 
+        title: "Hell's Kitchen", 
+        year: 2002, 
+        genre: "Hip-hop"
+    )
+    hells_kitchen_photo = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/album_photos/nickatina-hells_kitchen.jpeg')
+    hells_kitchen.album_photo.attach(io: hells_kitchen_photo, filename: 'hells_kitchen_photo')
+    
+    # --------------- MIDNIGHT MACHINE GUN.. :: ANDRE NICKATINA ---------------
+    midnight_machine_gun = Album.create!(
+        artist_id: e_40.id, 
+        title: "Midnight Machine Gun Rhymes and Alibis", 
+        year: 2002, 
+        genre: "Hip-hop"
+    )
+    midnight_machine_gun_photo = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/album_photos/nicatina-midnight_machine_gun.jpeg')
+    midnight_machine_gun.album_photo.attach(io: midnight_machine_gun_photo, filename: 'midnight_machine_gun_photo')
 
     # ------------------------------------------------------------------------- #
     # ------------------------------ TRACKS ----------------------------------- #
@@ -103,7 +130,7 @@ ActiveRecord::Base.transaction do
     tell_me_when_to_go_track = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/tracks/Tell+Me+When+To+Go.mp3')
     tell_me_when_to_go.track.attach(io: tell_me_when_to_go_track, filename: "Tell_Me_When_To_Go")   
     
-    # --------------- RONALD DREGAN: DREAGANOMICS :: MAC DRE ---------------
+    # --------------- RONALD DREGAN: DREAGANOMICS TRACKS :: MAC DRE ---------------
     feelin_myself = Track.create!(
         album_id: ronald_dregan.id,
         title: "Feelin Myself",
@@ -111,6 +138,40 @@ ActiveRecord::Base.transaction do
     )
     feelin_myself_track = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/tracks/Feelin_Myself.mp3')
     feelin_myself.track.attach(io: feelin_myself_track, filename: "Feelin_Myself")
+    
+    # --------------- HELL'S KITCHEN TRACKS :: ANDRE NICKATINA ---------------
+    ayo = Track.create!(
+        album_id: hells_kitchen.id,
+        title: "Ayo",
+        track_length: 207
+    )
+    ayo_track = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/tracks/01+Ayo.m4a')
+    ayo.track.attach(io: ayo_track, filename: "Ayo")
+
+    all_star_chuck_taylors = Track.create!(
+        album_id: hells_kitchen.id,
+        title: "All Star Chuck Taylors",
+        track_length: 222
+    )
+    all_star_chuck_taylors_track = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/tracks/05+All+Star+Chuck+Taylors.m4a')
+    all_star_chuck_taylors.track.attach(io: all_star_chuck_taylors_track, filename: "All Star Chuck Taylors")
+    
+    # --------------- Midnight Machine Gun Rhymes and Alibis :: ANDRE NICKATINA ---------------
+    fa_show = Track.create!(
+        album_id: midnight_machine_gun.id,
+        title: "Fa Show",
+        track_length: 211
+    )
+    fa_show_track = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/tracks/01+Fa+Show.mp3')
+    fa_show.track.attach(io: fa_show_track, filename: "Fa_Show")
+
+    jungle = Track.create!(
+        album_id: midnight_machine_gun.id,
+        title: "Jungle",
+        track_length: 285
+    )
+    jungle_track = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/tracks/01+Jungle.mp3')
+    jungle.track.attach(io: jungle_track, filename: "Jungle")
 
     # ------------------------------------------------------------------------- #
     # ---------------------------- PLAYLISTS ---------------------------------- #

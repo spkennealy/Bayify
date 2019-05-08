@@ -35,8 +35,6 @@ const Modal = (props) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(ownProps);
-    // debugger;
     return ({
         currentUser: state.entities.users[state.session.id],
         modal: state.ui.modal,

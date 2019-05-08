@@ -7,7 +7,6 @@ import { fetchArtists } from '../../actions/artist_actions';
 import { removePlaylistTrack } from '../../actions/playlist_track_actions';
 
 const mapStateToProps = ({ entities, session }, ownProps) => {
-    // debugger;
     return ({
         currentUser: entities.users[session.id],
         albums: entities.albums,

@@ -1,8 +1,8 @@
 import React from 'react';
 import TrackIndexItemContainer from '../collection/track_index_item_container';
-import AlbumsIndexItem from '../collection/album_index_item';
+import { Link } from 'react-router-dom';
 
-export default class AlbumShow extends React.Component {
+export default class ArtistShow extends React.Component {
     constructor(props) {
         super(props);
 
@@ -38,35 +38,39 @@ export default class AlbumShow extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchAlbum(this.props.match.params.albumId);
+        this.props.fetchArtist(this.props.match.params.artistId);
     }
 
     render() {
-        if (!this.props.album || this.props.album === undefined || Object.entries(this.props.album).length === 0) return null;
+        if (!this.props.artist || this.props.artist === undefined || Object.entries(this.props.artist).length === 0) return null;
+        if (!this.props.albums || this.props.albums === undefined || Object.entries(this.props.albums).length === 0) return null;
         if (!this.props.tracks || this.props.tracks === undefined || Object.entries(this.props.tracks).length === 0) return null;
 
+        const albums = Object.values(this.props.albums);
+        
         return (
-            <div className="playlist-show-container">
-                <aside className="album-info-container">
-                    <AlbumsIndexItem
-                        album={this.props.album}
-                        artists={this.props.artists} />
-
+            <div className="artist-show-container">
+                <header className="artist-info-container">
+                    <h1 className="artist-name"
+                        >{this.props.artist.name}</h1>
                     <button className="green-button" id="play-button">
                         PLAY
                     </button>
-                </aside>
+                </header>
 
-                <div className="playlist-tracks-show-container">
-                    <ul className="playlist-tracks-show">
-                        {this.props.album.track_ids.map((trackId) => {
-                            const track = this.props.tracks[trackId];
+                <div className="artists-albums-show-container">
+                    <h2>Albums</h2>
+                    <ul className="artists-albums-show">
+                        {albums.map((album) => {
                             return (
-                                <li key={trackId}
-                                    className="track-list-item ">
-                                    <TrackIndexItemContainer
-                                        track={track}
-                                        openModal={this.props.openModal} />
+                                <li key={album.id}
+                                    className="album-list-item ">
+                                    <Link to={`/albums/${album.id}`}>
+                                        <img src={album.albumPhoto} alt={`${album.title} photo`} />
+                                        <h2 id="album-show-title">{album.title}</h2>
+                                    </Link>
+
+                                    <h3>{this.props.artist.name}</h3>
                                 </li>
                             );
                         })}

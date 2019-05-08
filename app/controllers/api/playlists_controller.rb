@@ -1,8 +1,9 @@
 class Api::PlaylistsController < ApplicationController
 
     def index 
-        @playlists = current_user.followed_playlists
-        @playlists += current_user.curated_playlists
+        @playlists = Playlist.all
+        # @playlists = current_user.followed_playlists
+        # @playlists += current_user.curated_playlists
         render :index
     end
 

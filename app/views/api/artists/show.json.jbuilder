@@ -9,7 +9,7 @@ end
 json.albums do 
     @artist.albums.each do |album|
         json.set! album.id do
-            json.extract! album, :id, :title
+            json.extract! album, :id, :title, :artist_id, :year, :genre
             json.albumPhoto url_for(album.album_photo)
         end
     end
@@ -19,7 +19,7 @@ json.tracks do
     @artist.albums.each do |album|
         album.tracks.each do |track|
             json.set! track.id do
-                json.extract! track, :id, :title, :track_length
+                json.extract! track, :id, :title, :track_length, :album_id
                 json.trackUrl url_for(track.track)
             end
         end
