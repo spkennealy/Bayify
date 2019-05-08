@@ -37,11 +37,22 @@ export default class TrackIndexItem extends React.Component {
         );
     }
 
-    render() {
-        const track = this.props.track;
-        const album = this.props.albums[this.props.track.album_id];
-        const artist = this.props.artists[album.artist_id];
+    componentDidMount() {
+        this.props.fetchAlbums();
+        this.props.fetchArtists();
+    }
 
+    render() {
+        // console.log(this.props);
+        if (!this.props.artists) return null;
+        if (!this.props.albums) return null;
+        if (!this.props.track) return null;
+        
+        const track = this.props.track;
+        const album = this.props.albums[track.album_id];
+        const artist = this.props.artists[album.artist_id];
+        // debugger;
+        
         return (
             <>
                 <div 

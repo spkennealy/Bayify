@@ -12,7 +12,8 @@ export default class PlaylistsIndex extends React.Component {
     }
     
     render() {
-        if (!this.props.playlists) return null;
+        // debugger;
+        if (Object.entries(this.props.playlists).length === 0) return null;
         const playlists = Object.values(this.props.playlists);
 
         return (

@@ -4,7 +4,7 @@ import { addPlaylistTrack } from '../../actions/playlist_track_actions';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(ownProps);
+    // console.log(ownProps);
     return {
         currentUser: state.entities.users[state.session.id],
         trackId: ownProps.trackId

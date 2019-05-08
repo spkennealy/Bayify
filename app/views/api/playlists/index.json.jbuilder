@@ -1,5 +1,5 @@
 @playlists.each do |playlist|
-    json.playlist do 
+    json.playlists do 
         json.set! playlist.id do
             json.extract! playlist, :id, :title, :curator_id, :track_ids
             if playlist.playlist_photo.attached?
@@ -10,7 +10,7 @@
         end
     end
 
-    json.user do 
+    json.users do 
         json.set! playlist.curator.id do
             json.extract! playlist.curator, :id, :username
         end

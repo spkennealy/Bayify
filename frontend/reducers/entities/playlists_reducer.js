@@ -12,6 +12,7 @@ import { merge, remove } from 'lodash';
 const playlistsReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState;
+    // debugger;
 
     switch (action.type) {
         case RECEIVE_PLAYLISTS:

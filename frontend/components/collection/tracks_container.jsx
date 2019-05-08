@@ -8,7 +8,6 @@ const mapStateToProps = state => ({
     tracks: state.entities.tracks
 });
 
-
 const mapDisptachToProps = dispatch => ({
     fetchTracks: () => dispatch(fetchTracks()),
     openModal: (modal) => dispatch(openModal(modal))

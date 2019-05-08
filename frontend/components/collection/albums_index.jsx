@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import AlbumIndexItem from './album_index_item';
 
 export default class AlbumsIndex extends React.Component {
     constructor(props) {
@@ -11,7 +11,9 @@ export default class AlbumsIndex extends React.Component {
     }
 
     render() {
-        if (!this.props.albums) return null;
+        if (Object.entries(this.props.albums).length === 0) return <div></div>;
+        if (Object.entries(this.props.artists).length === 0) return <div></div>;
+        
         const albums = Object.values(this.props.albums);
 
         return (
@@ -20,7 +22,8 @@ export default class AlbumsIndex extends React.Component {
                     {albums.map(album => (
                         <li key={album.id}>
                             <AlbumIndexItem
-                                album={album} />
+                                album={album} 
+                                artists={this.props.artists}/>
                         </li>
                     ))}
                 </ul>
@@ -29,18 +32,3 @@ export default class AlbumsIndex extends React.Component {
     }
 }
 
-const AlbumIndexItem = (props) => {
-    return (
-        <>
-            <Link to={`/albums/${props.album.id}`}>
-                <img src={props.album.albumPhoto} alt={`${props.album.title} photo`} />
-                <h2>{props.album.title}</h2>
-            </Link>
-
-            <Link to={`/artist/${props.album.artist.id}`}>
-                <h3>{props.album.artist.name}</h3>
-            </Link>
-
-        </>
-    )
-};

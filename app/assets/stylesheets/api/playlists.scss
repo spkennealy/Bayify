@@ -10,7 +10,7 @@
 
 .playlist-index li {
     display: block;
-    padding: 0 8px;
+    padding: 17px 8px;
 }
 
 .playlist-index li img {
@@ -80,9 +80,10 @@
 }
 
 .playlist-show-container {
+    display: grid;
     float: left;
-    width: 25%;
-    color: #E9E9E9
+    width: 100%;
+    color: #E9E9E9;
 }
 
 .playlist-info-container {

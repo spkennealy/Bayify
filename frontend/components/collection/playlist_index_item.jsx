@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 import { fetchPlaylist } from '../../actions/playlist_actions';
 
 const PlaylistIndexItem = (props) => {
-    console.log(props);
+    // debugger;
+    // console.log(props);
+    if (!props.users || !props.curatorId) return null;
+
     return (
         <>
             <Link

@@ -1,6 +1,8 @@
 import * as APIUtils from '../util/playlist_utils';
 import { receiveCurrentUser } from './session_actions';
 import { receiveTracks } from './track_actions';
+import { receiveAlbums } from './album_actions';
+import { receiveArtists } from './artist_actions';
 
 export const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';
 export const RECEIVE_PLAYLIST = 'RECEIVE_PLAYLIST';
@@ -35,8 +37,8 @@ export const receiveErrors = (errors) => ({
 
 export const fetchPlaylists = () => dispatch => {
     APIUtils.fetchPlaylists().then(res => {
-        dispatch(receivePlaylists(res.playlist));
-        dispatch(receivePlaylistCurator(res.user));
+        dispatch(receivePlaylists(res.playlists));
+        dispatch(receivePlaylistCurator(res.users));
     }, error => (
         dispatch(receiveErrors(error.responseJSON))
     ));
@@ -44,18 +46,21 @@ export const fetchPlaylists = () => dispatch => {
 
 export const fetchPlaylist = (id) => dispatch => {
     APIUtils.fetchPlaylist(id).then(res => {
-        dispatch(receivePlaylist(res.playlist));
-        dispatch(receivePlaylistCurator(res.user));
+        dispatch(receivePlaylist(res.playlists));
+        dispatch(receivePlaylistCurator(res.users));
+        dispatch(receiveAlbums(res.albums));
         dispatch(receiveTracks(res.tracks));
+        dispatch(receiveArtists(res.artists));
     }, error => (
         dispatch(receiveErrors(error.responseJSON))
     ));
 };
 
 export const createPlaylist = (playlist) => dispatch => {
-    APIUtils.createPlaylist(playlist).then(playlist => (
-        dispatch(receivePlaylist(playlist))
-    ), error => (
+    APIUtils.createPlaylist(playlist).then(res => {
+        dispatch(receivePlaylist(res.playlists)); 
+        dispatch(receivePlaylistCurator(res.users)); 
+    }, error => (
         dispatch(receiveErrors(error.responseJSON))
     ));
 };

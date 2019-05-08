@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import TrackIndexItem from './track_index_item';
+import TrackIndexItemContainer from './track_index_item_container';
 
 export default class TracksIndex extends React.Component {
     constructor(props) {
@@ -22,7 +22,7 @@ export default class TracksIndex extends React.Component {
                         <li 
                             className="track-list-item"
                             key={track.id}>
-                            <TrackIndexItem
+                            <TrackIndexItemContainer
                                 track={track} 
                                 openModal={this.props.openModal}/>
                         </li>

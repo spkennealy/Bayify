@@ -14,7 +14,7 @@
     
     json.albums do 
         json.set! track.album.id do
-            json.extract! json.album track.album, :id, :title
+            json.extract! track.album, :id, :title, :artist_id
         end
     end
 end

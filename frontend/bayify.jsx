@@ -6,7 +6,7 @@ import Root from './components/root';
 // TEST IMPORTS
 import { signup, login, logout } from './util/session_api_utils';
 import { fetchArtist } from './util/artist_utils';
-import { fetchPlaylists, fetchPlaylist, createPlaylist } from './util/playlist_utils';
+import { fetchPlaylists, fetchPlaylist } from './actions/playlist_actions';
 import { addPlaylistTrack, removePlaylistTrack } from './actions/playlist_track_actions';
 // import { receivePlaylistTrack, deletePlaylistTrack } from './actions/playlist_track_actions';
 // END
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.fetchArtist = fetchArtist;
     window.fetchPlaylists = fetchPlaylists;
     window.fetchPlaylist = fetchPlaylist;
-    window.createPlaylist = createPlaylist;
+    // window.createPlaylist = createPlaylist;
     window.addPlaylistTrack = addPlaylistTrack;
     window.removePlaylistTrack = removePlaylistTrack;
     // window.receivePlaylistTrack = receivePlaylistTrack;
