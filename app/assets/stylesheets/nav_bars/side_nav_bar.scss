@@ -75,16 +75,15 @@
     font-size: 12px;
     letter-spacing: .16em;
     padding-left: 24px;
+    padding-bottom: 10px;
 }
 
 .home-nav-recent-container ul {
     box-sizing: border-box;
-    padding-left: 24px;
 }
 
 .recently-played-ul a {
     height: 45px;
-    padding: 10px 0;
     display: block
 }
 
@@ -108,4 +107,14 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.recently-played-link {
+    padding-left: 24px;
+}
+
+.recently-played-link-active {
+    color: #FFFFFF; 
+    box-shadow: 4px 0 0 #1ed760 inset;
+    transition: 0.5s;
 }

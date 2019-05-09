@@ -51,12 +51,16 @@ export default class ArtistShow extends React.Component {
         return (
             <div className="artist-show-container">
                 <header className="artist-info-container">
+                    <img className="artist-show-background-photo"
+                        src={this.props.artist.backgroundPhoto}/>
                     <h1 className="artist-name"
                         >{this.props.artist.name}</h1>
                     <button className="green-button" id="play-button">
                         PLAY
                     </button>
                 </header>
+
+                <div className="separator"></div>
 
                 <div className="artists-albums-show-container">
                     <h2>Albums</h2>
@@ -67,10 +71,10 @@ export default class ArtistShow extends React.Component {
                                     className="album-list-item">
                                     <Link to={`/albums/${album.id}`}>
                                         <img src={album.albumPhoto} alt={`${album.title} photo`} />
-                                        <h2 id="album-show-title">{album.title}</h2>
+                                        <h3 id="album-show-title">{album.title}</h3>
                                     </Link>
 
-                                    <h3>{this.props.artist.name}</h3>
+                                    <h4>{this.props.artist.name}</h4>
                                 </li>
                             );
                         })}

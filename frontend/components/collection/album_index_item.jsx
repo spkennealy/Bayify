@@ -7,6 +7,8 @@ const AlbumIndexItem = (props) => {
     
     const artist = props.artists[props.album.artist_id];
 
+    if (artist === undefined) return null;
+
     return (
         <>
             <Link to={`/albums/${props.album.id}`}>

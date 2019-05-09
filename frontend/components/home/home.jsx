@@ -13,22 +13,94 @@ export default class Home extends React.Component {
     constructor(props) {
         super(props);
     }
- 
+
+    randomRGB() {
+        const num1 = Math.floor(Math.random() * 200) + 1;
+        const num2 = Math.floor(Math.random() * 200) + 1;
+        const num3 = Math.floor(Math.random() * 200) + 1;
+
+        return `${num1}, ${num2}, ${num3}`;
+    }
+
+    selectBackgrounColor(path) {
+        // debugger
+        let backgroundStyle;
+
+        switch(path) {
+            case "/browse/featured":
+                backgroundStyle = {
+                    backgroundImage: "linear-gradient(to right bottom, rgb(47, 64, 106), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)"
+                };
+                return (<div className="home-background-color" style={backgroundStyle}></div>);
+            case "/browse/charts":
+                backgroundStyle = {
+                    backgroundImage: "linear-gradient(to right bottom, rgb(137, 16, 42), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)"
+                };
+                return (<div className="home-background-color" style={backgroundStyle}></div>);
+            case "/browse/genres":
+                backgroundStyle = {
+                    backgroundImage: "linear-gradient(to right bottom, rgb(39, 37, 39), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)"
+                };
+                return (<div className="home-background-color" style={backgroundStyle}></div>);
+            case "/browse/newreleases":
+                backgroundStyle = {
+                    backgroundImage: "linear-gradient(to right bottom, rgb(54, 81, 99), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)"
+                };
+                return (<div className="home-background-color" style={backgroundStyle}></div>);
+            case "/collection/playlists":
+                backgroundStyle = {
+                    backgroundImage: "linear-gradient(to right bottom, rgb(21, 32, 38), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)"
+                };
+                return (<div className="home-background-color" style={backgroundStyle}></div>);
+            case "/collection/tracks":
+                backgroundStyle = {
+                    backgroundImage: "linear-gradient(to right bottom, rgb(30, 50, 100), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)"
+                };
+                return (<div className="home-background-color" style={backgroundStyle}></div>);
+            case "/collection/albums":
+                backgroundStyle = {
+                    backgroundImage: "linear-gradient(to right bottom, rgb(149, 111, 4), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)"
+                };
+                return (<div className="home-background-color" style={backgroundStyle}></div>);
+            case `/collection/artists`:
+                backgroundStyle = {
+                    backgroundImage: `linear-gradient(to right bottom, rgb(30, 41, 49), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)`
+                };
+                return (<div className="home-background-color" style={backgroundStyle}></div>);
+            case "/search/recent":
+                backgroundStyle = {
+                    backgroundImage: "linear-gradient(to right bottom, rgb(18, 18, 18), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)"
+                };
+                return (<div className="home-background-color" style={backgroundStyle}></div>);
+            case "/albums/":
+                backgroundStyle = {
+                    backgroundImage: `linear-gradient(to right bottom, rgb(${this.randomRGB()}), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)`
+                };
+                return (<div className="home-background-color" style={backgroundStyle}></div>);
+            default:
+                backgroundStyle = {
+                    background: "black"
+                };
+                return (<div className="home-background-color" style={backgroundStyle}></div>);
+        }
+    }
+
     componentDidMount() {
         // Added so that upon visiting the home page, the browse component link 
         // is rendered first and the css highlighting is rendered to the home link.
         // TODO: remove push to collection/playlists and switch it to browse/featured.
         // this.props.history.push("/browse/featured");
-        this.props.history.push("/collection/playlists");
-        // this.props.history.push("/artists/1");
+        // this.props.history.push("/collection/playlists");
+        this.props.history.push("/artists/3");
     }
 
     render() {
         return this.props.currentUser ? (
             <main className="home-body">
-                <div className="home-background-color">
-                
-                </div>
+                {/* <div className="home-background-color">
+                </div> */}
+                {this.selectBackgrounColor(this.props.location.pathname)}
+
                     <section className="side-nav-bar-container">
                         <SideNavBarContainer />
                     </section>

@@ -14,15 +14,16 @@ export default class MusicPlayer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
+       
         // debugger
         if (
                 ((prevProps.currentTrack === undefined) ||
-                (this.props.currentTrack !== undefined)) ||
-                (prevProps.currentTrack.id !== this.props.currentTrack.id)
+                (this.props.currentTrack !== undefined && !this.props.playing)) ||
+                (prevProps.currentTrack !== this.props.currentTrack)
 
             ) {
             let track = this.props.currentTrack;
-
+            
             if (track) {
                 this.audioPlayer.src = track.trackUrl;
                 this.audioPlayer.play();

@@ -81,8 +81,9 @@ export default class SideNavBar extends React.Component {
                         {/* TODO: Add path's for the links to the songs/playlists/artists */}
                     
                         <NavLink 
-                            to={`the path for the recently played item`}
-                            activeClassName="nav-link-active">
+                            to={`/artists/2`}
+                            className="recently-played-link"
+                            activeClassName="recently-played-link-active">
                             <li>
                                 <span>
                                 <h2 className="recently-played-name">Mac Dre</h2>
@@ -91,24 +92,27 @@ export default class SideNavBar extends React.Component {
                             </li>
                         </NavLink>
                         <NavLink 
-                            to={`the path for the recently played item`}
-                            activeClassName="nav-link-active">
+                            to={`/albums/3`}
+                            className="recently-played-link"
+                            activeClassName="recently-played-link-active">
                             <li>
                                 <h2 className="recently-played-name">My Ghetto Report Card</h2>
                                 <h3 className="recently-played-type">ALBUM</h3>
                             </li>
                         </NavLink>
                         <NavLink 
-                            to={`the path for the recently played item`}
-                            activeClassName="nav-link-active">
+                            to={`/artists/1`}
+                            className="recently-played-link"
+                            activeClassName="recently-played-link-active">
                             <li>
                                 <h2 className="recently-played-name">G-Eazy</h2>
                                 <h3 className="recently-played-type">ARTIST</h3>
                             </li>
                         </NavLink>
                         <NavLink 
-                            to={`the path for the recently played item`}
-                            activeClassName="nav-link-active">
+                            to={`/playlists/1`}
+                            className="recently-played-link"
+                            activeClassName="recently-played-link-active">
                             <li>
                                 <h2 className="recently-played-name">Yay Area</h2>
                                 <h3 className="recently-played-type">PLAYLIST</h3>
