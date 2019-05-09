@@ -11,6 +11,7 @@
 .album-index li {
     display: block;
     padding: 5px 8px;
+    max-width: 225px;
 }
 
 .album-index li img {
@@ -29,6 +30,7 @@
     text-overflow: ellipsis;
     text-align: center;
     font-weight: 500;
+    word-wrap: break-word;
 }
 
 .album-index h3 {
