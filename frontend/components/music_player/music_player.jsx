@@ -1,4 +1,8 @@
 import React from 'react';
+import { 
+    FaPlay, FaPauseCircle, FaStepBackward, FaStepForward, FaRandom
+} from 'react-icons/fa';
+import { MdRepeat, MdRepeatOne } from 'react-icons/md';
 // import { NavLink, Link } from 'react-router-dom';
 
 export default class MusicPlayer extends React.Component {
@@ -14,7 +18,6 @@ export default class MusicPlayer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-       
         // debugger
         if (
                 ((prevProps.currentTrack === undefined) ||
@@ -65,19 +68,37 @@ export default class MusicPlayer extends React.Component {
                 </aside>
 
                 <section className="music-player-control-container">
+
+                    <button>
+                        <FaRandom />
+                    </button>
+
+                    <button>
+                        <FaStepBackward />
+                    </button>
+
                     {this.props.playing === true ? (
                         <button onClick={this.props.pause}>
-                            PAUSE BUTTON
+                            <FaPauseCircle />
                         </button>
                     ) : (
                         <button onClick={this.props.play}>
-                            PLAY BUTTON
+                            <FaPlay />
                         </button>
                     )}
 
+                    <button>
+                        <FaStepForward />
+                    </button>
+
+                    <button>
+                        <MdRepeat />
+                    </button>
+
                 </section>
 
-                <audio controls ref={ref => (this.audioPlayer = ref)}></audio>
+                {/* controls */}
+                <audio ref={ref => (this.audioPlayer = ref)}></audio>
             </nav>
         );
     }

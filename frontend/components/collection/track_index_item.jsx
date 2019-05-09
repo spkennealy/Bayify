@@ -56,7 +56,7 @@ export default class TrackIndexItem extends React.Component {
         const album = this.props.albums[track.album_id];
         const artist = this.props.artists[album.artist_id];
 
-        if (artist["undefined"]) return null;
+        if (artist[undefined]) return null;
 
         // debugger;
 
