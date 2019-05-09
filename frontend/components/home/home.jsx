@@ -90,8 +90,8 @@ export default class Home extends React.Component {
         // is rendered first and the css highlighting is rendered to the home link.
         // TODO: remove push to collection/playlists and switch it to browse/featured.
         // this.props.history.push("/browse/featured");
-        // this.props.history.push("/collection/playlists");
-        this.props.history.push("/artists/3");
+        this.props.history.push("/collection/playlists");
+        // this.props.history.push("/artists/3");
     }
 
     render() {
