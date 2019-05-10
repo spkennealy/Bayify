@@ -5,7 +5,7 @@
             if playlist.playlist_photo.attached?
                 json.playlistPhoto url_for(playlist.playlist_photo)
             else
-                json.playlistPhoto asset_path("default_playlist_photo")
+                json.playlistPhoto image_url("default_playlist_photo.jpg")
             end
         end
     end
