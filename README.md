@@ -44,7 +44,7 @@ This adaptive modal was built by passing in a `modalType` when opening the modal
 
 With many ways to accomplish this desired outcome, I believe that this solution kept the code more readable and cleaner.
 
-![](https://s3-us-west-1.amazonaws.com/bayify-seeds/readme/create_playlist.gif)
+![](https://github.com/spkennealy/Bayify/blob/master/app/assets/images/create_playlist.gif)
 
 ### MUSIC PLAYER
 
