@@ -6,7 +6,6 @@ class Api::PlaylistTracksController < ApplicationController
         else
             render json: @playlist_track.errors.full_messages, status: 422
         end
-
     end
 
     def show 

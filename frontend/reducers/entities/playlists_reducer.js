@@ -27,8 +27,11 @@ const playlistsReducer = (state = {}, action) => {
             return newState;
         case RECEIVE_PLAYLIST_TRACK:
             newState = merge({}, state);
-            const playlistTrack = Object.values(action.playlistTrack)[0];
-            newState[playlistTrack.playlist_id].track_ids.push(action.track_id);
+            const trackId = action.track_id;
+            newState[action.playlistTrack.playlist_id].track_ids.push({
+                track_id: trackId,
+                playlist_track_id: action.playlistTrack.id
+            });
             return newState;
         case DELETE_PLAYLIST_TRACK:
             newState = merge({}, state);
