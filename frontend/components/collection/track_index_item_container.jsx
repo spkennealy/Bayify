@@ -19,6 +19,7 @@ const mapStateToProps = ({ entities, session }, ownProps) => {
         albums: entities.albums,
         artists: entities.artists,
         tracks: entities.tracks,
+        playlists: entities.playlists,
         path: path
     });
 };
@@ -27,7 +28,7 @@ const mapDisptachToProps = dispatch => ({
     fetchTracks: () => dispatch(fetchTracks()),
     fetchAlbums: () => dispatch(fetchAlbums()),
     fetchArtists: () => dispatch(fetchArtists()),
-    removePlaylistTrack: (playlistId, trackId) => dispatch(removePlaylistTrack(playlistId, trackId)),
+    removePlaylistTrack: (playlistTrackId, trackId, playlistId) => dispatch(removePlaylistTrack(playlistTrackId, trackId, playlistId)),
     openModal: (modal) => dispatch(openModal(modal)),
     play: (id) => dispatch(play(id)),
     setQueue: (queue) => dispatch(setQueue(queue))

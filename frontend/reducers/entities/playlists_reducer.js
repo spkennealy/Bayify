@@ -35,10 +35,11 @@ const playlistsReducer = (state = {}, action) => {
             return newState;
         case DELETE_PLAYLIST_TRACK:
             newState = merge({}, state);
-            let trackIds = newState[action.id].track_ids;
-            const idx = trackIds.indexOf(action.track_id);
-            trackIds = trackIds.slice(0, idx).concat(trackIds.slice(idx+1));
-            newState[action.playlist_id].track_ids = trackIds;
+            const currentPlaylist = newState[action.playlistId];
+            delete currentPlaylist.playlist_tracks[trackId];
+            const currentPlaylistTrackIds = currentPlaylist.track_ids;
+            const index = currentPlaylistTrackIds.indexOf(trackId);
+            currentPlaylistTrackIds.splice(index, 1);
             return newState;
         default:
             return state;
