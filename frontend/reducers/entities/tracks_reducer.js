@@ -1,5 +1,5 @@
 import { RECEIVE_TRACKS } from '../../actions/track_actions';
-import { DELETE_PLAYLIST_TRACK } from '../../actions/playlist_actions';
+import { DELETE_PLAYLIST_TRACK } from '../../actions/playlist_track_actions';
 import merge from 'lodash/merge';
 
 const tracksReducer = (state = {}, action) => {
