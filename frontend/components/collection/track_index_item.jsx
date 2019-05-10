@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaEllipsisH } from 'react-icons/fa';
+import { FaEllipsisH, FaPlay } from 'react-icons/fa';
+import { IoIosMusicalNote } from 'react-icons/io';
 
 export default class TrackIndexItem extends React.Component {
     constructor(props) {
@@ -38,12 +39,11 @@ export default class TrackIndexItem extends React.Component {
         );
     }
 
-    componentDidMount() {
-        this.props.fetchAlbums();
-        this.props.fetchArtists();
-    }
-
     handlePlay(track) {
+        const tracks = Object.values(this.props.tracks);
+        const selectedTrackIdx = tracks.indexOf(this.props.track);
+        const queue = tracks.slice(selectedTrackIdx + 1);
+        this.props.setQueue(queue);
         this.props.play(track);
     }
 
@@ -53,30 +53,34 @@ export default class TrackIndexItem extends React.Component {
         if (!this.props.track  || this.props.track  === undefined || Object.entries(this.props.track ).length === 0) return null;
 
         const track = this.props.track;
+        if (this.props.albums[track.album_id] === undefined) return null;
         const album = this.props.albums[track.album_id];
+        if (this.props.artists[album.artist_id] === undefined) return null;
         const artist = this.props.artists[album.artist_id];
-
-        if (artist[undefined]) return null;
-
-        // debugger;
-
+        
         return (
             <>
                 <div 
                     className="track-item-container"
                     to={`/tracks/${track.id}`}
                     onDoubleClick={() => this.handlePlay(track)}>
-                    <h2>{track.title}</h2>
-                    <div className="track-info-links">
-                    <Link
-                        to={`/artists/${artist.id}`}>
-                        {artist.name}
-                    </Link>
-                    <p>·</p>
-                    <Link
-                        to={`/albums/${album.id}`}>
-                        {album.title}
-                    </Link>
+                    <div className="track-item-icon">
+                        <IoIosMusicalNote id="musical-note-icon"/>
+                        <FaPlay id="fa-play-icon"/>
+                    </div>
+                    <div className="track-info-links-container">
+                        <h2>{track.title}</h2>
+                        <div className="track-info-links">
+                        <Link
+                            to={`/artists/${artist.id}`}>
+                            {artist.name}
+                        </Link>
+                        <p>·</p>
+                        <Link
+                            to={`/albums/${album.id}`}>
+                            {album.title}
+                        </Link>
+                        </div>
                     </div>
                 </div>
 
@@ -98,18 +102,21 @@ export default class TrackIndexItem extends React.Component {
                                         Add to Playlist
                                     </button>
                                 </li>
-                                <li>
-                                    <button
-                                        // onClick={() => this.props.removePlaylistTrack()}
-                                        >
-                                        Remove from Playlist
-                                    </button>
-                                </li>
-                                <li>
+                                {this.props.path.includes("playlist") ? (
+                                        <li>
+                                            <button
+                                                // onClick={() => this.props.removePlaylistTrack()}
+                                                >
+                                                Remove from Playlist
+                                            </button>
+                                        </li>
+                                    ) : (<div></div>)
+                                }
+                                {/* <li>
                                     <button>
                                         Save Song to Favories
                                     </button>
-                                </li>
+                                </li> */}
                             </ul>
                     ) : null}
                 </div>

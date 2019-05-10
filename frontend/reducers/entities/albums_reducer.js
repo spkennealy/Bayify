@@ -11,10 +11,10 @@ const albumsReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_ALBUMS:
+            if (!action.albums) return state;
             return action.albums;
         case RECEIVE_ALBUM:
             newState = merge({}, state);
-            // album = Object.values(action.album)[0];
             newState[Object.values(action.album)[0].id] = Object.values(action.album)[0];
             return newState;
         default:

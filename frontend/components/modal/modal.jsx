@@ -20,7 +20,9 @@ const Modal = (props) => {
             component = <AddPlaylistTrackModal />;
             break;
         case "deletePlaylist":
-            component = <DeletePlaylistModal playlistId={props.modal.playlistId}/>;
+            component = <DeletePlaylistModal 
+                playlistId={props.modal.playlistId}
+                pushHistory={props.pushHistory}/>;
             break;
         default:
             return null;
@@ -35,10 +37,12 @@ const Modal = (props) => {
     );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+    // debugger;
     return ({
         currentUser: state.entities.users[state.session.id],
-        modal: state.ui.modal
+        modal: state.ui.modal,
+        pushHistory: ownProps.history.push
     });
 };
 

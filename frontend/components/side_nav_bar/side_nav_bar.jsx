@@ -78,8 +78,6 @@ export default class SideNavBar extends React.Component {
 
                     <ul className="recently-played-ul">
 
-                        {/* TODO: Add path's for the links to the songs/playlists/artists */}
-                    
                         <NavLink 
                             to={`/artists/2`}
                             className="recently-played-link"
@@ -92,7 +90,7 @@ export default class SideNavBar extends React.Component {
                             </li>
                         </NavLink>
                         <NavLink 
-                            to={`/albums/3`}
+                            to={`/albums/4`}
                             className="recently-played-link"
                             activeClassName="recently-played-link-active">
                             <li>
@@ -123,8 +121,6 @@ export default class SideNavBar extends React.Component {
                 </section>
 
                 <section className="profile-section">
-                    {/* TODO: add profile photo for currentUser */}
-                    
                     <span>
                         <img
                             src="/images/profile_photos/Steph_Curry.jpg"

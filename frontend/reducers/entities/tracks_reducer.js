@@ -9,6 +9,7 @@ const tracksReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_TRACKS:
+            if (!action.tracks) return state;
             return action.tracks;
         default:
             return state;

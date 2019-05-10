@@ -10,6 +10,7 @@ const artistsReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_ARTISTS:
+            if (!action.artists) return state;
             return action.artists;
         case RECEIVE_ARTIST:
             newState = merge({}, state);

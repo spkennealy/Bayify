@@ -17,12 +17,9 @@ class NewPlaylistModal extends React.Component {
     }
 
     handleDeletion(e) {
-        e.stopPropagation();
-        e.preventDefault();
-        this.props.deletePlaylist(this.props.playlistId);
         this.props.closeModal();
-        // TODO: fix pushing to history
-        // this.props.history.push("/colleciton/playlists");
+        this.props.deletePlaylist(this.props.playlistId);
+        this.props.pushHistory("/collection/playlists");
     }
 
     render() {
@@ -45,7 +42,9 @@ class NewPlaylistModal extends React.Component {
                             fillRule="evenodd"></path>
                         </svg>
                     </button>    
-                        <h1 className="playlist-form-header">Do you really want to delete this playlist?</h1>
+                        <h1 
+                            className="playlist-form-header delete-playlist-header"
+                            >Do you really want to delete this playlist?</h1>
                     <div className="modal-buttons">
                         <button 
                             className="cancel-button"

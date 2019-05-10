@@ -37,8 +37,8 @@ export const receiveErrors = (errors) => ({
 
 export const fetchPlaylists = () => dispatch => {
     APIUtils.fetchPlaylists().then(res => {
-        dispatch(receivePlaylists(res.playlists));
         dispatch(receivePlaylistCurator(res.users));
+        dispatch(receivePlaylists(res.playlists));
     }, error => (
         dispatch(receiveErrors(error.responseJSON))
     ));
@@ -66,7 +66,7 @@ export const createPlaylist = (playlist) => dispatch => {
 };
 
 export const updatePlaylist = (playlist) => dispatch => {
-    APIUtils.updatePlaylist(playlist).then(playlist => (
+    return (APIUtils.updatePlaylist(playlist)).then(playlist => (
         dispatch(receivePlaylist(playlist))
     ), error => (
         dispatch(receiveErrors(error.responseJSON))
@@ -74,8 +74,8 @@ export const updatePlaylist = (playlist) => dispatch => {
 };
 
 export const deletePlaylist = (id) => dispatch => {
-    APIUtils.deletePlaylist(id).then(playlist => (
-        dispatch(removePlaylist(playlist))
+    APIUtils.deletePlaylist(id).then(() => (
+        dispatch(removePlaylist(id))
     ), error => (
         dispatch(receiveErrors(error.responseJSON))
     ));

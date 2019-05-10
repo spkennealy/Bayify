@@ -72,7 +72,7 @@ export default class Home extends React.Component {
                     backgroundImage: "linear-gradient(to right bottom, rgb(18, 18, 18), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)"
                 };
                 return (<div className="home-background-color" style={backgroundStyle}></div>);
-            case "/albums/":
+            case "/albums/":  // TODO: add a wildcard
                 backgroundStyle = {
                     backgroundImage: `linear-gradient(to right bottom, rgb(${this.randomRGB()}), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)`
                 };
@@ -109,7 +109,7 @@ export default class Home extends React.Component {
                         <ProtectedRoute exact path="/albums/:albumId" component={AlbumShowContainer}/>
                         <ProtectedRoute exact path="/artists/:artistId" component={ArtistShowContainer}/>
                         <ProtectedRoute exact path="/playlists/:playlistId" component={PlaylistShowContainer}/>
-                        <ProtectedRoute exact path="/browse/:section" component={BrowseContainer}/>
+                        <ProtectedRoute exact path="/browse/:section" component={CollectionContainer}/>
                         <ProtectedRoute exact path="/collection/:section" component={CollectionContainer}/>
 
 
@@ -117,7 +117,7 @@ export default class Home extends React.Component {
                     </section>
 
                     <section className="music-player-container">
-                        <MusicPlayerContainer />
+                        <MusicPlayerContainer history={this.props.history} params={this.props.match.params}/>
                     </section>
             </main>
         ) : (

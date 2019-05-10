@@ -13,6 +13,7 @@ export default class ArtistShow extends React.Component {
         this.revealDropdown = this.revealDropdown.bind(this);
         this.hideDropdown = this.hideDropdown.bind(this);
         this.trackTime = this.trackTime.bind(this);
+        this.playArtist = this.playArtist.bind(this);
     }
 
     revealDropdown(e) {
@@ -37,6 +38,13 @@ export default class ArtistShow extends React.Component {
         );
     }
 
+    playArtist() {
+        const firstTrackKey = Object.keys(this.props.tracks)[0];
+        const firstTrack = this.props.tracks[firstTrackKey];
+        this.props.setQueue(Object.values(this.props.tracks));
+        this.props.play(firstTrack);
+    }
+
     componentDidMount() {
         this.props.fetchArtist(this.props.match.params.artistId);
     }
@@ -55,7 +63,10 @@ export default class ArtistShow extends React.Component {
                         src={this.props.artist.backgroundPhoto}/>
                     <h1 className="artist-name"
                         >{this.props.artist.name}</h1>
-                    <button className="green-button" id="play-button">
+                    <button 
+                        className="green-button" 
+                        id="play-button"
+                        onClick={this.playArtist}>
                         PLAY
                     </button>
                 </header>

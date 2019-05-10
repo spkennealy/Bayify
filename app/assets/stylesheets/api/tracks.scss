@@ -30,9 +30,14 @@
 }
 
 .track-item-container {
-    display: block;
+    display: flex;
+    align-items: center;
     width: 100%;
     overflow: hidden;
+}
+
+.track-item-container:hover {
+    cursor: pointer;
 }
 
 .track-item-container h2 {
@@ -40,6 +45,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.track-info-links-container {
+    margin-left: 15px;
 }
 
 .track-info-links {
@@ -67,7 +76,11 @@
 .elipsis-icon {
     display: none;
     transform: scale(0.8);
-    position: fixed;
+    position: absolute;
+}
+
+.elipsis-icon:hover {
+    cursor: pointer;
 }
 
 .track-list-item:hover .elipsis-icon {
@@ -108,4 +121,28 @@
 .track-length {
     color: #9EA2AA;
     min-width: 45px;
+}
+
+
+#musical-note-icon {
+    display: block;
+    position: absolute;
+}
+
+.track-list-item:hover #musical-note-icon {
+    display: none;
+}
+
+#fa-play-icon {
+    display: none;
+    position: absolute;
+}
+
+.track-list-item:hover #fa-play-icon {
+    display: block;
+}
+
+.track-item-icon {
+    margin-right: 15px;
+    padding-bottom: 15px;
 }

@@ -14,6 +14,7 @@ export default class PlaylistShow extends React.Component {
         this.revealDropdown = this.revealDropdown.bind(this);
         this.hideDropdown = this.hideDropdown.bind(this);
         this.trackTime = this.trackTime.bind(this);
+        this.playPlaylist = this.playPlaylist.bind(this);
     }
 
     revealDropdown(e) {
@@ -37,6 +38,13 @@ export default class PlaylistShow extends React.Component {
             `${min}:${sec}`
         );
     }
+
+    playPlaylist() {
+        const firstTrackKey = Object.keys(this.props.tracks)[0];
+        const firstTrack = this.props.tracks[firstTrackKey];
+        this.props.setQueue(Object.values(this.props.tracks));
+        this.props.play(firstTrack);
+    }
     
     componentDidMount() {
         this.props.fetchPlaylist(this.props.match.params.playlistId);
@@ -54,7 +62,10 @@ export default class PlaylistShow extends React.Component {
                         playlist={this.props.playlist}
                         curatorId={this.props.playlist.curator_id}/>
 
-                    <button className="green-button" id="play-button">
+                    <button 
+                        className="green-button" 
+                        id="play-button"
+                        onClick={this.playPlaylist}>
                         PLAY
                     </button>
 
@@ -95,7 +106,8 @@ export default class PlaylistShow extends React.Component {
                                     className="track-list-item">
                                     <TrackIndexItemContainer
                                         track={track}
-                                        openModal={this.props.openModal}/>
+                                        openModal={this.props.openModal}
+                                        path={this.props.path}/>
                                 </li>
                             );
                         })}
