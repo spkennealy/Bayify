@@ -3,6 +3,9 @@
         json.set! track.id do
             json.extract! track, :id, :title, :track_length, :album_id
             json.trackUrl url_for(track.track)
+            track.playlist_tracks.each do |playlist_track|
+                json.extract! playlist_track, :playlist_id
+            end
         end
     end 
 

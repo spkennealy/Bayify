@@ -23,7 +23,6 @@ export default class Home extends React.Component {
     }
 
     selectBackgrounColor(path) {
-        // debugger
         let backgroundStyle;
 
         switch(path) {

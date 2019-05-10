@@ -8,9 +8,9 @@ export const receivePlaylistTrack = (playlistTrack) => ({
     playlistTrack
 });
 
-export const deletePlaylistTrack = (playlistTrack) => ({
+export const deletePlaylistTrack = (id) => ({
     type: DELETE_PLAYLIST_TRACK,
-    playlistTrack
+    id
 });
 
 export const addPlaylistTrack = (playlistTrack) => dispatch => {
@@ -19,8 +19,8 @@ export const addPlaylistTrack = (playlistTrack) => dispatch => {
     ));
 };
 
-export const removePlaylistTrack = (id) => dispatch => {
-    APIUtils.removePlaylistTrack(id).then(playlist => (
-        dispatch(deletePlaylistTrack(playlist))
+export const removePlaylistTrack = (playlistTrack) => dispatch => {
+    APIUtils.removePlaylistTrack(playlistTrack).then(() => (
+        dispatch(deletePlaylistTrack(playlistTrack))
     ));
 };

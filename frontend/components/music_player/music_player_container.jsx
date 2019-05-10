@@ -14,12 +14,12 @@ const mapStateToProps = ({ entities, ui, session }, ownProps) => {
 
     if (path.includes("playlists/")) {
         if (Object.entries(entities.playlists).length === 0) return;
-        const playlistId = path.slice(path.length - 1);
+        const playlistId = path.slice(11);
         if (entities.playlists[playlistId] === undefined) return;
         playlistPhoto = entities.playlists[playlistId].playlistPhoto;
     } else if (path.includes("albums/")) {
         if (Object.entries(entities.albums).length === 0) return;
-        const albumId = path.slice(path.length - 1);
+        const albumId = path.slice(8);
         if (entities.albums[albumId] === undefined) return;
         albumPhoto = entities.albums[albumId].albumPhoto;
     } else if (path.includes("collection/tracks") && ui.musicPlayer.currentTrack) {

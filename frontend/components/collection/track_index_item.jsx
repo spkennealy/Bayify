@@ -58,6 +58,8 @@ export default class TrackIndexItem extends React.Component {
         if (this.props.artists[album.artist_id] === undefined) return null;
         const artist = this.props.artists[album.artist_id];
         
+        const playlistId = Number(this.props.path.slice(11));
+
         return (
             <>
                 <div 
@@ -105,7 +107,11 @@ export default class TrackIndexItem extends React.Component {
                                 {this.props.path.includes("playlist") ? (
                                         <li>
                                             <button
-                                                // onClick={() => this.props.removePlaylistTrack()}
+                                                onClick={() => this.props.removePlaylistTrack({
+                                                    playlist_track: {
+                                                        playlist_id: playlistId, 
+                                                        track_id: track.id
+                                                }})}
                                                 >
                                                 Remove from Playlist
                                             </button>

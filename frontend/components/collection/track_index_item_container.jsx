@@ -27,7 +27,7 @@ const mapDisptachToProps = dispatch => ({
     fetchTracks: () => dispatch(fetchTracks()),
     fetchAlbums: () => dispatch(fetchAlbums()),
     fetchArtists: () => dispatch(fetchArtists()),
-    removePlaylistTrack: (playlistTrack) => dispatch(removePlaylistTrack(playlistTrack)),
+    removePlaylistTrack: (playlistId, trackId) => dispatch(removePlaylistTrack(playlistId, trackId)),
     openModal: (modal) => dispatch(openModal(modal)),
     play: (id) => dispatch(play(id)),
     setQueue: (queue) => dispatch(setQueue(queue))
