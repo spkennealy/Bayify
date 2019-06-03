@@ -10,6 +10,7 @@ const PlaylistIndexItem = (props) => {
     const playPlaylist = () => {
         const tracks = [];
         const trackIds = props.playlist.track_ids;
+        if (trackIds.length === 0) return null;
         trackIds.forEach(trackId => {
             tracks.push(props.tracks[trackId]);
         });

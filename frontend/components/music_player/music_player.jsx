@@ -88,7 +88,7 @@ export default class MusicPlayer extends React.Component {
 
     componentDidMount() {
         this.updateInterval = setInterval(this.updateTime, 1000);
-        
+
         this.audioPlayer.addEventListener("loadedmetadata", () => {
             this.setState({
                 trackLength: this.props.currentTrack.track_length
@@ -157,6 +157,7 @@ export default class MusicPlayer extends React.Component {
     render() {
         const currentTime = this.trackTime(this.state.currentTime);
         const trackLength = this.trackTime(this.state.trackLength);
+        // console.log(`Current Track: ${this.props.currentTrack.id}`);
 
         return (
             <nav className="music-player-nav-bar">
