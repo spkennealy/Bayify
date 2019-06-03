@@ -11,7 +11,6 @@ const mapStateToProps = ({ entities, ui, session }, ownProps) => {
     let albumPhoto = "";
     let currentArtist = "";
     
-
     if (path.includes("playlists/")) {
         if (Object.entries(entities.playlists).length === 0) return;
         const playlistId = path.slice(11);
@@ -27,7 +26,7 @@ const mapStateToProps = ({ entities, ui, session }, ownProps) => {
         if (entities.albums[albumId] === undefined) return;
         albumPhoto = entities.albums[albumId].albumPhoto;
     } 
-    
+        
     if (ui.musicPlayer.currentTrack) {
         const albumId = ui.musicPlayer.currentTrack.album_id;
         if (entities.albums[albumId] === undefined) return;

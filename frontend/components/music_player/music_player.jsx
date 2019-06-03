@@ -44,10 +44,10 @@ export default class MusicPlayer extends React.Component {
             (prevProps.currentTrack === this.props.currentTrack)
             ) {
             this.audioPlayer.play();
-        } else if (this.props.playing && prevProps.currentTrack !== this.props.currentTrack) {
-            this.audioPlayer.src = this.props.currentTrack.trackUrl;
-            this.grabCurrentArtistAndPhoto();
-            this.audioPlayer.play();
+        // } else if (this.props.playing && prevProps.currentTrack !== this.props.currentTrack) {
+        //     this.audioPlayer.src = this.props.currentTrack.trackUrl;
+        //     this.grabCurrentArtistAndPhoto();
+        //     this.audioPlayer.play();
         } else if (
                 (this.props.currentTrack && this.props.playing) &&
                 (prevProps.currentTrack !== this.props.currentTrack)
@@ -65,14 +65,17 @@ export default class MusicPlayer extends React.Component {
 
     grabCurrentArtistAndPhoto() {
         if (this.props.albumPhoto.length > 0) {
+            debugger;
             this.setState({
                 currentPhoto: this.props.albumPhoto,
-                currentArtist: this.props.currentArtist
+                currentArtist: this.props.currentArtist,
+                currentTrack: this.props.currentTrack
             });
         } else {
             this.setState({
                 currentPhoto: this.props.playlistPhoto,
-                currentArtist: this.props.currentArtist
+                currentArtist: this.props.currentArtist,
+                currentTrack: this.props.currentTrack
             });
         }
     }
@@ -160,17 +163,16 @@ export default class MusicPlayer extends React.Component {
     render() {
         const currentTime = this.trackTime(this.state.currentTime);
         const trackLength = this.trackTime(this.state.trackLength);
-        // console.log(`Current Track: ${this.props.currentTrack.id}`);
 
         return (
             <nav className="music-player-nav-bar">
                 <aside className="music-player-current-track-info">
-                    {this.props.currentTrack ? 
+                    {this.state.currentTrack ? 
                         (   
                             <>  
                                 <img src={this.state.currentPhoto}/>
                                 <div className="currently-playing-info-container">
-                                    <p className="currently-playing-track-title">{this.props.currentTrack.title}</p>
+                                    <p className="currently-playing-track-title">{this.state.currentTrack.title}</p>
                                     
                                     {this.state.currentArtist ? (
                                         <Link to={`/artists/${this.state.currentArtist.id}`}>
@@ -205,7 +207,7 @@ export default class MusicPlayer extends React.Component {
                         ) : (
                             <button 
                                 onClick={this.playTrack}
-                                    className="play-pause-button">
+                                className="play-pause-button">
                                 <FaPlay />
                             </button>
                         )}
