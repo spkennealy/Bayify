@@ -39,6 +39,7 @@ export const fetchPlaylists = () => dispatch => {
     APIUtils.fetchPlaylists().then(res => {
         dispatch(receivePlaylistCurator(res.users));
         dispatch(receivePlaylists(res.playlists));
+        dispatch(receiveTracks(res.tracks));
     }, error => (
         dispatch(receiveErrors(error.responseJSON))
     ));

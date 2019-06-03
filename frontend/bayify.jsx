@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // TESTS
+    window.getState = store.getState;
     // window.createPlaylist = createPlaylist;
     // window.addPlaylistTrack = addPlaylistTrack;
     // window.deletePlaylist = deletePlaylist;
