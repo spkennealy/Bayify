@@ -44,10 +44,10 @@ export default class MusicPlayer extends React.Component {
             (prevProps.currentTrack === this.props.currentTrack)
             ) {
             this.audioPlayer.play();
-        // } else if (this.props.playing && prevProps.currentTrack !== this.props.currentTrack) {
-        //     this.audioPlayer.src = this.props.currentTrack.trackUrl;
-        //     this.grabCurrentArtistAndPhoto();
-        //     this.audioPlayer.play();
+        } else if (this.props.playing && prevProps.currentTrack !== this.props.currentTrack) {
+            this.audioPlayer.src = this.props.currentTrack.trackUrl;
+            this.grabCurrentArtistAndPhoto();
+            this.audioPlayer.play();
         } else if (
                 (this.props.currentTrack && this.props.playing) &&
                 (prevProps.currentTrack !== this.props.currentTrack)
@@ -61,11 +61,12 @@ export default class MusicPlayer extends React.Component {
                 this.audioPlayer.play();
             }
         } 
+
+        console.log("Current Props: ", this.props);
     }
 
     grabCurrentArtistAndPhoto() {
         if (this.props.albumPhoto.length > 0) {
-            debugger;
             this.setState({
                 currentPhoto: this.props.albumPhoto,
                 currentArtist: this.props.currentArtist,

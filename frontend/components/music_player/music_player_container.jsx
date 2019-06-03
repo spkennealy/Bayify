@@ -10,7 +10,7 @@ const mapStateToProps = ({ entities, ui, session }, ownProps) => {
     let playlistPhoto = "";
     let albumPhoto = "";
     let currentArtist = "";
-    
+
     if (path.includes("playlists/")) {
         if (Object.entries(entities.playlists).length === 0) return;
         const playlistId = path.slice(11);

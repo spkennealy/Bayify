@@ -7,9 +7,9 @@ import merge from 'lodash/merge';
 
 const defaultState = {
     currentTrack: null,
-    currentArtist: null,
-    currentPlaylist: null,
-    currentAlbumId: null,
+    // currentArtist: null,
+    // currentPlaylist: null,
+    // currentAlbumId: null,
     playing: false,
     shuffle: false,
     repeat: false,
@@ -67,7 +67,7 @@ const musicPlayerReducer = (state = defaultState, action) => {
                 }
             } else {
                 if (newState.queue.length > 0) {
-                    const nextQueueTrack = (newState.suffle) ?
+                    const nextQueueTrack = (newState.shuffle) ?
                         newState.shuffledQueue.shift() : newState.queue.shift();
                     newState.previousTracks.push(newState.currentTrack);
                     newState.currentTrack = nextQueueTrack;
