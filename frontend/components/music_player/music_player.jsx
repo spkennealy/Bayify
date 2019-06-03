@@ -125,6 +125,9 @@ export default class MusicPlayer extends React.Component {
     setVolume() {
         const volume = document.getElementById("volume");
         this.audioPlayer.volume = volume.value;
+        this.setState({
+            volume: this.audioPlayer.volume
+        });
     }
 
     toggleMute() {
@@ -239,7 +242,8 @@ export default class MusicPlayer extends React.Component {
                         max="1" 
                         step="0.1" 
                         type="range" 
-                        onChange={this.setVolume} 
+                        onChange={this.setVolume}
+                        value={this.state.volume} 
                     />
 
                 </section>
