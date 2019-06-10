@@ -4,6 +4,13 @@ import { NavLink, Link } from 'react-router-dom';
 export default class SideNavBar extends React.Component {
     constructor(props) {
         super(props);
+
+        this.handleLogout = this.handleLogout.bind(this);
+    }
+
+    handleLogout() {
+        this.props.logout();
+        // this.props.history.push("/");
     }
 
     render() {
@@ -127,7 +134,7 @@ export default class SideNavBar extends React.Component {
                         />
                         <h4>{this.props.currentUser.username}</h4>
                     </span>
-                    <button onClick={this.props.logout}>LOG OUT</button>
+                    <button onClick={this.handleLogout}>LOG OUT</button>
                 </section>
 
             </nav>

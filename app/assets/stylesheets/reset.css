@@ -67,6 +67,10 @@ input[type="submit"] {
     outline: none;
 }
 
+a:hover, button:hover {
+    cursor: pointer;
+}
+
 /* blockquote, q {
     quotes: none;
 }

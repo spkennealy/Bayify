@@ -91,15 +91,17 @@ export default class MusicPlayer extends React.Component {
     }
 
     componentDidMount() {
-        this.updateInterval = setInterval(this.updateTime, 1000);
+        if (this.props.currrentUser) {
+            this.updateInterval = setInterval(this.updateTime, 1000);
 
-        this.audioPlayer.addEventListener("loadedmetadata", () => {
-            this.setState({
-                trackLength: this.props.currentTrack.track_length
+            this.audioPlayer.addEventListener("loadedmetadata", () => {
+                this.setState({
+                    trackLength: this.props.currentTrack.track_length
+                });
             });
-        });
 
-        this.audioPlayer.addEventListener("timeupdate", this.moveProgressBar, false);
+            this.audioPlayer.addEventListener("timeupdate", this.moveProgressBar, false);
+        }
     }
 
     updateTime() {

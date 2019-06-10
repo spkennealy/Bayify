@@ -12,6 +12,10 @@ import ArtistShowContainer from '../show_pages/artist_show_container';
 export default class Home extends React.Component {
     constructor(props) {
         super(props);
+
+        this.selectBackgrounColor = this.selectBackgrounColor.bind(this);
+        this.randomRGB = this.randomRGB.bind(this);
+        this.setPathForSplash = this.setPathForSplash.bind(this);
     }
 
     randomRGB() {
@@ -89,8 +93,12 @@ export default class Home extends React.Component {
         // is rendered first and the css highlighting is rendered to the home link.
         // TODO: remove push to collection/playlists and switch it to browse/featured.
         // this.props.history.push("/browse/featured");
-        this.props.history.push("/collection/playlists");
+        if (this.props.currentUser) this.props.history.push("/collection/playlists");
         // this.props.history.push("/artists/3");
+    }
+    
+    setPathForSplash() {
+        this.props.history.push("/");
     }
 
     render() {
@@ -120,7 +128,10 @@ export default class Home extends React.Component {
                     </section>
             </main>
         ) : (
-            <Splash />
+            <>
+                {this.props.location.pathname === "/" ? null : this.setPathForSplash()}
+                <Splash />
+            </>
         );
     }
 }
