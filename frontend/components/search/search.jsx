@@ -1,12 +1,32 @@
 import React from 'react';
-import SideNavBarContainer from '../side_nav_bar/side_nav_bar_container';
 
-// TODO: EDIT ENTIRE PAGE
+class Search extends React.Component {
+    constructor(props) {
+        super(props);
 
-const Search = (props) => (
-    <main>
-        {/* <SideNavBarContainer /> */}
-    </main>
-);
+        this.state = {
+            search: ""
+        };
+
+        this.handleSearchInput = this.handleSearchInput.bind(this);
+    }
+
+    handleSearchInput(e) {
+        this.setState({
+            search: e.target.value
+        });
+    }
+
+    render() {
+        return (
+            <form className="search-container">
+                <input 
+                    placeholder="Search..."
+                    onChange={this.handleSearchInput}
+                    type="text"/>
+            </form>
+        )
+    }
+};
 
 export default Search;

@@ -26,4 +26,8 @@ class Track < ApplicationRecord
         source: :playlist
     has_one_attached :track
 
+    def self.search_by_title(title)
+        title = "%#{title}%"
+        albums = Track.where("title LIKE ?", title)
+    end
 end

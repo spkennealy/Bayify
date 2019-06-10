@@ -8,6 +8,7 @@ import CollectionContainer from '../collection/collection_container';
 import PlaylistShowContainer from '../show_pages/playlist_show_container';
 import AlbumShowContainer from '../show_pages/album_show_container';
 import ArtistShowContainer from '../show_pages/artist_show_container';
+import SearchContainer from '../search/search_container';
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -122,9 +123,7 @@ export default class Home extends React.Component {
                         <ProtectedRoute exact path="/playlists/:playlistId" component={PlaylistShowContainer}/>
                         <ProtectedRoute exact path="/browse/:section" component={CollectionContainer}/>
                         <ProtectedRoute exact path="/collection/:section" component={CollectionContainer}/>
-
-
-                        {/* <ProtectedRoute exact path="/search/recent" component={}/> */}
+                        <ProtectedRoute exact path="/search/recent" component={SearchContainer}/>
                     </section>
 
                     <section className="music-player-container">

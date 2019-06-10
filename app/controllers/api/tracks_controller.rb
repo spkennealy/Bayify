@@ -5,5 +5,10 @@ class Api::TracksController < ApplicationController
         @tracks = Track.all
         render :index
     end
+
+    def search(title)
+        @tracks = Album.search_by_title(title)
+        render :index
+    end
     
 end

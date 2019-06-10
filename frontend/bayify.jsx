@@ -9,6 +9,7 @@ import Root from './components/root';
 // import { fetchPlaylists, fetchPlaylist, deletePlaylist } from './actions/playlist_actions';
 // import { addPlaylistTrack, removePlaylistTrack } from './actions/playlist_track_actions';
 // import { receivePlaylistTrack, deletePlaylistTrack } from './actions/playlist_track_actions';
+import { fetchAlbumByName } from './util/search_utils';
 // END
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -37,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // window.removePlaylistTrack = removePlaylistTrack;
     // window.receivePlaylistTrack = receivePlaylistTrack;
     // window.deletePlaylistTrack = deletePlaylistTrack;
+    window.fetchAlbumByName = fetchAlbumByName;
     // END
     
     ReactDOM.render(<Root store={store}/>, root);

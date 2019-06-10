@@ -104,7 +104,7 @@ export default class PlaylistShow extends React.Component {
                             return (
                                 <li key={trackId}
                                     className="track-list-item"
-                                    id={this.props.currentTrackId === track.id ? "track-container-active" : null}>
+                                    id={track && this.props.currentTrackId === track.id ? "track-container-active" : null}>
                                     <TrackIndexItemContainer
                                         track={track}
                                         openModal={this.props.openModal}

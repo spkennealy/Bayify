@@ -24,4 +24,8 @@ class Album < ApplicationRecord
         source: :follower
     has_one_attached :album_photo
 
+    def self.search_by_title(title)
+        title = "%#{title}%"
+        albums = Album.where("title LIKE ?", title)
+    end
 end
