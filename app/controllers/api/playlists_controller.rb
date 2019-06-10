@@ -39,8 +39,8 @@ class Api::PlaylistsController < ApplicationController
         # render :index
     end
 
-    def search(title)
-        @playlists = Album.search_by_title(title)
+    def search
+        @playlists = Playlist.search_by_title(params[:playlist][:title])
         render :index
     end
 

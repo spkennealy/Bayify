@@ -6,8 +6,8 @@ class Api::TracksController < ApplicationController
         render :index
     end
 
-    def search(title)
-        @tracks = Album.search_by_title(title)
+    def search
+        @tracks = Track.search_by_title(params[:track][:title])
         render :index
     end
     

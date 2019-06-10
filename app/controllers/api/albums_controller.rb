@@ -11,8 +11,8 @@ class Api::AlbumsController < ApplicationController
         render :show
     end
 
-    def search(title)
-        @albums = Album.search_by_title(title)
+    def search
+        @albums = Album.search_by_title(params[:album][:title])
         render :index
     end
 end

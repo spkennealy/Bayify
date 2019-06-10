@@ -11,8 +11,8 @@ class Api::ArtistsController < ApplicationController
         render :show
     end
 
-    def search(name)
-        @artists = Album.search_by_name(name)
+    def search
+        @artists = Artist.search_by_name(params[:artist][:name])
         render :index
     end
 end

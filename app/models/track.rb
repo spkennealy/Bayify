@@ -28,6 +28,6 @@ class Track < ApplicationRecord
 
     def self.search_by_title(title)
         title = "%#{title}%"
-        albums = Track.where("title LIKE ?", title)
+        tracks = Track.where("title LIKE ?", title)
     end
 end
