@@ -7,15 +7,19 @@ import { fetchArtists } from '../../actions/artist_actions';
 import { removePlaylistTrack } from '../../actions/playlist_track_actions';
 import { play, setQueue } from '../../actions/music_player_actions';
 
-const mapStateToProps = ({ entities, session }, ownProps) => {
+const mapStateToProps = ({ entities, session, ui }, ownProps) => {
     let path = "";
+    let currentTrackId = null;
 
     if (ownProps.path !== undefined) {
         path = ownProps.path;
     }
 
+    if (ui.musicPlayer.currentTrack) currentTrackId = ui.musicPlayer.currentTrack.id;
+
     return ({
         currentUser: entities.users[session.id],
+        currentTrackId,
         albums: entities.albums,
         artists: entities.artists,
         tracks: entities.tracks,

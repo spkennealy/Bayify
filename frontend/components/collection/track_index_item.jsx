@@ -72,6 +72,7 @@ export default class TrackIndexItem extends React.Component {
             <>
                 <div 
                     className="track-item-container"
+                    id={this.props.currentTrackId === track.id ? "track-active" : null}
                     to={`/tracks/${track.id}`}
                     onDoubleClick={() => this.handlePlay(track)}>
                     <div className="track-item-icon">
@@ -79,15 +80,19 @@ export default class TrackIndexItem extends React.Component {
                         <FaPlay id="fa-play-icon" onClick={() => this.handlePlay(track)}/>
                     </div>
                     <div className="track-info-links-container">
-                        <h2>{track.title}</h2>
+                        <h2
+                            id={this.props.currentTrackId === track.id ? "track-active" : null}
+                            >{track.title}</h2>
                         <div className="track-info-links">
                         <Link
-                            to={`/artists/${artist.id}`}>
+                            to={`/artists/${artist.id}`}
+                            id={this.props.currentTrackId === track.id ? "track-active" : null}>
                             {artist.name}
                         </Link>
                         <p>·</p>
                         <Link
-                            to={`/albums/${album.id}`}>
+                            to={`/albums/${album.id}`}
+                            id={this.props.currentTrackId === track.id ? "track-active" : null}>
                             {album.title}
                         </Link>
                         </div>
@@ -132,7 +137,9 @@ export default class TrackIndexItem extends React.Component {
                 </div>
 
                 <div className="track-length">
-                    <h2>{this.trackTime(track.track_length)}</h2>
+                    <h2
+                        id={this.props.currentTrackId === track.id ? "track-active" : null}>
+                        {this.trackTime(track.track_length)}</h2>
                 </div>
             </>
         );

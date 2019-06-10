@@ -4,10 +4,6 @@
 
 @import '../utils.scss';
 
-// .track-index-container {
-
-// }
-
 .track-index {
     list-style: none;
     width: 100%;
@@ -138,6 +134,10 @@
     position: absolute;
 }
 
+#fa-play-icon:active {
+    transform: scale(1.2);
+}
+
 .track-list-item:hover #fa-play-icon {
     display: block;
 }
@@ -145,4 +145,8 @@
 .track-item-icon {
     margin-right: 15px;
     padding-bottom: 15px;
+}
+
+#track-active {
+    color: $green-button;
 }

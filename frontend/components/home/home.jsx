@@ -75,16 +75,20 @@ export default class Home extends React.Component {
                     backgroundImage: "linear-gradient(to right bottom, rgb(18, 18, 18), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)"
                 };
                 return (<div className="home-background-color" style={backgroundStyle}></div>);
-            case "/albums/":  // TODO: add a wildcard
-                backgroundStyle = {
-                    backgroundImage: `linear-gradient(to right bottom, rgb(${this.randomRGB()}), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)`
-                };
-                return (<div className="home-background-color" style={backgroundStyle}></div>);
             default:
-                backgroundStyle = {
-                    background: "black"
-                };
-                return (<div className="home-background-color" style={backgroundStyle}></div>);
+                null;
+        }
+
+        if (path.includes('playlists') || path.includes('albums')) {
+            backgroundStyle = {
+                backgroundImage: `linear-gradient(to right bottom, rgb(${this.randomRGB()}), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)`
+            };
+            return (<div className="home-background-color" style={backgroundStyle}></div>);
+        } else {
+            backgroundStyle = {
+                background: "black"
+            };
+            return (<div className="home-background-color" style={backgroundStyle}></div>);
         }
     }
 
