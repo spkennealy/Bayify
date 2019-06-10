@@ -61,8 +61,6 @@ export default class MusicPlayer extends React.Component {
                 this.audioPlayer.play();
             }
         } 
-
-        console.log("Current Props: ", this.props);
     }
 
     grabCurrentArtistAndPhoto() {
@@ -91,17 +89,15 @@ export default class MusicPlayer extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.currrentUser) {
-            this.updateInterval = setInterval(this.updateTime, 1000);
+        this.updateInterval = setInterval(this.updateTime, 1000);
 
-            this.audioPlayer.addEventListener("loadedmetadata", () => {
-                this.setState({
-                    trackLength: this.props.currentTrack.track_length
-                });
+        this.audioPlayer.addEventListener("loadedmetadata", () => {
+            this.setState({
+                trackLength: this.props.currentTrack.track_length
             });
+        });
 
-            this.audioPlayer.addEventListener("timeupdate", this.moveProgressBar, false);
-        }
+        this.audioPlayer.addEventListener("timeupdate", this.moveProgressBar, false);
     }
 
     updateTime() {

@@ -76,7 +76,7 @@ export default class TrackIndexItem extends React.Component {
                     onDoubleClick={() => this.handlePlay(track)}>
                     <div className="track-item-icon">
                         <IoIosMusicalNote id="musical-note-icon"/>
-                        <FaPlay id="fa-play-icon"/>
+                        <FaPlay id="fa-play-icon" onClick={() => this.handlePlay(track)}/>
                     </div>
                     <div className="track-info-links-container">
                         <h2>{track.title}</h2>
