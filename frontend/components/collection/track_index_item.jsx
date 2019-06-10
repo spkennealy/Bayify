@@ -72,7 +72,6 @@ export default class TrackIndexItem extends React.Component {
             <>
                 <div 
                     className="track-item-container"
-                    id={this.props.currentTrackId === track.id ? "track-active" : null}
                     to={`/tracks/${track.id}`}
                     onDoubleClick={() => this.handlePlay(track)}>
                     <div className="track-item-icon">

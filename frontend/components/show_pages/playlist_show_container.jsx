@@ -5,7 +5,13 @@ import { deletePlaylistTrack } from '../../actions/playlist_track_actions';
 import { openModal } from '../../actions/modal_actions';
 import { play, setQueue } from '../../actions/music_player_actions';
 
-const mapStateToProps = ({ entities, session }, ownProps) => {
+const mapStateToProps = ({ entities, session, ui }, ownProps) => {
+    let currentTrackId = null;
+
+    if (ui.musicPlayer.currentTrack) {
+        currentTrackId = ui.musicPlayer.currentTrack.id;
+    }
+
     return ({
         currentUser: entities.users[session.id],
         playlist: entities.playlists[ownProps.match.params.playlistId],
@@ -13,7 +19,8 @@ const mapStateToProps = ({ entities, session }, ownProps) => {
         albums: entities.albums,
         artists: entities.artists,
         tracks: entities.tracks,
-        path: ownProps.location.pathname
+        path: ownProps.location.pathname,
+        currentTrackId
     });
 }
 

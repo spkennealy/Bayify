@@ -21,6 +21,7 @@ export default class TracksIndex extends React.Component {
                     {tracks.map(track => (
                         <li 
                             className="track-list-item"
+                            id={this.props.currentTrackId === track.id ? "track-container-active" : null}
                             key={track.id}>
                             <TrackIndexItemContainer
                                 track={track} 

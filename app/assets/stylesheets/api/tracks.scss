@@ -135,7 +135,8 @@
 }
 
 #fa-play-icon:active {
-    transform: scale(1.2);
+    transform: scale(0.8);
+    color: gray;
 }
 
 .track-list-item:hover #fa-play-icon {
@@ -149,4 +150,9 @@
 
 #track-active {
     color: $green-button;
+}
+
+#track-container-active {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
 }
