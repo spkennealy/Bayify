@@ -4,15 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // ------------------- TEST IMPORTS -------------------
-// import { signup, login, logout } from './util/session_api_utils';
-// import { fetchArtist } from './util/artist_utils';
-// import { fetchPlaylists, fetchPlaylist, deletePlaylist } from './actions/playlist_actions';
-// import { addPlaylistTrack, removePlaylistTrack } from './actions/playlist_track_actions';
-// import { receivePlaylistTrack, deletePlaylistTrack } from './actions/playlist_track_actions';
-import { 
-    fetchPlaylistByTitle, fetchAlbumByTitle, fetchArtistByName, 
-    fetchTrackByTitle
-} from './util/search_utils';
+import { search } from './util/search_utils';
 // ------------------- END -------------------
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -35,16 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ------------------- TESTS -------------------
     window.getState = store.getState;
-    // window.createPlaylist = createPlaylist;
-    // window.addPlaylistTrack = addPlaylistTrack;
-    // window.deletePlaylist = deletePlaylist;
-    // window.removePlaylistTrack = removePlaylistTrack;
-    // window.receivePlaylistTrack = receivePlaylistTrack;
-    // window.deletePlaylistTrack = deletePlaylistTrack;
-    window.fetchPlaylistByTitle = fetchPlaylistByTitle;
-    window.fetchAlbumByTitle = fetchAlbumByTitle;
-    window.fetchArtistByName = fetchArtistByName;
-    window.fetchTrackByTitle = fetchTrackByTitle;
+    window.search = search;
     // ------------------- END -------------------
     
     ReactDOM.render(<Root store={store}/>, root);
