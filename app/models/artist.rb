@@ -26,7 +26,7 @@ class Artist < ApplicationRecord
 
     def self.search_by_name(name)
         name = "%#{name}%"
-        artists = Artist.where("name LIKE ?", name)
+        artists = Artist.where("LOWER(name) LIKE LOWER(?)", name)
     end
 
 end

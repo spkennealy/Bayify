@@ -1,6 +1,9 @@
 import React from 'react';
 import { searchAll } from '../../actions/search_actions';
 import ArtistIndexItem from '../collection/artist_index_item';
+import PlaylistIndexItem from '../collection/playlist_index_item';
+import AlbumIndexItem from '../collection/album_index_item';
+import TrackIndexItem from '../collection/track_index_item';
 
 class Search extends React.Component {
     constructor(props) {
@@ -27,6 +30,16 @@ class Search extends React.Component {
     }
 
     search() {
+        if (this.state.input.length === 0) {
+            this.setState({
+                artists: [],
+                playlists: [],
+                albums: [],
+                tracks: []
+            });
+            return;
+        }
+
         searchAll(this.state.input)
             .then(res => {
                 let searchedArtists = [];
@@ -60,6 +73,7 @@ class Search extends React.Component {
                             type="text"/>
                     </div>
                 </form>
+
                 <ul className="search-results">
                     
                     {this.state.artists.length > 0 ? (
@@ -75,21 +89,45 @@ class Search extends React.Component {
                         </li>
                     ) : null}
 
-                    <li className="albums-search-results-container">
-                        <ul>
+                    {this.state.playlists.length > 0 ? (
+                        <li className="playlists-search-results-container">
+                            <h3>Playlists</h3>
+                            <ul className="">
+                                {this.state.playlists.map(playlist => (
+                                    <li key={playlist.id}>
+                                        <PlaylistIndexItem playlist={playlist} />
+                                    </li>
+                                ))}
+                            </ul>
+                        </li>
+                    ) : null}
 
-                        </ul>
-                    </li>
-                    <li className="playlists-search-results-container">
-                        <ul>
+                    {this.state.albums.length > 0 ? (
+                        <li className="albums-search-results-container">
+                            <h3>Albums</h3>
+                            <ul className="">
+                                {this.state.albums.map(album => (
+                                    <li key={album.id}>
+                                        <AlbumIndexItem album={album} />
+                                    </li>
+                                ))}
+                            </ul>
+                        </li>
+                    ) : null}
 
-                        </ul>
-                    </li>
-                    <li className="tracks-search-results-container">
-                        <ul>
-
-                        </ul>
-                    </li>
+                    {this.state.tracks.length > 0 ? (
+                        <li className="tracks-search-results-container">
+                            <h3>Tracks</h3>
+                            <ul className="">
+                                {this.state.tracks.map(track => (
+                                    <li key={track.id}>
+                                        <TrackIndexItem track={track} />
+                                    </li>
+                                ))}
+                            </ul>
+                        </li>
+                    ) : null}
+                    
                 </ul>
             </>
         )

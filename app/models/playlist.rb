@@ -29,6 +29,6 @@ class Playlist < ApplicationRecord
 
     def self.search_by_title(title)
         title = "%#{title}%"
-        playlists = Playlist.where("title LIKE ?", title)
+        playlists = Playlist.where("LOWER(title) LIKE LOWER(?)", title)
     end
 end

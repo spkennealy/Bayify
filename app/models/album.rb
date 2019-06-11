@@ -26,6 +26,6 @@ class Album < ApplicationRecord
 
     def self.search_by_title(title)
         title = "%#{title}%"
-        albums = Album.where("title LIKE ?", title)
+        albums = Album.where("LOWER(title) LIKE LOWER(?)", title)
     end
 end
