@@ -1,5 +1,4 @@
 import * as APIUtils from '../util/playlist_utils';
-import { receiveCurrentUser } from './session_actions';
 import { receiveTracks } from './track_actions';
 import { receiveAlbums } from './album_actions';
 import { receiveArtists } from './artist_actions';
