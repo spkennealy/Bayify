@@ -14,6 +14,9 @@ class Track < ApplicationRecord
     validates :title, :track_length, :album_id, presence: true
 
     belongs_to :album
+    has_one :artist,
+        through: :album,
+        source: :artist
     has_many :track_follows,
         foreign_key: :track_id,
         class_name: :TrackFollower

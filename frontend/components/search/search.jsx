@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { searchAll } from '../../actions/search_actions';
 import ArtistIndexItem from '../collection/artist_index_item';
 import PlaylistIndexItem from '../collection/playlist_index_item';
-import AlbumIndexItem from '../collection/album_index_item';
-import TrackIndexItem from '../collection/track_index_item';
+import { FaEllipsisH, FaPlay } from 'react-icons/fa';
+import { IoIosMusicalNote } from 'react-icons/io';
 
 class Search extends React.Component {
     constructor(props) {
@@ -95,7 +96,10 @@ class Search extends React.Component {
                             <ul className="">
                                 {this.state.playlists.map(playlist => (
                                     <li key={playlist.id}>
-                                        <PlaylistIndexItem playlist={playlist} />
+                                        <PlaylistIndexItem 
+                                            className="playlist-search-item"
+                                            playlist={playlist} 
+                                            curatorId={playlist.curator_id}/>
                                     </li>
                                 ))}
                             </ul>
@@ -108,7 +112,10 @@ class Search extends React.Component {
                             <ul className="">
                                 {this.state.albums.map(album => (
                                     <li key={album.id}>
-                                        <AlbumIndexItem album={album} />
+                                        <Link to={`/albums/${album.id}`}>
+                                            <img src={album.albumPhoto} alt={`${album.title} photo`} />
+                                            <h2 id="album-show-title">{album.title}</h2>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
@@ -120,8 +127,33 @@ class Search extends React.Component {
                             <h3>Tracks</h3>
                             <ul className="">
                                 {this.state.tracks.map(track => (
-                                    <li key={track.id}>
-                                        <TrackIndexItem track={track} />
+                                    <li key={track.id}
+                                        className="track-item-container">
+                
+                                        <div className="track-item-icon">
+                                            <IoIosMusicalNote id="musical-note-icon" />
+                                            <FaPlay id="fa-play-icon" 
+                                                // onClick={() => this.handlePlay(track)} 
+                                                />
+                                        </div>
+                                        <div className="track-info-links-container">
+                                            <h2
+                                                id={this.props.currentTrackId === track.id ? "track-active" : null}
+                                            >{track.title}</h2>
+                                            <div className="track-info-links">
+                                                <Link
+                                                    to={`/artists/${track.artist_id}`}
+                                                    id={this.props.currentTrackId === track.id ? "track-active" : null}>
+                                                    {track.artist.name}
+                                                </Link>
+                                                <p>·</p>
+                                                <Link
+                                                    to={`/albums/${track.album_id}`}
+                                                    id={this.props.currentTrackId === track.id ? "track-active" : null}>
+                                                    {track.album.title}
+                                                </Link>
+                                            </div>
+                                        </div>
                                     </li>
                                 ))}
                             </ul>

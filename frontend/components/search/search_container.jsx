@@ -1,13 +1,22 @@
 import { connect } from 'react-redux';
 import Search from './search';
-import { searchAll } from '../../actions/search_actions';
+import { openModal } from '../../actions/modal_actions';
 
-const mapStateToProps = state => ({
-    currentUser: state.entities.users[state.session.id]
+const mapStateToProps = state => {
+
+    let currentTrackId = null;
+    if (state.ui.musicPlayer.currentTrack) {
+        currentTrackId = state.ui.musicPlayer.currentTrack.id;
+    }
+
+    return ({
+        currentUser: state.entities.users[state.session.id],
+        currentTrackId
+    });
+};
+
+const mapDisptachToProps = dispatch => ({
+    openModal: (modal) => dispatch(openModal(modal))
 });
 
-// const mapDisptachToProps = dispatch => ({
-//     searchAll: input => searchAll(input)
-// });
-
-export default connect(mapStateToProps, null)(Search);
+export default connect(mapStateToProps, mapDisptachToProps)(Search);
