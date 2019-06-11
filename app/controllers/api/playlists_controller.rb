@@ -39,11 +39,6 @@ class Api::PlaylistsController < ApplicationController
         # render :index
     end
 
-    def search
-        @playlists = Playlist.search_by_title(params[:playlist][:title])
-        render :index
-    end
-
     private
 
     def playlist_params
