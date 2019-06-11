@@ -93,32 +93,36 @@ class Search extends React.Component {
                     {this.state.playlists.length > 0 ? (
                         <li className="playlists-search-results-container">
                             <h3>Playlists</h3>
-                            <ul className="">
-                                {this.state.playlists.map(playlist => (
-                                    <li key={playlist.id}>
-                                        <PlaylistIndexItem 
-                                            className="playlist-search-item"
-                                            playlist={playlist} 
-                                            curatorId={playlist.curator_id}/>
-                                    </li>
-                                ))}
-                            </ul>
+                            <div className="playlist-index-container">
+                                <ul className="playlist-index">
+                                    {this.state.playlists.map(playlist => (
+                                        <li key={playlist.id}>
+                                            <PlaylistIndexItem 
+                                                id="playlist-search-item"
+                                                playlist={playlist} 
+                                                curatorId={playlist.curator_id}/>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </li>
                     ) : null}
 
                     {this.state.albums.length > 0 ? (
                         <li className="albums-search-results-container">
                             <h3>Albums</h3>
-                            <ul className="">
-                                {this.state.albums.map(album => (
-                                    <li key={album.id}>
-                                        <Link to={`/albums/${album.id}`}>
-                                            <img src={album.albumPhoto} alt={`${album.title} photo`} />
-                                            <h2 id="album-show-title">{album.title}</h2>
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
+                            <div className="album-index-container">
+                                <ul className="album-index">
+                                    {this.state.albums.map(album => (
+                                        <li key={album.id}>
+                                            <Link to={`/albums/${album.id}`}>
+                                                <img src={album.albumPhoto} alt={`${album.title} photo`} />
+                                                <h2 id="album-show-title">{album.title}</h2>
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </li>
                     ) : null}
 
@@ -142,7 +146,7 @@ class Search extends React.Component {
                                             >{track.title}</h2>
                                             <div className="track-info-links">
                                                 <Link
-                                                    to={`/artists/${track.artist_id}`}
+                                                    to={`/artists/${track.artist.id}`}
                                                     id={this.props.currentTrackId === track.id ? "track-active" : null}>
                                                     {track.artist.name}
                                                 </Link>

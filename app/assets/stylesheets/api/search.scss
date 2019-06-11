@@ -34,7 +34,20 @@
     outline: none;
 }
 
-.search-results h3 {
+.search-results {
     color: $text;
-    font-family: $main-font;
+    font-family: $main-font
+}
+
+.search-results li {
+    margin: 15px;
+}
+
+.search-results h3 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.artists-search-results-container {
+    
 }
