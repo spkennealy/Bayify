@@ -10,9 +10,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDisptachToProps = dispatch => ({
+    fetchArtistByName: name => dispatch(fetchArtistByName(name)),
     fetchPlaylistByTitle: title => dispatch(fetchPlaylistByTitle(title)),
     fetchAlbumByTitle: title => dispatch(fetchAlbumByTitle(title)),
-    fetchArtistByName: name => dispatch(fetchArtistByName(name)),
     fetchTrackByTitle: title => dispatch(fetchTrackByTitle(title))
 });
 
