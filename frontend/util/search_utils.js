@@ -6,7 +6,7 @@ export const search = (input) => {
             album: { title: `${input}`},
             playlist: { title: `${input}`},
             track: { title: `${input}`},
-            artist: { title: `${input}`}
+            artist: { name: `${input}`}
         }
     });
 };

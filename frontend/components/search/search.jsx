@@ -1,56 +1,51 @@
 import React from 'react';
+import { searchAll } from '../../actions/search_actions';
+import ArtistIndexItem from '../collection/artist_index_item';
 
 class Search extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            search: "",
+            input: "",
             artists: [],
             playlists: [],
             albums: [],
-            tracks: [],
+            tracks: []
         };
 
         this.handleSearchInput = this.handleSearchInput.bind(this);
-        // this.search = this.search.bind(this);
+        this.search = this.search.bind(this);
     }
 
     handleSearchInput(e) {
         this.setState({
-            search: e.target.value
-        }, () => {
-            // this.search();
-        });
+            input: e.target.value
+        }, () => this.search());
+
+        console.log(this.state);
     }
 
     search() {
-        let artists = [];
-        let playlists = [];
-        let albums = [];
-        let tracks = [];
+        searchAll(this.state.input)
+            .then(res => {
+                let searchedArtists = [];
+                let searchedPlaylists = [];
+                let searchedAlbums = [];
+                let searchedTracks = [];
 
-        this.props.fetchArtistByName(this.state.search)
-            .then(res => this.setState({
-                artists: Object.values(res)
-            }))
-            .then(res => console.log(this.state));
+                if (res.artists) searchedArtists = Object.values(res.artists);
+                if (res.playlists) searchedPlaylists = Object.values(res.playlists);
+                if (res.albums) searchedAlbums = Object.values(res.albums);
+                if (res.tracks) searchedTracks = Object.values(res.tracks);
 
-        // if (this.state.search.length > 0) {
-        //     artists = Object.values(this.props.fetchArtistByName(this.state.search));
-        //     playlists = Object.values((this.props.fetchPlaylistByTitle(this.state.search)).playlists);
-        //     albums = Object.values((this.props.fetchAlbumByTitle(this.state.search)).albums);
-        //     tracks = Object.values((this.props.fetchTrackByTitle(this.state.search)).tracks);
-        // }
-
-        // this.setState({
-        //     artists,
-        //     playlists,
-        //     albums,
-        //     tracks
-        // });
-
-        // console.log(this.state);
+                this.setState({
+                        artists: searchedArtists,
+                        playlists: searchedPlaylists,
+                        albums: searchedAlbums,
+                        tracks: searchedTracks
+                    });
+            });
     }
 
     render() {
@@ -70,10 +65,10 @@ class Search extends React.Component {
                     {this.state.artists.length > 0 ? (
                         <li className="artists-search-results-container">
                             <h3>Artists</h3>
-                            <ul>
-                                {this.state.artsis.map(artist => (
-                                    <li key={artist}>
-
+                            <ul className="artist-index">
+                                {this.state.artists.map(artist => (
+                                    <li key={artist.id}>
+                                        <ArtistIndexItem artist={artist}/>
                                     </li>
                                 ))}
                             </ul>

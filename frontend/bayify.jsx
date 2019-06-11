@@ -4,7 +4,8 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // ------------------- TEST IMPORTS -------------------
-import { search } from './util/search_utils';
+// import { search } from './util/search_utils';
+// import { searchAll } from './actions/search_actions';
 // ------------------- END -------------------
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,7 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ------------------- TESTS -------------------
     window.getState = store.getState;
-    window.search = search;
+    // window.search = search;
+    // window.searchAll = searchAll;
     // ------------------- END -------------------
     
     ReactDOM.render(<Root store={store}/>, root);

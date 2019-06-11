@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import ArtistIndexItem from './artist_index_item';
 
 export default class ArtistsIndex extends React.Component {
     constructor(props) {
@@ -28,17 +28,3 @@ export default class ArtistsIndex extends React.Component {
         );
     }
 }
-
-const ArtistIndexItem = (props) => {
-    return (
-        <>
-            <Link to={`/artists/${props.artist.id}`}>
-                <img src={props.artist.artistPhoto} alt={`${props.artist.title} photo`} />
-            </Link>
-
-            <Link to={`/artists/${props.artist.id}`}>
-                <h2>{props.artist.name}</h2>
-            </Link>
-        </>
-    )
-};

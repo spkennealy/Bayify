@@ -1,19 +1,13 @@
 import { connect } from 'react-redux';
 import Search from './search';
-import {
-    fetchPlaylistByTitle, fetchAlbumByTitle, fetchArtistByName,
-    fetchTrackByTitle
-} from '../../util/search_utils';
+import { searchAll } from '../../actions/search_actions';
 
 const mapStateToProps = state => ({
     currentUser: state.entities.users[state.session.id]
 });
 
-const mapDisptachToProps = dispatch => ({
-    fetchArtistByName: name => dispatch(fetchArtistByName(name)),
-    fetchPlaylistByTitle: title => dispatch(fetchPlaylistByTitle(title)),
-    fetchAlbumByTitle: title => dispatch(fetchAlbumByTitle(title)),
-    fetchTrackByTitle: title => dispatch(fetchTrackByTitle(title))
-});
+// const mapDisptachToProps = dispatch => ({
+//     searchAll: input => searchAll(input)
+// });
 
-export default connect(mapStateToProps, mapDisptachToProps)(Search);
+export default connect(mapStateToProps, null)(Search);
