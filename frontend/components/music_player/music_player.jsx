@@ -27,24 +27,36 @@ export default class MusicPlayer extends React.Component {
         this.volumeIcon = this.volumeIcon.bind(this);
         this.toggleMute = this.toggleMute.bind(this);
         this.grabCurrentArtistAndPhoto = this.grabCurrentArtistAndPhoto.bind(this);
+        this.handleNext = this.handleNext.bind(this);
+        this.handlePrev = this.handlePrev.bind(this);
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
         if (prevProps.shuffle !== this.props.shuffle) return;
         if (prevProps.repeat !== this.props.repeat) return;
 
-        if (this.props.paused && this.props.currentTrack) {
+        // if (prevProps.currentTrack === this.props.currentTrack && this.props.playing && !this.props.paused) {
+        //     console.log("Same track");
+        //     return;
+        // }
+
+        if (prevProps.paused === false && this.props.paused === true) {
+            console.log("1");
             this.audioPlayer.pause();
             return;
         } else if (prevProps.paused !== this.props.paused) {
+            console.log("2");
             this.audioPlayer.play();
             return;
-        } else if (
-            (this.audioPlayer.src.length > 0 && this.props.playing && this.props.paused === false) &&
-            (prevProps.currentTrack === this.props.currentTrack)
-            ) {
-            this.audioPlayer.play();
+        // } else if (
+        //     (this.audioPlayer.src.length > 0 && this.props.playing && this.props.paused === false) &&
+        //     (prevProps.currentTrack === this.props.currentTrack)
+        //     ) {
+        //     console.log("3");
+        //     this.audioPlayer.play();
         } else if (this.props.playing && prevProps.currentTrack !== this.props.currentTrack) {
+            console.log("4"); 
+            if (this.props.paused === true) this.props.togglePause();
             this.audioPlayer.src = this.props.currentTrack.trackUrl;
             this.grabCurrentArtistAndPhoto();
             this.audioPlayer.play();
@@ -52,8 +64,10 @@ export default class MusicPlayer extends React.Component {
                 (this.props.currentTrack && this.props.playing) &&
                 (prevProps.currentTrack !== this.props.currentTrack)
             ) {
+            console.log("5");
+            if (this.props.paused === true) this.props.togglePause();
             let track = this.props.currentTrack;
-
+            
             if (track) {
                 this.props.previousTracks.push(track);
                 this.audioPlayer.src = track.trackUrl;
@@ -85,6 +99,24 @@ export default class MusicPlayer extends React.Component {
             this.props.togglePause();
         } else {
             this.props.play();
+        }
+    }
+
+    handleNext() {
+        if (this.props.queue.length > 0) this.props.nextTrack();
+    }
+
+    handlePrev() {
+        if (this.state.currentTime > 5) {
+            this.audioPlayer.src = this.props.currentTrack.trackUrl;
+            this.grabCurrentArtistAndPhoto();
+            this.audioPlayer.play();
+        } else if (this.props.previousTracks.length > 0) {
+            const tracks = Object.values(this.props.tracks);
+            let i = 0;
+            while (tracks[i].id !== this.props.currentTrack.id && tracks.length > 0) tracks.shift();
+            this.props.setQueue(tracks);
+            this.props.previousTrack();
         }
     }
 
@@ -193,7 +225,7 @@ export default class MusicPlayer extends React.Component {
                             <FaRandom />
                         </button>
 
-                        <button onClick={this.props.previousTrack}>
+                        <button onClick={this.handlePrev}>
                             <FaStepBackward />
                         </button>
 
@@ -211,7 +243,7 @@ export default class MusicPlayer extends React.Component {
                             </button>
                         )}
 
-                        <button onClick={this.props.nextTrack}>
+                        <button onClick={this.handleNext}>
                             <FaStepForward />
                         </button>
 

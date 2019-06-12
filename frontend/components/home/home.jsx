@@ -97,10 +97,8 @@ export default class Home extends React.Component {
         // Added so that upon visiting the home page, the browse component link 
         // is rendered first and the css highlighting is rendered to the home link.
         // TODO: remove push to collection/playlists and switch it to browse/featured.
-        // this.props.history.push("/browse/featured");
-        // if (this.props.currentUser) this.props.history.push("/collection/playlists");
-        if (this.props.currentUser) this.props.history.push("/search/recent");
-        // this.props.history.push("/artists/3");
+        // if (this.props.currentUser) this.props.history.push("/browse/featured");
+        if (this.props.currentUser) this.props.history.push("/playlists/1");
     }
     
     setPathForSplash() {

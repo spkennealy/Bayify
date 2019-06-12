@@ -1,6 +1,6 @@
 import { 
     play, togglePause, nextTrack, previousTrack,
-    toggleShuffle, toggleRepeat, saveTrack, unsaveTrack
+    toggleShuffle, toggleRepeat, saveTrack, unsaveTrack, setQueue
 } from '../../actions/music_player_actions';
 import { connect } from 'react-redux';
 import MusicPlayer from './music_player';
@@ -37,6 +37,7 @@ const mapStateToProps = ({ entities, ui, session }, ownProps) => {
     return ({
         currentUser: entities.users[session.id],
         currentTrack: ui.musicPlayer.currentTrack,
+        tracks: entities.tracks,
         currentArtist: currentArtist,
         playlistPhoto: playlistPhoto,
         albumPhoto: albumPhoto,
@@ -57,6 +58,7 @@ const mapDisptachToProps = dispatch => ({
     previousTrack: () => dispatch(previousTrack()),
     toggleShuffle: () => dispatch(toggleShuffle()),
     toggleRepeat: () => dispatch(toggleRepeat()),
+    setQueue: (queue) => dispatch(setQueue(queue))
     // saveTrack: id => dispatch(saveTrack(id)),
     // unsaveTrack: id => dispatch(unsaveTrack(id))
 });
