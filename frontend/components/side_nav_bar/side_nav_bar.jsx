@@ -10,7 +10,6 @@ export default class SideNavBar extends React.Component {
 
     handleLogout() {
         this.props.logout();
-        // this.props.history.push("/");
     }
 
     render() {
@@ -30,8 +29,10 @@ export default class SideNavBar extends React.Component {
                 <div className="home-nav-link-containter">
                     <NavLink 
                         to="/browse/featured"
-                        className="home-nav-links"
-                        activeClassName="nav-link-active"
+                        className={this.props.location.pathname.includes("browse") ? 
+                            "home-nav-links nav-link-active" : "home-nav-links"}
+                        // className="home-nav-links"
+                        // activeClassName="nav-link-active"
                         >
                         {/* TRY TO FIGURE OUT HOW TO SWAP SVG ELEMENTS WHEN NOT ACTIVE */}
                         
@@ -43,8 +44,10 @@ export default class SideNavBar extends React.Component {
 
                     <NavLink 
                         to="/search/recent"
-                        className="home-nav-links"
-                        activeClassName="nav-link-active"
+                        className={this.props.location.pathname.includes("search") ?
+                            "home-nav-links nav-link-active" : "home-nav-links"}
+                        // className="home-nav-links"
+                        // activeClassName="nav-link-active"
                         >
                         <svg viewBox="0 0 512 512" width="24" height="24" 
                             xmlns="http://www.w3.org/2000/svg"><path d="M357.079 
@@ -64,9 +67,11 @@ export default class SideNavBar extends React.Component {
 
                     <NavLink 
                         to="/collection/playlists"
-                        className="home-nav-links"
+                        className={this.props.location.pathname.includes("collection") ?
+                            "home-nav-links nav-link-active" : "home-nav-links"}
+                        // className="home-nav-links"
                         // className={`home-nav-links ${this.props.match.path === "collection" ? "nav-link-active" : ""}`}
-                        activeClassName="nav-link-active"
+                        // activeClassName="nav-link-active"
                         >
                         <svg viewBox="0 0 512 512" width="24" height="24" 
                             xmlns="http://www.w3.org/2000/svg"><path d="M311.873 77.46l166.349 

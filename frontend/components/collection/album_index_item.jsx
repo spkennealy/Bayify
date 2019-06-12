@@ -16,7 +16,7 @@ const AlbumIndexItem = (props) => {
                 <h2 id="album-show-title">{props.album.title}</h2>
             </Link>
 
-            <Link to={`/artist/${artist.id}`}>
+            <Link to={`/artists/${artist.id}`}>
                 <h3>{artist.name}</h3>
             </Link>
 
