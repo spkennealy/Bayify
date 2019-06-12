@@ -15,11 +15,37 @@ class Search extends React.Component {
             artists: [],
             playlists: [],
             albums: [],
-            tracks: []
+            tracks: [],
+            renderDropDown: false
         };
 
         this.handleSearchInput = this.handleSearchInput.bind(this);
         this.search = this.search.bind(this);
+        this.revealDropdown = this.revealDropdown.bind(this);
+        this.hideDropdown = this.hideDropdown.bind(this);
+        this.trackTime = this.trackTime.bind(this);
+    }
+
+    revealDropdown(e) {
+        e.preventDefault();
+        this.setState({ renderDropDown: true }, () => {
+            document.addEventListener('click', this.hideDropdown);
+        });
+    }
+
+    hideDropdown() {
+        this.setState({ renderDropDown: false }, () => {
+            document.removeEventListener('click', this.hideDropdown);
+        });
+    }
+
+    trackTime(time) {
+        const min = Math.floor(time / 60);
+        let sec = time % 60;
+        if (sec < 10) sec = `0${sec}`;
+        return (
+            `${min}:${sec}`
+        );
     }
 
     handleSearchInput(e) {
@@ -60,6 +86,10 @@ class Search extends React.Component {
                         tracks: searchedTracks
                     });
             });
+    }
+
+    componentDidMount() {
+        this.props.fetchPlaylists();
     }
 
     render() {
@@ -128,39 +158,77 @@ class Search extends React.Component {
 
                     {this.state.tracks.length > 0 ? (
                         <li className="tracks-search-results-container">
-                            <h3>Tracks</h3>
-                            <ul className="">
-                                {this.state.tracks.map(track => (
-                                    <li key={track.id}
-                                        className="track-item-container">
-                
-                                        <div className="track-item-icon">
-                                            <IoIosMusicalNote id="musical-note-icon" />
-                                            <FaPlay id="fa-play-icon" 
-                                                // onClick={() => this.handlePlay(track)} 
-                                                />
-                                        </div>
-                                        <div className="track-info-links-container">
-                                            <h2
-                                                id={this.props.currentTrackId === track.id ? "track-active" : null}
-                                            >{track.title}</h2>
-                                            <div className="track-info-links">
-                                                <Link
-                                                    to={`/artists/${track.artist.id}`}
-                                                    id={this.props.currentTrackId === track.id ? "track-active" : null}>
-                                                    {track.artist.name}
-                                                </Link>
-                                                <p>·</p>
-                                                <Link
-                                                    to={`/albums/${track.album_id}`}
-                                                    id={this.props.currentTrackId === track.id ? "track-active" : null}>
-                                                    {track.album.title}
-                                                </Link>
+                            <h3>Songs</h3>
+                            <div className="track-index-container">
+                                <ul className="track-index">
+                                    {this.state.tracks.map(track => (
+                                        <li key={track.id}
+                                            className="track-list-item"
+                                            onDoubleClick={() => this.props.play(track)}>
+                                            <div className="track-item-container">
+                                                <div className="track-item-icon">
+                                                    <IoIosMusicalNote id="musical-note-icon" />
+                                                    <FaPlay id="fa-play-icon" 
+                                                        onClick={() => this.props.play(track)} 
+                                                        />
+                                                </div>
+                                                <div className="track-info-links-container">
+                                                    <h2
+                                                        id={this.props.currentTrackId === track.id ? "track-active" : null}
+                                                    >{track.title}</h2>
+                                                    <div className="track-info-links">
+                                                        <Link
+                                                            to={`/artists/${track.artist.id}`}
+                                                            id={this.props.currentTrackId === track.id ? "track-active" : null}>
+                                                            {track.artist.name}
+                                                        </Link>
+                                                        <p>·</p>
+                                                        <Link
+                                                            to={`/albums/${track.album_id}`}
+                                                            id={this.props.currentTrackId === track.id ? "track-active" : null}>
+                                                            {track.album.title}
+                                                        </Link>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
+
+                                            <div className="elipsis-dropdown-container">
+                                                <div
+                                                    onClick={this.revealDropdown}
+                                                    className="elipsis-icon">
+                                                    <FaEllipsisH />
+                                                </div>
+
+                                                {this.state.renderDropDown ? (
+                                                    <ul className="elipsis-dropdown-menu">
+                                                        <li id="search-dropdown">
+                                                            <button
+                                                                onClick={() => this.props.openModal({
+                                                                    modalType: "addPlaylistTrack",
+                                                                    currentTrackId: track.id
+                                                                })}>
+                                                                Add to Playlist
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+                                                    ) : (<div></div>)
+                                                }
+                                                {/* <li>
+                                                    <button>
+                                                        Save Song to Favories
+                                                    </button>
+                                                </li> */}
+                                            </div>
+
+                                            <div className="track-length">
+                                                <h2
+                                                    id={this.props.currentTrackId === track.id ? "track-active" : null}>
+                                                    {this.trackTime(track.track_length)}</h2>
+                                            </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </li>
                     ) : null}
                     
