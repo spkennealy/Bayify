@@ -53,7 +53,7 @@ export default class Home extends React.Component {
                 return (<div className="home-background-color" style={backgroundStyle}></div>);
             case "/collection/playlists":
                 backgroundStyle = {
-                    backgroundImage: "linear-gradient(to right bottom, rgb(21, 32, 38), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)"
+                    backgroundImage: "linear-gradient(to right bottom, rgb(130, 114, 23), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)"
                 };
                 return (<div className="home-background-color" style={backgroundStyle}></div>);
             case "/collection/tracks":
@@ -63,7 +63,7 @@ export default class Home extends React.Component {
                 return (<div className="home-background-color" style={backgroundStyle}></div>);
             case "/collection/albums":
                 backgroundStyle = {
-                    backgroundImage: "linear-gradient(to right bottom, rgb(149, 111, 4), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)"
+                    backgroundImage: "linear-gradient(to right bottom, rgb(55, 89, 98), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)"
                 };
                 return (<div className="home-background-color" style={backgroundStyle}></div>);
             case `/collection/artists`:

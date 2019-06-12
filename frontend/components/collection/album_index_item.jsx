@@ -12,7 +12,10 @@ const AlbumIndexItem = (props) => {
     return (
         <>
             <Link to={`/albums/${props.album.id}`}>
-                <img src={props.album.albumPhoto} alt={`${props.album.title} photo`} />
+                <img 
+                    id="album-index-item-img"
+                    src={props.album.albumPhoto} 
+                    alt={`${props.album.title} photo`} />
                 <h2 id="album-show-title">{props.album.title}</h2>
             </Link>
 

@@ -51,6 +51,24 @@
     position: relative;
 }
 
+.playlist-index-item:active .playlist-index-item-img {
+    transform: scale(0.9);
+}
+
+#playlist-show-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#playlist-show-item:active {
+    transform: scale(0.9);
+}
+
+#playlist-show-item:active .playlist-index-item {
+    transform: scale(1.0);
+}
+
 .playlist-item-svg-container {
     width: 100%;
     height: 100%;
@@ -64,6 +82,11 @@
     display: none;
     width: 50px;
     z-index: 10;
+}
+
+.playlist-index-item-svg:active {
+    transform: scale(0.9);
+    color: gray;
 }
 
 .playlist-index-item:hover  {
@@ -96,6 +119,8 @@
 }
 
 .playlist-info-container a h2 {
+    display: flex;
+    justify-content: center;
     font-size: 28px;
     line-height: 36px;
     text-transform: none;
@@ -103,6 +128,8 @@
 }
 
 .playlist-info-container h3 {
+    display: flex;
+    justify-content: center;
     color: #fff;
     opacity: .6;
     outline: none;
@@ -115,6 +142,10 @@
 
 #play-button:hover {
     transform: scale(1.1);
+}
+
+#play-button:active {
+    transform: scale(1.0);
 }
 
 .playlist-tracks-show-container {

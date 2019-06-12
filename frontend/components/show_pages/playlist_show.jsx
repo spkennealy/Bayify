@@ -58,10 +58,12 @@ export default class PlaylistShow extends React.Component {
         return (
             <div className="playlist-show-container">
                 <aside className="playlist-info-container">
-                    <PlaylistsIndexItem 
-                        playlist={this.props.playlist}
-                        curatorId={this.props.playlist.curator_id}/>
-
+                    <div id="#playlist-show-item-container">
+                        <PlaylistsIndexItem 
+                            id="playlist-show-item"
+                            playlist={this.props.playlist}
+                            curatorId={this.props.playlist.curator_id}/>
+                    </div>
                     <button 
                         className="green-button" 
                         id="play-button"
