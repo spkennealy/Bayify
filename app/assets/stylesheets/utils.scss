@@ -39,3 +39,15 @@ $home-text: #ADADAE;
 #add-font {
     font-family: $main-font;
 }
+
+.loading-container {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading {
+    transform: scale(1.5);
+}

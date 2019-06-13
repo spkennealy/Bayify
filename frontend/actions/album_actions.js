@@ -22,7 +22,7 @@ export const receiveErrors = (errors) => ({
 });
 
 export const fetchAlbums = () => dispatch => {
-    APIUtils.fetchAlbums().then(res => {
+    return APIUtils.fetchAlbums().then(res => {
         dispatch(receiveAlbums(res.albums));
         dispatch(receiveArtists(res.artists));
     }, error => (
@@ -31,7 +31,7 @@ export const fetchAlbums = () => dispatch => {
 };
 
 export const fetchAlbum = (id) => dispatch => {
-    APIUtils.fetchAlbum(id).then(res => {
+    return APIUtils.fetchAlbum(id).then(res => {
         dispatch(receiveAlbum(res.albums));
         dispatch(receiveArtists(res.artists));
         dispatch(receiveTracks(res.tracks));

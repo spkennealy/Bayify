@@ -1,14 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import TrackIndexItemContainer from './track_index_item_container';
+import { ImpulseSpinner } from 'react-spinners-kit';
 
 export default class TracksIndex extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            loading: true
+        };
     }
 
     componentDidMount() {
-        this.props.fetchTracks();
+        this.props.fetchTracks()
+            .then(res => this.setState({ loading: false }));
     }
 
     render() {
@@ -17,7 +22,13 @@ export default class TracksIndex extends React.Component {
 
         return (
             <div className="track-index-container">
-                <ol className="track-index">
+
+                {this.state.loading ?
+                    (<div className="loading-container">
+                        <ImpulseSpinner size={50} />
+                    </div>) : 
+                
+                (<ol className="track-index">
                     {tracks.map(track => (
                         <li 
                             className="track-list-item"
@@ -28,7 +39,7 @@ export default class TracksIndex extends React.Component {
                                 openModal={this.props.openModal}/>
                         </li>
                     ))}
-                </ol>
+                </ol>)}
             </div>
         );
     }

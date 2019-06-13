@@ -10,7 +10,7 @@ export const receiveTracks = (tracks) => ({
 });
 
 export const fetchTracks = () => dispatch => {
-    APIUtils.fetchTracks().then(res => {
+    return APIUtils.fetchTracks().then(res => {
         dispatch(receiveTracks(res.tracks));
         dispatch(receiveArtists(res.artists));
         dispatch(receiveAlbums(res.albums));

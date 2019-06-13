@@ -22,7 +22,7 @@ export const receiveErrors = (errors) => ({
 });
 
 export const fetchArtists = () => dispatch => {
-    APIUtils.fetchArtists().then(artists => (
+    return APIUtils.fetchArtists().then(artists => (
         dispatch(receiveArtists(artists))
     ), error => (
         dispatch(receiveErrors(error.responseJSON))
@@ -30,7 +30,7 @@ export const fetchArtists = () => dispatch => {
 };
 
 export const fetchArtist = (id) => dispatch => {
-    APIUtils.fetchArtist(id).then(res => {
+    return APIUtils.fetchArtist(id).then(res => {
         dispatch(receiveArtist(res.artists));
         dispatch(receiveAlbums(res.albums));
         dispatch(receiveTracks(res.tracks));

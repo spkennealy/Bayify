@@ -11,9 +11,11 @@
     "react-icons": "^3.6.1",
     "react-redux": "^7.0.2",
     "react-router-dom": "^5.0.0",
+    "react-spinners-kit": "^1.9.0",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "styled-components": "^4.3.1",
     "typed.js": "^2.0.10",
     "webpack": "^4.30.0"
   },

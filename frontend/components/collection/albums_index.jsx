@@ -1,13 +1,19 @@
 import React from 'react';
 import AlbumIndexItem from './album_index_item';
+import { ImpulseSpinner } from 'react-spinners-kit';
 
 export default class AlbumsIndex extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            loading: true
+        };
     }
 
     componentDidMount() {
-        this.props.fetchAlbums();
+        this.props.fetchAlbums()
+            .then(res => this.setState({ loading: false }));
     }
 
     render() {
@@ -18,7 +24,13 @@ export default class AlbumsIndex extends React.Component {
 
         return (
             <div className="album-index-container">
-                <ul className="album-index">
+
+                {this.state.loading ?
+                    (<div className="loading-container">
+                        <ImpulseSpinner size={50} />
+                    </div>) : 
+
+                (<ul className="album-index">
                     {albums.map(album => (
                         <li key={album.id}>
                             <AlbumIndexItem
@@ -26,7 +38,7 @@ export default class AlbumsIndex extends React.Component {
                                 artists={this.props.artists}/>
                         </li>
                     ))}
-                </ul>
+                </ul>)}
             </div>
         );
     }
