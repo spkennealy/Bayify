@@ -16,11 +16,11 @@ const AlbumIndexItem = (props) => {
                     id="album-index-item-img"
                     src={props.album.albumPhoto} 
                     alt={`${props.album.title} photo`} />
-                <h2 className="album-show-title">{props.album.title}</h2>
+                <h2 id="album-show-title">{props.album.title}</h2>
             </Link>
 
             <Link to={`/artists/${artist.id}`}>
-                <h3 id="add-font">{artist.name}</h3>
+                <h3 className="album-artist" id="add-font">{artist.name}</h3>
             </Link>
 
         </>

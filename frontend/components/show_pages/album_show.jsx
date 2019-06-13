@@ -83,10 +83,11 @@ export default class AlbumShow extends React.Component {
 
                 (<>
                     <aside className="album-info-container">
-                        <AlbumsIndexItem
-                            album={this.props.album}
-                            artists={this.props.artists} />
-
+                        <div id="album-show-info">
+                            <AlbumsIndexItem
+                                album={this.props.album}
+                                artists={this.props.artists} />
+                        </div>
                         <button 
                             className="green-button" 
                             id="play-button"
