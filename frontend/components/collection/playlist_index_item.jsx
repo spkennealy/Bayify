@@ -39,10 +39,10 @@ const PlaylistIndexItem = (props) => {
             </Link>
 
             <Link to={`/playlists/${props.playlist.id}`}>
-                <h2>{props.playlist.title}</h2>
+                <h2 id="add-font">{props.playlist.title}</h2>
             </Link>
 
-            <h3>{props.users[props.curatorId].username}</h3>
+            <h3 id="add-font">{props.users[props.curatorId].username}</h3>
         </>
     );
 };

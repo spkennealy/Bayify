@@ -9,7 +9,7 @@ const ArtistIndexItem = (props) => {
             </Link>
 
             <Link to={`/artists/${props.artist.id}`}>
-                <h2>{props.artist.name}</h2>
+                <h2 id="add-font">{props.artist.name}</h2>
             </Link>
         </>
     )

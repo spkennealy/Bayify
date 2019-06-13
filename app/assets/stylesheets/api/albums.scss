@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import '../utils.scss';
+
 .album-index {
     display: flex;
     flex-flow: row wrap;
@@ -12,6 +14,7 @@
     display: block;
     padding: 5px 8px;
     max-width: 225px;
+    margin-bottom: 10px;
 }
 
 .album-index li img {
@@ -63,9 +66,18 @@
     align-content: center;
 }
 
-#album-show-title {
+.album-show-title {
     width: 100%;
-    font-size: 24px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: .015em;
+    word-wrap: break-word;
+    font-family: $main-font;
+}
+
+.album-show-title:hover {
+    text-decoration: underline;
 }
 
 .album-info-container a h3 {

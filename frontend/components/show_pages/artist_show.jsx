@@ -82,7 +82,7 @@ export default class ArtistShow extends React.Component {
                                     className="album-list-item">
                                     <Link to={`/albums/${album.id}`}>
                                         <img src={album.albumPhoto} alt={`${album.title} photo`} />
-                                        <h3 id="album-show-title">{album.title}</h3>
+                                        <h3 className="album-show-title">{album.title}</h3>
                                     </Link>
 
                                     <h4>{this.props.artist.name}</h4>

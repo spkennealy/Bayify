@@ -147,7 +147,7 @@ class Search extends React.Component {
                                         <li key={album.id}>
                                             <Link to={`/albums/${album.id}`}>
                                                 <img src={album.albumPhoto} alt={`${album.title} photo`} />
-                                                <h2 id="album-show-title">{album.title}</h2>
+                                                <h2 className="album-show-title">{album.title}</h2>
                                             </Link>
                                         </li>
                                     ))}
