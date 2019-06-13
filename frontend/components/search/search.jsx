@@ -106,6 +106,17 @@ class Search extends React.Component {
                 </form>
 
                 <ul className="search-results">
+
+                    {(this.state.artists.length === 0 &&
+                        this.state.playlists.length === 0 &&
+                        this.state.albums.length === 0 &&
+                        this.state.tracks.length === 0 &&
+                        this.state.input.length > 0) ? (
+                            <div className="no-results">
+                                <h2 className="no-results-title">No results found for "{this.state.input}"</h2>
+                                <p className="no-results-suggestion">Please make sure your words are spelled 
+                                correctly or use less or different keywords</p>
+                            </div>) : null}
                     
                     {this.state.artists.length > 0 ? (
                         <li className="artists-search-results-container">

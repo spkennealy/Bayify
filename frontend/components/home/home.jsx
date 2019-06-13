@@ -98,7 +98,7 @@ export default class Home extends React.Component {
         // is rendered first and the css highlighting is rendered to the home link.
         // TODO: remove push to collection/playlists and switch it to browse/featured.
         // if (this.props.currentUser) this.props.history.push("/browse/featured");
-        if (this.props.currentUser) this.props.history.push("/playlists/1");
+        if (this.props.currentUser) this.props.history.push("/search/recent");
     }
     
     setPathForSplash() {

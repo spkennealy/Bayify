@@ -48,10 +48,32 @@
     font-weight: bold;
 }
 
-// .artists-search-results-container {
-    
-// }
-
 #search-dropdown {
     margin: 0px;
+}
+
+.no-results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    padding: 32px;
+}
+
+.no-results-title {
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -.005em;
+    font-weight: bold;
+    text-transform: none;
+    color: #fff;
+    width: 100%;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+.no-results-suggestion {
+    padding-top: 10px;
+    color: #b3b3b3;
 }
