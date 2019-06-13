@@ -2,13 +2,15 @@ import React from 'react';
 import { FaEllipsisH } from 'react-icons/fa';
 import PlaylistsIndexItem from '../collection/playlist_index_item';
 import TrackIndexItemContainer from '../collection/track_index_item_container';
+import { ImpulseSpinner } from 'react-spinners-kit';
 
 export default class PlaylistShow extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            renderDropDown: false
+            renderDropDown: false,
+            loading: true
         };
 
         this.revealDropdown = this.revealDropdown.bind(this);
@@ -47,7 +49,8 @@ export default class PlaylistShow extends React.Component {
     }
     
     componentDidMount() {
-        this.props.fetchPlaylist(this.props.match.params.playlistId);
+        this.props.fetchPlaylist(this.props.match.params.playlistId)
+            .then(res => this.setState({ loading: false }));
     }
 
     render() {
@@ -57,65 +60,73 @@ export default class PlaylistShow extends React.Component {
 
         return (
             <div className="playlist-show-container">
-                <aside className="playlist-info-container">
-                    <div id="#playlist-show-item-container">
-                        <PlaylistsIndexItem 
-                            id="playlist-show-item"
-                            playlist={this.props.playlist}
-                            curatorId={this.props.playlist.curator_id}/>
-                    </div>
-                    <button 
-                        className="green-button" 
-                        id="play-button"
-                        onClick={this.playPlaylist}>
-                        PLAY
-                    </button>
 
-                    <div className="elipsis-playlist-dropdown-container">
-                        <div
-                            onClick={this.revealDropdown}
-                            className="elipsis-playlist-icon-playlist">
-                            <FaEllipsisH />
+                {this.state.loading ?
+                    (<div className="loading-container">
+                        <ImpulseSpinner size={50} />
+                    </div>) : 
+
+                (<>
+                    <aside className="playlist-info-container">
+                        <div id="#playlist-show-item-container">
+                            <PlaylistsIndexItem 
+                                id="playlist-show-item"
+                                playlist={this.props.playlist}
+                                curatorId={this.props.playlist.curator_id}/>
                         </div>
+                        <button 
+                            className="green-button" 
+                            id="play-button"
+                            onClick={this.playPlaylist}>
+                            PLAY
+                        </button>
 
-                        {this.state.renderDropDown ? (
-                            <ul className="elipsis-playlist-dropdown-menu">
-                                <li>
-                                    <button
-                                        onClick={() => this.props.openModal({
-                                            modalType: "deletePlaylist",
-                                            playlistId: this.props.playlist.id
-                                        })}>
-                                        Delete Playlist
-                                    </button>
-                                </li>
-                                <li>
-                                    <button>
-                                        Save Song to Favories
-                                    </button>
-                                </li>
-                            </ul>
-                        ) : null}
+                        <div className="elipsis-playlist-dropdown-container">
+                            <div
+                                onClick={this.revealDropdown}
+                                className="elipsis-playlist-icon-playlist">
+                                <FaEllipsisH />
+                            </div>
+
+                            {this.state.renderDropDown ? (
+                                <ul className="elipsis-playlist-dropdown-menu">
+                                    <li>
+                                        <button
+                                            onClick={() => this.props.openModal({
+                                                modalType: "deletePlaylist",
+                                                playlistId: this.props.playlist.id
+                                            })}>
+                                            Delete Playlist
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button>
+                                            Save Song to Favories
+                                        </button>
+                                    </li>
+                                </ul>
+                            ) : null}
+                        </div>
+                    </aside>
+
+                    <div className="playlist-tracks-show-container">
+                        <ul className="playlist-tracks-show ">
+                            {this.props.playlist.track_ids.map((trackId) => {
+                                const track = this.props.tracks[trackId];
+                                return (
+                                    <li key={trackId}
+                                        className="track-list-item"
+                                        id={track && this.props.currentTrackId === track.id ? "track-container-active" : null}>
+                                        <TrackIndexItemContainer
+                                            track={track}
+                                            openModal={this.props.openModal}
+                                            path={this.props.path}/>
+                                    </li>
+                                );
+                            })}
+                        </ul>
                     </div>
-                </aside>
-
-                <div className="playlist-tracks-show-container">
-                    <ul className="playlist-tracks-show ">
-                        {this.props.playlist.track_ids.map((trackId) => {
-                            const track = this.props.tracks[trackId];
-                            return (
-                                <li key={trackId}
-                                    className="track-list-item"
-                                    id={track && this.props.currentTrackId === track.id ? "track-container-active" : null}>
-                                    <TrackIndexItemContainer
-                                        track={track}
-                                        openModal={this.props.openModal}
-                                        path={this.props.path}/>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </div>
+                </>)}
             </div>
         );
     }

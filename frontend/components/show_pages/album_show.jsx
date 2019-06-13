@@ -1,13 +1,15 @@
 import React from 'react';
 import TrackIndexItemContainer from '../collection/track_index_item_container';
 import AlbumsIndexItem from '../collection/album_index_item';
+import { ImpulseSpinner } from 'react-spinners-kit';
 
 export default class AlbumShow extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            renderDropDown: false
+            renderDropDown: false,
+            loading: true
         };
 
         this.revealDropdown = this.revealDropdown.bind(this);
@@ -46,7 +48,8 @@ export default class AlbumShow extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchAlbum(this.props.match.params.albumId);
+        this.props.fetchAlbum(this.props.match.params.albumId)
+            .then(res => this.setState({ loading: false }));
     }
 
     render() {
@@ -72,24 +75,32 @@ export default class AlbumShow extends React.Component {
 
         return (
             <div className="playlist-show-container">
-                <aside className="album-info-container">
-                    <AlbumsIndexItem
-                        album={this.props.album}
-                        artists={this.props.artists} />
+                
+                {this.state.loading ?
+                    (<div className="loading-container">
+                        <ImpulseSpinner size={50} />
+                    </div>) : 
 
-                    <button 
-                        className="green-button" 
-                        id="play-button"
-                        onClick={this.playAlbum}>
-                        PLAY
-                    </button>
-                </aside>
+                (<>
+                    <aside className="album-info-container">
+                        <AlbumsIndexItem
+                            album={this.props.album}
+                            artists={this.props.artists} />
 
-                <div className="playlist-tracks-show-container">
-                    <ul className="playlist-tracks-show">
-                        {tracks}
-                    </ul>
-                </div>
+                        <button 
+                            className="green-button" 
+                            id="play-button"
+                            onClick={this.playAlbum}>
+                            PLAY
+                        </button>
+                    </aside>
+
+                    <div className="playlist-tracks-show-container">
+                        <ul className="playlist-tracks-show">
+                            {tracks}
+                        </ul>
+                    </div>
+                </>)}
             </div>
         );
     }

@@ -1,13 +1,14 @@
 import React from 'react';
-import TrackIndexItemContainer from '../collection/track_index_item_container';
 import { Link } from 'react-router-dom';
+import { ImpulseSpinner } from 'react-spinners-kit';
 
 export default class ArtistShow extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            renderDropDown: false
+            renderDropDown: false,
+            loading: true
         };
 
         this.revealDropdown = this.revealDropdown.bind(this);
@@ -46,7 +47,8 @@ export default class ArtistShow extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchArtist(this.props.match.params.artistId);
+        this.props.fetchArtist(this.props.match.params.artistId)
+            .then(res => this.setState({ loading: false }));
     }
 
     render() {
@@ -58,39 +60,47 @@ export default class ArtistShow extends React.Component {
         
         return (
             <div className="artist-show-container">
-                <header className="artist-info-container">
-                    <img className="artist-show-background-photo"
-                        src={this.props.artist.backgroundPhoto}/>
-                    <h1 className="artist-name"
-                        >{this.props.artist.name}</h1>
-                    <button 
-                        className="green-button" 
-                        id="play-button"
-                        onClick={this.playArtist}>
-                        PLAY
-                    </button>
-                </header>
 
-                <div className="separator"></div>
+                {this.state.loading ?
+                    (<div className="loading-container">
+                        <ImpulseSpinner size={50} />
+                    </div>) : 
 
-                <div className="artists-albums-show-container">
-                    <h2>Albums</h2>
-                    <ul className="artists-albums-show">
-                        {albums.map((album) => {
-                            return (
-                                <li key={album.id}
-                                    className="album-list-item">
-                                    <Link to={`/albums/${album.id}`}>
-                                        <img src={album.albumPhoto} alt={`${album.title} photo`} />
-                                        <h3 className="album-show-title">{album.title}</h3>
-                                    </Link>
+                (<>
+                    <header className="artist-info-container">
+                        <img className="artist-show-background-photo"
+                            src={this.props.artist.backgroundPhoto}/>
+                        <h1 className="artist-name"
+                            >{this.props.artist.name}</h1>
+                        <button 
+                            className="green-button" 
+                            id="play-button"
+                            onClick={this.playArtist}>
+                            PLAY
+                        </button>
+                    </header>
 
-                                    <h4>{this.props.artist.name}</h4>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </div>
+                    <div className="separator"></div>
+
+                    <div className="artists-albums-show-container">
+                        <h2>Albums</h2>
+                        <ul className="artists-albums-show">
+                            {albums.map((album) => {
+                                return (
+                                    <li key={album.id}
+                                        className="album-list-item">
+                                        <Link to={`/albums/${album.id}`}>
+                                            <img src={album.albumPhoto} alt={`${album.title} photo`} />
+                                            <h3 className="album-show-title">{album.title}</h3>
+                                        </Link>
+
+                                        <h4>{this.props.artist.name}</h4>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+                </>)}
             </div>
         );
     }
