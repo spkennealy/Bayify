@@ -43,7 +43,7 @@ export default class Home extends React.Component {
                 return (<div className="home-background-color" style={backgroundStyle}></div>);
             case "/browse/genres":
                 backgroundStyle = {
-                    backgroundImage: "linear-gradient(to right bottom, rgb(39, 37, 39), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)"
+                    backgroundImage: "linear-gradient(to right bottom, rgb(37, 34, 48), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%)"
                 };
                 return (<div className="home-background-color" style={backgroundStyle}></div>);
             case "/browse/newreleases":
@@ -97,8 +97,8 @@ export default class Home extends React.Component {
         // Added so that upon visiting the home page, the browse component link 
         // is rendered first and the css highlighting is rendered to the home link.
         // TODO: remove push to collection/playlists and switch it to browse/featured.
-        // if (this.props.currentUser) this.props.history.push("/browse/featured");
-        if (this.props.currentUser) this.props.history.push("/collection/playlists");
+        if (this.props.currentUser) this.props.history.push("/browse/featured");
+        // if (this.props.currentUser) this.props.history.push("/collection/playlists");
     }
     
     setPathForSplash() {
@@ -118,7 +118,7 @@ export default class Home extends React.Component {
                         <ProtectedRoute exact path="/albums/:albumId" component={AlbumShowContainer}/>
                         <ProtectedRoute exact path="/artists/:artistId" component={ArtistShowContainer}/>
                         <ProtectedRoute exact path="/playlists/:playlistId" component={PlaylistShowContainer}/>
-                        <ProtectedRoute exact path="/browse/:section" component={CollectionContainer}/>
+                        <ProtectedRoute exact path="/browse/:section" component={BrowseContainer}/>
                         <ProtectedRoute exact path="/collection/:section" component={CollectionContainer}/>
                         <ProtectedRoute exact path="/search/recent" component={SearchContainer}/>
                     </section>

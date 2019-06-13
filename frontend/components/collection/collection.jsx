@@ -10,7 +10,6 @@ const Collection = (props) => (
     <main className="collection-content">
         <CollectionNav openModal={props.openModal}/>
         <div className="collection-content-index">
-            {/* <ProtectedRoute exact path="/collection" render={() => <Redirect to="/collection/playlists" />} /> */}
             <ProtectedRoute exact path="/collection/playlists" component={PlaylistContainer}/>
             <ProtectedRoute exact path="/collection/tracks" component={TracksContainer}/>
             <ProtectedRoute exact path="/collection/albums" component={AlbumsContainer}/>
