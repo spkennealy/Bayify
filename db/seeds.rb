@@ -8,6 +8,10 @@
 
 require 'open-uri'
 
+# ADD LATER:
+# Tower of Power, Doobey Boys, Khelani, Train, Rappin 4 tay, Marc E Bassy, 
+# Tony toni tone, Scrapper Bike, Bobby Brackins, The Grouch, Luniz, Hieroglyphics, 
+
 ActiveRecord::Base.transaction do
 
     User.create!(username: "Curry30", password: "password", email: "curry30@gsw.com")
@@ -54,12 +58,129 @@ ActiveRecord::Base.transaction do
     dirt_nasty.artist_photo.attach(io: dirt_nasty_profile, filename: 'dirt_nasty_artist_photo')
     dirt_nasty.background_photo.attach(io: dirt_nasty_background, filename: 'dirt_nasty_background')
 
-    # too_short = Artist.create!(name: "Too $hort")
-    # metallica = Artist.create!(name: "Metallica")
-    # green_day = Artist.create!(name: "Green Day")
-    # santana = Artist.create!(name: "Santana")
-    # the_grateful_dead = Artist.create!(name: "The Grateful Dead")
-    # van_morrison = Artist.create!(name: "Van Morrison")
+    # --------------- Too $hort ---------------
+    too_short = Artist.create!(name: "Too $hort")
+    too_short_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/too_short_profile.jpeg')
+    too_short_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/too_short_background.png')
+    too_short.artist_photo.attach(io: too_short_profile, filename: 'too_short_artist_photo')
+    too_short.background_photo.attach(io: too_short_background, filename: 'too_short_background')
+
+    # --------------- Metallica ---------------
+    metallica = Artist.create!(name: "Metallica")
+    metallica_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/metallica_profile.jpeg')
+    metallica_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/metallica_background.jpeg')
+    metallica.artist_photo.attach(io: metallica_profile, filename: 'metallica_artist_photo')
+    metallica.background_photo.attach(io: metallica_background, filename: 'metallica_background')
+
+    # --------------- Creedance Clearwater Revival ---------------
+    ccr = Artist.create!(name: "Creedance Clearwater Revival")
+    ccr_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/ccr_profile.jpeg')
+    ccr_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/ccr_backgroun_photo.jpeg')
+    ccr.artist_photo.attach(io: ccr_profile, filename: 'ccr_artist_photo')
+    ccr.background_photo.attach(io: ccr_background, filename: 'ccr_background')
+
+    # --------------- Counting Crows ---------------
+    counting_crows = Artist.create!(name: "Counting Crows")
+    counting_crows_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/counting_crows_profile.jpeg')
+    counting_crows_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/counting_crows_background.jpeg')
+    counting_crows.artist_photo.attach(io: counting_crows_profile, filename: 'counting_crows_artist_photo')
+    counting_crows.background_photo.attach(io: counting_crows_background, filename: 'counting_crows_background')
+
+    # --------------- Green Day ---------------
+    green_day = Artist.create!(name: "Green Day")
+    green_day_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/green_day_profile.jpeg')
+    green_day_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/green_day_background.jpeg')
+    green_day.artist_photo.attach(io: green_day_profile, filename: 'green_day_artist_photo')
+    green_day.background_photo.attach(io: green_day_background, filename: 'green_day_background')
+
+    # --------------- Journey ---------------
+    journey = Artist.create!(name: "Journey")
+    journey_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/journey_profile.jpeg')
+    journey_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/journey_background.jpeg')
+    journey.artist_photo.attach(io: journey_profile, filename: 'journey_artist_photo')
+    journey.background_photo.attach(io: journey_background, filename: 'journey_background')
+
+    # --------------- Keak da Sneak ---------------
+    keak_da_sneak = Artist.create!(name: "Keak da Sneak")
+    keak_da_sneak_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/keak_da_sneak_profile.jpeg')
+    keak_da_sneak_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/keak_da_sneak_background.jpeg')
+    keak_da_sneak.artist_photo.attach(io: keak_da_sneak_profile, filename: 'keak_da_sneak_artist_photo')
+    keak_da_sneak.background_photo.attach(io: keak_da_sneak_background, filename: 'keak_da_sneak_background')
+
+    # --------------- MC Hammer ---------------
+    mc_hammer = Artist.create!(name: "MC Hammer")
+    mc_hammer_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/mc_hammer_profile.jpeg')
+    mc_hammer_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/mc_hammer_background.jpeg')
+    mc_hammer.artist_photo.attach(io: mc_hammer_profile, filename: 'mc_hammer_artist_photo')
+    mc_hammer.background_photo.attach(io: mc_hammer_background, filename: 'mc_hammer_background')
+
+    # --------------- Michael Franti ---------------
+    michael_franti = Artist.create!(name: "Michael Franti")
+    michael_franti_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/michael_franti_profile.jpeg')
+    michael_franti_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/michael_franti_background.jpeg')
+    michael_franti.artist_photo.attach(io: michael_franti_profile, filename: 'michael_franti_artist_photo')
+    michael_franti.background_photo.attach(io: michael_franti_background, filename: 'michael_franti_background')
+
+    # --------------- Papa Roach ---------------
+    papa_roach = Artist.create!(name: "Papa Roach")
+    papa_roach_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/papa_roach_profile.jpeg')
+    papa_roach_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/papa_roach_background.jpeg')
+    papa_roach.artist_photo.attach(io: papa_roach_profile, filename: 'papa_roach_artist_photo')
+    papa_roach.background_photo.attach(io: papa_roach_background, filename: 'papa_roach_background')
+
+    # --------------- Sally S Baby ---------------
+    # sally_s_baby = Artist.create!(name: "Sally S Baby")
+    # sally_s_baby_profile = open('')  # TODO: ADD PHOTO
+    # sally_s_baby_background = open('')
+    # sally_s_baby.artist_photo.attach(io: sally_s_baby_profile, filename: 'sally_s_baby_artist_photo')
+    # sally_s_baby.background_photo.attach(io: sally_s_baby_background, filename: 'sally_s_baby_background')
+
+    # --------------- Santana ---------------
+    santana = Artist.create!(name: "Santana")
+    santana_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/santana_profile.jpeg')
+    santana_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/santana_background.jpeg')
+    santana.artist_photo.attach(io: santana_profile, filename: 'santana_artist_photo')
+    santana.background_photo.attach(io: santana_background, filename: 'santana_background')
+
+    # --------------- Steve Miller Band ---------------
+    steve_miller_band = Artist.create!(name: "Steve Miller Band")
+    steve_miller_band_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/steve_miller_band_profile.jpeg')
+    steve_miller_band_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/steve_miller_band_background.jpeg')
+    steve_miller_band.artist_photo.attach(io: steve_miller_band_profile, filename: 'steve_miller_band_artist_photo')
+    steve_miller_band.background_photo.attach(io: steve_miller_band_background, filename: 'steve_miller_band_background')
+
+    # --------------- The Grateful Dead ---------------
+    grateful_dead = Artist.create!(name: "The Grateful Dead")
+    grateful_dead_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/grateful_dead_profile.jpeg')
+    grateful_dead_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/grateful_dead_background.jpeg')
+    grateful_dead.artist_photo.attach(io: grateful_dead_profile, filename: 'grateful_dead_artist_photo')
+    grateful_dead.background_photo.attach(io: grateful_dead_background, filename: 'grateful_dead_background')
+
+    # --------------- Third Eye Blind ---------------
+    third_eye_blind = Artist.create!(name: "Third Eye Blind")
+    third_eye_blind_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/third_eye_blind_profile.jpeg')
+    third_eye_blind_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/third_eye_blind_background.jpeg')
+    third_eye_blind.artist_photo.attach(io: third_eye_blind_profile, filename: 'third_eye_blind_artist_photo')
+    third_eye_blind.background_photo.attach(io: third_eye_blind_background, filename: 'third_eye_blind_background')
+
+    # --------------- Van Morrison ---------------
+    van_morrison = Artist.create!(name: "Van Morrison")
+    van_morrison_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/van_morrsion_profile.jpeg')
+    van_morrison_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/van_morrsion_background.jpeg')
+    van_morrison.artist_photo.attach(io: van_morrison_profile, filename: 'van_morrison_artist_photo')
+    van_morrison.background_photo.attach(io: van_morrison_background, filename: 'van_morrison_background')
+
+    # --------------- Van Wave ---------------
+    van_wave = Artist.create!(name: "Van Wave")
+    van_wave_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/van_wave_profile.jpeg')
+    van_wave_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/van_wave_background.jpeg')
+    van_wave.artist_photo.attach(io: van_wave_profile, filename: 'van_wave_artist_photo')
+    van_wave.background_photo.attach(io: van_wave_background, filename: 'van_wave_background')
+
+    # Complete: Too $hort, Metallica, Creedance Clearwater Revival, Counting Crows, 
+    # Green Day, Journey, Keak da Sneak, MC Hammer, Michael Franti, Papa Roach, 
+    # Sally S Baby, Santana, Steve Miller Band, The Grateful Dead, Third Eye Blind, 
+    # Van Morrison, Van Wave
 
     # ------------------------------------------------------------------------- #
     # ------------------------------ ALBUMS ----------------------------------- #
@@ -616,6 +737,5 @@ ActiveRecord::Base.transaction do
     TrackFollower.create!(follower_id: curry.id, track_id: tell_me_when_to_go.id)
     TrackFollower.create!(follower_id: curry.id, track_id: calm_down.id)
     TrackFollower.create!(follower_id: curry.id, track_id: feelin_myself.id)
-
 
 end

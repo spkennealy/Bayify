@@ -35,11 +35,6 @@ export default class MusicPlayer extends React.Component {
         if (prevProps.shuffle !== this.props.shuffle) return;
         if (prevProps.repeat !== this.props.repeat) return;
 
-        // if (prevProps.currentTrack === this.props.currentTrack && this.props.playing && !this.props.paused) {
-        //     console.log("Same track");
-        //     return;
-        // }
-
         if (prevProps.paused === false && this.props.paused === true) {
             console.log("1");
             this.audioPlayer.pause();
@@ -48,12 +43,12 @@ export default class MusicPlayer extends React.Component {
             console.log("2");
             this.audioPlayer.play();
             return;
-        // } else if (
-        //     (this.audioPlayer.src.length > 0 && this.props.playing && this.props.paused === false) &&
-        //     (prevProps.currentTrack === this.props.currentTrack)
-        //     ) {
-        //     console.log("3");
-        //     this.audioPlayer.play();
+        } else if (
+            (this.audioPlayer.src.length > 0 && this.props.playing && this.props.paused === false) &&
+            (prevProps.currentTrack === this.props.currentTrack)
+            ) {
+            console.log("3");
+            this.audioPlayer.play();
         } else if (this.props.playing && prevProps.currentTrack !== this.props.currentTrack) {
             console.log("4"); 
             if (this.props.paused === true) this.props.togglePause();
@@ -103,7 +98,9 @@ export default class MusicPlayer extends React.Component {
     }
 
     handleNext() {
-        if (this.props.queue.length > 0) this.props.nextTrack();
+        if (this.props.queue.length > 0) {
+            this.props.nextTrack();
+        }
     }
 
     handlePrev() {

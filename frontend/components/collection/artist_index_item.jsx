@@ -5,7 +5,9 @@ const ArtistIndexItem = (props) => {
     return (
         <>
             <Link to={`/artists/${props.artist.id}`}>
-                <img src={props.artist.artistPhoto} alt={`${props.artist.title} photo`} />
+                <img 
+                    id="artist-index-item-img"
+                    src={props.artist.artistPhoto} />
             </Link>
 
             <Link to={`/artists/${props.artist.id}`}>

@@ -13,7 +13,7 @@ export default class ArtistsIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchArtists()
-            .then(res => this.setState({ loading: false }));
+            .then(() => this.setState({ loading: false }));
     }
 
     render() {
@@ -23,7 +23,6 @@ export default class ArtistsIndex extends React.Component {
         return (
             
             <div className="artist-index-container">
-
                 {this.state.loading ?
                     (<div className="loading-container">
                         <ImpulseSpinner size={50}/>
