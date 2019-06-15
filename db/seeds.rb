@@ -177,11 +177,6 @@ ActiveRecord::Base.transaction do
     van_wave.artist_photo.attach(io: van_wave_profile, filename: 'van_wave_artist_photo')
     van_wave.background_photo.attach(io: van_wave_background, filename: 'van_wave_background')
 
-    # Complete: Too $hort, Metallica, Creedance Clearwater Revival, Counting Crows, 
-    # Green Day, Journey, Keak da Sneak, MC Hammer, Michael Franti, Papa Roach, 
-    # Sally S Baby, Santana, Steve Miller Band, The Grateful Dead, Third Eye Blind, 
-    # Van Morrison, Van Wave
-
     # ------------------------------------------------------------------------- #
     # ------------------------------ ALBUMS ----------------------------------- #
     # ------------------------------------------------------------------------- #
@@ -265,6 +260,23 @@ ActiveRecord::Base.transaction do
     )
     dirt_nasty_album_photo = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/album_photos/dirt_nasty_album_photo.jpeg')
     dirt_nasty_album.album_photo.attach(io: dirt_nasty_album_photo, filename: 'dirt_nasty_album_photo')
+    
+    # --------------- WILLY AND THE POOR BOYS :: Creedance Clearwater Revival ---------------
+    willy_poor_boys_album = Album.create!(
+        artist_id: ccr.id, 
+        title: "Willy and the Poor Boys", 
+        year: 1969, 
+        genre: "Rock-n-roll"
+    )
+    willy_poor_boys_album_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/Willy_and_the_poor_boys_ccr_album.jpg')
+    willy_poor_boys_album.album_photo.attach(io: willy_poor_boys_album_photo, filename: 'willy_poor_boys_album_photo')
+
+    # Pending: Counting Crows, Green Day, 
+    # Journey, Keak da Sneak, Metallica, MC Hammer, Michael Franti, Papa Roach, 
+    # Sally S Baby, Santana, Steve Miller Band, The Grateful Dead, Third Eye Blind, 
+    # Too $hort, Van Morrison, Van Wave
+
+    # Completed: Creedance Clearwater Revival, 
 
     # ------------------------------------------------------------------------- #
     # ------------------------------ TRACKS ----------------------------------- #
@@ -687,6 +699,32 @@ ActiveRecord::Base.transaction do
     )
     droppin_names_track = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/tracks/Droppin+Names.mp3')
     droppin_names.track.attach(io: droppin_names_track, filename: "Droppin_Names")
+    
+    # --------------- WILLY AND THE POOR BOYS :: Creedance Clearwater Revival  ---------------
+    fortunate_son = Track.create!(
+        album_id: willy_poor_boys_album.id,
+        title: "Fortunate Son",
+        track_length: 139
+    )
+    fortunate_son_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/Fortunate+Son.mp3')
+    fortunate_son.track.attach(io: fortunate_son_track, filename: "Fortunate_Son")
+
+    down_on_the_corner = Track.create!(
+        album_id: willy_poor_boys_album.id,
+        title: "Down on the Corner",
+        track_length: 166
+    )
+    down_on_the_corner_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/Down+On+The+Corner.mp3')
+    down_on_the_corner.track.attach(io: down_on_the_corner_track, filename: "Down_on_the_corner")
+
+    # TODO: ---------------   ---------------
+    # droppin_names = Track.create!(
+    #     album_id: willy_poor_boys_album.id,
+    #     title: "",
+    #     track_length: 
+    # )
+    # droppin_names_track = open('')
+    # droppin_names.track.attach(io: droppin_names_track, filename: "Droppin_Names")
 
     # ------------------------------------------------------------------------- #
     # ---------------------------- PLAYLISTS ---------------------------------- #
