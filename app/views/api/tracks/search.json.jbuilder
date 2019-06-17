@@ -4,6 +4,7 @@ json.tracks do
             json.extract! track, :id, :title, :track_length, :album_id
             json.artist track.artist
             json.album track.album
+            json.albumPhoto url_for(track.album.album_photo)
         end
     end
 end

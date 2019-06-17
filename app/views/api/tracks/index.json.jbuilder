@@ -6,6 +6,7 @@
             track.playlist_tracks.each do |playlist_track|
                 json.extract! playlist_track, :playlist_id
             end
+            json.albumPhoto url_for(track.album.album_photo)
         end
     end 
 

@@ -32,6 +32,7 @@ export default class MusicPlayer extends React.Component {
         this.grabCurrentArtistAndPhoto = this.grabCurrentArtistAndPhoto.bind(this);
         this.handleNext = this.handleNext.bind(this);
         this.handlePrev = this.handlePrev.bind(this);
+        this.changeTime = this.changeTime.bind(this);
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -46,24 +47,41 @@ export default class MusicPlayer extends React.Component {
         } else if ((prevProps.paused !== this.props.paused) || (prevState.paused !== this.state.paused)) {
             console.log("2");
             this.audioPlayer.play();
-            this.setState({ paused: false, playing: true });
+            this.setState({ 
+                paused: false, 
+                playing: true,
+                currentTime: this.audioPlayer.currentTime,
+                trackLength: this.audioPlayer.duration
+            });
             return;
         } else if (
             (this.audioPlayer.src.length > 0 && this.props.playing && this.props.paused === false) &&
             (this.state.currentTrack.id !== this.props.currentTrack.id)
             ) {
             console.log("3");
+            console.log(this.state.albumPhoto);
             this.audioPlayer.src = this.props.currentTrack.trackUrl;
             this.grabCurrentArtistAndPhoto();
+            console.log(this.state.albumPhoto);
             this.audioPlayer.play();
-            this.setState({ paused: false, playing: true });
+            this.setState({ 
+                paused: false, 
+                playing: true,
+                currentTime: this.audioPlayer.currentTime,
+                trackLength: this.audioPlayer.duration
+            });
         } else if (this.props.playing && prevProps.currentTrack !== this.props.currentTrack) {
             console.log("4"); 
             if (this.props.paused === true) this.props.togglePause();
             this.audioPlayer.src = this.props.currentTrack.trackUrl;
             this.grabCurrentArtistAndPhoto();
             this.audioPlayer.play();
-            this.setState({ paused: false, playing: true });
+            this.setState({ 
+                paused: false, 
+                playing: true,
+                currentTime: this.audioPlayer.currentTime,
+                trackLength: this.audioPlayer.duration 
+            });
         } else if (
                 (this.props.currentTrack && this.props.playing) &&
                 (prevProps.currentTrack !== this.props.currentTrack)
@@ -77,25 +95,22 @@ export default class MusicPlayer extends React.Component {
                 this.audioPlayer.src = track.trackUrl;
                 this.grabCurrentArtistAndPhoto();
                 this.audioPlayer.play();
-                this.setState({ paused: false, playing: true });
+                this.setState({ 
+                    paused: false, 
+                    playing: true,
+                    currentTime: this.audioPlayer.currentTime,
+                    trackLength: this.audioPlayer.duration 
+                });
             }
         } 
     }
 
     grabCurrentArtistAndPhoto() {
-        if (this.props.albumPhoto.length > 0) {
-            this.setState({
-                currentPhoto: this.props.albumPhoto,
-                currentArtist: this.props.currentArtist,
-                currentTrack: this.props.currentTrack
-            });
-        } else {
-            this.setState({
-                currentPhoto: this.props.playlistPhoto,
-                currentArtist: this.props.currentArtist,
-                currentTrack: this.props.currentTrack
-            });
-        }
+        this.setState({
+            currentPhoto: this.props.albumPhoto,
+            currentArtist: this.props.currentArtist,
+            currentTrack: this.props.currentTrack
+        });
     }
                 
     playTrack() {
@@ -137,6 +152,9 @@ export default class MusicPlayer extends React.Component {
         });
 
         this.audioPlayer.addEventListener("timeupdate", this.moveProgressBar, false);
+
+        const defaultProgressBar = document.getElementById("track-progress-bar");
+        defaultProgressBar.addEventListener("click", e => this.changeTime(e));
     }
 
     updateTime() {
@@ -196,6 +214,16 @@ export default class MusicPlayer extends React.Component {
             width = Math.floor((100 / this.audioPlayer.duration) * this.audioPlayer.currentTime); 
         }
         progress.style.width = width + "%";
+    }
+
+    changeTime(e) {
+        if (this.state.playing) {
+            const defaultProgressBar = document.getElementById("track-progress-bar");
+            const mouseX = e.pageX - defaultProgressBar.offsetLeft;
+            const newTime = mouseX * this.audioPlayer.duration / defaultProgressBar.offsetWidth; 
+            this.audioPlayer.currentTime = newTime;
+            // debugger;
+        }
     }
 
     render() {
@@ -264,6 +292,16 @@ export default class MusicPlayer extends React.Component {
                         <div className="progress-bar-container">
                             <div id="track-progress-bar">
                                 <div id="progress"></div>
+                                {/* <input 
+                                    type="range" 
+                                    id="progress"
+                                    min="0"
+                                    max="1"
+                                    value={this.state.currentTime}
+                                    onChange={this.changeTime}
+                                    onClick={this.changeTime}
+                                ></input> */}
+                                {/* <progress id="progress" value="0" max="1"></progress> */}
                             </div>
                         </div>
                         <p>{trackLength}</p>

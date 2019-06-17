@@ -53,7 +53,8 @@
 }
 
 .playlist-index-item:active .playlist-index-item-img {
-    transform: scale(0.9);
+    transform: scale(0.95);
+    transition: 0.1s;
 }
 
 #playlist-show-item-container {
@@ -63,11 +64,13 @@
 }
 
 #playlist-show-item:active {
-    transform: scale(0.9);
+    transform: scale(0.95);
+    transition: 0.1s;
 }
 
 #playlist-show-item:active .playlist-index-item {
     transform: scale(1.0);
+    transition: 0.1s;
 }
 
 .playlist-item-svg-container {
@@ -86,7 +89,8 @@
 }
 
 .playlist-index-item-svg:active {
-    transform: scale(0.9);
+    transform: scale(0.95);
+    transition: 0.1s;
     color: gray;
 }
 
@@ -147,6 +151,7 @@
 
 #play-button:active {
     transform: scale(1.0);
+    transition: 0.1s;
 }
 
 .playlist-tracks-show-container {
