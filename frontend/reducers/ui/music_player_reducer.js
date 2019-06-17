@@ -7,9 +7,6 @@ import merge from 'lodash/merge';
 
 const defaultState = {
     currentTrack: null,
-    // currentArtist: null,
-    // currentPlaylist: null,
-    // currentAlbumId: null,
     playing: false,
     shuffle: false,
     repeat: false,
@@ -40,7 +37,7 @@ const musicPlayerReducer = (state = defaultState, action) => {
             return newState;
         case TOGGLE_PAUSE: 
             newState = merge({}, state);
-            newState.paused = !newState.paused;
+            newState.paused = !state.paused;
             return newState;
         case SET_QUEUE:
             newState = merge({}, state);
