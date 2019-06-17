@@ -4,12 +4,14 @@ import {
 } from '../../actions/music_player_actions';
 import { connect } from 'react-redux';
 import MusicPlayer from './music_player';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = ({ entities, ui, session }, ownProps) => {
-    let path = ownProps.history.location.pathname;
+    let path = ownProps.history.location.pathname || "";
     let playlistPhoto = "";
     let albumPhoto = "";
     let currentArtist = "";
+    // let currentTrackId = ui.musicPlayer.currentTrack ? ui.musicPlayer.currentTrack.id : "";
 
     if (path.includes("playlists/")) {
         if (Object.entries(entities.playlists).length === 0) return;
@@ -34,8 +36,9 @@ const mapStateToProps = ({ entities, ui, session }, ownProps) => {
         currentArtist = entities.artists[artistId];
     }
 
-    return ({
+    return {
         currentUser: entities.users[session.id],
+        // currentTrackId,
         currentTrack: ui.musicPlayer.currentTrack,
         tracks: entities.tracks,
         currentArtist: currentArtist,
@@ -48,7 +51,7 @@ const mapStateToProps = ({ entities, ui, session }, ownProps) => {
         shuffledQueue: ui.musicPlayer.shuffledQueue,
         repeat: ui.musicPlayer.repeat,
         shuffle: ui.musicPlayer.shuffle
-    });
+    };
 };
 
 const mapDisptachToProps = dispatch => ({
@@ -63,4 +66,4 @@ const mapDisptachToProps = dispatch => ({
     // unsaveTrack: id => dispatch(unsaveTrack(id))
 });
 
-export default connect(mapStateToProps, mapDisptachToProps)(MusicPlayer);
+export default withRouter(connect(mapStateToProps, mapDisptachToProps)(MusicPlayer));

@@ -1,7 +1,7 @@
 import React from 'react';
 import { closeModal, openModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import { addPlaylistTrack } from '../../actions/playlist_track_actions';
 
 class AddPlaylistTrackModal extends React.Component {

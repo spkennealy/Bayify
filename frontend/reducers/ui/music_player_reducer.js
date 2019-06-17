@@ -34,7 +34,7 @@ const musicPlayerReducer = (state = defaultState, action) => {
     switch (action.type) {
         case PLAY_TRACK:
             newState = merge({}, state);
-            newState.currentTrack = action.track;
+            newState.currentTrack = JSON.parse(JSON.stringify(action.track));
             newState.playing = true;
             newState.previousTracks.push(action.track);
             return newState;

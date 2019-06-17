@@ -16,7 +16,10 @@ export default class MusicPlayer extends React.Component {
             currentTime: 0,
             muted: false,
             currentArtist: null,
-            currentPhoto: ""
+            currentPhoto: "",
+            currentTrack: "",
+            playing: false,
+            paused: false
         };
 
         this.updateTime = this.updateTime.bind(this);
@@ -38,28 +41,34 @@ export default class MusicPlayer extends React.Component {
         if (prevProps.paused === false && this.props.paused === true) {
             console.log("1");
             this.audioPlayer.pause();
+            this.setState({ paused: true });
             return;
         } else if (prevProps.paused !== this.props.paused) {
             console.log("2");
             this.audioPlayer.play();
+            this.setState({ paused: false, playing: true });
             return;
         } else if (
             (this.audioPlayer.src.length > 0 && this.props.playing && this.props.paused === false) &&
-            (prevProps.currentTrack === this.props.currentTrack)
+            (this.state.currentTrack != this.props.currentTrack)
             ) {
             console.log("3");
+            this.audioPlayer.src = this.props.currentTrack.trackUrl;
+            this.grabCurrentArtistAndPhoto();
             this.audioPlayer.play();
+            this.setState({ paused: false, playing: true });
         } else if (this.props.playing && prevProps.currentTrack !== this.props.currentTrack) {
-            console.log("4"); 
+            console.log("5"); 
             if (this.props.paused === true) this.props.togglePause();
             this.audioPlayer.src = this.props.currentTrack.trackUrl;
             this.grabCurrentArtistAndPhoto();
             this.audioPlayer.play();
+            this.setState({ paused: false, playing: true });
         } else if (
                 (this.props.currentTrack && this.props.playing) &&
                 (prevProps.currentTrack !== this.props.currentTrack)
             ) {
-            console.log("5");
+            console.log("6");
             if (this.props.paused === true) this.props.togglePause();
             let track = this.props.currentTrack;
             
@@ -68,6 +77,7 @@ export default class MusicPlayer extends React.Component {
                 this.audioPlayer.src = track.trackUrl;
                 this.grabCurrentArtistAndPhoto();
                 this.audioPlayer.play();
+                this.setState({ paused: false, playing: true });
             }
         } 
     }
@@ -226,7 +236,7 @@ export default class MusicPlayer extends React.Component {
                             <FaStepBackward />
                         </button>
 
-                        {this.props.playing && !this.props.paused ? (
+                        {this.state.playing && !this.state.paused ? (
                             <button 
                                 className="play-pause-button"
                                 onClick={this.props.togglePause}>
