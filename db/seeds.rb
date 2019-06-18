@@ -939,79 +939,79 @@ ActiveRecord::Base.transaction do
     twenty_one_guns.track.attach(io: twenty_one_guns_track, filename: "twenty_one_guns")
     
     # --------------- Warning :: GREEN DAY ---------------
-    brain_stew = Track.create!(
+    minority = Track.create!(
         album_id: warning_album.id,
-        title: "",
-        track_length: 
+        title: "Minority",
+        track_length: 168
     )
-    brain_stew_track = open('')
-    brain_stew.track.attach(io: brain_stew_track, filename: "brain_stew")
+    minority_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/green_day/18+Minority.mp3')
+    minority.track.attach(io: minority_track, filename: "minority")
 
-    brain_stew = Track.create!(
+    warning = Track.create!(
         album_id: warning_album.id,
-        title: "",
-        track_length: 
+        title: "Warning",
+        track_length: 221
     )
-    brain_stew_track = open('')
-    brain_stew.track.attach(io: brain_stew_track, filename: "brain_stew")
+    warning_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/green_day/19+Warning.mp3')
+    warning.track.attach(io: warning_track, filename: "warning")
 
-    brain_stew = Track.create!(
+    waiting = Track.create!(
         album_id: warning_album.id,
-        title: "",
-        track_length: 
+        title: "Waiting",
+        track_length: 192
     )
-    brain_stew_track = open('')
-    brain_stew.track.attach(io: brain_stew_track, filename: "brain_stew")
+    waiting_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/green_day/20+Waiting.mp3')
+    waiting.track.attach(io: waiting_track, filename: "waiting")
 
-    brain_stew = Track.create!(
+    macys_day_parade = Track.create!(
         album_id: warning_album.id,
-        title: "",
-        track_length: 
+        title: "Macy's Day Parade",
+        track_length: 213
     )
-    brain_stew_track = open('')
-    brain_stew.track.attach(io: brain_stew_track, filename: "brain_stew")
+    macys_day_parade_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/green_day/21+Macy\'s+Day+Parade.mp3')
+    macys_day_parade.track.attach(io: macys_day_parade_track, filename: "macys_day_parade")
     
     # --------------- Dookie :: GREEN DAY ---------------
-    brain_stew = Track.create!(
+    welcome_to_paradise = Track.create!(
         album_id: dookie_album.id,
-        title: "",
-        track_length: 
+        title: "Welcome to Paradise",
+        track_length: 224
     )
-    brain_stew_track = open('')
-    brain_stew.track.attach(io: brain_stew_track, filename: "brain_stew")
+    welcome_to_paradise_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/green_day/04+Welcome+to+Paradise.mp3')
+    welcome_to_paradise.track.attach(io: welcome_to_paradise_track, filename: "welcome_to_paradise")
 
-    brain_stew = Track.create!(
+    basket_case = Track.create!(
         album_id: dookie_album.id,
-        title: "",
-        track_length: 
+        title: "Basket Case",
+        track_length: 181
     )
-    brain_stew_track = open('')
-    brain_stew.track.attach(io: brain_stew_track, filename: "brain_stew")
+    basket_case_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/green_day/Basket+Case.mp3')
+    basket_case.track.attach(io: basket_case_track, filename: "basket_case")
 
-    brain_stew = Track.create!(
+    when_i_come_around = Track.create!(
         album_id: dookie_album.id,
-        title: "",
-        track_length: 
+        title: "When I Come Around",
+        track_length: 178
     )
-    brain_stew_track = open('')
-    brain_stew.track.attach(io: brain_stew_track, filename: "brain_stew")
+    when_i_come_around_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/green_day/06+When+I+Come+Around.mp3')
+    when_i_come_around.track.attach(io: when_i_come_around_track, filename: "when_i_come_around")
     
     # --------------- Nimrod :: GREEN DAY --------------- 
-    brain_stew = Track.create!(
+    good_riddance = Track.create!(
         album_id: nimrod_album.id,
-        title: "",
-        track_length: 
+        title: "Good Riddance (Time of Your Life)",
+        track_length: 153
     )
-    brain_stew_track = open('')
-    brain_stew.track.attach(io: brain_stew_track, filename: "brain_stew")
+    good_riddance_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/green_day/15+Good+Riddance+(Time+of+Your+Life).mp3')
+    good_riddance.track.attach(io: good_riddance_track, filename: "good_riddance")
 
-    brain_stew = Track.create!(
+    nice_guys_finish_last = Track.create!(
         album_id: nimrod_album.id,
-        title: "",
-        track_length: 
+        title: "Nice Guys Finish Last",
+        track_length: 168
     )
-    brain_stew_track = open('')
-    brain_stew.track.attach(io: brain_stew_track, filename: "brain_stew")
+    nice_guys_finish_last_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/green_day/17+Nice+Guys+Finish+Last.mp3')
+    nice_guys_finish_last.track.attach(io: nice_guys_finish_last_track, filename: "nice_guys_finish_last")
 
     # TODO: ---------------   ---------------
     # droppin_names = Track.create!(
