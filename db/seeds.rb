@@ -250,7 +250,37 @@ ActiveRecord::Base.transaction do
     )
     midnight_machine_gun_photo = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/album_photos/nicatina-midnight_machine_gun.jpeg')
     midnight_machine_gun.album_photo.attach(io: midnight_machine_gun_photo, filename: 'midnight_machine_gun_photo')
+
+    # --------------- ** SINGLES ** :: ANDRE NICKATINA ---------------
+    nickatina_singles = Album.create!(
+        artist_id: nicatina.id, 
+        title: "Singles", 
+        year: 2019, 
+        genre: "Hip-hop"
+    )
+    nickatina_singles_photo = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/album_photos/singles.jpg')
+    nickatina_singles.album_photo.attach(io: nickatina_singles_photo, filename: 'nickatina_singles_photo')
+
+    # --------------- SOMEWHERE UNDER WONDERLAND :: COUNTING CROWS ---------------
+    somewhere_under_wonderland = Album.create!(
+        artist_id: counting_crows.id, 
+        title: "Somewhere Under Wonderland", 
+        year: 2014, 
+        genre: "Alternative Rock"
+    )
+    somewhere_under_wonderland_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/CountingCrowsSomewhereUnderWonderland.jpg')
+    somewhere_under_wonderland.album_photo.attach(io: somewhere_under_wonderland_photo, filename: 'somewhere_under_wonderland_photo')
     
+    # --------------- FILMS ABOUT GHOSTS :: COUNTING CROWS ---------------
+    films_about_ghosts = Album.create!(
+        artist_id: counting_crows.id, 
+        title: "Films About Ghosts: The Best Of...", 
+        year: 2003, 
+        genre: "Alternative Rock"
+    )
+    films_about_ghosts_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/counting_crows_films_about_ghosts.jpeg')
+    films_about_ghosts.album_photo.attach(io: films_about_ghosts_photo, filename: 'films_about_ghosts_photo')
+
     # --------------- DIRT NASTY :: DIRT NASTY ---------------
     dirt_nasty_album = Album.create!(
         artist_id: dirt_nasty.id, 
@@ -270,6 +300,56 @@ ActiveRecord::Base.transaction do
     )
     willy_poor_boys_album_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/Willy_and_the_poor_boys_ccr_album.jpg')
     willy_poor_boys_album.album_photo.attach(io: willy_poor_boys_album_photo, filename: 'willy_poor_boys_album_photo')
+    
+    # --------------- AMERICAN IDIOT :: GREEN DAY ---------------
+    american_idiot = Album.create!(
+        artist_id: green_day.id, 
+        title: "American Idiot", 
+        year: 2004, 
+        genre: "Rock-n-roll"
+    )
+    american_idiot_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/green_day_american_idiot_album.jpeg')
+    american_idiot.album_photo.attach(io: american_idiot_photo, filename: 'american_idiot_photo')
+    
+    # --------------- Greatest Hits: God's Favorite Band :: GREEN DAY ---------------
+    green_day_greatest_hits = Album.create!(
+        artist_id: green_day.id, 
+        title: "Greatest Hits: God's Favorite Band", 
+        year: 2017, 
+        genre: "Rock-n-roll"
+    )
+    green_day_greatest_hits_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/green_day_greatest_hits.jpeg')
+    green_day_greatest_hits.album_photo.attach(io: green_day_greatest_hits_photo, filename: 'green_day_greatest_hits_photo')
+    
+    # --------------- Warning :: GREEN DAY ---------------
+    warning_album = Album.create!(
+        artist_id: green_day.id, 
+        title: "Warning", 
+        year: 2000, 
+        genre: "Rock-n-roll"
+    )
+    warning_album_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/green_day_warning_album.jpeg')
+    warning_album.album_photo.attach(io: warning_album_photo, filename: 'warning_album_photo')
+    
+    # --------------- Dookie :: GREEN DAY ---------------
+    dookie_album = Album.create!(
+        artist_id: green_day.id, 
+        title: "Dookie", 
+        year: 1994, 
+        genre: "Rock-n-roll"
+    )
+    dookie_album_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/green_day_dookie.jpeg')
+    dookie_album.album_photo.attach(io: dookie_album_photo, filename: 'dookie_album_photo')
+    
+    # --------------- Nimrod :: GREEN DAY ---------------
+    nimrod_album = Album.create!(
+        artist_id: green_day.id, 
+        title: "Nimrod", 
+        year: 1997, 
+        genre: "Rock-n-roll"
+    )
+    nimrod_album_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/green_day_nimrod.jpeg')
+    nimrod_album.album_photo.attach(io: nimrod_album_photo, filename: 'nimrod_album_photo')
 
     # Pending: Counting Crows, Green Day, 
     # Journey, Keak da Sneak, Metallica, MC Hammer, Michael Franti, Papa Roach, 
@@ -597,7 +677,31 @@ ActiveRecord::Base.transaction do
         track_length: 241
     )
     tell_me_when_to_go_track = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/tracks/Tell+Me+When+To+Go.mp3')
-    tell_me_when_to_go.track.attach(io: tell_me_when_to_go_track, filename: "Tell_Me_When_To_Go")   
+    tell_me_when_to_go.track.attach(io: tell_me_when_to_go_track, filename: "Tell_Me_When_To_Go")  
+    
+    white_gurl = Track.create!(
+        album_id: my_ghetto_report_card.id,
+        title: "White Gurl",
+        track_length: 263
+    )
+    white_gurl_track = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/tracks/11+White+Gurl.mp3')
+    white_gurl.track.attach(io: white_gurl_track, filename: "white_gurl") 
+    
+    muscle_cars = Track.create!(
+        album_id: my_ghetto_report_card.id,
+        title: "Muscle Cars",
+        track_length: 242
+    )
+    muscle_cars_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/03+Muscle+Cars.mp3')
+    muscle_cars.track.attach(io: muscle_cars_track, filename: "muscle_cars") 
+    
+    u_and_dat = Track.create!(
+        album_id: my_ghetto_report_card.id,
+        title: "U and Dat (feat. T-Pain & Kandi Girl)",
+        track_length: 202
+    )
+    u_and_dat_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/13+U+and+Dat.mp3')
+    u_and_dat.track.attach(io: u_and_dat_track, filename: "u_and_dat") 
     
     # --------------- ** SINGLES ** :: E-40 ---------------
     choices_warriors = Track.create!(
@@ -632,13 +736,13 @@ ActiveRecord::Base.transaction do
     my_cup_track = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/tracks/09+My+Cup+(Featuring+Suga-T).m4a')
     my_cup.track.attach(io: my_cup_track, filename: "my_cup")   
     
-    white_gurl = Track.create!(
+    captain_save_a_hoe = Track.create!(
         album_id: e_40_singles.id,
-        title: "White Gurl",
-        track_length: 263
+        title: "Captain Save a Hoe",
+        track_length: 288
     )
-    white_gurl_track = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/tracks/11+White+Gurl.mp3')
-    white_gurl.track.attach(io: white_gurl_track, filename: "white_gurl")   
+    captain_save_a_hoe_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/Captain+Save+a+Hoe.mp3')
+    captain_save_a_hoe.track.attach(io: captain_save_a_hoe_track, filename: "captain_save_a_hoe")   
     
     # --------------- RONALD DREGAN: DREAGANOMICS TRACKS :: MAC DRE ---------------
     feelin_myself = Track.create!(
@@ -665,6 +769,22 @@ ActiveRecord::Base.transaction do
     )
     all_star_chuck_taylors_track = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/tracks/05+All+Star+Chuck+Taylors.m4a')
     all_star_chuck_taylors.track.attach(io: all_star_chuck_taylors_track, filename: "All Star Chuck Taylors")
+
+    july_4th = Track.create!(
+        album_id: hells_kitchen.id,
+        title: "July the 4th",
+        track_length: 241
+    )
+    july_4th_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/11+July+the+4th.m4a')
+    july_4th.track.attach(io: july_4th_track, filename: "july_4th") 
+
+    he_said_she_said = Track.create!(
+        album_id: hells_kitchen.id,
+        title: "He Said, She Said...",
+        track_length: 257
+    )
+    he_said_she_said_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/13+He+Said%2C+She+Said.m4a')
+    he_said_she_said.track.attach(io: he_said_she_said_track, filename: "he_said_she_said") 
     
     # --------------- Midnight Machine Gun Rhymes and Alibis :: ANDRE NICKATINA ---------------
     fa_show = Track.create!(
@@ -682,6 +802,23 @@ ActiveRecord::Base.transaction do
     )
     jungle_track = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/tracks/01+Jungle.mp3')
     jungle.track.attach(io: jungle_track, filename: "Jungle")
+
+    # --------------- ** SINGLES ** :: ANDRE NICKATINA ---------------
+    killa_whale = Track.create!(
+        album_id: nickatina_singles.id,
+        title: "Kila Whale",
+        track_length: 276
+    )
+    killa_whale_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/05+Kila+Whale.mp3')
+    killa_whale.track.attach(io: killa_whale_track, filename: "killa_whale") 
+
+    honeycomb = Track.create!(
+        album_id: nickatina_singles.id,
+        title: "Honeycomb",
+        track_length: 299
+    )
+    honeycomb_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/14+Honeycomb.mp3')
+    honeycomb.track.attach(io: honeycomb_track, filename: "honeycomb") 
     
     # --------------- DIRT NASTY ALBUM :: DIRT NASTY ---------------
     nineteen_eighty = Track.create!(
@@ -716,6 +853,165 @@ ActiveRecord::Base.transaction do
     )
     down_on_the_corner_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/Down+On+The+Corner.mp3')
     down_on_the_corner.track.attach(io: down_on_the_corner_track, filename: "Down_on_the_corner")
+
+    # --------------- SOMEWHERE UNDER WONDERLAND :: COUNTING CROWS ---------------
+    earthquake_driver = Track.create!(
+        album_id: somewhere_under_wonderland.id,
+        title: "Earthquake Driver",
+        track_length: 211
+    )
+    earthquake_driver_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/Earthquake+Driver.mp3')
+    earthquake_driver.track.attach(io: earthquake_driver_track, filename: "earthquake_driver")
+
+    # --------------- FILMS ABOUT GHOSTS :: COUNTING CROWS ---------------
+    accidentally_in_love = Track.create!(
+        album_id: films_about_ghosts.id,
+        title: "Accidentally In Love",
+        track_length: 188
+    )
+    accidentally_in_love_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/01+Accidentally+in+Love.mp3')
+    accidentally_in_love.track.attach(io: accidentally_in_love_track, filename: "accidentally_in_love")
+
+    mr_jones = Track.create!(
+        album_id: films_about_ghosts.id,
+        title: "Mr. Jones",
+        track_length: 272
+    )
+    mr_jones_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/Mr.+Jones.mp3')
+    mr_jones.track.attach(io: mr_jones_track, filename: "mr_jones")
+
+    # --------------- AMERICAN IDIOT :: GREEN DAY ---------------
+    american_idiot_song = Track.create!(
+        album_id: american_idiot.id,
+        title: "American Idiot",
+        track_length: 174
+    )
+    american_idiot_song_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/green_day/01+American+Idiot.m4a')
+    american_idiot_song.track.attach(io: american_idiot_song_track, filename: "american_idiot_song")
+
+    jesus_of_suburbia = Track.create!(
+        album_id: american_idiot.id,
+        title: "Jesus of Suburbia",
+        track_length: 548
+    )
+    jesus_of_suburbia_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/green_day/02+Jesus+Of+Suburbia.m4a')
+    jesus_of_suburbia.track.attach(io: jesus_of_suburbia_track, filename: "jesus_of_suburbia")
+
+    holiday = Track.create!(
+        album_id: american_idiot.id,
+        title: "Holiday",
+        track_length: 232
+    )
+    holiday_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/green_day/03+Holiday.m4a')
+    holiday.track.attach(io: holiday_track, filename: "holiday")
+
+    boulevard_of_broken_dreams = Track.create!(
+        album_id: american_idiot.id,
+        title: "Boulevard of Broken Dreams",
+        track_length: 260
+    )
+    boulevard_of_broken_dreams_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/green_day/04+Boulevard+Of+Broken+Dreams.m4a')
+    boulevard_of_broken_dreams.track.attach(io: boulevard_of_broken_dreams_track, filename: "boulevard_of_broken_dreams")
+
+    wake_me_up_when_sept_ends = Track.create!(
+        album_id: american_idiot.id,
+        title: "Wake Me Up When September Ends",
+        track_length: 285
+    )
+    wake_me_up_when_sept_ends_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/green_day/11+Wake+Me+Up+When+September+Ends.m4a')
+    wake_me_up_when_sept_ends.track.attach(io: wake_me_up_when_sept_ends_track, filename: "wake_me_up_when_sept_ends")
+
+    # --------------- Greatest Hits: God's Favorite Band :: GREEN DAY --------------- 
+    brain_stew = Track.create!(
+        album_id: green_day_greatest_hits.id,
+        title: "Brain Stew",
+        track_length: 193
+    )
+    brain_stew_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/green_day/10+Brainstew.mp3')
+    brain_stew.track.attach(io: brain_stew_track, filename: "brain_stew")
+
+    twenty_one_guns = Track.create!(
+        album_id: green_day_greatest_hits.id,
+        title: "21 Guns",
+        track_length: 322
+    )
+    twenty_one_guns_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/green_day/16+21+Guns.mp3')
+    twenty_one_guns.track.attach(io: twenty_one_guns_track, filename: "twenty_one_guns")
+    
+    # --------------- Warning :: GREEN DAY ---------------
+    brain_stew = Track.create!(
+        album_id: warning_album.id,
+        title: "",
+        track_length: 
+    )
+    brain_stew_track = open('')
+    brain_stew.track.attach(io: brain_stew_track, filename: "brain_stew")
+
+    brain_stew = Track.create!(
+        album_id: warning_album.id,
+        title: "",
+        track_length: 
+    )
+    brain_stew_track = open('')
+    brain_stew.track.attach(io: brain_stew_track, filename: "brain_stew")
+
+    brain_stew = Track.create!(
+        album_id: warning_album.id,
+        title: "",
+        track_length: 
+    )
+    brain_stew_track = open('')
+    brain_stew.track.attach(io: brain_stew_track, filename: "brain_stew")
+
+    brain_stew = Track.create!(
+        album_id: warning_album.id,
+        title: "",
+        track_length: 
+    )
+    brain_stew_track = open('')
+    brain_stew.track.attach(io: brain_stew_track, filename: "brain_stew")
+    
+    # --------------- Dookie :: GREEN DAY ---------------
+    brain_stew = Track.create!(
+        album_id: dookie_album.id,
+        title: "",
+        track_length: 
+    )
+    brain_stew_track = open('')
+    brain_stew.track.attach(io: brain_stew_track, filename: "brain_stew")
+
+    brain_stew = Track.create!(
+        album_id: dookie_album.id,
+        title: "",
+        track_length: 
+    )
+    brain_stew_track = open('')
+    brain_stew.track.attach(io: brain_stew_track, filename: "brain_stew")
+
+    brain_stew = Track.create!(
+        album_id: dookie_album.id,
+        title: "",
+        track_length: 
+    )
+    brain_stew_track = open('')
+    brain_stew.track.attach(io: brain_stew_track, filename: "brain_stew")
+    
+    # --------------- Nimrod :: GREEN DAY --------------- 
+    brain_stew = Track.create!(
+        album_id: nimrod_album.id,
+        title: "",
+        track_length: 
+    )
+    brain_stew_track = open('')
+    brain_stew.track.attach(io: brain_stew_track, filename: "brain_stew")
+
+    brain_stew = Track.create!(
+        album_id: nimrod_album.id,
+        title: "",
+        track_length: 
+    )
+    brain_stew_track = open('')
+    brain_stew.track.attach(io: brain_stew_track, filename: "brain_stew")
 
     # TODO: ---------------   ---------------
     # droppin_names = Track.create!(
