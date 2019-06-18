@@ -1112,7 +1112,9 @@ ActiveRecord::Base.transaction do
 
     AlbumFollower.create!(follower_id: curry.id, album_id: my_ghetto_report_card.id)
     AlbumFollower.create!(follower_id: curry.id, album_id: when_its_dark_out.id)
+    AlbumFollower.create!(follower_id: curry.id, album_id: the_beautiful_and_damned.id)
     AlbumFollower.create!(follower_id: curry.id, album_id: ronald_dregan.id)
+    AlbumFollower.create!(follower_id: curry.id, album_id: e_40_singles.id)
 
     # ------------------------------------------------------------------------- #
     # --------------------------- TRACK FOLLOWERS ----------------------------- #
@@ -1120,6 +1122,16 @@ ActiveRecord::Base.transaction do
 
     TrackFollower.create!(follower_id: curry.id, track_id: tell_me_when_to_go.id)
     TrackFollower.create!(follower_id: curry.id, track_id: calm_down.id)
-    TrackFollower.create!(follower_id: curry.id, track_id: feelin_myself.id)
+    TrackFollower.create!(follower_id: curry.id, track_id: of_all_things.id)
+    TrackFollower.create!(follower_id: curry.id, track_id: thats_a_lot.id)
+    TrackFollower.create!(follower_id: curry.id, track_id: the_plan.id)
+    TrackFollower.create!(follower_id: curry.id, track_id: choices_warriors.id)
+    TrackFollower.create!(follower_id: curry.id, track_id: sprinkle_me.id)
+    TrackFollower.create!(follower_id: curry.id, track_id: captain_save_a_hoe.id)
+    TrackFollower.create!(follower_id: curry.id, track_id: my_cup.id)
+    TrackFollower.create!(follower_id: curry.id, track_id: all_star_chuck_taylors.id)
+    TrackFollower.create!(follower_id: curry.id, track_id: he_said_she_said.id)
+    TrackFollower.create!(follower_id: curry.id, track_id: killa_whale.id)
+    TrackFollower.create!(follower_id: curry.id, track_id: jungle.id)
 
 end

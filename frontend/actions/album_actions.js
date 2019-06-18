@@ -30,6 +30,15 @@ export const fetchAlbums = () => dispatch => {
     ));
 };
 
+export const fetchFollowedAlbums = () => dispatch => {
+    return APIUtils.fetchFollowedAlbums().then(res => {
+        dispatch(receiveAlbums(res.albums));
+        dispatch(receiveArtists(res.artists));
+    }, error => (
+        dispatch(receiveErrors(error.responseJSON))
+    ));
+};
+
 export const fetchAlbum = (id) => dispatch => {
     return APIUtils.fetchAlbum(id).then(res => {
         dispatch(receiveAlbum(res.albums));

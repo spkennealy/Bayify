@@ -29,6 +29,14 @@ export const fetchArtists = () => dispatch => {
     ));
 };
 
+export const fetchFollowedArtists = () => dispatch => {
+    return APIUtils.fetchFollowedArtists().then(artists => (
+        dispatch(receiveArtists(artists))
+    ), error => (
+        dispatch(receiveErrors(error.responseJSON))
+    ));
+};
+
 export const fetchArtist = (id) => dispatch => {
     return APIUtils.fetchArtist(id).then(res => {
         dispatch(receiveArtist(res.artists));

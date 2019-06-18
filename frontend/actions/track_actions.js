@@ -16,3 +16,11 @@ export const fetchTracks = () => dispatch => {
         dispatch(receiveAlbums(res.albums));
     });
 };
+
+export const fetchFollowedTracks = () => dispatch => {
+    return APIUtils.fetchFollowedTracks().then(res => {
+        dispatch(receiveTracks(res.tracks));
+        dispatch(receiveArtists(res.artists));
+        dispatch(receiveAlbums(res.albums));
+    });
+};
