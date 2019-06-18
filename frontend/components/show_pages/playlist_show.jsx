@@ -72,7 +72,8 @@ export default class PlaylistShow extends React.Component {
                             <PlaylistsIndexItem 
                                 id="playlist-show-item"
                                 playlist={this.props.playlist}
-                                curatorId={this.props.playlist.curator_id}/>
+                                curatorId={this.props.playlist.curator_id}
+                                username={this.props.playlist.username}/>
                         </div>
                         <button 
                             className="green-button" 

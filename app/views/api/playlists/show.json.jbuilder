@@ -6,6 +6,9 @@ json.playlists do
         else
             json.playlistPhoto image_url("default_playlist_photo.jpg")
         end
+
+        json.username @playlist.curator.username
+
         json.playlist_tracks do 
             @playlist.playlist_tracks.each do |playlist_track|
                 json.set! playlist_track.track_id do

@@ -5,18 +5,18 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
     resources :artists, only: [:index, :show] do
-      get 'followed', on: :collection
+      get 'followed_artists', on: :collection
     end 
     resources :playlists do
-      get 'followed', on: :collection
+      get 'followed_playlists', on: :collection
     end 
     resources :playlist_tracks, only: [:show, :create, :destroy]
     resources :albums, only: [:index, :show] do
-      get 'followed', on: :collection
+      get 'followed_albums', on: :collection
     end 
     resources :tracks, only: [:index] do
       get 'search', on: :collection
-      get 'followed', on: :collection
+      get 'followed_tracks', on: :collection
     end 
   end
 

@@ -2,8 +2,6 @@ class Api::PlaylistsController < ApplicationController
 
     def index 
         @playlists = Playlist.all
-        # @playlists = current_user.followed_playlists
-        # @playlists += current_user.curated_playlists
         render :index
     end
 
@@ -36,7 +34,12 @@ class Api::PlaylistsController < ApplicationController
     def destroy
         @playlist = Playlist.find(params[:id])
         @playlist.destroy
-        # render :index
+    end
+
+    def followed_playlists
+        @playlists = current_user.followed_playlists
+        @playlists += current_user.curated_playlists
+        render :index
     end
 
     private

@@ -17,6 +17,8 @@
 }
 
 .playlist-index li img {
+    min-width: 225px;
+    min-height: 225px;
     max-width: 225px;
     max-height: 225px;
     width: auto;
@@ -50,6 +52,15 @@
 
 .playlist-index-item {
     position: relative;
+}
+
+.playlist-index-item-img {
+    min-width: 225px;
+    min-height: 225px;
+    max-width: 225px;
+    max-height: 225px;
+    width: auto;
+    height: auto;
 }
 
 .playlist-index-item:active .playlist-index-item-img {
@@ -116,9 +127,7 @@
 }
 
 .playlist-info-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
     padding-top: 30px;
     margin: 0 20px;
 }

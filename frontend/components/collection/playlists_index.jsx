@@ -40,7 +40,8 @@ export default class PlaylistsIndex extends React.Component {
                         <li key= {playlist.id}>
                             <PlaylistIndexItem 
                                 playlist={playlist}
-                                curatorId={playlist.curator_id}/>
+                                curatorId={playlist.curator_id}
+                                username={playlist.username}/>
                         </li>
                     ))}
                 </ul>)}

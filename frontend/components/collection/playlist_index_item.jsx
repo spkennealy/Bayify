@@ -18,6 +18,8 @@ const PlaylistIndexItem = (props) => {
         props.setQueue(tracks);
     };
 
+    // debugger;
+
     return (
         <>
             <Link
@@ -42,7 +44,7 @@ const PlaylistIndexItem = (props) => {
                 <h2 id="add-font">{props.playlist.title}</h2>
             </Link>
 
-            <h3 id="add-font">{props.users[props.curatorId].username}</h3>
+            <h3 id="add-font">{props.username}</h3>
         </>
     );
 };
