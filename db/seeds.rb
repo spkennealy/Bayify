@@ -19,6 +19,11 @@ ActiveRecord::Base.transaction do
     curry_photo = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/user_photos/Steph_Curry.jpg')
     curry.profile_photo.attach(io: curry_photo, filename: 'Steph_Curry')
 
+    User.create!(username: "Bayify", password: "password", email: "admin@bayify.com")
+    bayify = User.find_by(username: "Bayify")
+    bayify_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/user_photos/bayify-logo.png')
+    bayify.profile_photo.attach(io: bayify_photo, filename: 'Bayify')
+
     # ------------------------------------------------------------------------- #
     # ------------------------------ ARTISTS ---------------------------------- #
     # ------------------------------------------------------------------------- #
@@ -1034,13 +1039,57 @@ ActiveRecord::Base.transaction do
     yay_area_photo = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/playlist_photos/yay_area.png')
     yay_area.playlist_photo.attach(io: yay_area_photo, filename: "Yay_Area_Playlist")
 
+    hyphy = Playlist.create!(
+        curator_id: bayify.id,
+        title: "Hyphy"
+    )
+    hyphy_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/playlist_photos/hyphy.jpeg')
+    hyphy.playlist_photo.attach(io: hyphy_photo, filename: "hyphy_playlist")
+
+    summer_of_love = Playlist.create!(
+        curator_id: bayify.id,
+        title: "Summer of Love"
+    )
+    summer_of_love_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/playlist_photos/summer_of_love.jpg')
+    summer_of_love.playlist_photo.attach(io: summer_of_love_photo, filename: "summer_of_love_playlist")
+
+    bfd = Playlist.create!(
+        curator_id: bayify.id,
+        title: "BFD"
+    )
+    bfd_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/playlist_photos/bfd.jpg')
+    bfd.playlist_photo.attach(io: bfd_photo, filename: "bfd_Playlist")
+
     # ------------------------------------------------------------------------- #
     # --------------------------- PLAYLIST TRACKS ----------------------------- #
     # ------------------------------------------------------------------------- #
 
+    PlaylistTrack.create!(track_id: calm_down.id, playlist_id: yay_area.id)
+    PlaylistTrack.create!(track_id: random.id, playlist_id: yay_area.id)
     PlaylistTrack.create!(track_id: feelin_myself.id, playlist_id: yay_area.id)
     PlaylistTrack.create!(track_id: tell_me_when_to_go.id, playlist_id: yay_area.id)
-    PlaylistTrack.create!(track_id: calm_down.id, playlist_id: yay_area.id)
+    PlaylistTrack.create!(track_id: all_star_chuck_taylors.id, playlist_id: yay_area.id)
+    PlaylistTrack.create!(track_id: ayo.id, playlist_id: yay_area.id)
+    PlaylistTrack.create!(track_id: choices_warriors.id, playlist_id: yay_area.id)
+    PlaylistTrack.create!(track_id: nineteen_eighty.id, playlist_id: yay_area.id)
+
+    PlaylistTrack.create!(track_id: feelin_myself.id, playlist_id: hyphy.id)
+    PlaylistTrack.create!(track_id: tell_me_when_to_go.id, playlist_id: hyphy.id)
+    PlaylistTrack.create!(track_id: calm_down.id, playlist_id: hyphy.id)
+    PlaylistTrack.create!(track_id: white_gurl.id, playlist_id: hyphy.id)
+    PlaylistTrack.create!(track_id: sprinkle_me.id, playlist_id: hyphy.id)
+    PlaylistTrack.create!(track_id: muscle_cars.id, playlist_id: hyphy.id)
+    PlaylistTrack.create!(track_id: captain_save_a_hoe.id, playlist_id: hyphy.id)
+    PlaylistTrack.create!(track_id: my_cup.id, playlist_id: hyphy.id)
+
+    PlaylistTrack.create!(track_id: fortunate_son.id, playlist_id: summer_of_love.id)
+    PlaylistTrack.create!(track_id: down_on_the_corner.id, playlist_id: summer_of_love.id)
+
+    PlaylistTrack.create!(track_id: when_i_come_around.id, playlist_id: bfd.id)
+    PlaylistTrack.create!(track_id: nice_guys_finish_last.id, playlist_id: bfd.id)
+    PlaylistTrack.create!(track_id: good_riddance.id, playlist_id: bfd.id)
+    PlaylistTrack.create!(track_id: minority.id, playlist_id: bfd.id)
+    PlaylistTrack.create!(track_id: macys_day_parade.id, playlist_id: bfd.id)
 
     # ------------------------------------------------------------------------- #
     # ------------------------- PLAYLIST FOLLOWERS ---------------------------- #
