@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PlaylistIndex from './playlists_index';
-import { fetchPlaylists, fetchPlaylist } from '../../actions/playlist_actions';
+import { fetchFollowedPlaylists, fetchPlaylist } from '../../actions/playlist_actions';
 
 const mapStateToProps = state => ({
     currentUser: state.entities.users[state.session.id],
@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 
 
 const mapDisptachToProps = dispatch => ({
-    fetchPlaylists: () => dispatch(fetchPlaylists()),
+    fetchPlaylists: () => dispatch(fetchFollowedPlaylists()),
     fetchPlaylist: id => dispatch(fetchPlaylist(id))
 });
 

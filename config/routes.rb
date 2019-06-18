@@ -6,13 +6,16 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :artists, only: [:index, :show] do
       get 'followed_artists', on: :collection
+      get 'featured_artists', on: :collection
     end 
     resources :playlists do
       get 'followed_playlists', on: :collection
+      get 'featured_artists', on: :collection
     end 
     resources :playlist_tracks, only: [:show, :create, :destroy]
     resources :albums, only: [:index, :show] do
       get 'followed_albums', on: :collection
+      get 'featured_albums', on: :collection
     end 
     resources :tracks, only: [:index] do
       get 'search', on: :collection

@@ -18,3 +18,10 @@ export const fetchFollowedArtists = () => {
         url: `/api/artists/followed_artists`
     });
 };
+
+export const fetchFeaturedArtists = () => {
+    return $.ajax({
+        method: "GET",
+        url: `/api/artists/featured_artists`
+    });
+};

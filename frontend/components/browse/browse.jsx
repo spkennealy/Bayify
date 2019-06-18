@@ -10,8 +10,8 @@ const Collection = (props) => (
     <main className="collection-content">
         <BrowseNav openModal={props.openModal} />
         <div className="collection-content-index">
-            {/* <ProtectedRoute exact path="/browse/featured" component={FeaturedContainer} />
-            <ProtectedRoute exact path="/browse/charts" component={ChartsContainer} />
+            {/* <ProtectedRoute exact path="/browse/featured" component={FeaturedContainer} /> */}
+            {/* <ProtectedRoute exact path="/browse/charts" component={ChartsContainer} />
             <ProtectedRoute exact path="/browse/genres" component={GenresContainer} />
             <ProtectedRoute exact path="/browse/newreleases" component={NewReleasesContainer} /> */}
         </div>

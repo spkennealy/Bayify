@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import TracksIndex from './tracks_index';
-import { fetchTracks } from '../../actions/track_actions';
+import { fetchFollowedTracks } from '../../actions/track_actions';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -19,7 +19,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDisptachToProps = dispatch => ({
-    fetchTracks: () => dispatch(fetchTracks()),
+    fetchTracks: () => dispatch(fetchFollowedTracks()),
     openModal: (modal) => dispatch(openModal(modal))
 });
 

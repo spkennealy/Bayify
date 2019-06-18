@@ -1,4 +1,4 @@
-import { fetchArtist, fetchArtists } from '../../actions/artist_actions';
+import { fetchArtist, fetchFollowedArtists } from '../../actions/artist_actions';
 import { connect } from 'react-redux';
 import ArtistsIndex from './artists_index';
 
@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDisptachToProps = dispatch => ({
-    fetchArtists: () => dispatch(fetchArtists()),
+    fetchArtists: () => dispatch(fetchFollowedArtists()),
     fetchArtist: () => dispatch(fetchArtist())
 });
 

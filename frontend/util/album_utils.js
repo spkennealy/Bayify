@@ -18,3 +18,10 @@ export const fetchFollowedAlbums = () => {
         url: `/api/albums/followed_albums`
     });
 };
+
+export const fetchFeaturedAlbums = () => {
+    return $.ajax({
+        method: "GET",
+        url: `/api/albums/featured_albums`
+    });
+};

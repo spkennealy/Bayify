@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AlbumsIndex from './albums_index';
-import { fetchAlbums, fetchAlbum } from '../../actions/album_actions';
+import { fetchFollowedAlbums, fetchAlbum } from '../../actions/album_actions';
 
 const mapStateToProps = ({ entities, session }) => ({
     currentUser: entities.users[session.id],
@@ -10,7 +10,7 @@ const mapStateToProps = ({ entities, session }) => ({
 
 
 const mapDisptachToProps = dispatch => ({
-    fetchAlbums: () => dispatch(fetchAlbums()),
+    fetchAlbums: () => dispatch(fetchFollowedAlbums()),
     fetchAlbum: () => dispatch(fetchAlbum())
 });
 
