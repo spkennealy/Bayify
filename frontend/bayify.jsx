@@ -4,8 +4,10 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // ------------------- TEST IMPORTS -------------------
-// import { search } from './util/search_utils';
-// import { searchAll } from './actions/search_actions';
+import { fetchFollowedAlbums } from './util/album_utils';
+import { fetchFollowedArtists } from './util/artist_utils';
+import { fetchFollowedPlaylists } from './util/playlist_utils';
+import { fetchFollowedTracks } from './util/track_utils';
 // ------------------- END -------------------
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -28,8 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ------------------- TESTS -------------------
     window.getState = store.getState;
-    // window.search = search;
-    // window.searchAll = searchAll;
+    window.fetchFollowedAlbums = fetchFollowedAlbums;
+    window.fetchFollowedArtists = fetchFollowedArtists;
+    window.fetchFollowedPlaylists = fetchFollowedPlaylists;
+    window.fetchFollowedTracks = fetchFollowedTracks;
     // ------------------- END -------------------
     
     ReactDOM.render(<Root store={store}/>, root);

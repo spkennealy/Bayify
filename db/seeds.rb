@@ -1096,6 +1096,7 @@ ActiveRecord::Base.transaction do
     # ------------------------------------------------------------------------- #
 
     PlaylistFollower.create!(follower_id: curry.id, playlist_id: yay_area.id)
+    PlaylistFollower.create!(follower_id: curry.id, playlist_id: hyphy.id)
 
     # ------------------------------------------------------------------------- #
     # -------------------------- ARTIST FOLLOWERS ----------------------------- #

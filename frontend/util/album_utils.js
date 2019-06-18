@@ -11,3 +11,10 @@ export const fetchAlbum = (id) => {
         url: `/api/albums/${id}`
     });
 };
+
+export const fetchFollowedAlbums = () => {
+    return $.ajax({
+        method: "GET",
+        url: `/api/albums/followed_albums`
+    });
+};

@@ -34,3 +34,10 @@ export const deletePlaylist = (id) => {
         url: `/api/playlists/${id}`
     });
 };
+
+export const fetchFollowedPlaylists = () => {
+    return $.ajax({
+        method: "GET",
+        url: `/api/playlists/followed_playlists`
+    });
+};
