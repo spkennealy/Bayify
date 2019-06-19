@@ -7,7 +7,7 @@ import {
     RECEIVE_PLAYLIST_TRACK, 
     DELETE_PLAYLIST_TRACK
 } from '../../actions/playlist_track_actions';
-import { merge, remove } from 'lodash';
+import { merge } from 'lodash';
 
 const playlistsReducer = (state = {}, action) => {
     Object.freeze(state);

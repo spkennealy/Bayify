@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end 
     resources :playlists do
       get 'followed_playlists', on: :collection
-      get 'featured_artists', on: :collection
+      get 'featured_playlists', on: :collection
     end 
     resources :playlist_tracks, only: [:show, :create, :destroy]
     resources :albums, only: [:index, :show] do

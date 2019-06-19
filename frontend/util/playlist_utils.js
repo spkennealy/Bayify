@@ -5,13 +5,6 @@ export const fetchPlaylists = () => {
     });
 };
 
-export const fetchFeaturedPlaylists = () => {
-    return $.ajax({
-        method: "GET",
-        url: `/api/playlists/featured_playlists`
-    });
-};
-
 export const fetchPlaylist = (id) => {
     return $.ajax({
         method: "GET",
@@ -46,5 +39,12 @@ export const fetchFollowedPlaylists = () => {
     return $.ajax({
         method: "GET",
         url: `/api/playlists/followed_playlists`
+    });
+};
+
+export const fetchFeaturedPlaylists = () => {
+    return $.ajax({
+        method: "GET",
+        url: `/api/playlists/featured_playlists`
     });
 };

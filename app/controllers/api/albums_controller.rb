@@ -19,10 +19,14 @@ class Api::AlbumsController < ApplicationController
         @album_ids = Album.ids
         @albums = []
 
-        10.times do
-            random = @album_ids.sample
-            @album = Album.find(random)
-            @albums << @album unless @albums.include?(@album)
+        if @album_ids.length < 8
+            @albums = Album.all
+        else
+            until @albums.length === 8
+                random = @album_ids.sample
+                @album = Album.find(random)
+                @albums << @album unless @albums.include?(@album)
+            end
         end
 
         render :index

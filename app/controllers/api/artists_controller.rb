@@ -15,4 +15,21 @@ class Api::ArtistsController < ApplicationController
         render :index
     end
 
+    def featured_artists
+        @artist_ids = Artist.ids
+        @artists = []
+
+        if @artist_ids.length < 8
+            @artists = Artist.all
+        else
+            until @artists.length === 8
+                random = @artist_ids.sample
+                @artist = Artist.find(random)
+                @artists << @artist unless @artists.include?(@artist)
+            end
+        end
+
+        render :index
+    end
+
 end

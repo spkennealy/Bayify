@@ -42,6 +42,23 @@ class Api::PlaylistsController < ApplicationController
         render :index
     end
 
+    def featured_playlists
+        @playlist_ids = Playlist.ids
+        @playlists = []
+
+        if @playlist_ids.length < 8
+            @playlists = Playlist.all
+        else
+            until @playlists.length === 8
+                random = @playlist_ids.sample
+                @playlist = Playlist.find(random)
+                @playlists << @playlist unless @playlists.include?(@playlist)
+            end        
+        end
+        
+        render :featured
+    end
+
     private
 
     def playlist_params
