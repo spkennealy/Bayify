@@ -3,6 +3,7 @@ import { FaEllipsisH } from 'react-icons/fa';
 import PlaylistsIndexItem from '../collection/playlist_index_item';
 import TrackIndexItemContainer from '../collection/track_index_item_container';
 import { ImpulseSpinner } from 'react-spinners-kit';
+import { followPlaylist, unfollowPlaylist } from '../../util/playlist_utils';
 
 export default class PlaylistShow extends React.Component {
     constructor(props) {
@@ -100,6 +101,7 @@ export default class PlaylistShow extends React.Component {
                                             Delete Playlist
                                         </button>
                                     </li>
+                                    {}
                                     <li>
                                         <button>
                                             Save Song to Favories

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get 'followed_playlists', on: :collection
       get 'featured_playlists', on: :collection
       post 'follow', on: :collection
+      delete 'unfollow', on: :collection
     end 
     resources :playlist_tracks, only: [:show, :create, :destroy]
     resources :albums, only: [:index, :show] do

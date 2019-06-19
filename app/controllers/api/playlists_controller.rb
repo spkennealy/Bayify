@@ -7,6 +7,8 @@ class Api::PlaylistsController < ApplicationController
 
     def show
         @playlist = Playlist.find(params[:id])
+        @followed_playlists = current_user.followed_playlists
+        @followed = @followed_playlists.any? { |playlist| params[:id].to_i == playlist.id }
         render :show
     end
 
@@ -62,12 +64,17 @@ class Api::PlaylistsController < ApplicationController
     def follow 
         @playlist_follow = PlaylistFollower.new(follow_params)
 
-        debugger
         if @playlist_follow.save
             return
         else
             render json: @playlist_follow.errors.full_messages, status: 422
         end
+    end
+
+    def unfollow 
+        @playlist_follow = PlaylistFollower.find_by(follow_params)
+        debugger
+        @playlist_follow.destroy
     end
 
     private

@@ -56,3 +56,11 @@ export const followPlaylist = (userId, playlistId) => {
         data: { playlist: { follower_id: userId, playlist_id: playlistId } }
     });
 };
+
+export const unfollowPlaylist = (userId, playlistId) => {
+    return $.ajax({
+        method: "DELETE",
+        url: `/api/playlists/unfollow`,
+        data: { playlist: { follower_id: userId, playlist_id: playlistId } }
+    });
+};

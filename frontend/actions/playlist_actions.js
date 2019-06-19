@@ -98,3 +98,12 @@ export const deletePlaylist = (id) => dispatch => {
         dispatch(receiveErrors(error.responseJSON))
     ));
 };
+
+// export const followPlaylist = (userId, playlistId) => dispatch => {
+//     return APIUtils.followPlaylist(userId, playlistId).then(res => {
+//         dispatch(receivePlaylist(res.playlists));
+//         dispatch(receivePlaylistCurator(res.users));
+//     }, error => (
+//         dispatch(receiveErrors(error.responseJSON))
+//     ));
+// };

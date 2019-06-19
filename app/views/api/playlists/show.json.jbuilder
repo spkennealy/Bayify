@@ -16,6 +16,8 @@ json.playlists do
                 end
             end
         end
+
+        json.followed @followed
     end
 end
 
