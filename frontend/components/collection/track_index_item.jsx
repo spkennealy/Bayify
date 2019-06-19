@@ -128,11 +128,18 @@ export default class TrackIndexItem extends React.Component {
                                         </li>
                                     ) : (<div></div>)
                                 }
-                                {/* <li>
-                                    <button>
-                                        Save Song to Favories
-                                    </button>
-                                </li> */}
+                                {this.props.currentUser.savedTracks.includes(track.id) ? 
+                                    (<li>
+                                        <button>
+                                            Remove Song from Favories
+                                        </button>
+                                    </li>) : 
+                                    (<li>
+                                        <button>
+                                            Save Song to Favories
+                                        </button>
+                                    </li>)
+                                }
                             </ul>
                     ) : null}
                 </div>
