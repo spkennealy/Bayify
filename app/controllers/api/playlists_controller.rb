@@ -73,7 +73,6 @@ class Api::PlaylistsController < ApplicationController
 
     def unfollow 
         @playlist_follow = PlaylistFollower.find_by(follow_params)
-        debugger
         @playlist_follow.destroy
     end
 

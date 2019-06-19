@@ -52,8 +52,6 @@ class Search extends React.Component {
         this.setState({
             input: e.target.value
         }, () => this.search());
-
-        console.log(this.state);
     }
 
     search() {

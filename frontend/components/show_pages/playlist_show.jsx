@@ -59,6 +59,7 @@ export default class PlaylistShow extends React.Component {
             return null;
         }
 
+        // debugger
         return (
             <div className="playlist-show-container">
 
@@ -92,21 +93,38 @@ export default class PlaylistShow extends React.Component {
 
                             {this.state.renderDropDown ? (
                                 <ul className="elipsis-playlist-dropdown-menu">
-                                    <li>
-                                        <button
-                                            onClick={() => this.props.openModal({
-                                                modalType: "deletePlaylist",
-                                                playlistId: this.props.playlist.id
-                                            })}>
-                                            Delete Playlist
-                                        </button>
-                                    </li>
-                                    {}
-                                    <li>
-                                        <button>
-                                            Save Song to Favories
-                                        </button>
-                                    </li>
+                                    {this.props.currentUser.id === this.props.playlist.curator_id ? (
+                                        <li>
+                                            <button
+                                                onClick={() => this.props.openModal({
+                                                    modalType: "deletePlaylist",
+                                                    playlistId: this.props.playlist.id
+                                                })}>
+                                                Delete Playlist
+                                            </button>
+                                        </li>) : null
+                                    }
+                                    {!this.props.followed ? (
+                                        <li>
+                                            <button onClick={() => followPlaylist(
+                                                this.props.currentUser.id,
+                                                this.props.playlist.id
+                                            )}>
+                                                Follow Playlist
+                                            </button>
+                                        </li>
+                                    ) : (
+                                        <li>
+                                            <button onClick={() => unfollowPlaylist(
+                                                this.props.currentUser.id,
+                                                this.props.playlist.id
+                                            )}>
+                                                Unfollow Playlist
+                                            </button>
+                                        </li>
+                                    )
+                                    }
+                                    
                                 </ul>
                             ) : null}
                         </div>
