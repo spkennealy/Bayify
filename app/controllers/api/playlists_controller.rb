@@ -59,10 +59,25 @@ class Api::PlaylistsController < ApplicationController
         render :featured
     end
 
+    def follow 
+        @playlist_follow = PlaylistFollower.new(follow_params)
+
+        debugger
+        if @playlist_follow.save
+            return
+        else
+            render json: @playlist_follow.errors.full_messages, status: 422
+        end
+    end
+
     private
 
     def playlist_params
         params.require(:playlist).permit(:title, :curator_id)
+    end
+
+    def follow_params
+        params.require(:playlist).permit(:follower_id, :playlist_id)
     end
 
 end

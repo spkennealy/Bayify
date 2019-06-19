@@ -4,9 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // ------------------- TEST IMPORTS -------------------
-import { fetchFeaturedArtists } from './util/artist_utils';
-import { fetchFeaturedAlbums } from './util/album_utils';
-import { fetchFeaturedPlaylists } from './util/playlist_utils';
+import { followPlaylist } from './util/playlist_utils';
 // ------------------- END -------------------
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -29,9 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ------------------- TESTS -------------------
     window.getState = store.getState;
-    window.fetchFeaturedArtists = fetchFeaturedArtists;
-    window.fetchFeaturedAlbums = fetchFeaturedAlbums;
-    window.fetchFeaturedPlaylists = fetchFeaturedPlaylists;
+    window.followPlaylist = followPlaylist;
     // ------------------- END -------------------
     
     ReactDOM.render(<Root store={store}/>, root);

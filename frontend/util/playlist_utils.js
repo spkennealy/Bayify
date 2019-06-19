@@ -48,3 +48,11 @@ export const fetchFeaturedPlaylists = () => {
         url: `/api/playlists/featured_playlists`
     });
 };
+
+export const followPlaylist = (userId, playlistId) => {
+    return $.ajax({
+        method: "POST",
+        url: `/api/playlists/follow`,
+        data: { playlist: { follower_id: userId, playlist_id: playlistId } }
+    });
+};
