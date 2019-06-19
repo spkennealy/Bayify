@@ -66,7 +66,7 @@
     align-content: center;
 }
 
-#album-show-title {
+#album-show-title, .album-show-title {
     width: 100%;
     text-align: center;
     font-size: 20px;
@@ -76,7 +76,7 @@
     font-family: $main-font;
 }
 
-#album-show-title:hover {
+.album-show-title:hover {
     text-decoration: underline;
 }
 
