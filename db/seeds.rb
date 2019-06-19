@@ -1112,7 +1112,7 @@ ActiveRecord::Base.transaction do
 
     AlbumFollower.create!(follower_id: curry.id, album_id: my_ghetto_report_card.id)
     AlbumFollower.create!(follower_id: curry.id, album_id: when_its_dark_out.id)
-    AlbumFollower.create!(follower_id: curry.id, album_id: the_beautiful_and_damned.id)
+    AlbumFollower.create!(follower_id: curry.id, album_id: beautiful_and_damned_album.id)
     AlbumFollower.create!(follower_id: curry.id, album_id: ronald_dregan.id)
     AlbumFollower.create!(follower_id: curry.id, album_id: e_40_singles.id)
 
