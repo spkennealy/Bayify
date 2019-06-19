@@ -57,6 +57,7 @@ export default class TrackIndexItem extends React.Component {
         const album = this.props.albums[track.album_id];
         if (this.props.artists[album.artist_id] === undefined) return null;
         const artist = this.props.artists[album.artist_id];
+        let owner = false;
 
         let playlistId;
         let playlistTrackId;
@@ -65,6 +66,7 @@ export default class TrackIndexItem extends React.Component {
             let currentPlaylist = this.props.playlists[playlistId];
             if (currentPlaylist.playlist_tracks[track.id].id === undefined) return null;
             playlistTrackId = currentPlaylist.playlist_tracks[track.id].id;
+            if (currentPlaylist.curator_id === this.props.currentUser.id) owner = true;
         }
         
 
@@ -116,7 +118,7 @@ export default class TrackIndexItem extends React.Component {
                                         Add to Playlist
                                     </button>
                                 </li>
-                                {this.props.path.includes("playlist") ? (
+                                {this.props.path.includes("playlist") && owner ? (
                                         <li>
                                             <button
                                                 onClick={() => this.props.removePlaylistTrack(playlistTrackId, track.id, playlistId)}
