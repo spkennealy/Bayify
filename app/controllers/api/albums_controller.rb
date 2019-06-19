@@ -29,7 +29,7 @@ class Api::AlbumsController < ApplicationController
             end
         end
 
-        render :index
+        render :featured
     end
     
 end

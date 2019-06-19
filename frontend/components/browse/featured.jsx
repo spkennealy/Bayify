@@ -1,11 +1,10 @@
 import React from 'react';
 import PlaylistIndexItem from '../collection/playlist_index_item';
     // Pass: playlist, curatorId, username
-import AlbumIndexItem from '../collection/playlist_index_item';
-    // Pass: album, artists
 import ArtistIndexItem from '../collection/artist_index_item';
     // Pass: artist
 import { ImpulseSpinner } from 'react-spinners-kit';
+import { Link } from 'react-router-dom';
 
 export default class FeaturedIndex extends React.Component {
     constructor(props) {
@@ -18,8 +17,8 @@ export default class FeaturedIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchFeaturedPlaylists()
-            // .then(() => this.props.fetchFeaturedArtists())
-            // .then(() => this.props.fetchFeaturedAlbums())
+            .then(() => this.props.fetchFeaturedArtists())
+            .then(() => this.props.fetchFeaturedAlbums())
             .then(() => this.setState({ loading: false }));
     }
 
@@ -28,26 +27,26 @@ export default class FeaturedIndex extends React.Component {
             (prevProps.artists.lenth !== this.props.artists.length) ||
             (prevProps.albums.length !== this.props.albums.length)) {
             this.props.fetchFeaturedPlaylists()
-                // .then(() => this.props.fetchFeaturedArtists())
-                // .then(() => this.props.fetchFeaturedAlbums())
+                .then(() => this.props.fetchFeaturedArtists())
+                .then(() => this.props.fetchFeaturedAlbums())
                 .then(() => this.setState({ loading: false }));
         }
     }
 
     render() {
         if (Object.entries(this.props.playlists).length === 0) return null;
-        // if (Object.entries(this.props.artists).length === 0) return null;
-        // if (Object.entries(this.props.albums).length === 0) return null;
+        if (Object.entries(this.props.artists).length === 0) return null;
+        if (Object.entries(this.props.albums).length === 0) return null;
         const playlists = Object.values(this.props.playlists);
-        // const artists = Object.values(this.props.artists);
-        // const albums = Object.values(this.props.albums);
+        const artists = Object.values(this.props.artists);
+        const albums = Object.values(this.props.albums);
 
         // debugger;
 
         return (
             <>
-                <section className="featured-playlist-container">
-                    <h1 className="featured-playlist-title">Picked for {this.props.username}</h1>
+                <section className="featured-container featured-playlist-container">
+                    <h1 className="featured-title">Picked for you</h1>
                     <div className="playlist-index-container">
 
                         {this.state.loading ?
@@ -68,8 +67,8 @@ export default class FeaturedIndex extends React.Component {
                     </div>
                 </section>
 
-                {/* <section className="featured-artist-container">
-                    <h1 className="featured-artist-title">Check Out These Artists</h1>
+                <section className="featured-container featured-artist-container">
+                    <h1 className="featured-title featured-artist-title">Check Out These Artists</h1>
                     <div className="artist-index-container">
                         {this.state.loading ?
                             (<div className="loading-container">
@@ -88,7 +87,7 @@ export default class FeaturedIndex extends React.Component {
                 </section>
 
                 <section className="featured-album-container">
-                    <h1 className="featured-album-title">Hot Albums</h1>
+                    <h1 className="featured-title featured-ablum-title">Check Out These Albums</h1>
                     <div className="album-index-container">
 
                         {this.state.loading ?
@@ -99,14 +98,21 @@ export default class FeaturedIndex extends React.Component {
                             (<ul className="album-index">
                                 {albums.map(album => (
                                     <li key={album.id}>
-                                        <AlbumIndexItem
-                                            album={album}
-                                            artists={this.props.artists} />
+                                        <Link to={`/albums/${album.id}`}>
+                                            <img
+                                                id="album-index-item-img"
+                                                src={album.albumPhoto} />
+                                            <h2 id="album-show-title">{album.title}</h2>
+                                        </Link>
+
+                                        <Link to={`/artists/${album.artist.id}`}>
+                                            <h3 className="album-artist" id="add-font">{album.artist.name}</h3>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>)}
                     </div>
-                </section> */}
+                </section>
             </>
         );
     }

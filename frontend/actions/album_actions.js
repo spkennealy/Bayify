@@ -42,7 +42,6 @@ export const fetchFollowedAlbums = () => dispatch => {
 export const fetchFeaturedAlbums = () => dispatch => {
     return APIUtils.fetchFeaturedAlbums().then(res => {
         dispatch(receiveAlbums(res.albums));
-        dispatch(receiveArtists(res.artists));
     }, error => (
         dispatch(receiveErrors(error.responseJSON))
     ));
