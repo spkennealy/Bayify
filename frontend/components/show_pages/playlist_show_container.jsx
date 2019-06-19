@@ -18,7 +18,7 @@ const mapStateToProps = ({ entities, session, ui }, ownProps) => {
 
     return ({
         currentUser: entities.users[session.id],
-        playlist: entities.playlists[ownProps.match.params.playlistId],
+        playlist,
         users: entities.users,
         albums: entities.albums,
         artists: entities.artists,

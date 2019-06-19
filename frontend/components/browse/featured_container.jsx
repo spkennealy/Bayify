@@ -5,7 +5,6 @@ import { fetchFeaturedArtists } from '../../actions/artist_actions';
 import FeaturedIndex from './featured';
 
 const mapStateToProps = ({ entities }) => {
-    // debugger;
     return {
         albums: entities.albums,
         playlists: entities.playlists,

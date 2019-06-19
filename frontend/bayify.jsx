@@ -4,7 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // ------------------- TEST IMPORTS -------------------
-import { followPlaylist, unfollowPlaylist } from './util/playlist_utils';
+import { followAlbum, unfollowAlbum } from './util/album_utils';
 // ------------------- END -------------------
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ------------------- TESTS -------------------
     window.getState = store.getState;
-    window.followPlaylist = followPlaylist;
-    window.unfollowPlaylist = unfollowPlaylist;
+    window.followAlbum = followAlbum;
+    window.unfollowAlbum = unfollowAlbum;
     // ------------------- END -------------------
     
     ReactDOM.render(<Root store={store}/>, root);

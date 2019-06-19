@@ -2,6 +2,8 @@ import React from 'react';
 import TrackIndexItemContainer from '../collection/track_index_item_container';
 import AlbumsIndexItem from '../collection/album_index_item';
 import { ImpulseSpinner } from 'react-spinners-kit';
+import { FaEllipsisH } from 'react-icons/fa';
+import { followAlbum, unfollowAlbum } from '../../util/album_utils';
 
 export default class AlbumShow extends React.Component {
     constructor(props) {
@@ -94,6 +96,41 @@ export default class AlbumShow extends React.Component {
                             onClick={this.playAlbum}>
                             PLAY
                         </button>
+
+                        <div className="elipsis-playlist-dropdown-container">
+                            <div
+                                onClick={this.revealDropdown}
+                                className="elipsis-playlist-icon-playlist">
+                                <FaEllipsisH />
+                            </div>
+
+                            {this.state.renderDropDown ? (
+                                <ul id="album-dropdown-menu"
+                                    className="elipsis-playlist-dropdown-menu">
+                                    {!this.props.followed ? (
+                                        <li>
+                                            <button onClick={() => followAlbum(
+                                                this.props.currentUser.id,
+                                                this.props.album.id
+                                            )}>
+                                                Follow Album
+                                        </button>
+                                        </li>
+                                    ) : (
+                                            <li>
+                                                <button onClick={() => unfollowAlbum(
+                                                    this.props.currentUser.id,
+                                                    this.props.album.id
+                                                )}>
+                                                    Unfollow Album
+                                        </button>
+                                            </li>
+                                        )
+                                    }
+
+                                </ul>
+                            ) : null}
+                        </div>
                     </aside>
 
                     <div className="playlist-tracks-show-container">

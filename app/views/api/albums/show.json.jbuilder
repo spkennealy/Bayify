@@ -2,6 +2,7 @@ json.albums do
     json.set! @album.id do
         json.extract! @album, :id, :title, :artist_id ,:track_ids
         json.albumPhoto url_for(@album.album_photo)
+        json.followed @followed
     end
 end
 

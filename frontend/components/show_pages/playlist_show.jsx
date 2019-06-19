@@ -59,7 +59,6 @@ export default class PlaylistShow extends React.Component {
             return null;
         }
 
-        // debugger
         return (
             <div className="playlist-show-container">
 

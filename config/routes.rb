@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :artists, only: [:index, :show] do
       get 'followed_artists', on: :collection
       get 'featured_artists', on: :collection
+      post 'follow', on: :collection
+      delete 'unfollow', on: :collection
     end 
     resources :playlists do
       get 'followed_playlists', on: :collection
@@ -18,6 +20,8 @@ Rails.application.routes.draw do
     resources :albums, only: [:index, :show] do
       get 'followed_albums', on: :collection
       get 'featured_albums', on: :collection
+      post 'follow', on: :collection
+      delete 'unfollow', on: :collection
     end 
     resources :tracks, only: [:index] do
       get 'search', on: :collection

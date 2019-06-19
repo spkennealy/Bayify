@@ -12,7 +12,7 @@ export default class TracksIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchTracks()
+        this.props.fetchFollowedTracks()
             .then(res => this.setState({ loading: false }));
     }
 

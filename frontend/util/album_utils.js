@@ -25,3 +25,19 @@ export const fetchFeaturedAlbums = () => {
         url: `/api/albums/featured_albums`
     });
 };
+
+export const followAlbum = (userId, albumId) => {
+    return $.ajax({
+        method: "POST",
+        url: `/api/albums/follow`,
+        data: { album: { follower_id: userId, album_id: albumId } }
+    });
+};
+
+export const unfollowAlbum = (userId, albumId) => {
+    return $.ajax({
+        method: "DELETE",
+        url: `/api/albums/unfollow`,
+        data: { album: { follower_id: userId, album_id: albumId } }
+    });
+};

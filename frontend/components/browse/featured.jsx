@@ -41,8 +41,6 @@ export default class FeaturedIndex extends React.Component {
         const artists = Object.values(this.props.artists);
         const albums = Object.values(this.props.albums);
 
-        // debugger;
-
         return (
             <>
                 <section className="featured-container featured-playlist-container">

@@ -12,13 +12,18 @@ const mapStateToProps = ({ entities, session, ui }, ownProps) => {
         currentTrackId = ui.musicPlayer.currentTrack.id;
     }
 
+    let album = entities.albums[ownProps.match.params.albumId];
+    let followed = false;
+    if (album && album.followed) followed = true;
+
     return ({
         currentUser: entities.users[session.id],
-        album: entities.albums[ownProps.match.params.albumId],
+        album,
         users: entities.users,
         artists: entities.artists,
         tracks: entities.tracks,
-        currentTrackId
+        currentTrackId,
+        followed
     });
 };
 

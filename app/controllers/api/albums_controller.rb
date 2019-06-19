@@ -7,6 +7,8 @@ class Api::AlbumsController < ApplicationController
     
     def show
         @album = Album.find(params[:id])
+        @followed_albums = current_user.followed_albums
+        @followed = @followed_albums.any? { |album| params[:id].to_i == album.id }
         render :show
     end
     
@@ -30,6 +32,27 @@ class Api::AlbumsController < ApplicationController
         end
 
         render :featured
+    end
+
+    def follow 
+        @album_follow = AlbumFollower.new(follow_params)
+
+        if @album_follow.save
+            return
+        else
+            render json: @album_follow.errors.full_messages, status: 422
+        end
+    end
+
+    def unfollow 
+        @album_follow = AlbumFollower.find_by(follow_params)
+        @album_follow.destroy
+    end
+
+    private
+
+    def follow_params
+        params.require(:album).permit(:follower_id, :album_id)
     end
     
 end

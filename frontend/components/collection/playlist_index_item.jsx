@@ -18,8 +18,6 @@ const PlaylistIndexItem = (props) => {
         props.setQueue(tracks);
     };
 
-    // debugger;
-
     return (
         <>
             <Link

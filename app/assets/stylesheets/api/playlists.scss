@@ -204,7 +204,8 @@
     color: rgba(255,255,255,0.6);
     font-size: 12px;
     font-weight: 300;
-    transition: 0.2s ease-in-out, top 0s, left 0s;
+    transition: height 1s;
+    // transition: 0.4s ease-in-out, top 0s, left 0s;
 }
 
 .elipsis-playlist-dropdown-menu button {
@@ -214,7 +215,7 @@
     border: none;
     font-family: $main-font;
     padding: 5px;
-    width: 95%;
+    width: 100%;
     font-size: 16px;
 }
 
@@ -222,4 +223,8 @@
     background-color: #333;
     font-family: $main-font;
     color: $home-active-text;
+}
+
+.elipsis-playlist-icon-playlist:active {
+    transform: scale(0.9);
 }

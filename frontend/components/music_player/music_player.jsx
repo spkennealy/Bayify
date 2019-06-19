@@ -222,7 +222,6 @@ export default class MusicPlayer extends React.Component {
             const mouseX = e.pageX - defaultProgressBar.offsetLeft;
             const newTime = mouseX * this.audioPlayer.duration / defaultProgressBar.offsetWidth; 
             this.audioPlayer.currentTime = newTime;
-            // debugger;
         }
     }
 

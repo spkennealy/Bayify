@@ -19,7 +19,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDisptachToProps = dispatch => ({
-    fetchTracks: () => dispatch(fetchFollowedTracks()),
+    fetchFollowedTracks: () => dispatch(fetchFollowedTracks()),
     openModal: (modal) => dispatch(openModal(modal))
 });
 
