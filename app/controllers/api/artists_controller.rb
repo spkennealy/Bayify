@@ -6,7 +6,9 @@ class Api::ArtistsController < ApplicationController
     end
     
     def show
-        @artist = Artist.find(params[:id]) #.includes(:albums, :tracks, :artist_photo, :background_photo)
+        @artist = Artist.find(params[:id]) 
+        @followed_artists = current_user.followed_artists
+        @followed = @followed_artists.any? { |artist| params[:id].to_i == artist.id }
         render :show
     end
     
@@ -30,6 +32,27 @@ class Api::ArtistsController < ApplicationController
         end
 
         render :index
+    end
+
+    def follow 
+        @artist_follow = ArtistFollower.new(follow_params)
+
+        if @artist_follow.save
+            return
+        else
+            render json: @artist_follow.errors.full_messages, status: 422
+        end
+    end
+
+    def unfollow 
+        @artist_follow = ArtistFollower.find_by(follow_params)
+        @artist_follow.destroy
+    end
+
+    private
+
+    def follow_params
+        params.require(:artist).permit(:follower_id, :artist_id)
     end
 
 end

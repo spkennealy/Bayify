@@ -25,3 +25,19 @@ export const fetchFeaturedArtists = () => {
         url: `/api/artists/featured_artists`
     });
 };
+
+export const followArtist = (userId, artistId) => {
+    return $.ajax({
+        method: "POST",
+        url: `/api/artists/follow`,
+        data: { artist: { follower_id: userId, artist_id: artistId } }
+    });
+};
+
+export const unfollowArtist = (userId, artistId) => {
+    return $.ajax({
+        method: "DELETE",
+        url: `/api/artists/unfollow`,
+        data: { artist: { follower_id: userId, artist_id: artistId } }
+    });
+};

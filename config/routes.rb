@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     resources :tracks, only: [:index] do
       get 'search', on: :collection
       get 'followed_tracks', on: :collection
+      post 'follow', on: :collection
+      delete 'unfollow', on: :collection
     end 
   end
 
