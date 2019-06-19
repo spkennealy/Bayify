@@ -146,3 +146,16 @@
     height: 100%;
     background-color: #272727;
 }
+
+.elipsis-artist-icon {
+    transform: scale(0.5);
+}
+
+.elipsis-artist-icon:active {
+    transform: scale(0.4);
+}
+
+#artist-dropdown-menu {
+    top: 32px;
+    left: 18px;
+}

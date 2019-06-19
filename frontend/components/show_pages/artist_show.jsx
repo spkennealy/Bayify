@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ImpulseSpinner } from 'react-spinners-kit';
+import { FaEllipsisH } from 'react-icons/fa';
+import { followArtist, unfollowArtist } from '../../util/artist_utils';
 
 export default class ArtistShow extends React.Component {
     constructor(props) {
@@ -78,6 +80,41 @@ export default class ArtistShow extends React.Component {
                             onClick={this.playArtist}>
                             PLAY
                         </button>
+
+                        <div className="elipsis-playlist-dropdown-container">
+                            <div
+                                onClick={this.revealDropdown}
+                                className="elipsis-artist-icon">
+                                <FaEllipsisH />
+                            </div>
+
+                            {this.state.renderDropDown ? (
+                                <ul id="artist-dropdown-menu"
+                                    className="elipsis-playlist-dropdown-menu">
+                                    {!this.props.followed ? (
+                                        <li>
+                                            <button onClick={() => followArtist(
+                                                this.props.currentUser.id,
+                                                this.props.artist.id
+                                            )}>
+                                                Follow Artist
+                                    </button>
+                                        </li>
+                                    ) : (
+                                            <li>
+                                                <button onClick={() => unfollowArtist(
+                                                    this.props.currentUser.id,
+                                                    this.props.artist.id
+                                                )}>
+                                                    Unfollow Artist
+                                    </button>
+                                            </li>
+                                        )
+                                    }
+
+                                </ul>
+                            ) : null}
+                        </div>
                     </header>
 
                     <div className="separator"></div>
