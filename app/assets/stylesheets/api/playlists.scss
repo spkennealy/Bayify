@@ -176,6 +176,7 @@
 
 .elipsis-playlist-dropdown-container {
     margin-top: 15px;
+    position: relative;
 }
 
 .track-list-item:hover .elipsis-playlist-icon {
@@ -187,7 +188,9 @@
 
 .elipsis-playlist-dropdown-menu {
     display: block;
-    position: fixed;
+    position: absolute;
+    top: 10px;
+    left: 94px;
     opacity: 1;
     min-width: 160px;
     padding: 5px 0;
@@ -199,7 +202,7 @@
     outline: none;
     z-index: 1000;
     color: rgba(255,255,255,0.6);
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 300;
     transition: 0.2s ease-in-out, top 0s, left 0s;
 }
@@ -210,4 +213,13 @@
     outline: none;
     border: none;
     font-family: $main-font;
+    padding: 5px;
+    width: 95%;
+    font-size: 16px;
+}
+
+.elipsis-playlist-dropdown-menu button:hover {
+    background-color: #333;
+    font-family: $main-font;
+    color: $home-active-text;
 }
