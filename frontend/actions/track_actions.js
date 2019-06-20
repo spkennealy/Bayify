@@ -24,3 +24,19 @@ export const fetchFollowedTracks = () => dispatch => {
         dispatch(receiveAlbums(res.albums));
     });
 };
+
+export const followTrack = (userId, trackId) => dispatch => {
+    return APIUtils.followTrack(userId, trackId).then(res => {
+        dispatch(receiveTracks(res.tracks));
+        dispatch(receiveArtists(res.artists));
+        dispatch(receiveAlbums(res.albums));
+    });
+};
+
+export const unfollowTrack = (userId, trackId) => dispatch => {
+    return APIUtils.unfollowTrack(userId, trackId).then(res => {
+        dispatch(receiveTracks(res.tracks));
+        dispatch(receiveArtists(res.artists));
+        dispatch(receiveAlbums(res.albums));
+    });
+};

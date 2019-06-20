@@ -2,15 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import { logout } from './actions/session_actions';
+// import { closeWindowTimer } from './actions/session_actions';
 
 // ------------------- TEST IMPORTS -------------------
-import { followArtist, unfollowArtist } from './util/artist_utils';
+import { followTrack, unfollowTrack } from './util/track_utils';
 // ------------------- END -------------------
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
-    
+
+    // clearTimeout(closeWindowTimer);
+    // console.log("Cleared the close window timer");
+
     // Bootstrap the user:
     let store;
     if (window.currentUser) {
@@ -22,22 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
         };
         store = configureStore(preloadedState);
 
-        // Auto logout:
-        const timer = () => setTimeout(logout(), 5 * 60 * 60 * 1000);
-        let currTimer = timer();
-        const resetTimeout = () => {
-            clearTimeout(currTimer);
-            currTimer = timer();
-        };
-        const events = ["load", "mousemove", "mousedown", "click", "scroll", "keypress"];
-        events.forEach(event => {
-            window.addEventListener(event, () => {
-                resetTimeout();
-            });
-        });
-        setInterval(console.log(currTimer), 1000);
-        // ------
-
         delete window.currentUser;
     } else {
         store = configureStore();
@@ -46,8 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ------------------- TESTS -------------------
     window.getState = store.getState;
-    window.followArtist = followArtist;
-    window.unfollowArtist = unfollowArtist;
+    window.followTrack = followTrack;
+    window.unfollowTrack = unfollowTrack;
     // ------------------- END -------------------
     
     ReactDOM.render(<Root store={store}/>, root);

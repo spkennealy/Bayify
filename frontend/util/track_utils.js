@@ -12,19 +12,18 @@ export const fetchFollowedTracks = () => {
     });
 };
 
-// TODO: FINISH REDUX CYCLE FOR SAVING & UNSAVING SONGS
-// export const followAlbum = (userId, albumId) => {
-//     return $.ajax({
-//         method: "POST",
-//         url: `/api/albums/follow`,
-//         data: { album: { follower_id: userId, album_id: albumId } }
-//     });
-// };
+export const followTrack = (userId, trackId) => {
+    return $.ajax({
+        method: "POST",
+        url: `/api/tracks/follow`,
+        data: { track: { follower_id: userId, track_id: trackId } }
+    });
+};
 
-// export const unfollowAlbum = (userId, albumId) => {
-//     return $.ajax({
-//         method: "DELETE",
-//         url: `/api/albums/unfollow`,
-//         data: { album: { follower_id: userId, album_id: albumId } }
-//     });
-// };
+export const unfollowTrack = (userId, trackId) => {
+    return $.ajax({
+        method: "DELETE",
+        url: `/api/tracks/unfollow`,
+        data: { track: { follower_id: userId, track_id: trackId } }
+    });
+};

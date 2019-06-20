@@ -17,5 +17,27 @@ class Api::TracksController < ApplicationController
         @tracks = current_user.followed_tracks
         render :index
     end
+
+    def follow 
+        @track_follow = TrackFollower.new(follow_params)
+        @user = current_user
+
+        if @track_follow.save
+            render 'api/users/show'
+        else
+            render json: @track_follow.errors.full_messages, status: 422
+        end
+    end
+
+    def unfollow 
+        @track_follow = TrackFollower.find_by(follow_params)
+        @track_follow.destroy
+    end
+
+    private
+
+    def follow_params
+        params.require(:track).permit(:follower_id, :track_id)
+    end
     
 end
