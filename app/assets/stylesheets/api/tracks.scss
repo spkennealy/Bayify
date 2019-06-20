@@ -66,7 +66,8 @@
 
 .elipsis-dropdown-container {
     margin-right: 38px;
-    margin-bottom: 15px
+    margin-bottom: 15px;
+    position: relative;
 }
 
 .elipsis-icon {
@@ -90,7 +91,8 @@
     display: block;
     position: absolute;
     opacity: 1;
-    right: 117px;
+    right: -11px;
+    top: 8px;
     min-width: 160px;
     padding: 5px 0;
     margin: 2px 0 0;
@@ -112,6 +114,20 @@
     outline: none;
     border: none;
     font-family: $main-font;
+    padding: 5px;
+    width: 99%;
+    font-size: 16px;
+    text-align: left;
+}
+
+.elipsis-dropdown-menu button:hover {
+    background-color: #333;
+    font-family: $main-font;
+    color: $home-active-text;
+}
+
+.elipsis-icon-playlist:active {
+    transform: scale(0.9);
 }
 
 .track-length {
