@@ -130,12 +130,20 @@ export default class TrackIndexItem extends React.Component {
                                 }
                                 {this.props.currentUser.savedTracks.includes(track.id) ? 
                                     (<li>
-                                        <button>
+                                        <button 
+                                            onClick={() => this.props.unfollowTrack(
+                                                this.props.currentUser.id,
+                                                track.id
+                                            )}>
                                             Remove Song from Favories
                                         </button>
                                     </li>) : 
                                     (<li>
-                                        <button>
+                                        <button
+                                            onClick={() => this.props.followTrack(
+                                                this.props.currentUser.id,
+                                                track.id
+                                            )}>
                                             Save Song to Favories
                                         </button>
                                     </li>)

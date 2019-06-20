@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import TracksIndexItem from './track_index_item';
-import { fetchTracks } from '../../actions/track_actions';
+import { fetchTracks, followTrack, unfollowTrack } from '../../actions/track_actions';
 import { openModal } from '../../actions/modal_actions';
 import { fetchAlbums } from '../../actions/album_actions';
 import { fetchArtists } from '../../actions/artist_actions';
@@ -35,7 +35,9 @@ const mapDisptachToProps = dispatch => ({
     removePlaylistTrack: (playlistTrackId, trackId, playlistId) => dispatch(removePlaylistTrack(playlistTrackId, trackId, playlistId)),
     openModal: (modal) => dispatch(openModal(modal)),
     play: (id) => dispatch(play(id)),
-    setQueue: (queue) => dispatch(setQueue(queue))
+    setQueue: (queue) => dispatch(setQueue(queue)),
+    followTrack: (userId, trackId) => dispatch(followTrack(userId, trackId)),
+    unfollowTrack: (userId, trackId) => dispatch(unfollowTrack(userId, trackId))
 });
 
 export default connect(mapStateToProps, mapDisptachToProps)(TracksIndexItem);
