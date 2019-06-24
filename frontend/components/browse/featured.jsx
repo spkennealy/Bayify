@@ -6,7 +6,7 @@ import ArtistIndexItem from '../collection/artist_index_item';
 import { ImpulseSpinner } from 'react-spinners-kit';
 import { Link } from 'react-router-dom';
 
-export default class FeaturedIndex extends React.Component {
+export default class Featured extends React.Component {
     constructor(props) {
         super(props);
 

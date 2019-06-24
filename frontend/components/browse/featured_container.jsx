@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { fetchFeaturedPlaylists } from '../../actions/playlist_actions';
 import { fetchFeaturedAlbums } from '../../actions/album_actions';
 import { fetchFeaturedArtists } from '../../actions/artist_actions';
-import FeaturedIndex from './featured';
+import Featured from './featured';
 
 const mapStateToProps = ({ entities }) => {
     return {
@@ -10,7 +10,7 @@ const mapStateToProps = ({ entities }) => {
         playlists: entities.playlists,
         artists: entities.artists,
         username: Object.values(entities.users)[0].username
-    }
+    };
 };
 
 
@@ -20,4 +20,4 @@ const mapDisptachToProps = dispatch => ({
     fetchFeaturedPlaylists: () => dispatch(fetchFeaturedPlaylists())
 });
 
-export default connect(mapStateToProps, mapDisptachToProps)(FeaturedIndex);
+export default connect(mapStateToProps, mapDisptachToProps)(Featured);

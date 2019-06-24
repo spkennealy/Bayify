@@ -51,7 +51,7 @@ export default class PlaylistShow extends React.Component {
     
     componentDidMount() {
         this.props.fetchPlaylist(this.props.match.params.playlistId)
-            .then(res => this.setState({ loading: false }));
+            .then(() => this.setState({ loading: false }));
     }
 
     render() {
