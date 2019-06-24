@@ -70,6 +70,14 @@ export const fetchChartsPlaylists = () => dispatch => {
     ));
 };
 
+export const fetchGenresPlaylists = () => dispatch => {
+    return APIUtils.fetchGenresPlaylists().then(res => {
+        dispatch(receivePlaylists(res.playlists));
+    }, error => (
+        dispatch(receiveErrors(error.responseJSON))
+    ));
+};
+
 export const fetchPlaylist = (id) => dispatch => {
     return APIUtils.fetchPlaylist(id).then(res => {
         dispatch(receivePlaylist(res.playlists));

@@ -56,6 +56,13 @@ export const fetchChartsPlaylists = () => {
     });
 };
 
+export const fetchGenresPlaylists = () => {
+    return $.ajax({
+        method: "GET",
+        url: `/api/playlists/genres_playlists`
+    });
+};
+
 export const followPlaylist = (userId, playlistId) => {
     return $.ajax({
         method: "POST",

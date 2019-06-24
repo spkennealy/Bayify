@@ -68,6 +68,19 @@ class Api::PlaylistsController < ApplicationController
         render :featured
     end
 
+    def genres_playlists
+        @summer = Playlist.find_by(title: "Summer")
+        @hip_hop = Playlist.find_by(title: "Hip-hop")
+        @party = Playlist.find_by(title: "Party")
+        @alternative = Playlist.find_by(title: "Alternative")
+        @reggae = Playlist.find_by(title: "Reggae")
+        @rock = Playlist.find_by(title: "Rock")
+        @workout = Playlist.find_by(title: "Workout")
+        @chill = Playlist.find_by(title: "Chill")
+        @playlists = [@summer, @chill, @party, @hip_hop, @rock, @reggae, @alternative, @workout]
+        render :featured
+    end
+
     def follow 
         @playlist_follow = PlaylistFollower.new(follow_params)
 
