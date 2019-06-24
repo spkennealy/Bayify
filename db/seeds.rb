@@ -1237,7 +1237,7 @@ ActiveRecord::Base.transaction do
         title: "Don't Stop Believin'",
         track_length: 249
     )
-    dont_stop_believin_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/journey/1-02+Don't+Stop+Believin'.m4a')
+    dont_stop_believin_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/journey/1-02+Don\'t+Stop+Believin\'.m4a')
     dont_stop_believin.track.attach(io: dont_stop_believin_track, filename: "dont_stop_believin")
 
     faithfully = Track.create!(
@@ -1551,7 +1551,7 @@ ActiveRecord::Base.transaction do
 
     summer = Playlist.create!(
         curator_id: bayify.id,
-        title: ""
+        title: "Summer"
     )
     summer_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/playlist_photos/summer.jpeg')
     summer.playlist_photo.attach(io: summer_photo, filename: "summer_Playlist")

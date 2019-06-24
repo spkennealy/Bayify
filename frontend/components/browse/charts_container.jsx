@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { 
-    fetchChartsPlaylists, fetchChartsHipHop, 
-    fetchChartsPop, fetchChartsRock
+    fetchChartsPlaylists
 } from '../../actions/playlist_actions';
 import Charts from './featured';
 
@@ -14,12 +13,8 @@ const mapStateToProps = ({ entities }) => {
     };
 };
 
-
 const mapDisptachToProps = dispatch => ({
     fetchChartsPlaylists: () => dispatch(fetchChartsPlaylists()),
-    fetchChartsHipHop: () => dispatch(fetchChartsHipHop()),
-    fetchChartsRock: () => dispatch(fetchChartsRock()),
-    fetchChartsPop: () => dispatch(fetchChartsPop())
 });
 
 export default connect(mapStateToProps, mapDisptachToProps)(Charts);

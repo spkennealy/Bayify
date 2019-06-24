@@ -5,7 +5,7 @@ import Root from './components/root';
 // import { closeWindowTimer } from './actions/session_actions';
 
 // ------------------- TEST IMPORTS -------------------
-// import { followTrack, unfollowTrack } from './actions/track_actions';
+import { fetchChartsPlaylists } from './util/playlist_utils';
 // ------------------- END -------------------
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -33,8 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ------------------- TESTS -------------------
     window.getState = store.getState;
-    // window.followTrack = followTrack;
-    // window.unfollowTrack = unfollowTrack;
+    window.fetchChartsPlaylists = fetchChartsPlaylists;
     // ------------------- END -------------------
     
     ReactDOM.render(<Root store={store}/>, root);

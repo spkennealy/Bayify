@@ -61,6 +61,13 @@ class Api::PlaylistsController < ApplicationController
         render :featured
     end
 
+    def charts_playlists
+        @top_25 = Playlist.find_by(title: "Bay Area Top 25")
+        @todays_top_hits = Playlist.find_by(title: "Today's Top Hits")
+        @playlists = [@top_25, @todays_top_hits]
+        render :featured
+    end
+
     def follow 
         @playlist_follow = PlaylistFollower.new(follow_params)
 

@@ -62,6 +62,14 @@ export const fetchFeaturedPlaylists = () => dispatch => {
     ));
 };
 
+export const fetchChartsPlaylists = () => dispatch => {
+    return APIUtils.fetchChartsPlaylists().then(res => {
+        dispatch(receivePlaylists(res.playlists));
+    }, error => (
+        dispatch(receiveErrors(error.responseJSON))
+    ));
+};
+
 export const fetchPlaylist = (id) => dispatch => {
     return APIUtils.fetchPlaylist(id).then(res => {
         dispatch(receivePlaylist(res.playlists));
