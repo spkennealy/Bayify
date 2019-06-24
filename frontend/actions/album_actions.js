@@ -47,6 +47,14 @@ export const fetchFeaturedAlbums = () => dispatch => {
     ));
 };
 
+export const fetchNewReleaseAlbums = () => dispatch => {
+    return APIUtils.fetchNewReleaseAlbums().then(res => {
+        dispatch(receiveAlbums(res.albums));
+    }, error => (
+        dispatch(receiveErrors(error.responseJSON))
+    ));
+};
+
 export const fetchAlbum = (id) => dispatch => {
     return APIUtils.fetchAlbum(id).then(res => {
         dispatch(receiveAlbum(res.albums));

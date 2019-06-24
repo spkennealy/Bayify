@@ -26,6 +26,13 @@ export const fetchFeaturedAlbums = () => {
     });
 };
 
+export const fetchNewReleaseAlbums = () => {
+    return $.ajax({
+        method: "GET",
+        url: `/api/albums/new_releases`
+    });
+};
+
 export const followAlbum = (userId, albumId) => {
     return $.ajax({
         method: "POST",

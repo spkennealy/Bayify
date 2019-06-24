@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :albums, only: [:index, :show] do
       get 'followed_albums', on: :collection
       get 'featured_albums', on: :collection
+      get 'new_releases', on: :collection
       post 'follow', on: :collection
       delete 'unfollow', on: :collection
     end 

@@ -13,7 +13,7 @@ const Collection = (props) => (
             <ProtectedRoute exact path="/browse/featured" component={FeaturedContainer} />
             <ProtectedRoute exact path="/browse/charts" component={ChartsContainer} />
             <ProtectedRoute exact path="/browse/genres" component={GenresContainer} />
-            {/* <ProtectedRoute exact path="/browse/newreleases" component={NewReleasesContainer} /> */}
+            <ProtectedRoute exact path="/browse/newreleases" component={NewReleasesContainer} />
         </div>
     </main>
 );

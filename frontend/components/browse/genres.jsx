@@ -1,10 +1,6 @@
 import React from 'react';
 import PlaylistIndexItem from '../collection/playlist_index_item';
-// Pass: playlist, curatorId, username
-// import ArtistIndexItem from '../collection/artist_index_item';
-// Pass: artist
 import { ImpulseSpinner } from 'react-spinners-kit';
-// import { Link } from 'react-router-dom';
 
 export default class Charts extends React.Component {
     constructor(props) {
@@ -29,11 +25,7 @@ export default class Charts extends React.Component {
 
     render() {
         if (Object.entries(this.props.playlists).length === 0) return null;
-        // if (Object.entries(this.props.artists).length === 0) return null;
-        // if (Object.entries(this.props.albums).length === 0) return null;
         const playlists = Object.values(this.props.playlists);
-        // const artists = Object.values(this.props.artists);
-        // const albums = Object.values(this.props.albums);
 
         return (
             <>

@@ -216,7 +216,7 @@ ActiveRecord::Base.transaction do
     # --------------- ** SINGLES ** :: ANDRE NICKATINA ---------------
     nickatina_singles = Album.create!(
         artist_id: nickatina.id, 
-        title: "Singles", 
+        title: "Andrew Nickatina Singles", 
         year: 2019, 
         genre: "Hip-hop"
     )
@@ -277,7 +277,7 @@ ActiveRecord::Base.transaction do
     # --------------- ** SINGLES ** :: E-40 ---------------
     e_40_singles = Album.create!(
         artist_id: e_40.id, 
-        title: "Singles", 
+        title: "E-40 Singles", 
         year: 2019, 
         genre: "Hip-hop"
     )
@@ -387,7 +387,7 @@ ActiveRecord::Base.transaction do
     # --------------- ** SINGLES ** :: KEAK DA SNEAK ---------------
     keak_da_sneak_singles = Album.create!(
         artist_id: keak_da_sneak.id, 
-        title: "Singles", 
+        title: "Kead da Sneak Singles", 
         year: 2012, 
         genre: "Hip-hop"
     )
@@ -397,7 +397,7 @@ ActiveRecord::Base.transaction do
     # --------------- ** SINGLES ** :: LUNIZ ---------------
     luniz_singles = Album.create!(
         artist_id: luniz.id, 
-        title: "Singles", 
+        title: "Luniz Singles", 
         year: 2012, 
         genre: "Hip-hop"
     )
@@ -437,7 +437,7 @@ ActiveRecord::Base.transaction do
     # --------------- ** SINGLES ** :: MAC DRE ---------------
     mac_dre_singles = Album.create!(
         artist_id: mac_dre.id, 
-        title: "Singles", 
+        title: "Mac Dre Singles", 
         year: 2019, 
         genre: "Hip-hop"
     )
@@ -447,7 +447,7 @@ ActiveRecord::Base.transaction do
     # --------------- ** SINGLES ** :: MC HAMMER ---------------
     mc_hammer_singles = Album.create!(
         artist_id: mc_hammer.id, 
-        title: "Singles", 
+        title: "MC Hammer Singles", 
         year: 1998, 
         genre: "Hip-hop"
     )
@@ -477,7 +477,7 @@ ActiveRecord::Base.transaction do
     # --------------- ** SINGLES ** :: MICHAEL FRANTI & SPEARHEAD ---------------
     michael_franti_singles = Album.create!(
         artist_id: michael_franti.id, 
-        title: "Singles", 
+        title: "Michael Franti Singles", 
         year: 2019, 
         genre: "Reggae"
     )

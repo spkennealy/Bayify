@@ -34,6 +34,11 @@ class Api::AlbumsController < ApplicationController
         render :featured
     end
 
+    def new_releases
+        @albums = Album.where("year >= 2017")
+        render :featured
+    end
+
     def follow 
         @album_follow = AlbumFollower.new(follow_params)
 
