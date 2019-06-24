@@ -1,8 +1,6 @@
 import { connect } from 'react-redux';
-import { 
-    fetchChartsPlaylists
-} from '../../actions/playlist_actions';
-import Charts from './featured';
+import { fetchChartsPlaylists } from '../../actions/playlist_actions';
+import Charts from './charts';
 
 const mapStateToProps = ({ entities }) => {
     return {

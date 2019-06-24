@@ -1,10 +1,10 @@
 import React from 'react';
 import PlaylistIndexItem from '../collection/playlist_index_item';
 // Pass: playlist, curatorId, username
-import ArtistIndexItem from '../collection/artist_index_item';
+// import ArtistIndexItem from '../collection/artist_index_item';
 // Pass: artist
 import { ImpulseSpinner } from 'react-spinners-kit';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 export default class Charts extends React.Component {
     constructor(props) {
@@ -17,9 +17,6 @@ export default class Charts extends React.Component {
 
     componentDidMount() {
         this.props.fetchChartsPlaylists()
-            .then(() => this.propst.fetchChartsHipHop())
-            .then(() => this.propst.fetchChartsRock())
-            .then(() => this.propst.fetchChartsPop())
             .then(() => this.setState({ loading: false }));
     }
 
@@ -41,7 +38,7 @@ export default class Charts extends React.Component {
         return (
             <>
                 <section className="featured-container featured-playlist-container">
-                    <h1 className="featured-title">Top Hits</h1>
+                    <h1 className="featured-title">Featured Charts</h1>
                     <div className="playlist-index-container">
 
                         {this.state.loading ?
@@ -62,8 +59,8 @@ export default class Charts extends React.Component {
                     </div>
                 </section>
 
-                <section className="featured-container featured-artist-container">
-                    <h1 className="featured-title featured-artist-title">Top Hits by Genre</h1>
+                {/* <section className="featured-container featured-artist-container">
+                    <h1 className="featured-title featured-artist-title">Featured Charts</h1>
                     <div className="artist-index-container">
                         {this.state.loading ?
                             (<div className="loading-container">
@@ -81,7 +78,7 @@ export default class Charts extends React.Component {
                                 ))}
                             </ul>)}
                     </div>
-                </section>
+                </section>  */}
             </>
         );
     }
