@@ -87,7 +87,7 @@ export default class SideNavBar extends React.Component {
                     <ul className="recently-played-ul">
 
                         <NavLink 
-                            to={`/artists/2`}
+                            to={`/artists/11`}
                             className="recently-played-link"
                             activeClassName="recently-played-link-active">
                             <li>
@@ -98,7 +98,7 @@ export default class SideNavBar extends React.Component {
                             </li>
                         </NavLink>
                         <NavLink 
-                            to={`/albums/4`}
+                            to={`/albums/8`}
                             className="recently-played-link"
                             activeClassName="recently-played-link-active">
                             <li>
@@ -107,7 +107,7 @@ export default class SideNavBar extends React.Component {
                             </li>
                         </NavLink>
                         <NavLink 
-                            to={`/artists/1`}
+                            to={`/artists/6`}
                             className="recently-played-link"
                             activeClassName="recently-played-link-active">
                             <li>
