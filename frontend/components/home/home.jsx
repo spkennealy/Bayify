@@ -37,8 +37,8 @@ export default class Home extends React.Component {
         // let backgroundStyle;
         // let div = document.getElementsByClassName("home-background-color");
         // if (div.length === 0) return null;
-        console.log(`This is the props: ${this.props.history.location.pathname}`);
-        console.log(`This is the state: ${this.state.prevPath}`);
+        // console.log(`This is the props: ${this.props.history.location.pathname}`);
+        // console.log(`This is the state: ${this.state.prevPath}`);
 
         // debugger;
 
@@ -138,7 +138,7 @@ export default class Home extends React.Component {
     }
 
     render() {
-        console.log(`This is the render beginning and the state path: ${this.state.prevPath}`);
+        // console.log(`This is the render beginning and the state path: ${this.state.prevPath}`);
         return this.props.currentUser ? (
             <main className="home-body">
                 <div className="home-background-color" style={this.selectBackgrounColor(this.props.location.pathname)}></div>

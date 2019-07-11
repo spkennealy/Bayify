@@ -40,12 +40,12 @@ export default class MusicPlayer extends React.Component {
         if (prevProps.repeat !== this.props.repeat) return;
 
         if (!prevProps.paused && this.props.paused || !prevState.paused && this.props.paused) {
-            console.log("1");
+            // console.log("1");
             this.audioPlayer.pause();
             this.setState({ paused: true });
             return;
         } else if ((prevProps.paused !== this.props.paused) || (prevState.paused !== this.state.paused)) {
-            console.log("2");
+            // console.log("2");
             this.audioPlayer.play();
             this.setState({ 
                 paused: false, 
@@ -58,11 +58,9 @@ export default class MusicPlayer extends React.Component {
             (this.audioPlayer.src.length > 0 && this.props.playing && this.props.paused === false) &&
             (this.state.currentTrack.id !== this.props.currentTrack.id)
             ) {
-            console.log("3");
-            console.log(this.state.albumPhoto);
+            // console.log("3");
             this.audioPlayer.src = this.props.currentTrack.trackUrl;
             this.grabCurrentArtistAndPhoto();
-            console.log(this.state.albumPhoto);
             this.audioPlayer.play();
             this.setState({ 
                 paused: false, 
@@ -71,7 +69,7 @@ export default class MusicPlayer extends React.Component {
                 trackLength: this.audioPlayer.duration
             });
         } else if (this.props.playing && prevProps.currentTrack !== this.props.currentTrack) {
-            console.log("4"); 
+            // console.log("4"); 
             if (this.props.paused === true) this.props.togglePause();
             this.audioPlayer.src = this.props.currentTrack.trackUrl;
             this.grabCurrentArtistAndPhoto();
@@ -86,7 +84,7 @@ export default class MusicPlayer extends React.Component {
                 (this.props.currentTrack && this.props.playing) &&
                 (prevProps.currentTrack !== this.props.currentTrack)
             ) {
-            console.log("5");
+            // console.log("5");
             if (this.props.paused === true) this.props.togglePause();
             let track = this.props.currentTrack;
             
