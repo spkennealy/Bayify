@@ -216,7 +216,7 @@ ActiveRecord::Base.transaction do
     # --------------- ** SINGLES ** :: ANDRE NICKATINA ---------------
     nickatina_singles = Album.create!(
         artist_id: nickatina.id, 
-        title: "Andrew Nickatina Singles", 
+        title: "Andre Nickatina Singles", 
         year: 2019, 
         genre: "Hip-hop"
     )

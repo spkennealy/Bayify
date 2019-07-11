@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
+var http = require("http");
 // import { closeWindowTimer } from './actions/session_actions';
 
 // ------------------- TEST IMPORTS -------------------
@@ -38,3 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
     
     ReactDOM.render(<Root store={store}/>, root);
 });
+
+// Ping website every 5 minutes to keep heroku site awake.
+setInterval(function () {
+    console.log("Making http request");
+    http.get("http://bayify.herokuapp.com/#/");
+}, 300000); 
