@@ -35,7 +35,7 @@ ActiveRecord::Base.transaction do
     nickatina.artist_photo.attach(io: nickatina_profile, filename: 'nickatina_artist_photo')
     nickatina.background_photo.attach(io: nickatina_background, filename: 'nickatina_background')
 
-    # --------------- Andre Nickatina ---------------
+    # --------------- Dirt Nasty ---------------
     dirt_nasty = Artist.create!(name: "Dirt Nasty")
     dirt_nasty_profile = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/artist_photos/dirt_nasty_profile.jpeg')
     dirt_nasty_background = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/artist_photos/dirt_nasty_background.jpeg')
@@ -453,6 +453,46 @@ ActiveRecord::Base.transaction do
     )
     mc_hammer_singles_photo = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/album_photos/singles.jpg')
     mc_hammer_singles.album_photo.attach(io: mc_hammer_singles_photo, filename: 'mc_hammer_singles_photo')
+
+    # --------------- Metallica :: Metallica ---------------
+    metallica_album = Album.create!(
+        artist_id: metallica.id, 
+        title: "Metallica", 
+        year: 1991, 
+        genre: "Rock-n-roll"
+    )
+    metallica_album_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/metallica_album_cover.jpeg')
+    metallica_album.album_photo.attach(io: metallica_album_photo, filename: 'metallica_album_photo')
+
+    # --------------- Master of Puppets :: Metallica ---------------
+    master_of_puppets = Album.create!(
+        artist_id: metallica.id, 
+        title: "Master of Puppets", 
+        year: 1986, 
+        genre: "Rock-n-roll"
+    )
+    master_of_puppets_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/metallica_master_of_puppets.jpeg')
+    master_of_puppets.album_photo.attach(io: master_of_puppets_photo, filename: 'master_of_puppets_photo')
+
+    # --------------- Reload :: Metallica ---------------
+    reload_album = Album.create!(
+        artist_id: metallica.id, 
+        title: "Reload", 
+        year: 1997, 
+        genre: "Rock-n-roll"
+    )
+    reload_album_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/metallica_reload.jpeg')
+    reload_album.album_photo.attach(io: reload_album_photo, filename: 'reload_album_photo')
+
+    # --------------- ** SINGLES ** :: Metallica ---------------
+    metallica_singles = Album.create!(
+        artist_id: metallica.id, 
+        title: "Metallica Singles", 
+        year: 1995, 
+        genre: "Rock-n-roll"
+    )
+    metallica_singles_photo = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/album_photos/singles.jpg')
+    metallica_singles.album_photo.attach(io: metallica_singles_photo, filename: 'metallica_singles_photo')
 
     # --------------- EVERYONE DESEREVES MUSIC :: MICHAEL FRANTI & SPEARHEAD ---------------
     everyone_deserves_music = Album.create!(

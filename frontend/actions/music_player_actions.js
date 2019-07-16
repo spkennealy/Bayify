@@ -6,8 +6,6 @@ export const TOGGLE_SHUFFLE = 'TOGGLE_SHUFFLE';
 export const TOGGLE_REPEAT = 'TOGGLE_REPEAT';
 export const SET_QUEUE = 'SET_QUEUE';
 export const CLEAR_PLAYER = 'CLEAR_PLAYER';
-// export const SAVE_TRACK = 'SAVE_SONG';
-// export const UNSAVE_TRACK = 'UNSAVE_TRACK';
 
 export const play = (track) => ({
     type: PLAY_TRACK,
@@ -42,14 +40,4 @@ export const setQueue = (queue) => ({
 export const clearPlayer = () => ({
     type: CLEAR_PLAYER
 });
-
-// export const saveTrack = (id) => ({
-//     type: SAVE_TRACK,
-//     id
-// });
-
-// export const unsaveTrack = (id) => ({
-//     type: UNSAVE_TRACK,
-//     id
-// });
 
