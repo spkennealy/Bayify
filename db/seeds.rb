@@ -527,9 +527,9 @@ ActiveRecord::Base.transaction do
 
     # TODO: TODO: TODO: TODO: TODO: 
     # Completed: Counting Crows, Creedance Clearwater Revival, Green Day, Journey,
-    # Keak da Sneak, MC Hammer, Michael Franti, 
+    # Keak da Sneak, MC Hammer, Michael Franti, Metallica, 
 
-    # Pending: Metallica, Papa Roach, 
+    # Pending: Papa Roach, 
     # Sally S Baby, Santana, Steve Miller Band, The Grateful Dead, Third Eye Blind, 
     # Too $hort, Van Morrison, Van Wave
 
@@ -1388,6 +1388,42 @@ ActiveRecord::Base.transaction do
     )
     u_cant_touch_this_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/mc_hammer/U+Can\'t+Touch+This.mp3')
     u_cant_touch_this.track.attach(io: u_cant_touch_this_track, filename: "u_cant_touch_this")
+
+    # --------------- Metallica :: Metallica ---------------
+    enter_sandman = Track.create!(
+        album_id: metallica_album.id,
+        title: "Enter Sandman",
+        track_length: 331
+    )
+    enter_sandman_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/metallica/01+Enter+Sandman.m4a')
+    enter_sandman.track.attach(io: enter_sandman_track, filename: "enter_sandman")
+
+    # --------------- Master of Puppets :: Metallica ---------------
+    master_of_puppets_track = Track.create!(
+        album_id: master_of_puppets.id,
+        title: "Master of Puppets",
+        track_length: 515
+    )
+    master_of_puppets_track_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/metallica/02+Master+Of+Puppets.m4a')
+    master_of_puppets_track.track.attach(io: master_of_puppets_track_track, filename: "master_of_puppets_track")
+
+    # --------------- Reload :: Metallica ---------------
+    fuel = Track.create!(
+        album_id: reload_album.id,
+        title: "Fuel",
+        track_length: 269
+    )
+    fuel_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/metallica/01+Fuel.mp3')
+    fuel.track.attach(io: fuel_track, filename: "fuel")
+
+    # --------------- ** SINGLES ** :: Metallica ---------------
+    i_disappear = Track.create!(
+        album_id: metallica_singles.id,
+        title: "I Disappear",
+        track_length: 266
+    )
+    i_disappear_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/metallica/02+I+Disappear.m4a')
+    i_disappear.track.attach(io: i_disappear_track, filename: "i_disappear")
 
     # --------------- EVERYONE DESERVES MUSIC :: MICHAEL FRANTI & SPEARHEAD ---------------
     what_i_be = Track.create!(
