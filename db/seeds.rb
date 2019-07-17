@@ -524,12 +524,33 @@ ActiveRecord::Base.transaction do
     michael_franti_singles_photo = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/album_photos/singles.jpg')
     michael_franti_singles.album_photo.attach(io: michael_franti_singles_photo, filename: 'michael_franti_singles_photo')
 
+    # --------------- Infest :: PAPA ROACH ---------------
+    infest_album = Album.create!(
+        artist_id: papa_roach.id, 
+        title: "Infest", 
+        year: 2001, 
+        genre: "Rock-n-roll"
+    )
+    infest_album_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/papa_roach_infest_album.jpeg')
+    infest_album.album_photo.attach(io: infest_album_photo, filename: 'infest_album_photo')
+
+    # --------------- ** SINGLES ** :: PAPA ROACH ---------------
+    papa_roach_singles = Album.create!(
+        artist_id: papa_roach.id, 
+        title: "Papa Roach Singles", 
+        year: 2004, 
+        genre: "Rock-n-roll"
+    )
+    papa_roach_singles_photo = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/album_photos/singles.jpg')
+    papa_roach_singles.album_photo.attach(io: papa_roach_singles_photo, filename: 'papa_roach_singles_photo')
+
 
     # TODO: TODO: TODO: TODO: TODO: 
-    # Completed: Counting Crows, Creedance Clearwater Revival, Green Day, Journey,
-    # Keak da Sneak, MC Hammer, Michael Franti, Metallica, 
+    # Completed: 
+    # Counting Crows, Creedance Clearwater Revival, Green Day, Journey,
+    # Keak da Sneak, MC Hammer, Michael Franti, Metallica, Papa Roach,
 
-    # Pending: Papa Roach, 
+    # Pending:  
     # Sally S Baby, Santana, Steve Miller Band, The Grateful Dead, Third Eye Blind, 
     # Too $hort, Van Morrison, Van Wave
 
@@ -1531,6 +1552,48 @@ ActiveRecord::Base.transaction do
     )
     what_i_got_sublime_tribute_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/michael_franti/What+I+got+(sublime+tribute+album).mp3')
     what_i_got_sublime_tribute.track.attach(io: what_i_got_sublime_tribute_track, filename: "what_i_got_sublime_tribute")
+
+    # --------------- Infest :: PAPA ROACH ---------------
+    last_resort = Track.create!(
+        album_id: infest_album.id,
+        title: "Last Resort",
+        track_length: 199
+    )
+    last_resort_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/papa_roach/infest/02+Last+Resort.m4a')
+    last_resort.track.attach(io: last_resort_track, filename: "last_resort")
+    
+    broken_home = Track.create!(
+        album_id: infest_album.id,
+        title: "Broken Home",
+        track_length: 221
+    )
+    broken_home_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/papa_roach/infest/03+Broken+Home.m4a')
+    broken_home.track.attach(io: broken_home_track, filename: "broken_home")
+
+    between_angels_and_insects = Track.create!(
+        album_id: infest_album.id,
+        title: "Between Angels and Insects",
+        track_length: 234
+    )
+    between_angels_and_insects_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/papa_roach/infest/05+Between+Angels+And+Insects.m4a')
+    between_angels_and_insects.track.attach(io: between_angels_and_insects_track, filename: "between_angels_and_insects")
+
+    blood_brothers = Track.create!(
+        album_id: infest_album.id,
+        title: "Blood Brothers",
+        track_length: 213
+    )
+    blood_brothers_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/papa_roach/infest/06+Blood+Brothers.m4a')
+    blood_brothers.track.attach(io: blood_brothers_track, filename: "blood_brothers")
+
+    # --------------- ** SINGLES ** :: PAPA ROACH ---------------
+    scars = Track.create!(
+        album_id: papa_roach_singles.id,
+        title: "Scars",
+        track_length: 208
+    )
+    scars_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/papa_roach/Scars.mp3')
+    scars.track.attach(io: scars_track, filename: "scars")
     
 
     # TODO: TODO: TODO: TODO:
