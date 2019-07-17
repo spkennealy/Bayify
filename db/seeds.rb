@@ -1687,13 +1687,45 @@ ActiveRecord::Base.transaction do
     why_dont_you_and_i.track.attach(io: why_dont_you_and_i_track, filename: "why_dont_you_and_i")
 
     # --------------- Steve Miller Band Greatest Hits :: STEVE MILLER BAND ---------------
-    scars = Track.create!(
+    take_the_money_and_run = Track.create!(
         album_id: steve_miller_band_greatest_hits.id,
-        title: "",
-        track_length: 274
+        title: "Take The Money And Run",
+        track_length: 172
     )
-    scars_track = open('')
-    scars.track.attach(io: scars_track, filename: "scars")
+    take_the_money_and_run_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/steve_miller_band/greatest_hits/01+Take+The+Money+And+Run.m4a')
+    take_the_money_and_run.track.attach(io: take_the_money_and_run_track, filename: "take_the_money_and_run")
+    
+    the_joker = Track.create!(
+        album_id: steve_miller_band_greatest_hits.id,
+        title: "The Joker",
+        track_length: 270
+    )
+    the_joker_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/steve_miller_band/greatest_hits/05+The+Joker.m4a')
+    the_joker.track.attach(io: the_joker_track, filename: "the_joker")
+
+    livin_in_the_USA = Track.create!(
+        album_id: steve_miller_band_greatest_hits.id,
+        title: "Livin' in the U.S.A.",
+        track_length: 227
+    )
+    livin_in_the_USA_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/steve_miller_band/greatest_hits/06+Livin\'+In+The+U.S.A..m4a')
+    livin_in_the_USA.track.attach(io: livin_in_the_USA_track, filename: "livin_in_the_USA")
+
+    fly_like_an_eagle = Track.create!(
+        album_id: steve_miller_band_greatest_hits.id,
+        title: "Fly Like an Eagle",
+        track_length: 246
+    )
+    fly_like_an_eagle_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/steve_miller_band/greatest_hits/08+Fly+Like+An+Eagle.m4a')
+    fly_like_an_eagle.track.attach(io: fly_like_an_eagle_track, filename: "fly_like_an_eagle")
+
+    jet_airliner = Track.create!(
+        album_id: steve_miller_band_greatest_hits.id,
+        title: "Jet Airliner",
+        track_length: 270
+    )
+    jet_airliner_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/steve_miller_band/greatest_hits/10+Jet+Airliner.m4a')
+    jet_airliner.track.attach(io: jet_airliner_track, filename: "jet_airliner")
 
     # TODO: TODO: TODO: TODO:
 
