@@ -584,14 +584,35 @@ ActiveRecord::Base.transaction do
     steve_miller_band_greatest_hits_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/steve_miller_band_greatest_hits_album.jpeg')
     steve_miller_band_greatest_hits.album_photo.attach(io: steve_miller_band_greatest_hits_photo, filename: 'steve_miller_band_greatest_hits_photo')
 
+    # --------------- The Best of the Grateful Dead :: THE GRATEFUL DEAD ---------------
+    best_of_the_grateful_dead = Album.create!(
+        artist_id: grateful_dead.id, 
+        title: "The Best of the Grateful Dead", 
+        year: 2014, 
+        genre: "Rock-n-roll"
+    )
+    best_of_the_grateful_dead_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/grateful_dead_best_of_album.jpg')
+    best_of_the_grateful_dead.album_photo.attach(io: best_of_the_grateful_dead_photo, filename: 'best_of_the_grateful_dead_photo')
+
+    # --------------- Grateful Dead [Skull & Roses] :: THE GRATEFUL DEAD ---------------
+    grateful_dead_album = Album.create!(
+        artist_id: grateful_dead.id, 
+        title: "Grateful Dead [Skull & Roses]", 
+        year: 1971, 
+        genre: "Rock-n-roll"
+    )
+    grateful_dead_album_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/grateful_dead_album.jpeg')
+    grateful_dead_album.album_photo.attach(io: grateful_dead_album_photo, filename: 'grateful_dead_album_photo')
+
 
     # TODO: TODO: TODO: TODO: TODO: 
     # Completed: 
     # Counting Crows, Creedance Clearwater Revival, Green Day, Journey,
-    # Keak da Sneak, MC Hammer, Michael Franti, Metallica, Papa Roach, Santana, 
+    # Keak da Sneak, MC Hammer, Michael Franti, Metallica, Papa Roach, Santana,
+    # Steve Miller Band,  
 
     # Pending:  
-    # Sally S Baby, Steve Miller Band, The Grateful Dead, Third Eye Blind, 
+    # Sally S Baby, The Grateful Dead, Third Eye Blind, 
     # Too $hort, Van Morrison, Van Wave
 
     # ------------------------------------------------------------------------- #
@@ -1698,7 +1719,7 @@ ActiveRecord::Base.transaction do
     the_joker = Track.create!(
         album_id: steve_miller_band_greatest_hits.id,
         title: "The Joker",
-        track_length: 270
+        track_length: 269
     )
     the_joker_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/steve_miller_band/greatest_hits/05+The+Joker.m4a')
     the_joker.track.attach(io: the_joker_track, filename: "the_joker")
