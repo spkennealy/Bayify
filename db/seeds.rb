@@ -1834,6 +1834,95 @@ ActiveRecord::Base.transaction do
     semi_charmed_life_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/third_eye_blind/third_eye_blind_album/Semi+Charmed+Life.mp3')
     semi_charmed_life.track.attach(io: semi_charmed_life_track, filename: "semi_charmed_life")
 
+    # --------------- ** SINGLES ** :: TOO $HORT ---------------
+    players_club = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Playaz Club (feat. Rappin' 4 Tay)",
+        track_length: 268
+    )
+    players_club_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/01+Players+Club.mp3')
+    players_club.track.attach(io: players_club_track, filename: "players_club")
+    
+    call_me_daddy = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Call Me Daddy",
+        track_length: 234
+    )
+    call_me_daddy_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/05+Call+Me+Daddy.mp3')
+    call_me_daddy.track.attach(io: call_me_daddy_track, filename: "call_me_daddy")
+
+    oakland = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Oakland",
+        track_length: 282
+    )
+    oakland_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/32+Oakland.mp3')
+    oakland.track.attach(io: oakland_track, filename: "oakland")
+
+    pimpology = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Pimpology",
+        track_length: 366
+    )
+    pimpology_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/32+Pimpology.mp3')
+    pimpology.track.attach(io: pimpology_track, filename: "pimpology")
+
+    burn_rubber = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Burn Rubber",
+        track_length: 199
+    )
+    burn_rubber_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Burn+Rubber.mp3')
+    burn_rubber.track.attach(io: burn_rubber_track, filename: "burn_rubber")
+
+    choosin = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Choosin'",
+        track_length: 237
+    )
+    choosin_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Choosin\'.mp3')
+    choosin.track.attach(io: choosin_track, filename: "choosin")
+
+    freaky_tales = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Freaky Tales (Old School)",
+        track_length: 575
+    )
+    freaky_tales_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Freaky+Tales+(Old+School).mp3')
+    freaky_tales.track.attach(io: freaky_tales_track, filename: "freaky_tales")
+
+    gettin_it = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Gettin' it",
+        track_length: 340
+    )
+    gettin_it_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Gettin\'+it.mp3')
+    gettin_it.track.attach(io: gettin_it_track, filename: "gettin_it")
+
+    im_a_player = Track.create!(
+        album_id: too_short_singles.id,
+        title: "I'm a Player",
+        track_length: 360
+    )
+    im_a_player_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/I\'m+A+Player.mp3')
+    im_a_player.track.attach(io: im_a_player_track, filename: "im_a_player")
+
+    blow_the_whistle = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Blow the Whistle",
+        track_length: 167
+    )
+    blow_the_whistle_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Too+Short+Blow+The+Whistle+(Dirty).mp3')
+    blow_the_whistle.track.attach(io: blow_the_whistle_track, filename: "blow_the_whistle")
+
+    yo_neck_yo_back = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Yo Neck, Yo Back",
+        track_length: 208
+    )
+    yo_neck_yo_back_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Yo+Neck+Yo+Back.m4a')
+    yo_neck_yo_back.track.attach(io: yo_neck_yo_back_track, filename: "yo_neck_yo_back")
+
     # TODO: TODO: TODO: TODO:
 
     # ------------------------------------------------------------------------- #
