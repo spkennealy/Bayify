@@ -604,15 +604,25 @@ ActiveRecord::Base.transaction do
     grateful_dead_album_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/grateful_dead_album.jpeg')
     grateful_dead_album.album_photo.attach(io: grateful_dead_album_photo, filename: 'grateful_dead_album_photo')
 
+    # --------------- Third Eye Blind :: THIRD EYE BLIND ---------------
+    third_eye_blind_album = Album.create!(
+        artist_id: third_eye_blind.id, 
+        title: "Third Eye Blind", 
+        year: 1997, 
+        genre: "Rock-n-roll"
+    )
+    third_eye_blind_album_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/third_eye_blind_album_cover.jpeg')
+    third_eye_blind_album.album_photo.attach(io: third_eye_blind_album_photo, filename: 'third_eye_blind_album_photo')
+
 
     # TODO: TODO: TODO: TODO: TODO: 
     # Completed: 
     # Counting Crows, Creedance Clearwater Revival, Green Day, Journey,
     # Keak da Sneak, MC Hammer, Michael Franti, Metallica, Papa Roach, Santana,
-    # Steve Miller Band, The Grateful Dead, 
+    # Steve Miller Band, The Grateful Dead, Third Eye Blind, 
 
     # Pending:  
-    # Sally S Baby, Third Eye Blind, Too $hort, Van Morrison, Van Wave
+    # Sally S Baby, Too $hort, Van Morrison, Van Wave
 
     # ------------------------------------------------------------------------- #
     # ------------------------------ TRACKS ----------------------------------- #
