@@ -171,7 +171,7 @@ ActiveRecord::Base.transaction do
     # --------------- Too $hort ---------------
     too_short = Artist.create!(name: "Too $hort")
     too_short_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/too_short_profile.jpeg')
-    too_short_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/too_short_background.png')
+    too_short_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/too_short_background.jpeg')
     too_short.artist_photo.attach(io: too_short_profile, filename: 'too_short_artist_photo')
     too_short.background_photo.attach(io: too_short_background, filename: 'too_short_background')
 
@@ -613,6 +613,16 @@ ActiveRecord::Base.transaction do
     )
     third_eye_blind_album_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/third_eye_blind_album_cover.jpeg')
     third_eye_blind_album.album_photo.attach(io: third_eye_blind_album_photo, filename: 'third_eye_blind_album_photo')
+
+    # --------------- ** SINGLES ** :: TOO $HORT ---------------
+    too_short_singles = Album.create!(
+        artist_id: too_short.id, 
+        title: "Too $hort Singles", 
+        year: 2008, 
+        genre: "Hip-hop"
+    )
+    too_short_singles_photo = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/album_photos/singles.jpg')
+    too_short_singles.album_photo.attach(io: too_short_singles_photo, filename: 'too_short_singles_photo')
 
 
     # TODO: TODO: TODO: TODO: TODO: 
