@@ -578,10 +578,10 @@ ActiveRecord::Base.transaction do
     # TODO: TODO: TODO: TODO: TODO: 
     # Completed: 
     # Counting Crows, Creedance Clearwater Revival, Green Day, Journey,
-    # Keak da Sneak, MC Hammer, Michael Franti, Metallica, Papa Roach,
+    # Keak da Sneak, MC Hammer, Michael Franti, Metallica, Papa Roach, Santana, 
 
     # Pending:  
-    # Sally S Baby, Santana, Steve Miller Band, The Grateful Dead, Third Eye Blind, 
+    # Sally S Baby, Steve Miller Band, The Grateful Dead, Third Eye Blind, 
     # Too $hort, Van Morrison, Van Wave
 
     # ------------------------------------------------------------------------- #
@@ -1624,6 +1624,57 @@ ActiveRecord::Base.transaction do
     )
     scars_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/papa_roach/Scars.mp3')
     scars.track.attach(io: scars_track, filename: "scars")
+
+    # --------------- Santana's Greatest Hits :: SANTANA ---------------
+    oye_como_va = Track.create!(
+        album_id: santanas_greatest_hits.id,
+        title: "Oye Como Va",
+        track_length: 258
+    )
+    oye_como_va_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/santana/santanas_greatest_hits/1-05+Oye+Como+Va.m4a')
+    oye_como_va.track.attach(io: oye_como_va_track, filename: "oye_como_va")
+
+    black_magic_woman = Track.create!(
+        album_id: santanas_greatest_hits.id,
+        title: "Black Magic Woman",
+        track_length: 334
+    )
+    black_magic_woman_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/santana/santanas_greatest_hits/santana-+black+magic+woman.mp3')
+    black_magic_woman.track.attach(io: black_magic_woman_track, filename: "black_magic_woman")
+
+    # --------------- Supernatural :: SANTANA ---------------
+    put_your_lights_on = Track.create!(
+        album_id: supernatural.id,
+        title: "Put Your Lights On (feat. Everlast)",
+        track_length: 285
+    )
+    put_your_lights_on_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/santana/supernatural/03+Put+Your+Lights+On.m4a')
+    put_your_lights_on.track.attach(io: put_your_lights_on_track, filename: "put_your_lights_on")
+
+    smooth = Track.create!(
+        album_id: supernatural.id,
+        title: "Smooth (feat. Rob Thomas)",
+        track_length: 298
+    )
+    smooth_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/santana/supernatural/05+Smooth.m4a')
+    smooth.track.attach(io: smooth_track, filename: "smooth")
+
+    maria_maria = Track.create!(
+        album_id: supernatural.id,
+        title: "Maria Maria (feat. Sincere and Money Harm)",
+        track_length: 263
+    )
+    maria_maria_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/santana/supernatural/07+Maria+Maria.m4a')
+    maria_maria.track.attach(io: maria_maria_track, filename: "maria_maria")
+
+    # --------------- ** SINGLES ** :: SANTANA ---------------
+    why_dont_you_and_i = Track.create!(
+        album_id: santana_singles.id,
+        title: "Why Don't You & I (feat. Chad Kroeger)",
+        track_length: 274
+    )
+    why_dont_you_and_i_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/santana/11+Why+Don\'t+You+%26+I.mp3')
+    why_dont_you_and_i.track.attach(io: why_dont_you_and_i_track, filename: "why_dont_you_and_i")
     
 
     # TODO: TODO: TODO: TODO:
