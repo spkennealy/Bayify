@@ -1877,7 +1877,7 @@ ActiveRecord::Base.transaction do
 
     choosin = Track.create!(
         album_id: too_short_singles.id,
-        title: "Choosin'",
+        title: "Choosin' (feat. Keri Kilson, Jazze Pha & Jagged Edge)",
         track_length: 237
     )
     choosin_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Choosin\'.mp3')
@@ -1893,7 +1893,7 @@ ActiveRecord::Base.transaction do
 
     gettin_it = Track.create!(
         album_id: too_short_singles.id,
-        title: "Gettin' it",
+        title: "Gettin' it (feat. Parliament & Funkadelic)",
         track_length: 340
     )
     gettin_it_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Gettin\'+it.mp3')
