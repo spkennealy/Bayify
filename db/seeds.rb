@@ -1807,6 +1807,23 @@ ActiveRecord::Base.transaction do
     bertha_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/the_grateful_dead/grateful_dead/Bertha.mp3')
     bertha.track.attach(io: bertha_track, filename: "bertha")
 
+    # --------------- Third Eye Blind :: THIRD EYE BLIND ---------------
+    jumper = Track.create!(
+        album_id: third_eye_blind_album.id,
+        title: "Jumper",
+        track_length: 272
+    )
+    jumper_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/third_eye_blind/third_eye_blind_album/Jumper.mp3')
+    jumper.track.attach(io: jumper_track, filename: "jumper")
+
+    semi_charmed_life = Track.create!(
+        album_id: third_eye_blind_album.id,
+        title: "Semi-Charmed Life",
+        track_length: 268
+    )
+    semi_charmed_life_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/third_eye_blind/third_eye_blind_album/Semi+Charmed+Life.mp3')
+    semi_charmed_life.track.attach(io: semi_charmed_life_track, filename: "semi_charmed_life")
+
     # TODO: TODO: TODO: TODO:
 
     # ------------------------------------------------------------------------- #
