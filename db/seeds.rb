@@ -609,11 +609,10 @@ ActiveRecord::Base.transaction do
     # Completed: 
     # Counting Crows, Creedance Clearwater Revival, Green Day, Journey,
     # Keak da Sneak, MC Hammer, Michael Franti, Metallica, Papa Roach, Santana,
-    # Steve Miller Band,  
+    # Steve Miller Band, The Grateful Dead, 
 
     # Pending:  
-    # Sally S Baby, The Grateful Dead, Third Eye Blind, 
-    # Too $hort, Van Morrison, Van Wave
+    # Sally S Baby, Third Eye Blind, Too $hort, Van Morrison, Van Wave
 
     # ------------------------------------------------------------------------- #
     # ------------------------------ TRACKS ----------------------------------- #
@@ -1747,6 +1746,56 @@ ActiveRecord::Base.transaction do
     )
     jet_airliner_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/steve_miller_band/greatest_hits/10+Jet+Airliner.m4a')
     jet_airliner.track.attach(io: jet_airliner_track, filename: "jet_airliner")
+
+    # --------------- The Best of the Grateful Dead :: THE GRATEFUL DEAD ---------------
+    casey_jones = Track.create!(
+        album_id: best_of_the_grateful_dead.id,
+        title: "Casey Jones",
+        track_length: 268
+    )
+    casey_jones_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/the_grateful_dead/best_of_the_grateful_dead/Casey_Jones.mp3')
+    casey_jones.track.attach(io: casey_jones_track, filename: "casey_jones")
+
+    fire_on_the_mountain = Track.create!(
+        album_id: best_of_the_grateful_dead.id,
+        title: "Fire On The Mountain",
+        track_length: 231
+    )
+    fire_on_the_mountain_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/the_grateful_dead/best_of_the_grateful_dead/Fire_On_The_Mountain.mp3')
+    fire_on_the_mountain.track.attach(io: fire_on_the_mountain_track, filename: "fire_on_the_mountain")
+
+    not_fade_away = Track.create!(
+        album_id: best_of_the_grateful_dead.id,
+        title: "Not Fade Away",
+        track_length: 566
+    )
+    not_fade_away_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/the_grateful_dead/best_of_the_grateful_dead/Not_Fade_Away.mp3')
+    not_fade_away.track.attach(io: not_fade_away_track, filename: "not_fade_away")
+
+    shakedown_street = Track.create!(
+        album_id: best_of_the_grateful_dead.id,
+        title: "Shakedown Street",
+        track_length: 293
+    )
+    shakedown_street_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/the_grateful_dead/best_of_the_grateful_dead/Shakedown_Street.mp3')
+    shakedown_street.track.attach(io: shakedown_street_track, filename: "shakedown_street")
+
+    touch_of_grey = Track.create!(
+        album_id: best_of_the_grateful_dead.id,
+        title: "Touch of Grey",
+        track_length: 350
+    )
+    touch_of_grey_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/the_grateful_dead/best_of_the_grateful_dead/Touch_of_Grey.mp3')
+    touch_of_grey.track.attach(io: touch_of_grey_track, filename: "touch_of_grey")
+
+    # --------------- Grateful Dead [Skull & Roses] :: THE GRATEFUL DEAD ---------------
+    bertha = Track.create!(
+        album_id: grateful_dead_album.id,
+        title: "Bertha",
+        track_length: 343
+    )
+    bertha_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/the_grateful_dead/grateful_dead/Bertha.mp3')
+    bertha.track.attach(io: bertha_track, filename: "bertha")
 
     # TODO: TODO: TODO: TODO:
 
