@@ -574,6 +574,16 @@ ActiveRecord::Base.transaction do
     santana_singles_photo = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/album_photos/singles.jpg')
     santana_singles.album_photo.attach(io: santana_singles_photo, filename: 'santana_singles_photo')
 
+    # --------------- Steve Miller Band Greatest Hits :: STEVE MILLER BAND ---------------
+    steve_miller_band_greatest_hits = Album.create!(
+        artist_id: steve_miller_band.id, 
+        title: "Steve Miller Band Greatest Hits", 
+        year: 1978, 
+        genre: "Rock-n-roll"
+    )
+    steve_miller_band_greatest_hits_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/steve_miller_band_greatest_hits_album.jpeg')
+    steve_miller_band_greatest_hits.album_photo.attach(io: steve_miller_band_greatest_hits_photo, filename: 'steve_miller_band_greatest_hits_photo')
+
 
     # TODO: TODO: TODO: TODO: TODO: 
     # Completed: 
@@ -1675,7 +1685,15 @@ ActiveRecord::Base.transaction do
     )
     why_dont_you_and_i_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/santana/11+Why+Don\'t+You+%26+I.mp3')
     why_dont_you_and_i.track.attach(io: why_dont_you_and_i_track, filename: "why_dont_you_and_i")
-    
+
+    # --------------- Steve Miller Band Greatest Hits :: STEVE MILLER BAND ---------------
+    scars = Track.create!(
+        album_id: steve_miller_band_greatest_hits.id,
+        title: "",
+        track_length: 274
+    )
+    scars_track = open('')
+    scars.track.attach(io: scars_track, filename: "scars")
 
     # TODO: TODO: TODO: TODO:
 
