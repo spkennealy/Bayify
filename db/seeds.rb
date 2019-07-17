@@ -544,6 +544,36 @@ ActiveRecord::Base.transaction do
     papa_roach_singles_photo = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/album_photos/singles.jpg')
     papa_roach_singles.album_photo.attach(io: papa_roach_singles_photo, filename: 'papa_roach_singles_photo')
 
+    # --------------- Santana's Greatest Hits :: SANTANA ---------------
+    santanas_greatest_hits = Album.create!(
+        artist_id: santana.id, 
+        title: "Santana's Greatest Hits", 
+        year: 1974, 
+        genre: "Rock-n-roll"
+    )
+    santanas_greatest_hits_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/SantanaGreatestHits_album_cover.jpg')
+    santanas_greatest_hits.album_photo.attach(io: santanas_greatest_hits_photo, filename: 'santanas_greatest_hits_photo')
+
+    # --------------- Supernatural :: SANTANA ---------------
+    supernatural = Album.create!(
+        artist_id: santana.id, 
+        title: "Supernatural", 
+        year: 1999, 
+        genre: "Rock-n-roll"
+    )
+    supernatural_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/santana_supernatural_album_cover.jpeg')
+    supernatural.album_photo.attach(io: supernatural_photo, filename: 'supernatural_photo')
+
+    # --------------- ** SINGLES ** :: SANTANA ---------------
+    santana_singles = Album.create!(
+        artist_id: santana.id, 
+        title: "Santana Singles", 
+        year: 2002, 
+        genre: "Rock-n-roll"
+    )
+    santana_singles_photo = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/album_photos/singles.jpg')
+    santana_singles.album_photo.attach(io: santana_singles_photo, filename: 'santana_singles_photo')
+
 
     # TODO: TODO: TODO: TODO: TODO: 
     # Completed: 
