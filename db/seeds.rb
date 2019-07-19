@@ -2078,14 +2078,15 @@ ActiveRecord::Base.transaction do
     PlaylistTrack.create!(track_id: the_plan.id, playlist_id: todays_top_hits.id)
     PlaylistTrack.create!(track_id: him_and_I.id, playlist_id: todays_top_hits.id)
     PlaylistTrack.create!(track_id: no_limit.id, playlist_id: todays_top_hits.id)
+    PlaylistTrack.create!(track_id: choices_warriors.id, playlist_id: todays_top_hits.id)
 
     PlaylistTrack.create!(track_id: him_and_I.id, playlist_id: top_25.id)
     PlaylistTrack.create!(track_id: no_limit.id, playlist_id: top_25.id)
     PlaylistTrack.create!(track_id: the_plan.id, playlist_id: top_25.id)
-    # PlaylistTrack.create!(track_id: .id, playlist_id: top_25.id)
-    # PlaylistTrack.create!(track_id: .id, playlist_id: top_25.id)
-    # PlaylistTrack.create!(track_id: .id, playlist_id: top_25.id)
-    # PlaylistTrack.create!(track_id: .id, playlist_id: top_25.id)
+    PlaylistTrack.create!(track_id: choosin.id, playlist_id: top_25.id)
+    PlaylistTrack.create!(track_id: gettin_it.id, playlist_id: top_25.id)
+    PlaylistTrack.create!(track_id: tell_me_when_to_go.id, playlist_id: top_25.id)
+    PlaylistTrack.create!(track_id: choices_warriors.id, playlist_id: top_25.id)
     # PlaylistTrack.create!(track_id: .id, playlist_id: top_25.id)
     # PlaylistTrack.create!(track_id: .id, playlist_id: top_25.id)
     # PlaylistTrack.create!(track_id: .id, playlist_id: top_25.id)
@@ -2131,7 +2132,9 @@ ActiveRecord::Base.transaction do
     PlaylistTrack.create!(track_id: boss_tycoon.id, playlist_id: hip_hop.id)
     PlaylistTrack.create!(track_id: since_84.id, playlist_id: hip_hop.id)
     PlaylistTrack.create!(track_id: andre_and_andre.id, playlist_id: hip_hop.id)
-    # PlaylistTrack.create!(track_id: .id, playlist_id: hip_hop.id)
+    PlaylistTrack.create!(track_id: choosin.id, playlist_id: hip_hop.id)
+    PlaylistTrack.create!(track_id: gettin_it.id, playlist_id: hip_hop.id)
+    PlaylistTrack.create!(track_id: freaky_tales.id, playlist_id: hip_hop.id)
 
     PlaylistTrack.create!(track_id: minority.id, playlist_id: alternative.id)
     PlaylistTrack.create!(track_id: warning.id, playlist_id: alternative.id)
@@ -2200,8 +2203,8 @@ ActiveRecord::Base.transaction do
     PlaylistTrack.create!(track_id: gotdamn.id, playlist_id: workout.id)
     PlaylistTrack.create!(track_id: too_legit_to_quit.id, playlist_id: workout.id)
     PlaylistTrack.create!(track_id: fuel.id, playlist_id: workout.id)
-    # PlaylistTrack.create!(track_id: .id, playlist_id: workout.id)
-    # PlaylistTrack.create!(track_id: .id, playlist_id: workout.id)
+    PlaylistTrack.create!(track_id: choosin.id, playlist_id: workout.id)
+    PlaylistTrack.create!(track_id: gettin_it.id, playlist_id: workout.id)
 
 
 
