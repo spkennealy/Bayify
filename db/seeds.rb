@@ -12,7 +12,7 @@ require 'open-uri'
 # Tower of Power, Doobey Boys, Khelani, Train, Rappin 4 tay, Marc E Bassy, 
 # Tony toni tone, Scrapper Bike, Bobby Brackins, The Grouch, Luniz, Hieroglyphics, 
 
-# ActiveRecord::Base.transaction do
+ActiveRecord::Base.transaction do
 
     User.create!(username: "Curry30", password: "password", email: "curry30@gsw.com")
     curry = User.find_by(username: "Curry30")
@@ -2029,7 +2029,7 @@ require 'open-uri'
     TrackFollower.create!(follower_id: curry.id, track_id: killa_whale.id)
     TrackFollower.create!(follower_id: curry.id, track_id: jungle.id)
 
-# end
+end
 
 # TODO: TODO: TODO: TODO:
 
