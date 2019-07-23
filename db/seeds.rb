@@ -12,7 +12,7 @@ require 'open-uri'
 # Tower of Power, Doobey Boys, Khelani, Train, Rappin 4 tay, Marc E Bassy, 
 # Tony toni tone, Scrapper Bike, Bobby Brackins, The Grouch, Luniz, Hieroglyphics, 
 
-ActiveRecord::Base.transaction do
+# ActiveRecord::Base.transaction do
 
     User.create!(username: "Curry30", password: "password", email: "curry30@gsw.com")
     curry = User.find_by(username: "Curry30")
@@ -133,13 +133,6 @@ ActiveRecord::Base.transaction do
     papa_roach.artist_photo.attach(io: papa_roach_profile, filename: 'papa_roach_artist_photo')
     papa_roach.background_photo.attach(io: papa_roach_background, filename: 'papa_roach_background')
 
-    # --------------- Sally S Baby ---------------
-    # sally_s_baby = Artist.create!(name: "Sally S Baby")
-    # sally_s_baby_profile = open('')  # TODO: ADD PHOTO
-    # sally_s_baby_background = open('')
-    # sally_s_baby.artist_photo.attach(io: sally_s_baby_profile, filename: 'sally_s_baby_artist_photo')
-    # sally_s_baby.background_photo.attach(io: sally_s_baby_background, filename: 'sally_s_baby_background')
-
     # --------------- Santana ---------------
     santana = Artist.create!(name: "Santana")
     santana_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/santana_profile.jpeg')
@@ -183,11 +176,11 @@ ActiveRecord::Base.transaction do
     van_morrison.background_photo.attach(io: van_morrison_background, filename: 'van_morrison_background')
 
     # --------------- Van Wave ---------------
-    van_wave = Artist.create!(name: "Van Wave")
-    van_wave_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/van_wave_profile.jpeg')
-    van_wave_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/van_wave_background.jpeg')
-    van_wave.artist_photo.attach(io: van_wave_profile, filename: 'van_wave_artist_photo')
-    van_wave.background_photo.attach(io: van_wave_background, filename: 'van_wave_background')
+    vanwave = Artist.create!(name: "Vanwave")
+    vanwave_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/van_wave_profile.jpeg')
+    vanwave_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/van_wave_background.jpg')
+    vanwave.artist_photo.attach(io: vanwave_profile, filename: 'vanwave_artist_photo')
+    vanwave.background_photo.attach(io: vanwave_background, filename: 'vanwave_background')
 
     # ------------------------------------------------------------------------- #
     # ------------------------------ ALBUMS ----------------------------------- #
@@ -1726,205 +1719,6 @@ ActiveRecord::Base.transaction do
     why_dont_you_and_i_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/santana/11+Why+Don\'t+You+%26+I.mp3')
     why_dont_you_and_i.track.attach(io: why_dont_you_and_i_track, filename: "why_dont_you_and_i")
 
-    # --------------- Steve Miller Band Greatest Hits :: STEVE MILLER BAND ---------------
-    take_the_money_and_run = Track.create!(
-        album_id: steve_miller_band_greatest_hits.id,
-        title: "Take The Money And Run",
-        track_length: 172
-    )
-    take_the_money_and_run_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/steve_miller_band/greatest_hits/01+Take+The+Money+And+Run.m4a')
-    take_the_money_and_run.track.attach(io: take_the_money_and_run_track, filename: "take_the_money_and_run")
-    
-    the_joker = Track.create!(
-        album_id: steve_miller_band_greatest_hits.id,
-        title: "The Joker",
-        track_length: 269
-    )
-    the_joker_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/steve_miller_band/greatest_hits/05+The+Joker.m4a')
-    the_joker.track.attach(io: the_joker_track, filename: "the_joker")
-
-    livin_in_the_USA = Track.create!(
-        album_id: steve_miller_band_greatest_hits.id,
-        title: "Livin' in the U.S.A.",
-        track_length: 227
-    )
-    livin_in_the_USA_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/steve_miller_band/greatest_hits/06+Livin\'+In+The+U.S.A..m4a')
-    livin_in_the_USA.track.attach(io: livin_in_the_USA_track, filename: "livin_in_the_USA")
-
-    fly_like_an_eagle = Track.create!(
-        album_id: steve_miller_band_greatest_hits.id,
-        title: "Fly Like an Eagle",
-        track_length: 246
-    )
-    fly_like_an_eagle_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/steve_miller_band/greatest_hits/08+Fly+Like+An+Eagle.m4a')
-    fly_like_an_eagle.track.attach(io: fly_like_an_eagle_track, filename: "fly_like_an_eagle")
-
-    jet_airliner = Track.create!(
-        album_id: steve_miller_band_greatest_hits.id,
-        title: "Jet Airliner",
-        track_length: 270
-    )
-    jet_airliner_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/steve_miller_band/greatest_hits/10+Jet+Airliner.m4a')
-    jet_airliner.track.attach(io: jet_airliner_track, filename: "jet_airliner")
-
-    # --------------- The Best of the Grateful Dead :: THE GRATEFUL DEAD ---------------
-    casey_jones = Track.create!(
-        album_id: best_of_the_grateful_dead.id,
-        title: "Casey Jones",
-        track_length: 268
-    )
-    casey_jones_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/the_grateful_dead/best_of_the_grateful_dead/Casey_Jones.mp3')
-    casey_jones.track.attach(io: casey_jones_track, filename: "casey_jones")
-
-    fire_on_the_mountain = Track.create!(
-        album_id: best_of_the_grateful_dead.id,
-        title: "Fire On The Mountain",
-        track_length: 231
-    )
-    fire_on_the_mountain_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/the_grateful_dead/best_of_the_grateful_dead/Fire_On_The_Mountain.mp3')
-    fire_on_the_mountain.track.attach(io: fire_on_the_mountain_track, filename: "fire_on_the_mountain")
-
-    not_fade_away = Track.create!(
-        album_id: best_of_the_grateful_dead.id,
-        title: "Not Fade Away",
-        track_length: 566
-    )
-    not_fade_away_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/the_grateful_dead/best_of_the_grateful_dead/Not_Fade_Away.mp3')
-    not_fade_away.track.attach(io: not_fade_away_track, filename: "not_fade_away")
-
-    shakedown_street = Track.create!(
-        album_id: best_of_the_grateful_dead.id,
-        title: "Shakedown Street",
-        track_length: 293
-    )
-    shakedown_street_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/the_grateful_dead/best_of_the_grateful_dead/Shakedown_Street.mp3')
-    shakedown_street.track.attach(io: shakedown_street_track, filename: "shakedown_street")
-
-    touch_of_grey = Track.create!(
-        album_id: best_of_the_grateful_dead.id,
-        title: "Touch of Grey",
-        track_length: 350
-    )
-    touch_of_grey_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/the_grateful_dead/best_of_the_grateful_dead/Touch_of_Grey.mp3')
-    touch_of_grey.track.attach(io: touch_of_grey_track, filename: "touch_of_grey")
-
-    # --------------- Grateful Dead [Skull & Roses] :: THE GRATEFUL DEAD ---------------
-    bertha = Track.create!(
-        album_id: grateful_dead_album.id,
-        title: "Bertha",
-        track_length: 343
-    )
-    bertha_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/the_grateful_dead/grateful_dead/Bertha.mp3')
-    bertha.track.attach(io: bertha_track, filename: "bertha")
-
-    # --------------- Third Eye Blind :: THIRD EYE BLIND ---------------
-    jumper = Track.create!(
-        album_id: third_eye_blind_album.id,
-        title: "Jumper",
-        track_length: 272
-    )
-    jumper_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/third_eye_blind/third_eye_blind_album/Jumper.mp3')
-    jumper.track.attach(io: jumper_track, filename: "jumper")
-
-    semi_charmed_life = Track.create!(
-        album_id: third_eye_blind_album.id,
-        title: "Semi-Charmed Life",
-        track_length: 268
-    )
-    semi_charmed_life_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/third_eye_blind/third_eye_blind_album/Semi+Charmed+Life.mp3')
-    semi_charmed_life.track.attach(io: semi_charmed_life_track, filename: "semi_charmed_life")
-
-    # --------------- ** SINGLES ** :: TOO $HORT ---------------
-    players_club = Track.create!(
-        album_id: too_short_singles.id,
-        title: "Playaz Club (feat. Rappin' 4 Tay)",
-        track_length: 268
-    )
-    players_club_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/01+Players+Club.mp3')
-    players_club.track.attach(io: players_club_track, filename: "players_club")
-    
-    call_me_daddy = Track.create!(
-        album_id: too_short_singles.id,
-        title: "Call Me Daddy",
-        track_length: 234
-    )
-    call_me_daddy_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/05+Call+Me+Daddy.mp3')
-    call_me_daddy.track.attach(io: call_me_daddy_track, filename: "call_me_daddy")
-
-    oakland = Track.create!(
-        album_id: too_short_singles.id,
-        title: "Oakland",
-        track_length: 282
-    )
-    oakland_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/32+Oakland.mp3')
-    oakland.track.attach(io: oakland_track, filename: "oakland")
-
-    pimpology = Track.create!(
-        album_id: too_short_singles.id,
-        title: "Pimpology",
-        track_length: 366
-    )
-    pimpology_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/32+Pimpology.mp3')
-    pimpology.track.attach(io: pimpology_track, filename: "pimpology")
-
-    burn_rubber = Track.create!(
-        album_id: too_short_singles.id,
-        title: "Burn Rubber",
-        track_length: 199
-    )
-    burn_rubber_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Burn+Rubber.mp3')
-    burn_rubber.track.attach(io: burn_rubber_track, filename: "burn_rubber")
-
-    choosin = Track.create!(
-        album_id: too_short_singles.id,
-        title: "Choosin' (feat. Keri Kilson, Jazze Pha & Jagged Edge)",
-        track_length: 237
-    )
-    choosin_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Choosin\'.mp3')
-    choosin.track.attach(io: choosin_track, filename: "choosin")
-
-    freaky_tales = Track.create!(
-        album_id: too_short_singles.id,
-        title: "Freaky Tales (Old School)",
-        track_length: 575
-    )
-    freaky_tales_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Freaky+Tales+(Old+School).mp3')
-    freaky_tales.track.attach(io: freaky_tales_track, filename: "freaky_tales")
-
-    gettin_it = Track.create!(
-        album_id: too_short_singles.id,
-        title: "Gettin' it (feat. Parliament & Funkadelic)",
-        track_length: 340
-    )
-    gettin_it_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Gettin\'+it.mp3')
-    gettin_it.track.attach(io: gettin_it_track, filename: "gettin_it")
-
-    im_a_player = Track.create!(
-        album_id: too_short_singles.id,
-        title: "I'm a Player",
-        track_length: 360
-    )
-    im_a_player_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/I\'m+A+Player.mp3')
-    im_a_player.track.attach(io: im_a_player_track, filename: "im_a_player")
-
-    blow_the_whistle = Track.create!(
-        album_id: too_short_singles.id,
-        title: "Blow the Whistle",
-        track_length: 167
-    )
-    blow_the_whistle_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Too+Short+Blow+The+Whistle+(Dirty).mp3')
-    blow_the_whistle.track.attach(io: blow_the_whistle_track, filename: "blow_the_whistle")
-
-    yo_neck_yo_back = Track.create!(
-        album_id: too_short_singles.id,
-        title: "Yo Neck, Yo Back",
-        track_length: 208
-    )
-    yo_neck_yo_back_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Yo+Neck+Yo+Back.m4a')
-    yo_neck_yo_back.track.attach(io: yo_neck_yo_back_track, filename: "yo_neck_yo_back")
-
-    # TODO: TODO: TODO: TODO:
-
     # ------------------------------------------------------------------------- #
     # ---------------------------- PLAYLISTS ---------------------------------- #
     # ------------------------------------------------------------------------- #
@@ -2053,12 +1847,12 @@ ActiveRecord::Base.transaction do
 
     PlaylistTrack.create!(track_id: fortunate_son.id, playlist_id: summer_of_love.id)
     PlaylistTrack.create!(track_id: down_on_the_corner.id, playlist_id: summer_of_love.id)
-    PlaylistTrack.create!(track_id: casey_jones.id, playlist_id: summer_of_love.id)
-    PlaylistTrack.create!(track_id: fire_on_the_mountain.id, playlist_id: summer_of_love.id)
-    PlaylistTrack.create!(track_id: shakedown_street.id, playlist_id: summer_of_love.id)
-    PlaylistTrack.create!(track_id: take_the_money_and_run.id, playlist_id: summer_of_love.id)
-    PlaylistTrack.create!(track_id: the_joker.id, playlist_id: summer_of_love.id)
-    PlaylistTrack.create!(track_id: jet_airliner.id, playlist_id: summer_of_love.id)
+    # PlaylistTrack.create!(track_id: casey_jones.id, playlist_id: summer_of_love.id)
+    # PlaylistTrack.create!(track_id: fire_on_the_mountain.id, playlist_id: summer_of_love.id)
+    # PlaylistTrack.create!(track_id: shakedown_street.id, playlist_id: summer_of_love.id)
+    # PlaylistTrack.create!(track_id: take_the_money_and_run.id, playlist_id: summer_of_love.id)
+    # PlaylistTrack.create!(track_id: the_joker.id, playlist_id: summer_of_love.id)
+    # PlaylistTrack.create!(track_id: jet_airliner.id, playlist_id: summer_of_love.id)
 
     PlaylistTrack.create!(track_id: when_i_come_around.id, playlist_id: bfd.id)
     PlaylistTrack.create!(track_id: nice_guys_finish_last.id, playlist_id: bfd.id)
@@ -2083,8 +1877,8 @@ ActiveRecord::Base.transaction do
     PlaylistTrack.create!(track_id: him_and_I.id, playlist_id: top_25.id)
     PlaylistTrack.create!(track_id: no_limit.id, playlist_id: top_25.id)
     PlaylistTrack.create!(track_id: the_plan.id, playlist_id: top_25.id)
-    PlaylistTrack.create!(track_id: choosin.id, playlist_id: top_25.id)
-    PlaylistTrack.create!(track_id: gettin_it.id, playlist_id: top_25.id)
+    # PlaylistTrack.create!(track_id: choosin.id, playlist_id: top_25.id)
+    # PlaylistTrack.create!(track_id: gettin_it.id, playlist_id: top_25.id)
     PlaylistTrack.create!(track_id: tell_me_when_to_go.id, playlist_id: top_25.id)
     PlaylistTrack.create!(track_id: choices_warriors.id, playlist_id: top_25.id)
 
@@ -2114,9 +1908,9 @@ ActiveRecord::Base.transaction do
     PlaylistTrack.create!(track_id: boss_tycoon.id, playlist_id: hip_hop.id)
     PlaylistTrack.create!(track_id: since_84.id, playlist_id: hip_hop.id)
     PlaylistTrack.create!(track_id: andre_and_andre.id, playlist_id: hip_hop.id)
-    PlaylistTrack.create!(track_id: choosin.id, playlist_id: hip_hop.id)
-    PlaylistTrack.create!(track_id: gettin_it.id, playlist_id: hip_hop.id)
-    PlaylistTrack.create!(track_id: freaky_tales.id, playlist_id: hip_hop.id)
+    # PlaylistTrack.create!(track_id: choosin.id, playlist_id: hip_hop.id)
+    # PlaylistTrack.create!(track_id: gettin_it.id, playlist_id: hip_hop.id)
+    # PlaylistTrack.create!(track_id: freaky_tales.id, playlist_id: hip_hop.id)
 
     PlaylistTrack.create!(track_id: minority.id, playlist_id: alternative.id)
     PlaylistTrack.create!(track_id: warning.id, playlist_id: alternative.id)
@@ -2126,8 +1920,8 @@ ActiveRecord::Base.transaction do
     PlaylistTrack.create!(track_id: american_idiot.id, playlist_id: alternative.id)
     PlaylistTrack.create!(track_id: last_resort.id, playlist_id: alternative.id)
     PlaylistTrack.create!(track_id: scars.id, playlist_id: alternative.id)
-    PlaylistTrack.create!(track_id: jumper.id, playlist_id: alternative.id)
-    PlaylistTrack.create!(track_id: semi_charmed_life.id, playlist_id: alternative.id)
+    # PlaylistTrack.create!(track_id: jumper.id, playlist_id: alternative.id)
+    # PlaylistTrack.create!(track_id: semi_charmed_life.id, playlist_id: alternative.id)
 
     PlaylistTrack.create!(track_id: ayo.id, playlist_id: party.id)
     PlaylistTrack.create!(track_id: nineteen_eighty.id, playlist_id: party.id)
@@ -2150,12 +1944,12 @@ ActiveRecord::Base.transaction do
     PlaylistTrack.create!(track_id: fortunate_son.id, playlist_id: rock.id)
     PlaylistTrack.create!(track_id: down_on_the_corner.id, playlist_id: rock.id)
     PlaylistTrack.create!(track_id: dont_stop_believin.id, playlist_id: rock.id)
-    PlaylistTrack.create!(track_id: take_the_money_and_run.id, playlist_id: rock.id)
-    PlaylistTrack.create!(track_id: the_joker.id, playlist_id: rock.id)
-    PlaylistTrack.create!(track_id: casey_jones.id, playlist_id: rock.id)
-    PlaylistTrack.create!(track_id: fire_on_the_mountain.id, playlist_id: rock.id)
-    PlaylistTrack.create!(track_id: semi_charmed_life.id, playlist_id: rock.id)
-    PlaylistTrack.create!(track_id: jumper.id, playlist_id: rock.id)
+    # PlaylistTrack.create!(track_id: take_the_money_and_run.id, playlist_id: rock.id)
+    # PlaylistTrack.create!(track_id: the_joker.id, playlist_id: rock.id)
+    # PlaylistTrack.create!(track_id: casey_jones.id, playlist_id: rock.id)
+    # PlaylistTrack.create!(track_id: fire_on_the_mountain.id, playlist_id: rock.id)
+    # PlaylistTrack.create!(track_id: semi_charmed_life.id, playlist_id: rock.id)
+    # PlaylistTrack.create!(track_id: jumper.id, playlist_id: rock.id)
     PlaylistTrack.create!(track_id: smooth.id, playlist_id: rock.id)
     PlaylistTrack.create!(track_id: last_resort.id, playlist_id: rock.id)
     PlaylistTrack.create!(track_id: scars.id, playlist_id: rock.id)
@@ -2169,12 +1963,12 @@ ActiveRecord::Base.transaction do
     PlaylistTrack.create!(track_id: lights.id, playlist_id: summer.id)
     PlaylistTrack.create!(track_id: faithfully.id, playlist_id: summer.id)
     PlaylistTrack.create!(track_id: separate_ways_worlds_apart.id, playlist_id: summer.id)
-    PlaylistTrack.create!(track_id: jumper.id, playlist_id: summer.id)
     PlaylistTrack.create!(track_id: july_4th.id, playlist_id: summer.id)
-    PlaylistTrack.create!(track_id: the_joker.id, playlist_id: summer.id)
     PlaylistTrack.create!(track_id: fortunate_son.id, playlist_id: summer.id)
     PlaylistTrack.create!(track_id: down_on_the_corner.id, playlist_id: summer.id)
-    PlaylistTrack.create!(track_id: take_the_money_and_run.id, playlist_id: summer.id)
+    # PlaylistTrack.create!(track_id: jumper.id, playlist_id: summer.id)
+    # PlaylistTrack.create!(track_id: the_joker.id, playlist_id: summer.id)
+    # PlaylistTrack.create!(track_id: take_the_money_and_run.id, playlist_id: summer.id)
     PlaylistTrack.create!(track_id: say_hey_i_love_you.id, playlist_id: summer.id)
     PlaylistTrack.create!(track_id: ganja_baby.id, playlist_id: summer.id)
     PlaylistTrack.create!(track_id: sound_of_sunshine.id, playlist_id: summer.id)
@@ -2185,8 +1979,8 @@ ActiveRecord::Base.transaction do
     PlaylistTrack.create!(track_id: gotdamn.id, playlist_id: workout.id)
     PlaylistTrack.create!(track_id: too_legit_to_quit.id, playlist_id: workout.id)
     PlaylistTrack.create!(track_id: fuel.id, playlist_id: workout.id)
-    PlaylistTrack.create!(track_id: choosin.id, playlist_id: workout.id)
-    PlaylistTrack.create!(track_id: gettin_it.id, playlist_id: workout.id)
+    # PlaylistTrack.create!(track_id: choosin.id, playlist_id: workout.id)
+    # PlaylistTrack.create!(track_id: gettin_it.id, playlist_id: workout.id)
 
 
 
@@ -2235,4 +2029,396 @@ ActiveRecord::Base.transaction do
     TrackFollower.create!(follower_id: curry.id, track_id: killa_whale.id)
     TrackFollower.create!(follower_id: curry.id, track_id: jungle.id)
 
-end
+# end
+
+# TODO: TODO: TODO: TODO:
+
+ActiveRecord::Base.transaction do
+
+    # ADDITIONAL SEEDS
+
+    # --------------- Sally S Baby ---------------
+    sally_s_baby = Artist.create!(name: "Sally S Baby")
+    sally_s_baby_profile = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/Screen+Shot+2019-07-23+at+2.43.52+PM.png')
+    sally_s_baby_background = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/artist_photos/sally_background.png')
+    sally_s_baby.artist_photo.attach(io: sally_s_baby_profile, filename: 'sally_s_baby_artist_photo')
+    sally_s_baby.background_photo.attach(io: sally_s_baby_background, filename: 'sally_s_baby_background')
+
+    # --------------- ** SINGLES ** :: Sally S Baby ---------------
+    sally_s_baby_singles = Album.create!(
+        artist_id: sally_s_baby.id, 
+        title: "Sally S Baby Singles", 
+        year: 2010, 
+        genre: "Hip-hop"
+    )
+    sally_s_baby_singles_photo = open('https://s3-us-west-1.amazonaws.com/bayify-seeds/album_photos/singles.jpg')
+    sally_s_baby_singles.album_photo.attach(io: sally_s_baby_singles_photo, filename: 'sally_s_baby_singles_photo')
+
+    # --------------- TRACKS ---------------
+    salameda = Track.create!(
+        album_id: sally_s_baby_singles.id,
+        title: "Salameda",
+        track_length: 270
+    )
+    salameda_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/SALLY+BABY+-+Salameda+(OFFICIAL+VIDEO+HD).mp3')
+    salameda.track.attach(io: salameda_track, filename: "salameda")
+
+    # --------------- ---------------
+    # --------------- ---------------
+    # --------------- ---------------
+
+
+    # --------------- VAN MORRISON ---------------
+
+    van_morrison = Artist.find_by(name: "Van Morrison")
+
+    # --------------- The Essential Van Morrison :: VAN MORRISON ---------------
+    essential_van_morrison = Album.create!(
+        artist_id: van_morrison.id, 
+        title: "The Essential Van Morrison", 
+        year: 1980, 
+        genre: "Rock-n-roll"
+    )
+    essential_van_morrison_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/the_essential_van_morrison_album.jpeg')
+    essential_van_morrison.album_photo.attach(io: essential_van_morrison_photo, filename: 'essential_van_morrison_photo')
+
+    # --------------- TRACKS ---------------
+    wild_night = Track.create!(
+        album_id: essential_van_morrison.id,
+        title: "Wild Night",
+        track_length: 210
+    )
+    wild_night_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/van_morrison/the_essential_van_morrison/07+Wild+Night.mp3')
+    wild_night.track.attach(io: wild_night_track, filename: "wild_night")
+    
+    brown_eyed_girl = Track.create!(
+        album_id: essential_van_morrison.id,
+        title: "Brown Eyed Girl",
+        track_length: 183
+    )
+    brown_eyed_girl_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/van_morrison/the_essential_van_morrison/Brown+Eyed+Girl.mp3')
+    brown_eyed_girl.track.attach(io: brown_eyed_girl_track, filename: "brown_eyed_girl")
+
+    moondance = Track.create!(
+        album_id: essential_van_morrison.id,
+        title: "Moondance",
+        track_length: 272
+    )
+    moondance_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/van_morrison/the_essential_van_morrison/Moondance+-+Van+Morrison.mp3')
+    moondance.track.attach(io: moondance_track, filename: "moondance")
+
+    # --------------- ---------------
+    # --------------- ---------------
+    # --------------- ---------------
+
+
+    # --------------- VAN WAVE ---------------
+
+    vanwave = Artist.find_by(name: "Vanwave")
+
+    # --------------- VANWAVE :: VANWAVE ---------------
+    vanwave_album = Album.create!(
+        artist_id: vanwave.id, 
+        title: "Vanwave", 
+        year: 2015, 
+        genre: "Rock-n-roll"
+    )
+    vanwave_album_photo = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/album_photos/vanwave_album.jpg')
+    vanwave_album.album_photo.attach(io: vanwave_album_photo, filename: 'vanwave_album_photo')
+
+    # --------------- TRACKS ---------------
+    it_aint_easy = Track.create!(
+        album_id: vanwave_album.id,
+        title: "It Ain't Easy",
+        track_length: 156
+    )
+    it_aint_easy_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/van_wave/01+It+Ain\'t+Easy.m4a')
+    it_aint_easy.track.attach(io: it_aint_easy_track, filename: "it_aint_easy")
+    
+    can_you_see = Track.create!(
+        album_id: vanwave_album.id,
+        title: "Can You See",
+        track_length: 193
+    )
+    can_you_see_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/van_wave/02+Can+You+See.m4a')
+    can_you_see.track.attach(io: can_you_see_track, filename: "can_you_see")
+    
+    ghost = Track.create!(
+        album_id: vanwave_album.id,
+        title: "Ghost",
+        track_length: 202
+    )
+    ghost_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/van_wave/03+Ghost.m4a')
+    ghost.track.attach(io: ghost_track, filename: "ghost")
+    
+    pay_no_mind = Track.create!(
+        album_id: vanwave_album.id,
+        title: "Pay No Mind",
+        track_length: 214
+    )
+    pay_no_mind_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/van_wave/04+Pay+No+Mind.m4a')
+    pay_no_mind.track.attach(io: pay_no_mind_track, filename: "pay_no_mind")
+    
+
+    # --------------- ---------------
+    # --------------- ---------------
+    # --------------- ---------------
+
+    steve_miller_band_greatest_hits = Album.find_by(title: "Steve Miller Band Greatest Hits")
+    best_of_the_grateful_dead = Album.find_by(title: "The Best of the Grateful Dead")
+    grateful_dead_album = Album.find_by(title: "Grateful Dead [Skull & Roses]")
+    third_eye_blind_album = Album.find_by(title: "Third Eye Blind")
+    too_short_singles = Album.find_by(title: "Too $hort Singles")
+
+    # --------------- Steve Miller Band Greatest Hits :: STEVE MILLER BAND ---------------
+    take_the_money_and_run = Track.create!(
+        album_id: steve_miller_band_greatest_hits.id,
+        title: "Take The Money And Run",
+        track_length: 172
+    )
+    take_the_money_and_run_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/steve_miller_band/greatest_hits/01+Take+The+Money+And+Run.m4a')
+    take_the_money_and_run.track.attach(io: take_the_money_and_run_track, filename: "take_the_money_and_run")
+    
+    the_joker = Track.create!(
+        album_id: steve_miller_band_greatest_hits.id,
+        title: "The Joker",
+        track_length: 269
+    )
+    the_joker_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/steve_miller_band/greatest_hits/05+The+Joker.m4a')
+    the_joker.track.attach(io: the_joker_track, filename: "the_joker")
+
+    livin_in_the_USA = Track.create!(
+        album_id: steve_miller_band_greatest_hits.id,
+        title: "Livin' in the U.S.A.",
+        track_length: 227
+    )
+    livin_in_the_USA_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/steve_miller_band/greatest_hits/06+Livin\'+In+The+U.S.A..m4a')
+    livin_in_the_USA.track.attach(io: livin_in_the_USA_track, filename: "livin_in_the_USA")
+
+    fly_like_an_eagle = Track.create!(
+        album_id: steve_miller_band_greatest_hits.id,
+        title: "Fly Like an Eagle",
+        track_length: 246
+    )
+    fly_like_an_eagle_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/steve_miller_band/greatest_hits/08+Fly+Like+An+Eagle.m4a')
+    fly_like_an_eagle.track.attach(io: fly_like_an_eagle_track, filename: "fly_like_an_eagle")
+
+    jet_airliner = Track.create!(
+        album_id: steve_miller_band_greatest_hits.id,
+        title: "Jet Airliner",
+        track_length: 270
+    )
+    jet_airliner_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/steve_miller_band/greatest_hits/10+Jet+Airliner.m4a')
+    jet_airliner.track.attach(io: jet_airliner_track, filename: "jet_airliner")
+
+    # --------------- The Best of the Grateful Dead :: THE GRATEFUL DEAD ---------------
+    casey_jones = Track.create!(
+        album_id: best_of_the_grateful_dead.id,
+        title: "Casey Jones",
+        track_length: 268
+    )
+    casey_jones_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/the_grateful_dead/best_of_the_grateful_dead/Casey_Jones.mp3')
+    casey_jones.track.attach(io: casey_jones_track, filename: "casey_jones")
+
+    fire_on_the_mountain = Track.create!(
+        album_id: best_of_the_grateful_dead.id,
+        title: "Fire On The Mountain",
+        track_length: 231
+    )
+    fire_on_the_mountain_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/the_grateful_dead/best_of_the_grateful_dead/Fire_On_The_Mountain.mp3')
+    fire_on_the_mountain.track.attach(io: fire_on_the_mountain_track, filename: "fire_on_the_mountain")
+
+    not_fade_away = Track.create!(
+        album_id: best_of_the_grateful_dead.id,
+        title: "Not Fade Away",
+        track_length: 566
+    )
+    not_fade_away_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/the_grateful_dead/best_of_the_grateful_dead/Not_Fade_Away.mp3')
+    not_fade_away.track.attach(io: not_fade_away_track, filename: "not_fade_away")
+
+    shakedown_street = Track.create!(
+        album_id: best_of_the_grateful_dead.id,
+        title: "Shakedown Street",
+        track_length: 293
+    )
+    shakedown_street_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/the_grateful_dead/best_of_the_grateful_dead/Shakedown_Street.mp3')
+    shakedown_street.track.attach(io: shakedown_street_track, filename: "shakedown_street")
+
+    touch_of_grey = Track.create!(
+        album_id: best_of_the_grateful_dead.id,
+        title: "Touch of Grey",
+        track_length: 350
+    )
+    touch_of_grey_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/the_grateful_dead/best_of_the_grateful_dead/Touch_of_Grey.mp3')
+    touch_of_grey.track.attach(io: touch_of_grey_track, filename: "touch_of_grey")
+
+    # --------------- Grateful Dead [Skull & Roses] :: THE GRATEFUL DEAD ---------------
+    bertha = Track.create!(
+        album_id: grateful_dead_album.id,
+        title: "Bertha",
+        track_length: 343
+    )
+    bertha_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/the_grateful_dead/grateful_dead/Bertha.mp3')
+    bertha.track.attach(io: bertha_track, filename: "bertha")
+    
+    # --------------- Third Eye Blind :: THIRD EYE BLIND ---------------
+    jumper = Track.create!(
+        album_id: third_eye_blind_album.id,
+        title: "Jumper",
+        track_length: 272
+    )
+    jumper_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/third_eye_blind/third_eye_blind_album/Jumper.mp3')
+    jumper.track.attach(io: jumper_track, filename: "jumper")
+
+    semi_charmed_life = Track.create!(
+        album_id: third_eye_blind_album.id,
+        title: "Semi-Charmed Life",
+        track_length: 268
+    )
+    semi_charmed_life_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/third_eye_blind/third_eye_blind_album/Semi+Charmed+Life.mp3')
+    semi_charmed_life.track.attach(io: semi_charmed_life_track, filename: "semi_charmed_life")
+
+    # --------------- ** SINGLES ** :: TOO $HORT ---------------
+    players_club = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Playaz Club (feat. Rappin' 4 Tay)",
+        track_length: 268
+    )
+    players_club_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/01+Players+Club.mp3')
+    players_club.track.attach(io: players_club_track, filename: "players_club")
+    
+    call_me_daddy = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Call Me Daddy",
+        track_length: 234
+    )
+    call_me_daddy_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/05+Call+Me+Daddy.mp3')
+    call_me_daddy.track.attach(io: call_me_daddy_track, filename: "call_me_daddy")
+
+    oakland = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Oakland",
+        track_length: 282
+    )
+    oakland_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/32+Oakland.mp3')
+    oakland.track.attach(io: oakland_track, filename: "oakland")
+
+    pimpology = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Pimpology",
+        track_length: 366
+    )
+    pimpology_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/32+Pimpology.mp3')
+    pimpology.track.attach(io: pimpology_track, filename: "pimpology")
+
+    burn_rubber = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Burn Rubber",
+        track_length: 199
+    )
+    burn_rubber_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Burn+Rubber.mp3')
+    burn_rubber.track.attach(io: burn_rubber_track, filename: "burn_rubber")
+
+    choosin = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Choosin' (feat. Keri Kilson, Jazze Pha & Jagged Edge)",
+        track_length: 237
+    )
+    choosin_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Choosin\'.mp3')
+    choosin.track.attach(io: choosin_track, filename: "choosin")
+
+    freaky_tales = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Freaky Tales (Old School)",
+        track_length: 575
+    )
+    freaky_tales_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Freaky+Tales+(Old+School).mp3')
+    freaky_tales.track.attach(io: freaky_tales_track, filename: "freaky_tales")
+
+    gettin_it = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Gettin' it (feat. Parliament & Funkadelic)",
+        track_length: 340
+    )
+    gettin_it_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Gettin\'+it.mp3')
+    gettin_it.track.attach(io: gettin_it_track, filename: "gettin_it")
+
+    im_a_player = Track.create!(
+        album_id: too_short_singles.id,
+        title: "I'm a Player",
+        track_length: 360
+    )
+    im_a_player_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/I\'m+A+Player.mp3')
+    im_a_player.track.attach(io: im_a_player_track, filename: "im_a_player")
+
+    blow_the_whistle = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Blow the Whistle",
+        track_length: 167
+    )
+    blow_the_whistle_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Too+Short+Blow+The+Whistle+(Dirty).mp3')
+    blow_the_whistle.track.attach(io: blow_the_whistle_track, filename: "blow_the_whistle")
+
+    yo_neck_yo_back = Track.create!(
+        album_id: too_short_singles.id,
+        title: "Yo Neck, Yo Back",
+        track_length: 208
+    )
+    yo_neck_yo_back_track = open('https://bayify-seeds.s3-us-west-1.amazonaws.com/tracks/too_short/Yo+Neck+Yo+Back.m4a')
+    yo_neck_yo_back.track.attach(io: yo_neck_yo_back_track, filename: "yo_neck_yo_back")
+
+
+    # ------------------------------------------------------------------------- #
+    # --------------------------- PLAYLIST TRACKS ----------------------------- #
+    # ------------------------------------------------------------------------- #
+
+    summer_of_love = Playlist.find_by(title: "Summer of Love")
+    top_25 = Playlist.find_by(title: "Bay Area Top 25")
+    hip_hop = Playlist.find_by(title: "Hip-hop")
+    alternative = Playlist.find_by(title: "Alternative")
+    rock = Playlist.find_by(title: "Rock")
+    summer = Playlist.find_by(title: "Summer")
+    workout = Playlist.find_by(title: "Workout")
+
+    PlaylistTrack.create!(track_id: casey_jones.id, playlist_id: summer_of_love.id)
+    PlaylistTrack.create!(track_id: fire_on_the_mountain.id, playlist_id: summer_of_love.id)
+    PlaylistTrack.create!(track_id: shakedown_street.id, playlist_id: summer_of_love.id)
+    PlaylistTrack.create!(track_id: take_the_money_and_run.id, playlist_id: summer_of_love.id)
+    PlaylistTrack.create!(track_id: the_joker.id, playlist_id: summer_of_love.id)
+    PlaylistTrack.create!(track_id: jet_airliner.id, playlist_id: summer_of_love.id)
+    PlaylistTrack.create!(track_id: brown_eyed_girl.id, playlist_id: summer_of_love.id)
+    PlaylistTrack.create!(track_id: wild_night.id, playlist_id: summer_of_love.id)
+
+    PlaylistTrack.create!(track_id: choosin.id, playlist_id: top_25.id)
+    PlaylistTrack.create!(track_id: gettin_it.id, playlist_id: top_25.id)
+    PlaylistTrack.create!(track_id: salameda.id, playlist_id: top_25.id)
+
+    PlaylistTrack.create!(track_id: choosin.id, playlist_id: hip_hop.id)
+    PlaylistTrack.create!(track_id: gettin_it.id, playlist_id: hip_hop.id)
+    PlaylistTrack.create!(track_id: freaky_tales.id, playlist_id: hip_hop.id)
+    PlaylistTrack.create!(track_id: salameda.id, playlist_id: hip_hop.id)
+
+    PlaylistTrack.create!(track_id: jumper.id, playlist_id: alternative.id)
+    PlaylistTrack.create!(track_id: semi_charmed_life.id, playlist_id: alternative.id)
+    PlaylistTrack.create!(track_id: pay_no_mind.id, playlist_id: alternative.id)
+    PlaylistTrack.create!(track_id: ghost.id, playlist_id: alternative.id)
+
+    PlaylistTrack.create!(track_id: take_the_money_and_run.id, playlist_id: rock.id)
+    PlaylistTrack.create!(track_id: the_joker.id, playlist_id: rock.id)
+    PlaylistTrack.create!(track_id: casey_jones.id, playlist_id: rock.id)
+    PlaylistTrack.create!(track_id: fire_on_the_mountain.id, playlist_id: rock.id)
+    PlaylistTrack.create!(track_id: semi_charmed_life.id, playlist_id: rock.id)
+    PlaylistTrack.create!(track_id: jumper.id, playlist_id: rock.id)
+    PlaylistTrack.create!(track_id: pay_no_mind.id, playlist_id: rock.id)
+    PlaylistTrack.create!(track_id: ghost.id, playlist_id: rock.id)
+    PlaylistTrack.create!(track_id: it_aint_easy.id, playlist_id: rock.id)
+    PlaylistTrack.create!(track_id: can_you_see.id, playlist_id: rock.id)
+
+    PlaylistTrack.create!(track_id: jumper.id, playlist_id: summer.id)
+    PlaylistTrack.create!(track_id: the_joker.id, playlist_id: summer.id)
+    PlaylistTrack.create!(track_id: take_the_money_and_run.id, playlist_id: summer.id)
+    PlaylistTrack.create!(track_id: ghost.id, playlist_id: summer.id)
+
+    PlaylistTrack.create!(track_id: choosin.id, playlist_id: workout.id)
+    PlaylistTrack.create!(track_id: gettin_it.id, playlist_id: workout.id)
+end 
