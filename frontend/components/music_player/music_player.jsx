@@ -151,15 +151,17 @@ export default class MusicPlayer extends React.Component {
 
         this.audioPlayer.addEventListener("timeupdate", this.moveProgressBar, false);
 
-        const defaultProgressBar = document.getElementById("track-progress-bar");
-        defaultProgressBar.addEventListener("click", e => this.changeTime(e));
+        // const defaultProgressBar = document.getElementById("track-progress-bar");
+        // defaultProgressBar.addEventListener("click", e => this.changeTime(e));
     }
 
     updateTime() {
-        this.setState({ 
-            currentTime: this.audioPlayer.currentTime,
-            trackLength: this.audioPlayer.duration
-        });
+        if (this.audioPlayer) {
+            this.setState({ 
+                currentTime: this.audioPlayer.currentTime,
+                trackLength: this.audioPlayer.duration
+            });
+        }
     }
 
     componentWillMount() {
@@ -211,7 +213,7 @@ export default class MusicPlayer extends React.Component {
         if (this.audioPlayer.currentTime > 0) {
             width = Math.floor((100 / this.audioPlayer.duration) * this.audioPlayer.currentTime); 
         }
-        progress.style.width = width + "%";
+        progress.style.value = width; // + "%";
     }
 
     changeTime(e) {
@@ -288,16 +290,17 @@ export default class MusicPlayer extends React.Component {
                         <p>{currentTime}</p>
                         <div className="progress-bar-container">
                             <div id="track-progress-bar">
-                                <div id="progress"></div>
-                                {/* <input 
+                                {/* <div id="progress"></div> */}
+                                <input 
                                     type="range" 
                                     id="progress"
+                                    step="any"
                                     min="0"
-                                    max="1"
+                                    max={this.state.trackLength ? this.state.trackLength : 0}
                                     value={this.state.currentTime}
-                                    onChange={this.changeTime}
-                                    onClick={this.changeTime}
-                                ></input> */}
+                                    // onChange={this.changeTime}
+                                    // onClick={this.changeTime}
+                                ></input>
                                 {/* <progress id="progress" value="0" max="1"></progress> */}
                             </div>
                         </div>
