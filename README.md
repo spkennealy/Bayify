@@ -78,8 +78,6 @@ Ruby on Rails was chosen for the backend and PostgresSQL for the database manage
 React was chosen for the frontend due to it's efficieny. The React design allows for a single page application that will update and render just the right components when the data changes. The Redux cycle allows for a flat state and the project was built with that normalized state in mind. The are separate reducers and actions for tracks, albums, playlists, artists, etc.
 
 ### FUTURE FEATURES
-* Search
-* Home page with suggested playlists, artists, and albums
 * Repeat track, repeat playlist/album/artist, shuffle
 * Side bar with dynamic recently played based on user
 * Additional tracks/artists/albums/playlists
